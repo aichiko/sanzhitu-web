@@ -1,11 +1,10 @@
 <template>
-
   <div class="swiper-all">
     <div class="swiper-container">
       <!-- swiper -->
       <swiper :options="swiperOption" class="swiper-wrapper">
-        <swiper-slide class="swiper-slide" v-for="(img, index) in imageLists" :key="index" :style="{ backgroundImage: 'url(' + img.url + ')' }">
-          <button @click="clickBanner(img)"></button>
+        <swiper-slide class="swiper-slide" v-for="(img, index) in imageLists" :key="index">
+          <img :src="img.url" alt="loading" @click="clickBanner(img)">
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination">
         </div>
@@ -18,11 +17,12 @@
 <script>
 // mount with component(can't work in Nuxt.js/SSR)
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import $ from 'jquery'
 
 export default {
-  props: ['imageLists'],
   data () {
     return {
+      imageLists: [],
       mark: 0,
       swiperOption: {
         pagination: '.swiper-pagination',
@@ -44,6 +44,16 @@ export default {
   },
   mounted: function () {
     console.log('mounted', this)
+    var that = this
+    $.ajax({
+      url: 'http://120.27.219.220:8080/banner/all',
+      type: 'get'
+    }).done(function (res) {
+      console.log('---------', res)
+      that.imageLists = res
+    }).fail(function (res) {
+      console.log('=========', res)
+    })
   },
   components: {
     swiper,

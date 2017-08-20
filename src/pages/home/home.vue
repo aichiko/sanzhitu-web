@@ -7,7 +7,7 @@
       <div class="fr">
         <!--banner-->
         <div class="alw-home-banner" id="home-banner">
-          <home-banner :imageLists="images"></home-banner>
+          <home-banner></home-banner>
         </div>
       </div>
     </div>
@@ -53,8 +53,6 @@
             <jiajubao-pack  @appointment="showAppointmentView"></jiajubao-pack>
           </div>
         </div>
-
-
         <div v-else-if="index==2">
           <home-designer class="designer-team bx"></home-designer>
           <img src="../../../static/images/home.png" width="100%" alt="">
@@ -78,7 +76,6 @@
   </div>
 </template>
 
-
 <script>
 import head from '@/components/header/head'
 import footer from '@/components/footer/footer'
@@ -95,7 +92,6 @@ export default {
   data () {
     return {
       message: '23333',
-      images: [{url: '/static/images/banners/banner1.png'}, {url: '/static/images/banners/banner2.png'}, {url: '/static/images/banners/banner3.png'}],
       showAppointment: false,
       icons: [],
       titles: [
@@ -154,7 +150,6 @@ export default {
 }
 </script>
 <style lang="less">
-
 .headerBox {
   width: 100%;
 }
