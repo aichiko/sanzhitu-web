@@ -1,17 +1,20 @@
 <template>
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
-    <router-view></router-view>
+    <homeMy></homeMy>
   </div>
 </template>
 
 <script>
+import homeMy from './pages/home/home'
 export default {
-  name: 'app'
+  components: {
+    homeMy
+  }
 }
 </script>
 
-<style lang="css">
+<style>
 @import './style/common.css';
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

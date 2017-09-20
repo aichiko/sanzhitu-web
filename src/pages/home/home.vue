@@ -1,7 +1,10 @@
 <template>
   <div>
-    <home-header></home-header>
+    <div class="headerBox">
+      <home-header></home-header>
+    </div>
     <h1>{{message}}</h1>
+
   </div>
 </template>
 
@@ -20,3 +23,9 @@ export default {
   }
 }
 </script>
+<style>
+.headerBox{
+  width: 100%;
+}
+
+</style>
