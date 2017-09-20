@@ -5,7 +5,7 @@
     </div>
     <h1>{{message}}</h1>
     <div>
-      <footer></footer>
+      <home-footer></home-footer>
     </div>
   </div>
 </template>

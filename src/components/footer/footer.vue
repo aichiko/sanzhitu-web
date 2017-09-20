@@ -10,8 +10,8 @@
         </dl>
         <dl>
           <dt>{{footerDl[1].title}}</dt>
-          <dd class="link" v-for="(t, i) in footerDl[1].contents">
-            <a href="" target="_blank" data-tab="5">{{t}}</a>
+          <dd class="link">
+            <a href="" target="_blank" data-tab="5"  v-for="(t, i) in footerDl[1].contents">{{t}}</a>
           </dd>
         </dl>
         <dl>
@@ -74,7 +74,7 @@ export default {
 
 <style>
 .alw-footer {
-    background: url(../../images/new-home/alw_footer_bg.png) no-repeat center top;
+    background: url(./alw_footer_bg.png) no-repeat center top;
     background-size: cover;
     background-repeat: repeat-x\9;
     height: 290px;
@@ -85,7 +85,7 @@ export default {
 }
 .alw-links {
     padding-top: 85px;
-    height: 163px;
+    height: 248px;
 }
 .alw-links dl {
     float: left;
@@ -99,6 +99,9 @@ export default {
 }
 .alw-links dd {
     color: #ccc;
+}
+.alw-links dd.link {
+    width: 215px;
 }
 .alw-links dd a {
     display: inline-block;
@@ -131,7 +134,10 @@ export default {
 .alw-copyright {
     line-height: 40px;
     border-top: 1px solid rgba(255, 255, 255, .2);
-    color: #ccc;
+    color: #ccc !important;
+}
+.alw-copyright span{
+  color: #ccc !important;
 }
 .alw-copyright span a {
     margin-left: 30px;
@@ -141,6 +147,6 @@ export default {
 }
 .alw-copyright a.icon-guohui {
     padding-left: 25px;
-    background: url(../../images/new-home/alw_icon_guohui.png) no-repeat left 10px;
+    background: url(./alw_icon_guohui.png) no-repeat left 10px;
 }
 </style>
