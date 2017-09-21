@@ -13,14 +13,14 @@ i, b, textarea, button, input, select, figure, figcaption {
   box-sizing: border-box;
   -webkit-tap-highlight-color:transparent;
   -webkit-font-smoothing: antialiased;
-	outline: 0;
+    outline: 0;
 	vertical-align: baseline;
 	background: transparent;
 }
 
 
 ol, ul {
-	list-style: none;
+    list-style: none;
 }
 
 /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
