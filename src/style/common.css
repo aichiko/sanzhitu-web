@@ -63,7 +63,7 @@ html,body{
     clear: both;
     visibility: hidden;
 }
-html,body{
+html,body {
   width: 100%;
   overflow:hidden;
 }
@@ -71,9 +71,9 @@ html,body{
   width: 1200px;
   margin: 0 auto;
 }
-.fl{
+.float-left {
   float:left;
 }
-.fr{
+.float-right {
   float:right;
 }
