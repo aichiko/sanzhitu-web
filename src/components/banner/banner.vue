@@ -41,29 +41,50 @@ export default {
 <style lang="less">
 .swiper-container {
   width: 100%;
-  height: 20rem;
+  position: relative;
+  height: 320px;
   .swiper-wrapper {
-      width: 100%;
-      height: 100%;
-  }
-  .swiper-slide {
+    width: 100%;
+    height: 100%;
+    .swiper-slide {
       background-position: center;
       background-size: cover;
-      width: 100%;
-      height: 100%;
+      width: 930px;
+      height: 320px;
       img {
-          width: 100%;
-          height: 100%;
+        width: 100%;
+        height: 100%;
       }
+    }
   }
-  .swiper-pagination-bullet {
-      width: 0.833rem;
-      height: 0.833rem;
+  .swiper-pagination{
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    .swiper-pagination-bullet {
+      cursor: pointer;
       display: inline-block;
-      background: #7c5e53;
-  }
-  .active {
-      background: red;
+      zoom: 1;
+      width: 28px;
+      height: 6px;
+      margin: 0 5px;
+      overflow: hidden;
+      line-height: 9999px;
+      background-color: #000;
+      filter: alpha(opacity=65);
+      opacity: .56;
+      border-radius:0;
+      &.active {
+        background-color: #FFE100;
+        filter: alpha(opacity=100);
+        opacity: 1;
+      }
+    }
   }
 }
 </style>

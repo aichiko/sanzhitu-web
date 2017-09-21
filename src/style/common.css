@@ -48,7 +48,6 @@ ol, ul {
 }
 
 html,body{
-  height: 100%;
   width: 100%;
   background-color: #F5F5F5;
 }
@@ -62,10 +61,6 @@ html,body{
     height: 0;
     clear: both;
     visibility: hidden;
-}
-html,body {
-  width: 100%;
-  overflow:hidden;
 }
 .bx{
   width: 1200px;
