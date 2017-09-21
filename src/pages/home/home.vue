@@ -1,13 +1,19 @@
 <template>
   <div>
-    <home-header></home-header>
+    <div class="headerBox">
+      <home-header></home-header>
+    </div>
     <h1>{{message}}</h1>
+    <div>
+      <home-footer></home-footer>
+    </div>
   </div>
 </template>
 
 
 <script>
 import head from '@/components/header/head'
+import footer from '@/components/footer/footer'
 
 export default {
   data () {
@@ -16,7 +22,14 @@ export default {
     }
   },
   components: {
-    'home-header': head
+    'home-header': head,
+    'home-footer': footer
   }
 }
 </script>
+<style>
+.headerBox{
+  width: 100%;
+}
+
+</style>
