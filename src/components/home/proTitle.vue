@@ -10,10 +10,14 @@
 <script>
 export default {
   props: {
+
     txt: {
-      default: {
-        h: '特色产品',
-        P: 'f2C模式，剩一半'
+      type: Object,
+      default: function () {
+        return {
+          h: '特色产品',
+          P: 'f2C模式，剩一半'
+        }
       }
     }
   },

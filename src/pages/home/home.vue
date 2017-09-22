@@ -30,27 +30,12 @@
                 <div class="alw-home-banner" id="home-banner">
                     <home-banner :imageLists="images"></home-banner>
                 </div>
-
-                <div class="firstPart-right-activity clearfix">
-                    <div class="firstPart-right-activityImg">
-                        <ul class="clearfix">
-                            <li class="activityImg1"><a href="http://news.anlewo.com/article-321884.html" target="_blank"><img src="http://www.anlewo.com/templates/default/images/new-home/temp/activityImg1.jpg?20170603"></a>
-                            </li>
-                            <li><a href="javascript:;"><img src="http://www.anlewo.com/templates/default/images/new-home/temp/activityImg2.png"></a>
-                            </li>
-                            <li><a href="javascript:;"><img src="http://www.anlewo.com/templates/default/images/new-home/temp/activityImg3.png?20170802"></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <a class="firstPart-right-activityMore" href="javascript: ;" title=""><span>更多活动 <i class="right-arrow"></i></span></a>
-                </div>
-
             </div>
         </div>
     </div>
     <div >
       <div class="bx">
-        <home-pro_title></home-pro_title>
+        <home-pro-title></home-pro-title>
         <div class="alw-product-list clearfix">
             <a class="alw-zhucaibao" href="http://www.anlewo.com/packagepro.html" target="_blank">
                 <div class="alw-product-box">
@@ -75,13 +60,13 @@
     </div>
     <div >
       <div class="bx">
-        <home-pro_title :txt="txts[1]"></home-pro_title>
+        <home-pro-title :txt="txts[1]"></home-pro-title>
         <ul class="alw-service-bar clearfix">
-          <li v-for="(b, i) in bar">
+          <li v-for="(b, i) in bar" :key="i">
               <a href="javascript: ;" class="js-yuyue">
                   <span class="alw-service-name">{{ b }}</span>
                   <div class="alw-service-icon">
-                      <i :class="i" :style="'background: url(../../assets/bar/icon-'+(i + 1)+'.png) no-repeat center;'"></i>
+                      <i :class="i" :style="'background: url(assets/bar/icon-'+(i + 1)+'.png) no-repeat center'"></i>
                   </div>
               </a>
           </li>
@@ -90,7 +75,7 @@
     </div>
     <div>
       <div class="bx">
-        <home-pro_title></home-pro_title>
+        <home-pro-title></home-pro-title>
         <home-pack :packbanner="packbanner" :ul="ul" :box="box"></home-pack>
       </div>
     </div>
@@ -106,8 +91,8 @@ import head from '@/components/header/head'
 import footer from '@/components/footer/footer'
 import banner from '@/components/banner/banner'
 import a from '@/assets/banners/banner2.jpg'
-import proTitle from './proTitle'
-import pack from './pack'
+import proTitle from '../../components/home/proTitle'
+import pack from '../../components/home/pack'
 
 export default {
   data () {
@@ -250,7 +235,7 @@ export default {
     'home-header': head,
     'home-footer': footer,
     'home-banner': banner,
-    'home-pro_title': proTitle,
+    'home-pro-title': proTitle,
     'home-pack': pack
   }
 }
@@ -396,7 +381,7 @@ export default {
       .alw-home-banner {
         position: relative;
         width: 930px;
-        height: 320px;
+        height: 425px;
         overflow: hidden;
         .bd{
           position: relative;

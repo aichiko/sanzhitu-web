@@ -3,8 +3,14 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
 
 Vue.config.productionTip = false
+
+// starting with version 2.6.0, you need to manually introduce swiper's css
+require('swiper/dist/css/swiper.css')
+// mount with global
+Vue.use(VueAwesomeSwiper)
 
 /* eslint-disable no-new */
 new Vue({

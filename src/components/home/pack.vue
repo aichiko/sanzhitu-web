@@ -1,8 +1,8 @@
 <template>
   <div class="clearfix"> 
     <div class="pack_banner float-left">
-      <div class="Alw398zhucaibao-banner-info">
-        <p v-if="packbanner" v-for="p in packbanner">{{ p }}</p >
+      <div class="Alw398zhucaibao-banner-info" v-for="p in packbanner" :key="p" >
+        <p v-if="packbanner">{{ p }}</p >
       </div>
       <div class="AlwBao-banner-btn Alw398zhucaibao-banner-btn">
           <a href="javascript:void(0);" class="AlwBao-banner-orderBtn js-zhucaibao-yuyue" title="">免费预约</a>
@@ -12,19 +12,19 @@
     <div class="pack_content float-left">
       <ul class="fl">
         <li class="first">518主材包</li>
-        <li v-for="( li , index) in ul" :index="index">{{ li }}</li>
+        <li v-for="( li , index) in ul" :index="index" :key="index">{{ li }}</li>
       </ul>
-      <div class="float-left" v-for="x in box">
+      <div class="float-left" v-for="(x, index) in box" :key="index">
         <h1>
           <span class="one">518主材包</span>
           <span class="two">  ——38项 （主材+辅材）一包搞定</span>
         </h1>
         <p>汇集数十个国内外一线品牌，千款名品，包含地砖、木地板、橱柜、洁具卫浴、门、五金、集成吊顶等38项家庭装修必备主材，一站式购齐，让业主省时、省心、省力、省钱。</p>
-        <div v-for="img  in x.imgs ">
+        <div v-for="(img,index)  in x.imgs " :key="index">
           <img :src="img" alt="">
         </div>
       </div>
-      <div class="float-left" v-for="( x , index ) in box"  >
+      <div class="float-left" v-for="( x , index ) in box" :key="index" >
         <h1>{{ x.h1 }}</h1>
         <p>{{ x.P }}</p>
         <img src="" alt="">
@@ -38,9 +38,14 @@
 <script>
 export default {
   props: {
-    packbanner: [],
-    ul: [],
-    box: []
+    packbanner: {
+      type: Array,
+      default: function () {
+        return []
+      }
+    },
+    ul: Array,
+    box: Array
   },
   data () {
     return {
