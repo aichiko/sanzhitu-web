@@ -141,7 +141,6 @@ export default {
 }
 .header_tabbar .szt-logo a{
   display:inline-block;
-  margin-top: 10px;
 }
 .tabbar-items {
   float: left;
