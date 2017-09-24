@@ -23,23 +23,25 @@
         </div>
         <div class="tabbar-items clearfix">
           <ul class="szt-items clearfix">
-            <li v-for="(content, index) in contents" :key="index">
+            <li v-for="(content, index) in contents" :key="index" :class="index == selectedindex? 'selected-item': ''">
               <router-link :to="content.path" :target="index === 0 ? '_parent' : '_blank' ">
                 <a>{{content.title}}</a>
               </router-link>
             </li>
           </ul>
         </div>
-
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import {contains} from '../../config/utils.js'
+
 export default {
   data () {
     return {
+      paths: ['home', 'decoration', 'packagepro', 'foreman', 'diystore', 'boloni', 'borrow', 'business'],
       contents: [
         {
           title: '首页',
@@ -77,6 +79,21 @@ export default {
     }
   },
   methods: {
+  },
+  computed: {
+    selectedindex: function () {
+      console.log('path:', this.$route.path)
+      var currentPath = this.$route.path
+      for (var i = 0; i < this.paths.length; i++) {
+        var arr = currentPath.split('/')
+        console.log('arr:', arr)
+        var path = this.paths[i]
+        if (contains(arr, path)) {
+          return i
+        }
+      }
+      return 0
+    }
   }
 }
 </script>
@@ -164,7 +181,7 @@ export default {
   color: #333;
   text-decoration: none;
 }
-.szt-items li:first-child a{
+.szt-items .selected-item a{
   background-color: #ffe100;
   border-bottom: 3px solid #ffe100;
 }

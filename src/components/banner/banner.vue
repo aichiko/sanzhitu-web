@@ -37,6 +37,8 @@ export default {
       mark: 0,
       swiperOption: {
         pagination: '.swiper-pagination',
+        // pagination: '',
+        // paginationElement: 'li',
         paginationClickable: true,
         spaceBetween: 30,
         centeredSlides: true,
@@ -89,35 +91,37 @@ export default {
       }
     }
   }
-  // .swiper-pagination{
-  //   position: absolute;
-  //   width: 100%;
-  //   z-index: 1;
-  //   bottom: 0;
-  //   left: 0;
-  //   height: 26px;
-  //   line-height: 26px;
-  //   text-align: center;
-  //   .swiper-pagination-bullet {
-  //     cursor: pointer;
-  //     display: inline-block;
-  //     zoom: 1;
-  //     width: 28px;
-  //     height: 6px;
-  //     margin: 0 5px;
-  //     overflow: hidden;
-  //     line-height: 9999px;
-  //     background-color: #000;
-  //     filter: alpha(opacity=65);
-  //     opacity: .56;
-  //     border-radius:0;
-  //     &.active {
-  //       background-color: #FFE100;
-  //       filter: alpha(opacity=100);
-  //       opacity: 1;
-  //     }
-  //   }
-  // }
+  /*
+  .swiper-pagination{
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    .swiper-pagination-bullet {
+      cursor: pointer;
+      display: inline-block;
+      zoom: 1;
+      width: 28px;
+      height: 6px;
+      margin: 0 5px;
+      overflow: hidden;
+      line-height: 9999px;
+      background-color: #000;
+      filter: alpha(opacity=65);
+      opacity: .56;
+      border-radius:0;
+      &.active {
+        background-color: #FFE100;
+        filter: alpha(opacity=100);
+        opacity: 1;
+      }
+    }
+  }
+  */
 }
 
 .firstPart-right-activity {

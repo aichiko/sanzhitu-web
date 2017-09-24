@@ -66,7 +66,7 @@
               <a href="javascript: ;" class="js-yuyue">
                   <span class="alw-service-name">{{ b }}</span>
                   <div class="alw-service-icon">
-                      <i :class="i" :style="'background: url(assets/bar/icon-'+(i + 1)+'.png) no-repeat center'"></i>
+                      <i :class="i" :style="'background: url(static/icons/icon-'+(i + 1)+'.png) no-repeat center'"></i>
                   </div>
               </a>
           </li>
