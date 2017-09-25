@@ -80,6 +80,11 @@
       </div>
     </div>
     <div>
+      <div class="bx">
+        <echartsChina></echartsChina>
+      </div>
+    </div>
+    <div>
       <home-footer></home-footer>
     </div>
   </div>
@@ -93,6 +98,7 @@ import banner from '@/components/banner/banner'
 import a from '@/assets/banners/banner2.jpg'
 import proTitle from '../../components/home/proTitle'
 import pack from '../../components/home/pack'
+import echartsChina from '../../components/home/echartsChina'
 
 export default {
   data () {
@@ -236,7 +242,8 @@ export default {
     'home-footer': footer,
     'home-banner': banner,
     'home-pro-title': proTitle,
-    'home-pack': pack
+    'home-pack': pack,
+    'echartsChina': echartsChina
   }
 }
 </script>
