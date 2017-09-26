@@ -31,10 +31,12 @@
             </div>
         </div>
       </div>
+      <insMy></insMy>
 </div>
 </template>
 
 <script>
+import ins from '../../components/home/ins'
 export default {
   data () {
     return {
@@ -185,6 +187,9 @@ export default {
       },
       nowIndex: 0
     }
+  },
+  components: {
+    insMy: ins
   },
   methods: {
     changeSlide (index) {

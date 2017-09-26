@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import echarts from 'echarts'
-
+import 'echarts/map/js/china.js'
 Vue.config.productionTip = false
 Vue.prototype.$echarts = echarts
 
