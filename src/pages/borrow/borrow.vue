@@ -250,20 +250,20 @@ export default {
 				    border-right: 1px dashed #666;
 				    overflow: hidden;
 				    &.box1 {
-					    width: 157px;
+					    width: 205px;
 					    background: url('../../assets/borrow/title1.png') top center no-repeat;
 					}
 					&.box2 {
-					    width: 251px;
-					    background: url('../../assets/borrow/title2.png') top center no-repeat;
+					    width: 299px;
+					   	background: url('../../assets/borrow/title2.png') top center no-repeat;
 					}
 					&.box3 {
-					    width: 223px;
+					    width: 271px;
 					    background: url('../../assets/borrow/title3.png') top center no-repeat;
 					}
 					&.box4 {
 					    border-right: none;
-					    width: 222px;
+					    width: 270px;
 					    background: url('../../assets/borrow/title4.png') top center no-repeat;
 					}
 					&.box3,&.box4{
@@ -310,6 +310,134 @@ export default {
 		}
 		.anjudai-button {
 			padding-top: 30px;
+			.anjudai-submit{
+				display: inline-block;
+			    width: 220px;
+			    height: 51px;
+			    width: 220px;
+			    height: 51px;
+			    background: url(../../assets/borrow/button.png?20161221) top center no-repeat;
+			}
+		}
+		.apply-form {
+		    position: fixed;
+		    top: 0;
+		    right: 0;
+		    bottom: 0;
+		    left: 0;
+		    z-index: 9999;
+		    .apply-bg {
+			    position: absolute;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+			    left: 0;
+			    background-color: #000;
+			    filter: alpha(opacity=30);
+			    -moz-opacity: 0.3;
+			    -webkit-opacity: 0.3;
+			    opacity: 0.3;
+			}
+			.apply-box {
+			    position: absolute;
+			    top: 15%;
+			    left: 50%;
+			    width: 470px;
+			    height: 510px;
+			    margin-left: -235px;
+			    background-color: #444;
+			    border-radius: 10px;
+			    .apply-header {
+				    text-align: center;
+				    font-size: 30px;
+				    color: #fff;
+				    padding: 20px 10px 20px 10px;
+				    height: 70px;
+				    .close-icon {
+					    position: absolute;
+					    top: 23px;
+					    right: 30px;
+					    width: 18px;
+					    height: 18px;
+					    background: url(../../assets/borrow/close-icon.png) no-repeat;
+					    cursor: pointer;
+					}
+				}
+				.apply-line {
+				    position: relative;
+				    width: 100%;
+				    height: 7px;
+				    background: url(../../assets/borrow/line.jpg) top center repeat-x;
+				    margin-top: 10px;
+				    .up-icon {
+					    position: absolute;
+					    left: 50%;
+					    top: -13px;
+					    width: 31px;
+					    height: 20px;
+					    margin-left: -15.5px;
+					}
+				}
+				.apply-body {
+				    padding: 30px 35px;
+				    ul{
+				    	li{
+				    		width: 400px;
+						    height: 62px;
+						    margin: 0 auto;
+						    background-color: #d4d4d4;
+						    border: 1px solid #e4e4e4;
+						    border-radius: 2px;
+						    margin-bottom: 10px;
+						    i{
+						    	display: inline-block;
+							    float: left;
+							    width: 34px;
+							    height: 34px;
+							    background: url(../../assets/borrow/icon.png) no-repeat;
+							    background-position: 0 0;
+							    margin-top: 15px;
+							    margin-left: 15px;
+							    &.houses-icon {
+								    background-position: 0 -68px;
+								}
+								&.name-icon {
+								    background-position: 0 -148px;
+								}
+								&.phone-icon {
+								    background-position: 0 -218px;
+								}
+						    }
+						    input{
+						    	display: inline-block;
+							    float: right;
+							    width: 298px;
+							    height: 60px;
+							    line-height: 60px;
+							    background-color: #fff;
+							    color: #333;
+							    font-family: "microsoft yahei";
+							    font-size: 18px;
+							    border: 0 none;
+							    padding: 0 20px;
+						    }
+				    	}
+				    }
+				    .apply-btn {
+						width: 400px;
+						height: 65px;
+						line-height: 65px;
+						background-color: #fe0000;
+						color: #fff;
+						font-family: "microsoft yahei";
+						font-size: 30px;
+						text-align: center;
+						border: 0 none;
+						border-radius: 10px;
+						cursor: pointer;
+					}
+				}
+			}
 		}
 	}
 }
