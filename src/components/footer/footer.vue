@@ -72,6 +72,7 @@ export default {
 }
 </script>
 
+
 <style>
 .alw-footer {
     background: url(../../assets/szt_footer_bg.png) no-repeat center top;
