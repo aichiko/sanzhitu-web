@@ -12,7 +12,7 @@ import packagepro from '@/pages/packagepro/packagepro'
 Vue.use(Router)
 
 const routes = new Router({
-  mode: 'history',
+  // mode: 'history',
   routes: [
     {
       path: '/',
