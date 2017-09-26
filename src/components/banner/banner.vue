@@ -11,17 +11,6 @@
         </div>
       </swiper>
     </div>
-    <div class="firstPart-right-activity clearfix">
-      <div class="firstPart-right-activityImg">
-          <ul class="clearfix">
-            <li v-for="(image, index) in imageLists" :key="index" :class="index===0 ?'activityImg1':''">
-              <a href="#" :target="index===0?'_blank':'_parent'">
-                <img src="http://www.anlewo.com/templates/default/images/new-home/temp/activityImg1.jpg?20170603" alt="">
-              </a>
-            </li>
-          </ul>
-      </div>
-      <a class="firstPart-right-activityMore" href="javascript: ;" title=""><span>更多活动 <i class="right-arrow"></i></span></a>
     </div>
   </div>
 </template>
@@ -67,12 +56,12 @@ export default {
 .swiper-all {
   width: 100%;
   position: relative;
-  height: 425px;
+  height: 550px;
 }
 .swiper-container {
   width: 100%;
   position: relative;
-  height: 320px;
+  height: 450px;
   .swiper-wrapper {
     width: 100%;
     height: 100%;
@@ -80,7 +69,7 @@ export default {
       background-position: center;
       background-size: cover;
       width: 100%;
-      height: 320px;
+      height: 450px;
       img {
         width: 100%;
         height: 100%;

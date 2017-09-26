@@ -4,16 +4,16 @@
       <div class="pe-body">
           <form>
             <p class="clearfix">
-                <select id="province" class="pe-select pe-pro float-left">
-                    <option value=""></option>
+                <select id="province" class="pe-select pe-pro float-left" v-model="provinceValue">
+                    <option :value="province.value" v-for="province in provinces" :key="province.value">{{province.text}}</option>
                 </select>
-                <select class="pe-select pe-ciy float-right">
-                    <option value=""></option>
+                <select class="pe-select pe-ciy float-right" v-model="cityValue">
+                    <option :value="city.value" v-for="city in citys" :key="city.value">{{city.text}}</option>
                 </select>
             </p>
             <p class="clearfix">
                 <select id="booked_map" class="pe-select pe-map float-left">
-                    <option value=""></option>
+                    <option :value="shop.value" v-for="shop in shops" :key="shop.value">{{shop.text}}</option>
                 </select>
             </p>
             <p class="pe-input ">
@@ -38,9 +38,47 @@
 </template>
 
 <script>
+import {country} from '../../config/country.js'
+
 export default {
   data () {
     return {
+      countryData: country,
+      provinceIndex: 0,
+      cityIndex: 0,
+      provinceValue: '1',
+      cityValue: '2'
+    }
+  },
+  watch: {
+    provinceValue: function (newValue) {
+      var values = this.provinces.map(function (item) {
+        return item.value
+      })
+      var index = values.indexOf(newValue)
+      this.provinceIndex = index
+      console.log('provinceIndex === ', index)
+      // 需要对cityValue进行赋值 很重要！
+      this.cityValue = this.citys[0].value
+    },
+    cityValue: function (newValue) {
+      var values = this.citys.map(function (item) {
+        return item.value
+      })
+      var index = values.indexOf(newValue)
+      this.cityIndex = index
+      console.log('cityIndex === ', index)
+    }
+  },
+  computed: {
+    provinces: function () {
+      return this.countryData.provinces
+    },
+    citys: function () {
+      return this.provinces[this.provinceIndex].citys
+    },
+    shops: function () {
+      return this.citys[this.cityIndex].shops
     }
   }
 }

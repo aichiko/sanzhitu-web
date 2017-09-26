@@ -4,34 +4,12 @@
       <home-header></home-header>
     </div>    
     <div class="banner_area">
-        <div class="bx clearfix">
-            <div class="fl">
-                <div class="firstPart-left-desc">
-                  <p id="txtLocation">全国<i>&nbsp;95&nbsp;</i>家</p>
-                </div>
-                <div class="firstPart-left-header">
-                    <div class="firstPart-left-img">
-                        <img src="http://www.woimg.com/mobile/map_img/05186925711668653.jpg" id="museumImg">
-                    </div>
-                    <div class="firstPart-left-imgBg"></div>
-                    <p class="firstPart-left-name" id="museumTitle">保山隆阳标准店</p>
-                    <ul class="firstPart-nav" id="firstPart-nav"><li class="on"></li></ul>
-                </div>
-                <div class="firstPart-left-body">
-                    <p><label>营业时间：</label><span class="firstPart-left-time" id="museumHour">9:00-19:30</span></p>
-                    <p><label>电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话：</label><span class="firstPart-left-phone" id="museumPhone">400-626-1688</span></p>
-                    <p class="museumHour-adress"><label>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：</label><span class="firstPart-left-adress" id="museumAddress" title="云南省保山市隆阳区义乌国际商贸城">云南省保山市隆阳区义乌国际商贸城</span></p>
-
-                    <a class="firstPart-left-btn" href="http://www.anlewo.com/exp_map.html" target="_blank">寻找身边体验馆</a>
-                </div>
-            </div>
-            <div class="fr">
-                <!--banner-->
-                <div class="alw-home-banner" id="home-banner">
-                    <home-banner :imageLists="images"></home-banner>
-                </div>
-            </div>
+      <div class="fr">
+        <!--banner-->
+        <div class="alw-home-banner" id="home-banner">
+          <home-banner :imageLists="images"></home-banner>
         </div>
+      </div>
     </div>
     <div >
       <div class="bx">
@@ -250,16 +228,16 @@ export default {
 <style lang="less">
 .banner_area{
   width: 100%;
-  height:426px;
+  height: 450px;
   .bx{
     position: relative;
     width: 1180px;
-    height: 426px;
+    height: 450px;
     margin-top: 20px;
     .fl{
       float: left;
       width: 230px;
-      height: 425px;
+      height: 450px;
       position: relative;
       .firstPart-left-desc{
         position: absolute;
