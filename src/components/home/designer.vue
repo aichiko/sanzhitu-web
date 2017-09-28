@@ -5,10 +5,7 @@
       <img src="http://www.shj.cn/statics/2017/images/ag.jpg" alt="" width="100%">
       <div class="shj_index_team_ag_hover" data-v="close">
         <div class="shj_index_team_ag_bg">
-          <img src="http://www.shj.cn/statics/2017/images/agbg.png" alt="" class="shj_index_team_ag_bgimg" id="shj_team_bgimg1" style="left: 272px;">
-          <img src="http://www.shj.cn/statics/2017/images/agbg.png" alt="" class="shj_index_team_ag_bgimg" id="shj_team_bgimg2" style="left: -136px;">
-          <img src="http://www.shj.cn/statics/2017/images/agbg2.png" alt="" class="shj_index_team_ag_bgimg" id="shj_team_bgimg3" style="left: -272px;">
-          <img src="http://www.shj.cn/statics/2017/images/agbg2.png" alt="" class="shj_index_team_ag_bgimg" id="shj_team_bgimg4" style="left: 136px;">
+          <img src="http://www.shj.cn/statics/2017/images/agbg.png" alt="" class="shj_index_team_ag_bgimg" id="shj_team_bgimg1" style="left: 0px;"><img src="http://www.shj.cn/statics/2017/images/agbg.png" alt="" class="shj_index_team_ag_bgimg" id="shj_team_bgimg2" style="left: 407.5px;"><img src="http://www.shj.cn/statics/2017/images/agbg2.png" alt="" class="shj_index_team_ag_bgimg" id="shj_team_bgimg3" style="left: 0px;"><img src="http://www.shj.cn/statics/2017/images/agbg2.png" alt="" class="shj_index_team_ag_bgimg" id="shj_team_bgimg4" style="left: 407.5px;">
         </div>
       </div>
 		</div>
@@ -23,7 +20,7 @@
             <h5>{{image.position}}</h5>
             <h6>{{image.description}}</h6>
           </div>
-        </li>	 						
+        </li>
 			</ul>
     </div>
   </div>
@@ -99,8 +96,40 @@ export default {
   data () {
     return {
     }
+  },
+  methods: {
+    go () {
+      let img1 = document.getElementById('shj_team_bgimg1')
+      let img2 = document.getElementById('shj_team_bgimg2')
+      let img3 = document.getElementById('shj_team_bgimg3')
+      let img4 = document.getElementById('shj_team_bgimg4')
+      setInterval(() => {
+        if (parseFloat(img1.style.left) > -407.5) {
+          img1.style.left = parseFloat(img1.style.left) - 0.25 + 'px'
+        } else {
+          img1.style.left = '407.5px'
+        }
+        if (parseFloat(img2.style.left) > -407.5) {
+          img2.style.left = parseFloat(img2.style.left) - 0.25 + 'px'
+        } else {
+          img2.style.left = '407.5px'
+        }
+        if (parseFloat(img3.style.left) > -407.5) {
+          img3.style.left = parseFloat(img3.style.left) - 0.5 + 'px'
+        } else {
+          img3.style.left = '407.5px'
+        }
+        if (parseFloat(img4.style.left) > -407.5) {
+          img4.style.left = parseFloat(img4.style.left) - 0.5 + 'px'
+        } else {
+          img4.style.left = '407.5px'
+        }
+      }, 5)
+    }
+  },
+  mounted () {
+    this.go()
   }
-
 }
 </script>
 
@@ -121,27 +150,37 @@ export default {
     border: medium none;
     vertical-align: middle;
   }
-}
-.shj_index_team_ag_hover {
-  width: 400px;
-  height: 90px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  text-align: center;
-  overflow: hidden;
-  .shj_index_team_ag_bg {
-    width: inherit;
-    height: inherit;
+  .shj_index_team_ag_hover {
+    width: 400px;
+    height: 90px;
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
+    text-align: center;
     overflow: hidden;
-    img {position: absolute; top: 0; left: 0;}
+    .shj_index_team_ag_bg {
+      width: inherit;
+      height: inherit;
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      font-size: 0;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width:408px;
+        height:313px;
+        vertical-align:bottom;
+        border:none;
+        &#shj_team_bgimg2,&#shj_team_bgimg4{
+          left: 407.5px;
+        }
+      }
+    }
   }
 }
-
-#shj_team_bgimg2,#shj_team_bgimg4{left: 407.5px;}
 
 .shj_index_team_list {
   width: 820px;
@@ -167,7 +206,7 @@ export default {
     h6 {color: #fff;}
   }
   li:hover .shj_index_team_sjs_hover {
-     height: 105px; 
+     height: 105px;
   }
   li {
     width: 261px;
@@ -185,6 +224,16 @@ export default {
     -o-transition: -o-transform 0.5s;
     width: 262px;
     height: 245px;
+  }
+  .slide-trans-enter-active {
+  transition: all .5s;
+  }
+  .slide-trans-enter {
+    transform: translateX(900px);
+  }
+  .slide-trans-old-leave-active {
+    transition: all .5s;
+    transform: translateX(-900px);
   }
   a {
     text-decoration: none;
