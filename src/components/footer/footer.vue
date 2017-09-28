@@ -72,16 +72,16 @@ export default {
 }
 </script>
 
-
 <style>
 .alw-footer {
     background: url(../../assets/szt_footer_bg.png) no-repeat center top;
     background-size: cover;
     background-repeat: repeat-x\9;
     height: 290px;
+    width: 100%;
 }
 .alw-wrapper {
-    width: 1180px;
+    width: 100%;
     margin: 0 auto;
 }
 .alw-links {

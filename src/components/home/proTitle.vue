@@ -10,7 +10,6 @@
 <script>
 export default {
   props: {
-
     txt: {
       type: Object,
       default: function () {

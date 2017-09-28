@@ -1,5 +1,6 @@
 <template>
   <div class="boloni">
+    <my-header></my-header>
       <div class="countryBanner">
           <div class="bx">
             <a class="btn">加入三只兔</a>
@@ -19,8 +20,8 @@
                         <a href="javascript:void(0)" class="clearfix iii" data-lng="shopItem.lng" data-lat="shopItem.lat" data-id="shopItem.id" data-type="shopItem.type">
                             <img :src="shopItem.imgSrc">
                             <h3>
-                                <span class="exp-name">{{shopItem.name}}</span>
-                                <i data-city-id="shopItem.cityId" data-tiy-id="shopItem.tiyId" class="exp-yuyue-btn">免费预约</i>
+                              <span class="exp-name">{{shopItem.name}}</span>
+                              <i data-city-id="shopItem.cityId" data-tiy-id="shopItem.tiyId" class="exp-yuyue-btn">免费预约</i>
                             </h3>
                             <p>地址：{{shopItem.adress}}</p>
                             <p>电话：{{shopItem.phone}}</p>
@@ -31,12 +32,13 @@
             </div>
         </div>
       </div>
-      <insMy></insMy>
+      <ins-my></ins-my>
 </div>
 </template>
 
 <script>
 import ins from '../../components/home/ins'
+import head from '@/components/header/head'
 export default {
   data () {
     return {
@@ -189,7 +191,8 @@ export default {
     }
   },
   components: {
-    insMy: ins
+    insMy: ins,
+    myHeader: head
   },
   methods: {
     changeSlide (index) {

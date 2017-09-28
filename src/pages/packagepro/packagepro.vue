@@ -1,5 +1,6 @@
 <template>
   <div class="packagepro">
+    <my-header></my-header>
       <div class="p1">
         <div class="package_common">
           <div class="package_title">
@@ -18,6 +19,8 @@
 <script>
 import appointment from '../../components/home/appointment'
 import ins from '../../components/home/ins'
+import head from '@/components/header/head'
+
 export default {
   data () {
     return {
@@ -25,7 +28,8 @@ export default {
   },
   components: {
     appointment,
-    insDiv: ins
+    insDiv: ins,
+    myHeader: head
   }
 }
 </script>

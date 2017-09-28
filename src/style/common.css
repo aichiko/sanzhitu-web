@@ -15,7 +15,7 @@ i, b, textarea, button, input, select, figure, figcaption {
   -webkit-font-smoothing: antialiased;
     outline: 0;
 	vertical-align: baseline;
-	background: transparent;
+  background: transparent;
 }
 
 
@@ -50,6 +50,7 @@ ol, ul {
 html,body{
   width: 100%;
   background-color: #F5F5F5;
+  min-width: 1200px;
 }
 
 .clearfix {

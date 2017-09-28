@@ -11,10 +11,11 @@
         </div>
       </div>
     </div>
-    <div >
-      <div class="bx">
-        <home-pro-title></home-pro-title>
-        <div class="alw-product-list clearfix">
+    <div>
+      <div class="bx" v-for="(txt, index) in txts" :key="txt.p">
+        <home-pro-title :txt="txt"></home-pro-title>
+        <div v-if="index==0">
+          <div class="alw-product-list clearfix">
             <a class="alw-zhucaibao" href="http://www.anlewo.com/packagepro.html" target="_blank">
                 <div class="alw-product-box">
                     <div class="alw-product-name"><div class="alw-product-subName" style="color: #f09808;">518<span style="font-size:14px;">元/m²</span></div>豪装主材包</div>
@@ -33,37 +34,33 @@
                     <p class="alw-product-describe">家居魔方·百变组合</p>
                 </div>
             </a>
+          </div>
         </div>
-      </div>
-    </div>
-    <div >
-      <div class="bx">
-        <home-pro-title :txt="txts[1]"></home-pro-title>
-        <ul class="alw-service-bar clearfix">
-          <li v-for="(b, i) in bar" :key="i">
+        <div v-else-if="index==1">
+          <ul class="alw-service-bar clearfix">
+            <li v-for="(b, i) in bar" :key="i">
               <a href="javascript: ;" class="js-yuyue">
                   <span class="alw-service-name">{{ b }}</span>
                   <div class="alw-service-icon">
                       <i :class="i" :style="'background: url(static/icons/icon-'+(i + 1)+'.png) no-repeat center'"></i>
                   </div>
               </a>
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
+        <div v-else-if="index==2">
+          <home-pack :packbanner="packbanner" :ul="ul" :box="box"></home-pack>
+        </div>
+        <div v-else-if="index==3">
+          <echartsChina></echartsChina>
+        </div>
+        <div v-else-if="index==4">
+          <home-designer class="designer-team"></home-designer>
+        </div>
       </div>
     </div>
     <div>
-      <div class="bx">
-        <home-pro-title></home-pro-title>
-        <home-pack :packbanner="packbanner" :ul="ul" :box="box"></home-pack>
-      </div>
-    </div>
-    <div>
-      <div class="bx">
-        <echartsChina></echartsChina>
-      </div>
-    </div>
-    <div>
-      <home-footer></home-footer>
+      <home-footer style="width: 100%"></home-footer>
     </div>
   </div>
 </template>
@@ -73,26 +70,17 @@
 import head from '@/components/header/head'
 import footer from '@/components/footer/footer'
 import banner from '@/components/banner/banner'
-import a from '@/assets/banners/banner2.jpg'
 import proTitle from '../../components/home/proTitle'
 import pack from '../../components/home/pack'
 import echartsChina from '../../components/home/echartsChina'
+import designer from '@/components/home/designer'
+import a from '@/assets/banners/banner2.jpg'
 
 export default {
   data () {
     return {
       message: '23333',
-      images: [
-        {
-          url: a
-        },
-        {
-          url: a
-        },
-        {
-          url: a
-        }
-      ],
+      images: [{url: a}, {url: a}, {url: a}],
       txts: [
         {
           h: '特色产品',
@@ -221,11 +209,17 @@ export default {
     'home-banner': banner,
     'home-pro-title': proTitle,
     'home-pack': pack,
-    'echartsChina': echartsChina
+    'echartsChina': echartsChina,
+    homeDesigner: designer
   }
 }
 </script>
 <style lang="less">
+
+.headerBox {
+  width: 100%;
+}
+
 .banner_area{
   width: 100%;
   height: 450px;
@@ -532,5 +526,9 @@ export default {
   }
 }
 
+// 设计师团队 样式
+.designer-team {
+  width: 1220px; height: 560px
+}
 
 </style>
