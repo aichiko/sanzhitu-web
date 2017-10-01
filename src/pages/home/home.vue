@@ -57,6 +57,9 @@
         <div v-else-if="index==4">
           <home-designer class="designer-team"></home-designer>
         </div>
+        <div v-else-if="index==5">
+          <home-videos></home-videos>
+        </div>
       </div>
     </div>
     <div>
@@ -72,6 +75,7 @@ import footer from '@/components/footer/footer'
 import banner from '@/components/banner/banner'
 import proTitle from '../../components/home/proTitle'
 import pack from '../../components/home/pack'
+import videos from '@/components/home/videos'
 import echartsChina from '../../components/home/echartsChina'
 import designer from '@/components/home/designer'
 import a from '@/assets/banners/banner2.jpg'
@@ -210,7 +214,8 @@ export default {
     'home-pro-title': proTitle,
     'home-pack': pack,
     'echartsChina': echartsChina,
-    homeDesigner: designer
+    homeDesigner: designer,
+    homeVideos: videos
   }
 }
 </script>
