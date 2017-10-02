@@ -5,10 +5,23 @@
       <img src="http://www.shj.cn/statics/2017/images/ag.jpg" alt="" width="100%">
       <div class="shj_index_team_ag_hover" data-v="close">
         <div class="shj_index_team_ag_bg">
-          <img src="http://www.shj.cn/statics/2017/images/agbg.png" alt="" class="shj_index_team_ag_bgimg" id="shj_team_bgimg1" style="left: 0px;"><img src="http://www.shj.cn/statics/2017/images/agbg.png" alt="" class="shj_index_team_ag_bgimg" id="shj_team_bgimg2" style="left: 407.5px;"><img src="http://www.shj.cn/statics/2017/images/agbg2.png" alt="" class="shj_index_team_ag_bgimg" id="shj_team_bgimg3" style="left: 0px;"><img src="http://www.shj.cn/statics/2017/images/agbg2.png" alt="" class="shj_index_team_ag_bgimg" id="shj_team_bgimg4" style="left: 407.5px;">
+          <img src="http://www.shj.cn/statics/2017/images/agbg.png" alt="" class="shj_index_team_ag_bgimg" id="shj_team_bgimg1" style="left:0;"><img src="http://www.shj.cn/statics/2017/images/agbg.png" alt="" class="shj_index_team_ag_bgimg" id="shj_team_bgimg2" style="left:408px;"><img src="http://www.shj.cn/statics/2017/images/agbg2.png" alt="" class="shj_index_team_ag_bgimg" id="shj_team_bgimg3" style="left:0;"><img src="http://www.shj.cn/statics/2017/images/agbg2.png" alt="" class="shj_index_team_ag_bgimg" id="shj_team_bgimg4" style="left:407.5px;">
+        </div>
+        <div class="shj_index_team_ag_hover_text">
+            <div class="shj_index_team_ag_hover_bg"></div>
+            <i class="shj_index_team_ag_hover_icon shj_index_team_ag_hover_icon_r"></i>
+            <h5>视频介绍</h5>
+        </div>
+        <div class="shj_index_team_ag_video_box" style="display: block;">
+            <video data-v="false" class="shj_index_team_ag_video" controls="controls" preload="auto">
+            <source id="mp4" type="video/mp4" src="http://storage.shjmall.cn/attachment/video/dir/b0c5ef29e17c47fdb37c4b8782213923.mp4">
+            <source id="webm" type="video/webm" src="http://storage.shjmall.cn/attachment/video/dir/b0c5ef29e17c47fdb37c4b8782213923.mp4">
+            <source id="ogv" type="video/ogg" src="http://storage.shjmall.cn/attachment/video/dir/b0c5ef29e17c47fdb37c4b8782213923.mp4">
+            </video>
+            <div class="shj_index_team_ag_video_play"></div>
         </div>
       </div>
-		</div>
+	</div>
     <div class="">
       <ul class="shj_index_team_list">
         <li v-for="image in designers.images" :key="image.id">
@@ -104,15 +117,15 @@ export default {
       let img3 = document.getElementById('shj_team_bgimg3')
       let img4 = document.getElementById('shj_team_bgimg4')
       setInterval(() => {
-        if (parseFloat(img1.style.left) > -407.5) {
+        if (parseFloat(img1.style.left) > -408) {
           img1.style.left = parseFloat(img1.style.left) - 0.25 + 'px'
         } else {
-          img1.style.left = '407.5px'
+          img1.style.left = '407.75px'
         }
-        if (parseFloat(img2.style.left) > -407.5) {
+        if (parseFloat(img2.style.left) > -408) {
           img2.style.left = parseFloat(img2.style.left) - 0.25 + 'px'
         } else {
-          img2.style.left = '407.5px'
+          img2.style.left = '407.75px'
         }
         if (parseFloat(img3.style.left) > -407.5) {
           img3.style.left = parseFloat(img3.style.left) - 0.5 + 'px'
@@ -174,10 +187,62 @@ export default {
         height:313px;
         vertical-align:bottom;
         border:none;
-        &#shj_team_bgimg2,&#shj_team_bgimg4{
+        &#shj_team_bgimg2{
+          left: 408px;
+        }
+        &#shj_team_bgimg4{
           left: 407.5px;
         }
       }
+    }
+    .shj_index_team_ag_hover_text {
+        width: inherit;
+        height: 50px;
+        cursor: pointer;
+        position: relative;
+        .shj_index_team_ag_hover_bg {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 99;
+        }
+        .shj_index_team_ag_hover_icon {
+            background: url('../../assets/icon.png') no-repeat;
+            background-position: -51px -868px;
+            width: 21px;
+            height: 14px;
+            display: block;
+            margin: 40px 0 5px 189.5px;
+        }
+        .shj_index_team_ag_hover_text>h5 {
+            color: #fff;
+        }
+    }
+    .shj_index_team_ag_video_box {
+        width: 366px;
+        height: 203px;
+        margin: 0px 17px;
+        background: #fff;
+        position: relative;
+        display: none;
+        .shj_index_team_ag_video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+        .shj_index_team_ag_video_play {
+            width: 60px;
+            height: 60px;
+            background: url('../../assets/icon.png') no-repeat;
+            background-position: -19px -473px;
+            position: absolute;
+            top: 71.5px;
+            left: 153px;
+            cursor: pointer;
+        }
     }
   }
 }
