@@ -3,11 +3,11 @@
     <!-- 默认第一个为大长图，后面的为竖排显示的两张图 -->
     <div class="shj_index_team_ag">
       <img src="http://www.shj.cn/statics/2017/images/ag.jpg" alt="" width="100%">
-      <div class="shj_index_team_ag_hover" data-v="close">
+      <div class="shj_index_team_ag_hover">
         <div class="shj_index_team_ag_bg">
           <img src="http://www.shj.cn/statics/2017/images/agbg.png" alt="" class="shj_index_team_ag_bgimg" id="shj_team_bgimg1" style="left:0;"><img src="http://www.shj.cn/statics/2017/images/agbg.png" alt="" class="shj_index_team_ag_bgimg" id="shj_team_bgimg2" style="left:408px;"><img src="http://www.shj.cn/statics/2017/images/agbg2.png" alt="" class="shj_index_team_ag_bgimg" id="shj_team_bgimg3" style="left:0;"><img src="http://www.shj.cn/statics/2017/images/agbg2.png" alt="" class="shj_index_team_ag_bgimg" id="shj_team_bgimg4" style="left:407.5px;">
         </div>
-        <div class="shj_index_team_ag_hover_text">
+        <div class="shj_index_team_ag_hover_text" @click="showVideo()">
             <div class="shj_index_team_ag_hover_bg"></div>
             <i class="shj_index_team_ag_hover_icon shj_index_team_ag_hover_icon_r"></i>
             <h5>视频介绍</h5>
@@ -138,6 +138,17 @@ export default {
           img4.style.left = '407.5px'
         }
       }, 5)
+    },
+    showVideo () {
+      let shj = document.getElementsByClassName('shj_index_team_ag_hover')[0]
+      let shjText = document.getElementsByClassName('shj_index_team_ag_hover_text')[0]
+      if (shj.className.indexOf('open') < 0) {
+        shj.className = 'shj_index_team_ag_hover open'
+        shjText.getElementsByTagName('i')[0].className = 'shj_index_team_ag_hover_icon shj_index_team_ag_hover_icon_r'
+      } else {
+        shj.className = 'shj_index_team_ag_hover close'
+        shjText.getElementsByTagName('i')[0].className = 'shj_index_team_ag_hover_icon'
+      }
     }
   },
   mounted () {
@@ -152,7 +163,14 @@ export default {
   height: 100%;
   padding: 30px 0;
 }
-
+@keyframes open{
+from {height: 90px;}
+to {height: 313px;}
+}
+@keyframes close{
+from {height: 313px;}
+to {height: 90px;}
+}
 .shj_index_team_ag {
     width: 400px;
     height: 510px;
@@ -171,6 +189,12 @@ export default {
     left: 0;
     text-align: center;
     overflow: hidden;
+    &.open {
+      animation:open 0.5s forwards;
+    }
+    &.close {
+      animation:close 0.5s forwards;
+    }
     .shj_index_team_ag_bg {
       width: inherit;
       height: inherit;
@@ -215,9 +239,22 @@ export default {
             height: 14px;
             display: block;
             margin: 40px 0 5px 189.5px;
+            &.shj_index_team_ag_hover_icon_r {
+                transition: transform 0.5s linear 0s;
+                -webkit-transition: -webkit-transform 0.5s linear 0s;
+                -moz-transition: -moz-transform 0.5s linear 0s;
+                -o-transition: -o-transform 0.5s linear 0s;
+                transform: rotate(180deg);
+                -moz-transform: rotate(180deg);
+                -webkit-transform: rotate(180deg);
+                -o-transform: rotate(180deg);
+            }
         }
-        .shj_index_team_ag_hover_text>h5 {
+        h5 {
             color: #fff;
+            font-weight: 400;
+            font-size: 15px;
+            font-family: "微软雅黑",tahoma,arial,sans-serif;
         }
     }
     .shj_index_team_ag_video_box {
