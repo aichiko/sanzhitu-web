@@ -49,7 +49,7 @@
           </ul>
         </div>
         <div v-else-if="index==2">
-          <home-pack :packbanner="packbanner" :ul="ul" :box="box"></home-pack>
+          <home-pack :packbanner="packbanner" :ul='ul'></home-pack>
         </div>
         <div v-else-if="index==3">
           <echartsChina></echartsChina>
@@ -119,92 +119,9 @@ export default {
           P: '安乐窝·在中国'
         }
       ],
-      bar: [
-        '在线预约',
-        '实景体验',
-        '签约下定',
-        '装修方案',
-        '施工控制',
-        '服务评价'
-      ],
-      packbanner: [
-        '装修必备主材',
-        '7类38项一包搞定'
-      ],
-      ul: [
-        '木地板',
-        '瓷砖',
-        '橱柜',
-        '室内门',
-        '洁具卫浴',
-        '卫浴五金',
-        '集成吊顶'
-      ],
-      box: [
-        {
-          h1: '木地板',
-          P: '地板仅限房屋使用面积的地面，含标配地脚线及防潮垫。',
-          imgs: [
-            '../../assets/518/baigao.png',
-            '../../assets/518/baigao.png',
-            '../../assets/518/baigao.png'
-          ]
-        },
-        {
-          h1: '木地板',
-          P: '木地板仅限房屋使用面积的地面，含标配地脚线及防潮垫。',
-          imgs: [
-            '../../assets/518/baigao.png',
-            '../../assets/518/baigao.png'
-          ]
-        },
-        {
-          h1: '木地板',
-          P: '木地板仅限房屋使用面积的地面，含标配地脚线及防潮垫。',
-          imgs: [
-            '../../assets/518/baigao.png',
-            '../../assets/518/baigao.png',
-            '../../assets/518/baigao.png',
-            '../../assets/518/baigao.png'
-          ]
-        },
-        {
-          h1: '木地板',
-          P: '木地板仅限房屋使用面积的地面，含标配地脚线及防潮垫。',
-          imgs: [
-            '../../assets/518/baigao.png',
-            '../../assets/518/baigao.png',
-            '../../assets/518/baigao.png'
-          ]
-        },
-        {
-          h1: '木地板',
-          P: '木地板仅限房屋使用面积的地面，含标配地脚线及防潮垫。',
-          imgs: [
-            '../../assets/518/baigao.png',
-            '../../assets/518/baigao.png',
-            '../../assets/518/baigao.png'
-          ]
-        },
-        {
-          h1: '木地板',
-          P: '木地板仅限房屋使用面积的地面，含标配地脚线及防潮垫。',
-          imgs: [
-            '../../assets/518/baigao.png',
-            '../../assets/518/baigao.png',
-            '../../assets/518/baigao.png'
-          ]
-        },
-        {
-          h1: '木地板',
-          P: '木地板仅限房屋使用面积的地面，含标配地脚线及防潮垫。',
-          imgs: [
-            '../../assets/518/baigao.png',
-            '../../assets/518/baigao.png',
-            '../../assets/518/baigao.png'
-          ]
-        }
-      ]
+      bar: ['在线预约', '实景体验', '签约下定', '装修方案', '施工控制', '服务评价'],
+      ul: ['518主材包', '木地板', '瓷砖', '橱柜', '室内门', '洁具卫浴', '卫浴五金', '集成吊顶'],
+      packbanner: ['装修必备主材', '7类38项一包搞定']
     }
   },
   components: {
