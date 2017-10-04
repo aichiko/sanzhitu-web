@@ -1,5 +1,5 @@
 <template>
-  <div class="clearfix"> 
+  <div class="clearfix szt-bao-content"> 
     <div class="pack_banner float-left">
       <div class="Alw398zhucaibao-banner-info"  >
         <p v-for="p in packbanner" :key="p" class="text-justify">{{ p }}</p >
@@ -54,7 +54,11 @@ export default {
           subtitle: '  ——38项 （主材+辅材）一包搞定',
           desc: '汇集数十个国内外一线品牌，千款名品，包含地砖、木地板、橱柜、洁具卫浴、门、五金、集成吊顶等38项家庭装修必备主材，一站式购齐，让业主省时、省心、省力、省钱。',
           backgroundImage: '',
-          images: ['', '', '']
+          images: [
+            '/static/images/baigao.png',
+            '/static/images/baigao.png',
+            '/static/images/baigao.png'
+          ]
         },
         {
           title: '木地板',
@@ -62,45 +66,76 @@ export default {
           desc: '木地板仅限房屋使用面积的地面，含标配地脚线及防潮垫。',
           backgroundImage: '',
           images: [
-            '../../assets/518/baigao.png',
-            '../../assets/518/baigao.png',
-            '../../assets/518/baigao.png'
+            '/static/images/baigao.png',
+            '/static/images/baigao.png',
+            '/static/images/baigao.png'
           ]
         },
         {
-          title: '',
+          title: '瓷砖',
           subtitle: '',
-          desc: '',
+          desc: '地砖仅限房屋使用面积的地面（不含飘窗、不含门槛石、不含波打线），包含地脚线。瓷片（墙砖）限用于厨房、卫生间的地面及墙面、阳台的地面，不包含腰线和花片。',
           backgroundImage: '',
-          images: ['', '', '']
+          images: [
+            '/static/images/baigao.png',
+            '/static/images/baigao.png',
+            '/static/images/baigao.png'
+          ]
         },
         {
-          title: '',
+          title: '橱柜',
           subtitle: '',
-          desc: '',
+          desc: '包含地柜、台面、吊柜，标配拉手、铰链、踢脚线、洗菜盆+水龙头+下水器。',
           backgroundImage: '',
-          images: ['', '', '']
+          images: [
+            '/static/images/baigao.png',
+            '/static/images/baigao.png',
+            '/static/images/baigao.png'
+          ]
         },
         {
-          title: '',
+          title: '室内门',
           subtitle: '',
-          desc: '',
+          desc: '室内门包含房间门、厨房推拉门、卫生间平开门，不包含入户门和阳台门，室内门均含门扇、门框、门套线、合页、锁具及门吸等配件安装到位。',
           backgroundImage: '',
-          images: ['', '', '']
+          images: [
+            '/static/images/baigao.png',
+            '/static/images/baigao.png',
+            '/static/images/baigao.png'
+          ]
         },
         {
-          title: '',
+          title: '洁具卫浴',
           subtitle: '',
-          desc: '',
+          desc: '每个卫生间均包含1个坐便器或蹲厕及水箱一套（2选1）、1套花洒、1套浴室柜组合或单个洗手盆。',
           backgroundImage: '',
-          images: ['', '', '']
+          images: [
+            '/static/images/baigao.png',
+            '/static/images/baigao.png',
+            '/static/images/baigao.png'
+          ]
         },
         {
-          title: '',
+          title: '卫浴五金',
           subtitle: '',
-          desc: '',
+          desc: '每个卫生间、阳台各配置1个标配水龙头，每个户型配置1个洗衣机龙头。每个卫生间配置2个地漏，每个阳台配置1个地漏。',
           backgroundImage: '',
-          images: ['', '', '']
+          images: [
+            '/static/images/baigao.png',
+            '/static/images/baigao.png',
+            '/static/images/baigao.png',
+            '/static/images/baigao.png'
+          ]
+        },
+        {
+          title: '集成吊顶',
+          subtitle: '',
+          desc: '只用于厨房、卫生间，不包含其它区域。',
+          backgroundImage: '',
+          images: [
+            '/static/images/baigao.png',
+            '/static/images/baigao.png'
+          ]
         }
       ]
     }
@@ -187,6 +222,7 @@ export default {
 .pack_content{
   width: 880px;
   height: 480px;
+  float: right;
   overflow: hidden;
   background: url(/static/images/szt398bao-bg.png) 0 0 no-repeat;
   ul.fl{
@@ -229,9 +265,6 @@ export default {
         color: #333;
       }
     }
-    
-    
-    
   }
   .float-left{
     position: relative;

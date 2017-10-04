@@ -52,12 +52,15 @@
           <home-pack :packbanner="packbanner" :ul='ul'></home-pack>
         </div>
         <div v-else-if="index==3">
-          <echartsChina></echartsChina>
+          <jiajubao-pack></jiajubao-pack>
         </div>
         <div v-else-if="index==4">
-          <home-designer class="designer-team"></home-designer>
+          <echartsChina></echartsChina>
         </div>
         <div v-else-if="index==5">
+          <home-designer class="designer-team"></home-designer>
+        </div>
+        <div v-else-if="index==6">
           <home-videos></home-videos>
         </div>
       </div>
@@ -77,6 +80,7 @@ import proTitle from '../../components/home/proTitle'
 import pack from '../../components/home/pack'
 import videos from '@/components/home/videos'
 import echartsChina from '../../components/home/echartsChina'
+import homePack from '@/components/home/homePack'
 import designer from '@/components/home/designer'
 import a from '@/assets/banners/banner2.jpg'
 
@@ -132,7 +136,8 @@ export default {
     'home-pack': pack,
     'echartsChina': echartsChina,
     homeDesigner: designer,
-    homeVideos: videos
+    homeVideos: videos,
+    jiajubaoPack: homePack
   }
 }
 </script>

@@ -7,7 +7,6 @@ i, b, textarea, button, input, select, figure, figcaption {
   font-style: normal;
   text-decoration: none;
   border: none;
-  /* color: #333; */
   font-weight: normal;
   box-sizing: border-box;
   -webkit-tap-highlight-color:transparent;
@@ -17,6 +16,11 @@ i, b, textarea, button, input, select, figure, figcaption {
   background: transparent;
 }
 
+h1, h2, h3, h4, h5, h6, pre, code, address, caption, cite, code, em, strong, table, th, td {
+  font-size: 1em;
+  font-style: normal;
+  font-weight: normal;
+}
 
 ol, ul {
     list-style: none;
