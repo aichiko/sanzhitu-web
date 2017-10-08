@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="headerBox">
+    <header class="headerBox">
       <home-header></home-header>
-    </div>    
+    </header>   
     <div class="banner_area">
       <div class="fr">
         <!--banner-->
@@ -65,9 +65,9 @@
         </div>
       </div>
     </div>
-    <div>
+    <footer>
       <home-footer style="width: 100%"></home-footer>
-    </div>
+    </footer>
   </div>
 </template>
 
