@@ -17,11 +17,11 @@
             <div class="bd">
                 <ul v-for="(areaItem, index) in slideTxtBox.bd" :key="areaItem.area" :index="index" v-if="index==nowIndex">
                     <li  v-for="shopItem in areaItem.shop" :key="shopItem.id">
-                        <a href="javascript:void(0)" class="clearfix iii" data-lng="shopItem.lng" data-lat="shopItem.lat" data-id="shopItem.id" data-type="shopItem.type">
+                        <a href="javascript:void(0)" class="clearfix iii" :data-lng="shopItem.lng" :data-lat="shopItem.lat" :data-id="shopItem.id" :data-type="shopItem.type">
                             <img :src="shopItem.imgSrc">
                             <h3>
                               <span class="exp-name">{{shopItem.name}}</span>
-                              <i data-city-id="shopItem.cityId" data-tiy-id="shopItem.tiyId" class="exp-yuyue-btn">免费预约</i>
+                              <i :data-city-id="shopItem.cityId" :data-tiy-id="shopItem.tiyId" class="exp-yuyue-btn" @click="appointmentClick">免费预约</i>
                             </h3>
                             <p>地址：{{shopItem.adress}}</p>
                             <p>电话：{{shopItem.phone}}</p>
@@ -33,12 +33,14 @@
         </div>
       </div>
       <ins-my></ins-my>
+      <appointment v-show="isShowAppointment" @on-close="closeAppointment"></appointment>
 </div>
 </template>
 
 <script>
 import ins from '../../components/home/ins'
 import head from '@/components/header/head'
+import appointment from '@/components/boloni/boloniAppointment'
 export default {
   data () {
     return {
@@ -187,16 +189,24 @@ export default {
           }
         ]
       },
-      nowIndex: 0
+      nowIndex: 0,
+      isShowAppointment: false
     }
   },
   components: {
     insMy: ins,
-    myHeader: head
+    myHeader: head,
+    appointment: appointment
   },
   methods: {
     changeSlide (index) {
       this.nowIndex = index
+    },
+    appointmentClick () {
+      this.isShowAppointment = true
+    },
+    closeAppointment () {
+      this.isShowAppointment = false
     }
   }
 }
