@@ -17,7 +17,7 @@
             <div class="bd">
                 <ul v-for="(areaItem, index) in slideTxtBox.bd" :key="areaItem.area" :index="index" v-if="index==nowIndex">
                     <li  v-for="shopItem in areaItem.shop" :key="shopItem.id">
-                        <a href="javascript:void(0)" class="clearfix iii" :data-lng="shopItem.lng" :data-lat="shopItem.lat" :data-id="shopItem.id" :data-type="shopItem.type" @click="mapClick">
+                        <a href="javascript:void(0)" class="clearfix iii" :data-lng="shopItem.lng" :data-lat="shopItem.lat" :data-id="shopItem.id" :data-type="shopItem.type" @click="mapClick(shopItem.lng, shopItem.lat)">
                             <img :src="shopItem.imgSrc">
                             <h3>
                               <span class="exp-name">{{shopItem.name}}</span>
@@ -34,7 +34,7 @@
     </div>
     <ins-my></ins-my>
     <appointment v-show="isShowAppointment" @on-close="closeAppointment"></appointment>
-    <boloniMap v-show="isShowMap" @on-close="closeMap"></boloniMap>
+    <boloniMap v-show="isShowMap" @on-close="closeMap" :lat=lat :lng=lng></boloniMap>
     <footer>
       <web-footer></web-footer>
     </footer>
@@ -197,7 +197,9 @@ export default {
       },
       nowIndex: 0,
       isShowAppointment: false,
-      isShowMap: false
+      isShowMap: false,
+      lat: '',
+      lng: ''
     }
   },
   components: {
@@ -217,8 +219,10 @@ export default {
     closeAppointment () {
       this.isShowAppointment = false
     },
-    mapClick () {
+    mapClick (a, b) {
       this.isShowMap = true
+      this.lng = a
+      this.lat = b
     },
     closeMap () {
       this.isShowMap = false

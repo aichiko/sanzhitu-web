@@ -124,16 +124,16 @@
 		</div>
 
 		<div class="anjudai-button">
-			<a class="anjudai-submit" href="javascript: void(0);"></a>
+			<a class="anjudai-submit" href="javascript: void(0);" @click="showApply"></a>
 		</div>
 
 		<!-- 马上申请start -->
-			<div class="apply-form">
-				<div class="apply-bg"></div>
+			<div class="apply-form" v-show="apply">
+				<div class="apply-bg" @click="closeApply"></div>
 				<div class="apply-box">
 					<div class="apply-header">
 						马上申请
-						<i class="close-icon"></i>
+						<i class="close-icon" @click="closeApply"></i>
 					</div>
 
 					<div class="apply-line">
@@ -172,6 +172,15 @@
 export default {
   data () {
     return {
+      apply: false
+    }
+  },
+  methods: {
+    closeApply () {
+      this.apply = false
+    },
+    showApply () {
+      this.apply = true
     }
   }
 }

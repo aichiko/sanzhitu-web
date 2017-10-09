@@ -7,7 +7,7 @@
       <div class="title">安乐窝体验馆地图导航</div>
       <baidu-map  class="map" :center="center" :zoom="zoom" @ready="handler" :scroll-wheel-zoom="true">
       	<bm-navigation anchor="BMAP_ANCHOR_TOP_LEFT"></bm-navigation>
-      	<bm-marker :position="{lng: 116.404, lat: 39.915}" :dragging="true" animation="BMAP_ANIMATION_BOUNCE"></bm-marker>
+      	<bm-marker :position="{lng: lng, lat: lat}" :dragging="true" animation="BMAP_ANIMATION_BOUNCE"></bm-marker>
       </baidu-map>
     </div>
   </div>
@@ -17,21 +17,24 @@
 <script>
 
 export default {
+  props: {
+    lat: '',
+    lng: ''
+  },
   data () {
     return {
-      center: {lng: 0, lat: 0},
+      center: {lng: this.lng, lat: this.lat},
       zoom: 6
     }
   },
   methods: {
     handler ({BMap, map}) {
-      console.log(BMap, map)
-      this.center.lng = 116.404
-      this.center.lat = 39.915
+      this.center.lng = this.lng
+      this.center.lat = this.lat
       this.zoom = 15
+      console.log(BMap, map)
     },
     closeMyself () {
-      console.log(111)
       this.$emit('on-close')
     }
   }
