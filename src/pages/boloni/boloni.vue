@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="offline-frame bx">
-      <h1 class="hall-title">三只图实体体验店</h1>
+      <h1 class="hall-title">三只兔实体体验店</h1>
       <div class="slideTxtBox">
           <div class="hd">
               <ul>

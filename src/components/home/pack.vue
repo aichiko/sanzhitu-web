@@ -5,7 +5,7 @@
         <p v-for="p in packbanner" :key="p" class="text-justify">{{ p }}</p >
       </div>
       <div class="AlwBao-banner-btn Alw398zhucaibao-banner-btn">
-          <a href="javascript:void(0);" class="AlwBao-banner-orderBtn js-zhucaibao-yuyue" title="">免费预约</a>
+          <a href="javascript:void(0);" class="AlwBao-banner-orderBtn js-zhucaibao-yuyue" title="" @click="appointmentAction">免费预约</a>
           <a href="http://www.anlewo.com/packagepro.html" class="AlwBao-banner-knowBtn" title="" target="_blank">进一步了解</a>
       </div>
     </div>
@@ -143,6 +143,10 @@ export default {
   methods: {
     liHoverAction: function (index) {
       this.packIndex = index
+    },
+    appointmentAction: function () {
+      console.log('---------')
+      this.$emit('appointment')
     }
   }
 }

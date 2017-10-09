@@ -49,10 +49,10 @@
           </ul>
         </div>
         <div v-else-if="index==2">
-          <home-pack :packbanner="packbanner" :ul='ul'></home-pack>
+          <home-pack :packbanner="packbanner" :ul='ul' v-on:appointment="showAppointmentView"></home-pack>
         </div>
         <div v-else-if="index==3">
-          <jiajubao-pack></jiajubao-pack>
+          <jiajubao-pack  @appointment="showAppointmentView"></jiajubao-pack>
         </div>
         <div v-else-if="index==4">
           <echartsChina></echartsChina>
@@ -65,6 +65,7 @@
         </div>
       </div>
     </div>
+    <cc-appointment v-if="showAppointment" @close="hideAppointmentView"></cc-appointment>
     <footer>
       <home-footer style="width: 100%"></home-footer>
     </footer>
@@ -82,6 +83,7 @@ import videos from '@/components/home/videos'
 import echartsChina from '../../components/home/echartsChina'
 import homePack from '@/components/home/homePack'
 import designer from '@/components/home/designer'
+import ccAppointment from '@/components/appointment/cc_appointment'
 import a from '@/assets/banners/banner2.jpg'
 
 export default {
@@ -89,6 +91,7 @@ export default {
     return {
       message: '23333',
       images: [{url: a}, {url: a}, {url: a}],
+      showAppointment: false,
       txts: [
         {
           h: '特色产品',
@@ -137,7 +140,16 @@ export default {
     'echartsChina': echartsChina,
     homeDesigner: designer,
     homeVideos: videos,
-    jiajubaoPack: homePack
+    jiajubaoPack: homePack,
+    ccAppointment: ccAppointment
+  },
+  methods: {
+    showAppointmentView: function () {
+      this.showAppointment = true
+    },
+    hideAppointmentView: function () {
+      this.showAppointment = false
+    }
   }
 }
 </script>
