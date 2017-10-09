@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="headerBox">
+    <header class="headerBox">
       <home-header></home-header>
-    </div>    
+    </header>   
     <div class="banner_area">
       <div class="fr">
         <!--banner-->
@@ -42,17 +42,17 @@
               <a href="javascript: ;" class="js-yuyue">
                   <span class="alw-service-name">{{ b }}</span>
                   <div class="alw-service-icon">
-                      <i :class="i" :style="'background: url(static/icons/icon-'+(i + 1)+'.png) no-repeat center'"></i>
+                    <i :class="i" :style="serviceIcon(i)" :ref="'icon'+i"></i>
                   </div>
               </a>
             </li>
           </ul>
         </div>
         <div v-else-if="index==2">
-          <home-pack :packbanner="packbanner" :ul='ul'></home-pack>
+          <home-pack :packbanner="packbanner" :ul='ul' v-on:appointment="showAppointmentView"></home-pack>
         </div>
         <div v-else-if="index==3">
-          <jiajubao-pack></jiajubao-pack>
+          <jiajubao-pack  @appointment="showAppointmentView"></jiajubao-pack>
         </div>
         <div v-else-if="index==4">
           <echartsChina></echartsChina>
@@ -65,9 +65,10 @@
         </div>
       </div>
     </div>
-    <div>
+    <cc-appointment v-if="showAppointment" @close="hideAppointmentView"></cc-appointment>
+    <footer>
       <home-footer style="width: 100%"></home-footer>
-    </div>
+    </footer>
   </div>
 </template>
 
@@ -82,6 +83,7 @@ import videos from '@/components/home/videos'
 import echartsChina from '../../components/home/echartsChina'
 import homePack from '@/components/home/homePack'
 import designer from '@/components/home/designer'
+import ccAppointment from '@/components/appointment/cc_appointment'
 import a from '@/assets/banners/banner2.jpg'
 
 export default {
@@ -89,6 +91,8 @@ export default {
     return {
       message: '23333',
       images: [{url: a}, {url: a}, {url: a}],
+      showAppointment: false,
+      icons: [],
       txts: [
         {
           h: '特色产品',
@@ -137,7 +141,26 @@ export default {
     'echartsChina': echartsChina,
     homeDesigner: designer,
     homeVideos: videos,
-    jiajubaoPack: homePack
+    jiajubaoPack: homePack,
+    ccAppointment: ccAppointment
+  },
+  methods: {
+    iconHover: function (index, e) {
+      console.log(e)
+      var icon = 'static/icons/icon-' + (index + 1) + '-hover' + '.png'
+      var style = 'background: url(' + icon + ') no-repeat center'
+      e.toElement.style = style
+    },
+    serviceIcon: function (index) {
+      var icon = 'static/icons/icon-' + (index + 1) + '.png'
+      return 'background: url(' + icon + ') no-repeat center'
+    },
+    showAppointmentView: function () {
+      this.showAppointment = true
+    },
+    hideAppointmentView: function () {
+      this.showAppointment = false
+    }
   }
 }
 </script>

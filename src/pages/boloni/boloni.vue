@@ -1,44 +1,50 @@
 <template>
   <div class="boloni">
-    <my-header></my-header>
-      <div class="countryBanner">
-          <div class="bx">
-            <a class="btn">加入三只兔</a>
+    <header>
+      <my-header></my-header>
+    </header>
+    <div class="countryBanner">
+        <div class="bx">
+          <a class="btn">加入三只兔</a>
+        </div>
+    </div>
+    <div class="offline-frame bx">
+      <h1 class="hall-title">三只兔实体体验店</h1>
+      <div class="slideTxtBox">
+          <div class="hd">
+              <ul>
+                  <li class="" v-for="(tab, index) in slideTxtBox.hd" :index="index" :key="'tab_'+index" @mouseover="changeSlide(index)" :class="{'on':index==nowIndex}">{{tab}}</li>
+              </ul>
+          </div>
+          <div class="bd">
+              <ul v-for="(areaItem, index) in slideTxtBox.bd" :key="areaItem.area" :index="index" v-if="index==nowIndex">
+                  <li  v-for="shopItem in areaItem.shop" :key="shopItem.id">
+                      <a href="javascript:void(0)" class="clearfix iii" data-lng="shopItem.lng" data-lat="shopItem.lat" data-id="shopItem.id" data-type="shopItem.type">
+                          <img :src="shopItem.imgSrc">
+                          <h3>
+                            <span class="exp-name">{{shopItem.name}}</span>
+                            <i data-city-id="shopItem.cityId" data-tiy-id="shopItem.tiyId" class="exp-yuyue-btn">免费预约</i>
+                          </h3>
+                          <p>地址：{{shopItem.adress}}</p>
+                          <p>电话：{{shopItem.phone}}</p>
+                          <p>状态：{{shopItem.flag}}</p>
+                      </a>
+                  </li>
+              </ul>
           </div>
       </div>
-      <div class="offline-frame bx">
-        <h1 class="hall-title">三只图实体体验店</h1>
-        <div class="slideTxtBox">
-            <div class="hd">
-                <ul>
-                    <li class="" v-for="(tab, index) in slideTxtBox.hd" :index="index" :key="'tab_'+index" @mouseover="changeSlide(index)" :class="{'on':index==nowIndex}">{{tab}}</li>
-                </ul>
-            </div>
-            <div class="bd">
-                <ul v-for="(areaItem, index) in slideTxtBox.bd" :key="areaItem.area" :index="index" v-if="index==nowIndex">
-                    <li  v-for="shopItem in areaItem.shop" :key="shopItem.id">
-                        <a href="javascript:void(0)" class="clearfix iii" data-lng="shopItem.lng" data-lat="shopItem.lat" data-id="shopItem.id" data-type="shopItem.type">
-                            <img :src="shopItem.imgSrc">
-                            <h3>
-                              <span class="exp-name">{{shopItem.name}}</span>
-                              <i data-city-id="shopItem.cityId" data-tiy-id="shopItem.tiyId" class="exp-yuyue-btn">免费预约</i>
-                            </h3>
-                            <p>地址：{{shopItem.adress}}</p>
-                            <p>电话：{{shopItem.phone}}</p>
-                            <p>状态：{{shopItem.flag}}</p>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-      </div>
-      <ins-my></ins-my>
+    </div>
+    <ins-my></ins-my>
+    <footer>
+      <web-footer></web-footer>
+    </footer>
 </div>
 </template>
 
 <script>
 import ins from '../../components/home/ins'
 import head from '@/components/header/head'
+import webFooter from '@/components/footer/web-footer'
 export default {
   data () {
     return {
@@ -192,7 +198,8 @@ export default {
   },
   components: {
     insMy: ins,
-    myHeader: head
+    myHeader: head,
+    webFooter: webFooter
   },
   methods: {
     changeSlide (index) {
