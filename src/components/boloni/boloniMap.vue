@@ -1,5 +1,6 @@
 <template>
-<div class="rm-dingwei ie" @click="closeMyself">
+<div class="rm-dingwei ie">
+<div class="bg" @click="closeMyself"></div>
   <div class="dingwei-con" style="height: 800px; top: 30px;">
     <i class="icon-dingwei-c" id="close_dingwei" @click="closeMyself"></i>
     <div class="box">
@@ -11,7 +12,7 @@
     </div>
   </div>
 </div>
-
+</div>
 </template>
 <script>
 
@@ -37,7 +38,6 @@ export default {
 }
 </script>
 <style lang="less">
-
 .rm-dingwei {
   position: fixed;
   top: 0;
@@ -50,8 +50,12 @@ export default {
   overflow-x: hidden;
   overflow-y: auto;
   visibility: visible;
+  .bg{
+    width:100%;
+    height:100%;
+  }
   .dingwei-con {
-	  position: relative;
+	  position: absolute;
 	  background-color: #ffffff;
 	  height: 800px;
 	  width: 900px;
