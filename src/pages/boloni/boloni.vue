@@ -1,40 +1,40 @@
 <template>
   <div class="boloni">
-    <header>
-      <my-header></my-header>
-    </header>
-    <div class="countryBanner">
-        <div class="bx">
-          <a class="btn">加入三只兔</a>
-        </div>
-    </div>
-    <div class="offline-frame bx">
-      <h1 class="hall-title">三只兔实体体验店</h1>
-      <div class="slideTxtBox">
-          <div class="hd">
-              <ul>
-                  <li class="" v-for="(tab, index) in slideTxtBox.hd" :index="index" :key="'tab_'+index" @mouseover="changeSlide(index)" :class="{'on':index==nowIndex}">{{tab}}</li>
-              </ul>
-          </div>
-          <div class="bd">
-              <ul v-for="(areaItem, index) in slideTxtBox.bd" :key="areaItem.area" :index="index" v-if="index==nowIndex">
-                  <li  v-for="shopItem in areaItem.shop" :key="shopItem.id">
-                      <a href="javascript:void(0)" class="clearfix iii" data-lng="shopItem.lng" data-lat="shopItem.lat" data-id="shopItem.id" data-type="shopItem.type">
-                          <img :src="shopItem.imgSrc">
-                          <h3>
-                            <span class="exp-name">{{shopItem.name}}</span>
-                            <i data-city-id="shopItem.cityId" data-tiy-id="shopItem.tiyId" class="exp-yuyue-btn">免费预约</i>
-                          </h3>
-                          <p>地址：{{shopItem.adress}}</p>
-                          <p>电话：{{shopItem.phone}}</p>
-                          <p>状态：{{shopItem.flag}}</p>
-                      </a>
-                  </li>
-              </ul>
+    <my-header></my-header>
+      <div class="countryBanner">
+          <div class="bx">
+            <a class="btn">加入三只兔</a>
           </div>
       </div>
+      <div class="offline-frame bx">
+        <h1 class="hall-title">三只图实体体验店</h1>
+        <div class="slideTxtBox">
+            <div class="hd">
+                <ul>
+                    <li class="" v-for="(tab, index) in slideTxtBox.hd" :index="index" :key="'tab_'+index" @mouseover="changeSlide(index)" :class="{'on':index==nowIndex}">{{tab}}</li>
+                </ul>
+            </div>
+            <div class="bd">
+                <ul v-for="(areaItem, index) in slideTxtBox.bd" :key="areaItem.area" :index="index" v-if="index==nowIndex">
+                    <li  v-for="shopItem in areaItem.shop" :key="shopItem.id">
+                        <a href="javascript:void(0)" class="clearfix iii" :data-lng="shopItem.lng" :data-lat="shopItem.lat" :data-id="shopItem.id" :data-type="shopItem.type" @click="mapClick">
+                            <img :src="shopItem.imgSrc">
+                            <h3>
+                              <span class="exp-name">{{shopItem.name}}</span>
+                              <i :data-city-id="shopItem.cityId" :data-tiy-id="shopItem.tiyId" class="exp-yuyue-btn" @click.stop="appointmentClick">免费预约</i>
+                            </h3>
+                            <p>地址：{{shopItem.adress}}</p>
+                            <p>电话：{{shopItem.phone}}</p>
+                            <p>状态：{{shopItem.flag}}</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
     <ins-my></ins-my>
+    <appointment v-show="isShowAppointment" @on-close="closeAppointment"></appointment>
+    <boloniMap v-show="isShowMap" @on-close="closeMap"></boloniMap>
     <footer>
       <web-footer></web-footer>
     </footer>
@@ -44,6 +44,8 @@
 <script>
 import ins from '../../components/home/ins'
 import head from '@/components/header/head'
+import appointment from '@/components/boloni/boloniAppointment'
+import boloniMap from '@/components/boloni/boloniMap'
 import webFooter from '@/components/footer/web-footer'
 export default {
   data () {
@@ -193,17 +195,33 @@ export default {
           }
         ]
       },
-      nowIndex: 0
+      nowIndex: 0,
+      isShowAppointment: false,
+      isShowMap: false
     }
   },
   components: {
     insMy: ins,
     myHeader: head,
+    appointment: appointment,
+    boloniMap: boloniMap,
     webFooter: webFooter
   },
   methods: {
     changeSlide (index) {
       this.nowIndex = index
+    },
+    appointmentClick () {
+      this.isShowAppointment = true
+    },
+    closeAppointment () {
+      this.isShowAppointment = false
+    },
+    mapClick () {
+      this.isShowMap = true
+    },
+    closeMap () {
+      this.isShowMap = false
     }
   }
 }
