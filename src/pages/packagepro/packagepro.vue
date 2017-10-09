@@ -1,18 +1,23 @@
 <template>
   <div class="packagepro">
-    <my-header></my-header>
-      <div class="p1">
-        <div class="package_common">
-          <div class="package_title">
-            <h1>品牌厂商F2C战略直供<br>至少比市场价底30%-50%</h1>
-            让业主装修在家就能享受工厂价  至少比市场低32-55%之间<br>
-          </div>
+    <header>
+      <my-header></my-header>
+    </header>
+    <div class="p1">
+      <div class="package_common">
+        <div class="package_title">
+          <h1>品牌厂商F2C战略直供<br>至少比市场价底30%-50%</h1>
+          让业主装修在家就能享受工厂价  至少比市场低32-55%之间<br>
         </div>
       </div>
-      <div class="p3">
-          <appointment></appointment>
-      </div>
-      <insDiv></insDiv>
+    </div>
+    <div class="p3">
+        <appointment></appointment>
+    </div>
+    <insDiv></insDiv>
+    <footer>
+      <web-footer></web-footer>
+    </footer>
   </div>
 </template>
 
@@ -20,6 +25,7 @@
 import appointment from '../../components/home/appointment'
 import ins from '../../components/home/ins'
 import head from '@/components/header/head'
+import footer from '@/components/footer/web-footer'
 
 export default {
   data () {
@@ -29,7 +35,8 @@ export default {
   components: {
     appointment,
     insDiv: ins,
-    myHeader: head
+    myHeader: head,
+    webFooter: footer
   }
 }
 </script>

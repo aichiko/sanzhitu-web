@@ -31,11 +31,13 @@
                 </ul>
             </div>
         </div>
-      </div>
-      <ins-my></ins-my>
-      <appointment v-show="isShowAppointment" @on-close="closeAppointment"></appointment>
-      <boloniMap v-show="isShowMap" @on-close="closeMap"></boloniMap>
-
+    </div>
+    <ins-my></ins-my>
+    <appointment v-show="isShowAppointment" @on-close="closeAppointment"></appointment>
+    <boloniMap v-show="isShowMap" @on-close="closeMap"></boloniMap>
+    <footer>
+      <web-footer></web-footer>
+    </footer>
 </div>
 </template>
 
@@ -44,6 +46,7 @@ import ins from '../../components/home/ins'
 import head from '@/components/header/head'
 import appointment from '@/components/boloni/boloniAppointment'
 import boloniMap from '@/components/boloni/boloniMap'
+import webFooter from '@/components/footer/web-footer'
 export default {
   data () {
     return {
@@ -201,7 +204,8 @@ export default {
     insMy: ins,
     myHeader: head,
     appointment: appointment,
-    boloniMap: boloniMap
+    boloniMap: boloniMap,
+    webFooter: webFooter
   },
   methods: {
     changeSlide (index) {

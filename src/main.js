@@ -9,11 +9,13 @@ import 'echarts/map/js/china.js'
 import BaiduMap from 'vue-baidu-map'
 Vue.config.productionTip = false
 Vue.prototype.$echarts = echarts
-
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-default/index.css'
 // starting with version 2.6.0, you need to manually introduce swiper's css
 require('swiper/dist/css/swiper.css')
 // mount with global
 Vue.use(VueAwesomeSwiper)
+Vue.use(ElementUI)
 
 Vue.use(BaiduMap, {
   ak: 'M6vVu8KpI54udfoarpaGS2nOI37VAouW'
