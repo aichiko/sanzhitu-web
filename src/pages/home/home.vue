@@ -42,7 +42,7 @@
               <a href="javascript: ;" class="js-yuyue">
                   <span class="alw-service-name">{{ b }}</span>
                   <div class="alw-service-icon">
-                      <i :class="i" :style="'background: url(static/icons/icon-'+(i + 1)+'.png) no-repeat center'"></i>
+                    <i :class="i" :style="serviceIcon(i)" :ref="'icon'+i"></i>
                   </div>
               </a>
             </li>
@@ -92,6 +92,7 @@ export default {
       message: '23333',
       images: [{url: a}, {url: a}, {url: a}],
       showAppointment: false,
+      icons: [],
       txts: [
         {
           h: '特色产品',
@@ -144,6 +145,16 @@ export default {
     ccAppointment: ccAppointment
   },
   methods: {
+    iconHover: function (index, e) {
+      console.log(e)
+      var icon = 'static/icons/icon-' + (index + 1) + '-hover' + '.png'
+      var style = 'background: url(' + icon + ') no-repeat center'
+      e.toElement.style = style
+    },
+    serviceIcon: function (index) {
+      var icon = 'static/icons/icon-' + (index + 1) + '.png'
+      return 'background: url(' + icon + ') no-repeat center'
+    },
     showAppointmentView: function () {
       this.showAppointment = true
     },

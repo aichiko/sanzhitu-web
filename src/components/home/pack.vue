@@ -9,7 +9,7 @@
           <a href="http://www.anlewo.com/packagepro.html" class="AlwBao-banner-knowBtn" title="" target="_blank">进一步了解</a>
       </div>
     </div>
-    <div class="pack_content float-left">
+    <div class="pack_content float-left" :style="contentStyle" ref="content">
       <ul class="fl">
         <li v-for="(li , index) in ul" :index="index" :key="index" @mouseover="liHoverAction(index)">
           <a href="#" target="_bank">{{ li }}</a>
@@ -137,12 +137,17 @@ export default {
             '/static/images/baigao.png'
           ]
         }
-      ]
+      ],
+      contentStyle: {
+        background: 'url(/static/images/szt398bao-bg.png) 0 0 no-repeat'
+      }
     }
   },
   methods: {
     liHoverAction: function (index) {
       this.packIndex = index
+      var pointY = 480 * index
+      this.$refs.content.style.backgroundPositionY = -pointY + 'px'
     },
     appointmentAction: function () {
       console.log('---------')
@@ -228,7 +233,6 @@ export default {
   height: 480px;
   float: right;
   overflow: hidden;
-  background: url(/static/images/szt398bao-bg.png) 0 0 no-repeat;
   ul.fl{
     float: left;
     width: 150px;

@@ -1,7 +1,7 @@
 <template>
   <div class="alw-bao-content clearfix">
     <div class="alw-bao-warp float-left">
-      <div class="AlwBao-warp-bg">
+      <div class="AlwBao-warp-bg" ref="warp" id="warp" :style="warpStyle">
         <div class="AlwBao-hd">
           <ul class="Alw-jiajubao-ul">
             <li v-for="(item , index) in lists" :index="index" :key="index" @mouseover="liHoverAction(index)">
@@ -156,12 +156,21 @@ export default {
             }
           ]
         }
-      ]
+      ],
+      warpStyle: {
+        background: 'url(/static/images/AlwJiaJuBao-bg.png) 0 0 no-repeat',
+        display: 'block',
+        padding: 0,
+        margin: 0,
+        'background-position': '0 0'
+      }
     }
   },
   methods: {
     liHoverAction: function (index) {
       this.packIndex = index
+      var pointY = 480 * index
+      this.$refs.warp.style.backgroundPositionY = -pointY + 'px'
     },
     appointmentAction: function () {
       console.log('---------')
@@ -177,13 +186,8 @@ export default {
   height: 480px;
   overflow: hidden;
   .AlwBao-warp-bg {
-    background-position: 0 0;
-    background: url(/static/images/AlwJiaJuBao-bg.png) 0 0 no-repeat;
     width: 880px;
     height: 480px;
-    display: block;
-    padding: 0;
-    margin: 0;
     .AlwBao-hd {
       float: left;
       width: 150px;
