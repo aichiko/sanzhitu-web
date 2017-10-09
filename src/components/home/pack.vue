@@ -2,7 +2,7 @@
   <div class="clearfix szt-bao-content"> 
     <div class="pack_banner float-left">
       <div class="Alw398zhucaibao-banner-info"  >
-        <p v-for="p in packbanner" :key="p" class="text-justify">{{ p }}</p >
+        <!-- <p v-for="p in packbanner" :key="p" class="text-justify">{{ p }}</p > -->
       </div>
       <div class="AlwBao-banner-btn Alw398zhucaibao-banner-btn">
           <a href="javascript:void(0);" class="AlwBao-banner-orderBtn js-zhucaibao-yuyue" title="" @click="appointmentAction">免费预约</a>
@@ -158,10 +158,11 @@ export default {
 </script>
 <style scoped  lang="less">
 .pack_banner{
-  width: 280px;
+  width: 300px;
   height: 480px;
-  padding: 40px 50px;
+  padding: 20px 50px;
   overflow: hidden;
+  position: relative;
   background: url(../../assets/518/zhucaibao-banner.png) no-repeat;
   .Alw398zhucaibao-banner-info{
     font-size: 17px;
@@ -184,9 +185,12 @@ export default {
     }
   }
   .Alw398zhucaibao-banner-btn {
-    margin-top: 45px;
     width: 162px;
     margin: 0 auto;
+    margin-bottom: 20px;
+    bottom: 0;
+    left: 70px;
+    position: absolute;
     .AlwBao-banner-orderBtn {
       display: block;
       width: 160px;
