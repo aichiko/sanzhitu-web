@@ -5,7 +5,7 @@
     <i class="icon-dingwei-c" id="close_dingwei" @click="closeMyself"></i>
     <div class="box">
       <div class="title">安乐窝体验馆地图导航</div>
-      <baidu-map  class="map" :center="center" :zoom="zoom" @ready="handler" :scroll-wheel-zoom="true">
+      <baidu-map  class="map" :center="center" :zoom="zoom" :scroll-wheel-zoom="true">
       	<bm-navigation anchor="BMAP_ANCHOR_TOP_LEFT"></bm-navigation>
       	<bm-marker :position="{lng: lng, lat: lat}" :dragging="true" animation="BMAP_ANIMATION_BOUNCE"></bm-marker>
       </baidu-map>
@@ -18,24 +18,36 @@
 
 export default {
   props: {
-    lat: '',
-    lng: ''
+    lat: {
+      type: String,
+      default: ''
+    },
+    lng: {
+      type: String,
+      default: ''
+    }
   },
   data () {
     return {
       center: {lng: this.lng, lat: this.lat},
-      zoom: 6
+      zoom: 18
     }
   },
   methods: {
-    handler ({BMap, map}) {
-      this.center.lng = this.lng
-      this.center.lat = this.lat
-      this.zoom = 15
-      console.log(BMap, map)
-    },
     closeMyself () {
       this.$emit('on-close')
+    }
+  },
+  watch: {
+    lng: function () {
+      this.center.lng = this.lng
+      this.center.lat = this.lat
+      this.zoom = 18
+    },
+    lat: function () {
+      this.center.lng = this.lng
+      this.center.lat = this.lat
+      this.zoom = 18
     }
   }
 }

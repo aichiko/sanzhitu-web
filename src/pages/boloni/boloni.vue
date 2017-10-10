@@ -34,7 +34,7 @@
     </div>
     <ins-my></ins-my>
     <appointment v-show="isShowAppointment" @on-close="closeAppointment"></appointment>
-    <boloniMap v-show="isShowMap" @on-close="closeMap" :lat=lat :lng=lng></boloniMap>
+    <boloniMap v-show="isShowMap" @on-close="closeMap" :lat="lat" :lng="lng"></boloniMap>
     <footer>
       <web-footer></web-footer>
     </footer>
@@ -66,8 +66,8 @@ export default {
             /* 实体店 */
             shop: [
               {
-                lng: '113.410551',
-                lat: '22.532647',
+                lng: '113.410809',
+                lat: '22.532594',
                 id: '18',
                 type: '1',
                 imgSrc: 'http://www.woimg.com/mobile/map_img/05150873486596193.jpg',
@@ -80,7 +80,7 @@ export default {
               },
               {
                 lng: '113.410551',
-                lat: '22.532647',
+                lat: '24.532647',
                 id: '18',
                 type: '1',
                 imgSrc: 'http://www.woimg.com/mobile/map_img/05150873486596193.jpg',
@@ -100,7 +100,7 @@ export default {
             shop: [
               {
                 lng: '113.410551',
-                lat: '22.532647',
+                lat: '29.532647',
                 id: '18',
                 type: '1',
                 imgSrc: 'http://www.woimg.com/mobile/map_img/05150873486596193.jpg',
@@ -120,7 +120,7 @@ export default {
             shop: [
               {
                 lng: '113.410551',
-                lat: '22.532647',
+                lat: '26.532647',
                 id: '18',
                 type: '1',
                 imgSrc: 'http://www.woimg.com/mobile/map_img/05150873486596193.jpg',
@@ -140,7 +140,7 @@ export default {
             shop: [
               {
                 lng: '113.410551',
-                lat: '22.532647',
+                lat: '24.532647',
                 id: '18',
                 type: '1',
                 imgSrc: 'http://www.woimg.com/mobile/map_img/05150873486596193.jpg',
@@ -160,7 +160,7 @@ export default {
             shop: [
               {
                 lng: '113.410551',
-                lat: '22.532647',
+                lat: '21.532647',
                 id: '18',
                 type: '1',
                 imgSrc: 'http://www.woimg.com/mobile/map_img/05150873486596193.jpg',
@@ -180,7 +180,7 @@ export default {
             shop: [
               {
                 lng: '113.410551',
-                lat: '22.532647',
+                lat: '27.532647',
                 id: '18',
                 type: '1',
                 imgSrc: 'http://www.woimg.com/mobile/map_img/05150873486596193.jpg',
