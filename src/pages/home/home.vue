@@ -55,7 +55,9 @@
           <jiajubao-pack  @appointment="showAppointmentView"></jiajubao-pack>
         </div>
         <div v-else-if="index==4">
-          <echartsChina></echartsChina>
+          <router-link to="boloni" target='_blank'>
+            <echartsChina></echartsChina>
+          </router-link>
         </div>
         <div v-else-if="index==5">
           <home-designer class="designer-team"></home-designer>
@@ -104,7 +106,7 @@ export default {
           P: '一体化服务，选材乐无忧'
         },
         {
-          h: '518主材包',
+          h: '399主材包',
           P: '品牌  环保  优质'
         },
         {
@@ -129,7 +131,7 @@ export default {
         }
       ],
       bar: ['在线预约', '实景体验', '签约下定', '装修方案', '施工控制', '服务评价'],
-      ul: ['518主材包', '木地板', '瓷砖', '橱柜', '室内门', '洁具卫浴', '卫浴五金', '集成吊顶'],
+      ul: ['399主材包', '木地板', '瓷砖', '橱柜', '室内门', '洁具卫浴', '卫浴五金', '集成吊顶'],
       packbanner: ['装修必备主材', '7类38项一包搞定']
     }
   },

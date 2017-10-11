@@ -17,23 +17,23 @@
       <dl>
         <dt>联系我们</dt>
         <dd>
-          <p>地址：广东省中山市东区富湾东路伊电园I栋</p>
-          <p>电话：0760-87989999</p>
+          <p>地址：深圳市宝安区新安街道留仙二路汇聚创新园四楼</p>
+          <p>电话：400-833-1153</p>
         </dd>
       </dl>
       <div class="alw-QRcode">
         <div class="alw-pic">
           <p>下载app</p>
-          <img src="http://www.anlewo.com/templates/default/images/new-home/alw_footer_app.png" alt="下载app" />
+          <img src="../../assets/app.jpeg" alt="下载app"  style="width: 80px; height: 80px"/>
         </div>
         <div class="alw-pic">
           <p>关于我们</p>
-          <img src="http://www.anlewo.com/templates/default/images/new-home/alw_footer_weixin.png" alt="关于我们" />
+          <img src="../../assets/weixin.jpeg" alt="关于我们" style="width: 80px; height: 80px"/>
         </div>
       </div>
     </div>
     <div class="alw-copyright">
-      <span class="float-left">Copyright @2016 广东安乐窝网络科技有限公司 版权所有
+      <span class="float-left">Copyright @2016 三只兔网络科技有限公司 版权所有
         <a href="" target="_blan  k">粤ICP备13031430号</a>
         <a href="" target="_blank">粤工商备P201709000844</a>
       </span>
@@ -120,7 +120,8 @@ export default {
 }
 .alw-links .alw-QRcode .alw-pic {
     float: right;
-    margin-left: 50px;
+    margin-left: 30px;
+    margin-right: 20px;
 }
 .alw-links .alw-QRcode .alw-pic p {
     font-size: 14px;
