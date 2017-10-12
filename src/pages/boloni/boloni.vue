@@ -1,39 +1,41 @@
 <template>
   <div class="boloni">
-    <my-header></my-header>
-      <div class="countryBanner">
-          <div class="bx">
-            <a class="btn">加入三只兔</a>
-          </div>
-      </div>
-      <div class="offline-frame bx">
-        <h1 class="hall-title">三只图实体体验店</h1>
-        <div class="slideTxtBox">
-            <div class="hd">
-                <ul>
-                    <li class="" v-for="(tab, index) in slideTxtBox.hd" :index="index" :key="'tab_'+index" @mouseover="changeSlide(index)" :class="{'on':index==nowIndex}">{{tab}}</li>
-                </ul>
-            </div>
-            <div class="bd">
-                <ul v-for="(areaItem, index) in slideTxtBox.bd" :key="areaItem.area" :index="index" v-if="index==nowIndex">
-                    <li  v-for="shopItem in areaItem.shop" :key="shopItem.id">
-                        <a href="javascript:void(0)" class="clearfix iii" :data-lng="shopItem.lng" :data-lat="shopItem.lat" :data-id="shopItem.id" :data-type="shopItem.type" @click="mapClick">
-                            <img :src="shopItem.imgSrc">
-                            <h3>
-                              <span class="exp-name">{{shopItem.name}}</span>
-                              <i :data-city-id="shopItem.cityId" :data-tiy-id="shopItem.tiyId" class="exp-yuyue-btn" @click.stop="appointmentClick">免费预约</i>
-                            </h3>
-                            <p>地址：{{shopItem.adress}}</p>
-                            <p>电话：{{shopItem.phone}}</p>
-                            <p>状态：{{shopItem.flag}}</p>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+    <header>
+      <my-header></my-header>
+    </header>
+    <div class="countryBanner">
+        <div class="bx">
+          <a class="btn">加入三只兔</a>
         </div>
     </div>
+    <div class="offline-frame bx">
+      <h1 class="hall-title">三只图实体体验店</h1>
+      <div class="slideTxtBox">
+          <div class="hd">
+              <ul>
+                  <li class="" v-for="(tab, index) in shops.hd" :index="index" :key="'tab_'+index" @mouseover="changeSlide(index)" :class="{'on':index==nowIndex}">{{tab}}</li>
+              </ul>
+          </div>
+          <div class="bd">
+              <ul v-for="(areaItem, index) in shops.bd" :key="areaItem.area" :index="index" v-if="index==nowIndex">
+                  <li  v-for="shopItem in areaItem.shop" :key="shopItem.id">
+                      <a href="javascript:void(0)" class="clearfix iii" :data-lng="shopItem.lng" :data-lat="shopItem.lat" :data-id="shopItem.id" :data-type="shopItem.type" @click="mapClick">
+                          <img :src="shopItem.imgSrc">
+                          <h3>
+                            <span class="exp-name">{{shopItem.name}}</span>
+                            <i :data-city-id="shopItem.cityId" :data-tiy-id="shopItem.tiyId" class="exp-yuyue-btn" @click.stop="appointmentClick">免费预约</i>
+                          </h3>
+                          <p>地址：{{shopItem.adress}}</p>
+                          <p>电话：{{shopItem.phone}}</p>
+                          <p>状态：{{shopItem.flag}}</p>
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+    </div>
     <ins-my></ins-my>
-    <appointment v-show="isShowAppointment" @on-close="closeAppointment"></appointment>
+    <appointment v-show="isShowAppointment" @close="closeAppointment"></appointment>
     <boloniMap v-show="isShowMap" @on-close="closeMap"></boloniMap>
     <footer>
       <web-footer></web-footer>
@@ -44,157 +46,14 @@
 <script>
 import ins from '../../components/home/ins'
 import head from '@/components/header/head'
-import appointment from '@/components/boloni/boloniAppointment'
+import appointment from '@/components/appointment/cc_appointment'
 import boloniMap from '@/components/boloni/boloniMap'
 import webFooter from '@/components/footer/web-footer'
+import {shops} from '../../config/country.js'
 export default {
   data () {
     return {
-      slideTxtBox: {
-        hd: [
-          '华南地区',
-          '华东地区',
-          '华中地区',
-          '西南地区',
-          '华北地区',
-          '西北地区'
-        ],
-        bd: [
-          {
-            /* 华南片区 */
-            area: 'southern',
-            /* 实体店 */
-            shop: [
-              {
-                lng: '113.410551',
-                lat: '22.532647',
-                id: '18',
-                type: '1',
-                imgSrc: 'http://www.woimg.com/mobile/map_img/05150873486596193.jpg',
-                name: '中山店',
-                cityId: '306',
-                tiyId: '18',
-                adress: '广东省中山市东区富湾东路伊电园E栋',
-                phone: '400-626-1688',
-                flag: '营业中'
-              },
-              {
-                lng: '113.410551',
-                lat: '22.532647',
-                id: '18',
-                type: '1',
-                imgSrc: 'http://www.woimg.com/mobile/map_img/05150873486596193.jpg',
-                name: '中山店',
-                cityId: '306',
-                tiyId: '18',
-                adress: '广东省中山市东区富湾东路伊电园E栋',
-                phone: '400-626-1688',
-                flag: '营业中'
-              }
-            ]
-          },
-          {
-            /* 华东片区 */
-            area: 'East',
-            /* 实体店 */
-            shop: [
-              {
-                lng: '113.410551',
-                lat: '22.532647',
-                id: '18',
-                type: '1',
-                imgSrc: 'http://www.woimg.com/mobile/map_img/05150873486596193.jpg',
-                name: '中山店',
-                cityId: '306',
-                tiyId: '18',
-                adress: '广东省中山市东区富湾东路伊电园E栋',
-                phone: '400-626-1688',
-                flag: '营业中'
-              }
-            ]
-          },
-          {
-            /* 华中片区 */
-            area: 'Central',
-            /* 实体店 */
-            shop: [
-              {
-                lng: '113.410551',
-                lat: '22.532647',
-                id: '18',
-                type: '1',
-                imgSrc: 'http://www.woimg.com/mobile/map_img/05150873486596193.jpg',
-                name: '中山店',
-                cityId: '306',
-                tiyId: '18',
-                adress: '广东省中山市东区富湾东路伊电园E栋',
-                phone: '400-626-1688',
-                flag: '营业中'
-              }
-            ]
-          },
-          {
-            /* 西南片区 */
-            area: 'southwest',
-            /* 实体店 */
-            shop: [
-              {
-                lng: '113.410551',
-                lat: '22.532647',
-                id: '18',
-                type: '1',
-                imgSrc: 'http://www.woimg.com/mobile/map_img/05150873486596193.jpg',
-                name: '中山店',
-                cityId: '306',
-                tiyId: '18',
-                adress: '广东省中山市东区富湾东路伊电园E栋',
-                phone: '400-626-1688',
-                flag: '营业中'
-              }
-            ]
-          },
-          {
-            /* 华北片区 */
-            area: 'southwest',
-            /* 实体店 */
-            shop: [
-              {
-                lng: '113.410551',
-                lat: '22.532647',
-                id: '18',
-                type: '1',
-                imgSrc: 'http://www.woimg.com/mobile/map_img/05150873486596193.jpg',
-                name: '中山店',
-                cityId: '306',
-                tiyId: '18',
-                adress: '广东省中山市东区富湾东路伊电园E栋',
-                phone: '400-626-1688',
-                flag: '营业中'
-              }
-            ]
-          },
-          {
-            /* 西北片区 */
-            area: 'northwest',
-            /* 实体店 */
-            shop: [
-              {
-                lng: '113.410551',
-                lat: '22.532647',
-                id: '18',
-                type: '1',
-                imgSrc: 'http://www.woimg.com/mobile/map_img/05150873486596193.jpg',
-                name: '中山店',
-                cityId: '306',
-                tiyId: '18',
-                adress: '广东省中山市东区富湾东路伊电园E栋',
-                phone: '400-626-1688',
-                flag: '营业中'
-              }
-            ]
-          }
-        ]
-      },
+      shops: shops,
       nowIndex: 0,
       isShowAppointment: false,
       isShowMap: false

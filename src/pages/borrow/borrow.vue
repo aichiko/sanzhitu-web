@@ -1,139 +1,141 @@
 <template>
   <div class="anjudai-content">
-	<div class="anjudai-banner"></div>
-	<div class="anjudai-body">
-		<div class="anjudai-address">
-			<select class="anjudai-province" id="anjudaiProvince">
-				<option value="" selected="selected">省/市</option>
-									<option value="19">广东</option>
-							</select>
-			<select class="anjudai-city" id="anjudaiCity">
-				<option value="" selected="selected">市/地区</option>
-			</select>
-		</div>
+		<header>
+      <web-header></web-header>
+    </header>
+		<div class="anjudai-banner"></div>
+		<div class="anjudai-body">
+			<div class="anjudai-address">
+				<select class="anjudai-province" id="anjudaiProvince">
+					<option value="" selected="selected">省/市</option>
+										<option value="19">广东</option>
+								</select>
+				<select class="anjudai-city" id="anjudaiCity">
+					<option value="" selected="selected">市/地区</option>
+				</select>
+			</div>
+			<div class="anjudai-info">
+				<img src="http://www.anlewo.com/templates/default/images/anjudai/img2.png?20161221">
+				<h3 class="anjudai-title">三大银行五大亮点</h3>
+				<ul class="anjudai-shuoming">
+					<li>
+						<h5>高额度</h5>
+						<p>最高达50万</p>
+					</li>
+					<li>
+						<h5>速度快</h5>
+						<p>7天回复，<br>15天放款</p>
+					</li>
+					<li>
+						<h5>范围广</h5>
+						<p>含装修款，家具、<br>家电、家纺等</p>
+					</li>
+					<li>
+						<h5>利率低</h5>
+						<p>利息低至0元</p>
+					</li>
+					<li>
+						<h5>VIP服务</h5>
+						<p>专人服务，为您<br>省时、省心、省力</p>
+					</li>
+				</ul>
 
-		<div class="anjudai-info">
-			<img src="http://www.anlewo.com/templates/default/images/anjudai/img2.png?20161221">
-			<h3 class="anjudai-title">三大银行五大亮点</h3>
-			<ul class="anjudai-shuoming">
-				<li>
-				  <h5>高额度</h5>
-				  <p>最高达50万</p>
-				</li>
-				<li>
-				  <h5>速度快</h5>
-				  <p>7天回复，<br>15天放款</p>
-				</li>
-				<li>
-				  <h5>范围广</h5>
-				  <p>含装修款，家具、<br>家电、家纺等</p>
-				</li>
-				<li>
-				  <h5>利率低</h5>
-				  <p>利息低至0元</p>
-				</li>
-				<li>
-				  <h5>VIP服务</h5>
-				  <p>专人服务，为您<br>省时、省心、省力</p>
-				</li>
-			</ul>
+				<ul class="anjudai-buzhou">
+					<li class="box1">
+						<h6>申请条件：</h6>
+						<p>1、贷款金额4~50万；</p>
+						<p>2、具有良好的信用记录和还款意愿，在我行及其他金融机构贷款无不良记录；</p>
+						<p>3、有稳定合法收入来源和按时足额偿还贷款本息的能力；</p>
+						<p>4、申请人为中山本地上班人员，其房屋为中山房产。</p>
+					</li><!--
 
-			<ul class="anjudai-buzhou">
-				<li class="box1">
-				  <h6>申请条件：</h6>
-				  <p>1、贷款金额4~50万；</p>
-				  <p>2、具有良好的信用记录和还款意愿，在我行及其他金融机构贷款无不良记录；</p>
-				  <p>3、有稳定合法收入来源和按时足额偿还贷款本息的能力；</p>
-				  <p>4、申请人为中山本地上班人员，其房屋为中山房产。</p>
-				</li><!--
+			--><li class="box2">
+						<h6>申请资料：</h6>
+						<p>1、装修房产证明复印件（以下三选一）：房产证、买卖合同、备案登记证；</p>
+						<p>2、夫妻双方身份证、结婚证、户口本复印件；</p>
+						<p>3、单位收入证明；</p>
+						<p>4、银行账户近六个月明细（代发工资流水）；</p>
+						<p>5、其他财力证明：缴税证明，个人名下所有房产证明，社保证明，缴公积金证明等；</p>
+						<p>6、签订的装修保合同以及主材包等合同（我司提供）。</p>
+					</li><!--
 
-		 --><li class="box2">
-				  <h6>申请资料：</h6>
-          <p>1、装修房产证明复印件（以下三选一）：房产证、买卖合同、备案登记证；</p>
-          <p>2、夫妻双方身份证、结婚证、户口本复印件；</p>
-          <p>3、单位收入证明；</p>
-          <p>4、银行账户近六个月明细（代发工资流水）；</p>
-          <p>5、其他财力证明：缴税证明，个人名下所有房产证明，社保证明，缴公积金证明等；</p>
-          <p>6、签订的装修保合同以及主材包等合同（我司提供）。</p>
-				</li><!--
+			--><li class="box3">
+						<h6>手续费率表（单位%）：</h6>
+						<table>
+							<tbody><tr>
+								<th style="width: 80px;height: 33px;">期  数</th>
+								<th style="width: 24px;">6期</th>
+								<th style="width: 32px;">12期</th>
+								<th style="width: 42px;">24期</th>
+								<th style="width: 43px;">36期</th>
+							</tr>
+							<tr>
+								<td>工行正常家装分期手续费率</td>
+								<td>2%</td>
+								<td>4%</td>
+								<td>7.98%</td>
+								<td>11.3%</td>
+							</tr>
+							<tr style="background-color: #f8c300;">
+								<td>安乐窝客户<br>总手续费率</td>
+								<td>0</td>
+								<td>3%</td>
+								<td>6.89%</td>
+								<td>10.3%</td>
+							</tr>
+						</tbody></table>
+						<p>注: 客户承担的手续费按月份收取，本贷款仅限在安乐窝消费才有此利率，不可在外消费。</p>
+					</li><!--
 
-     --><li class="box3">
-				  <h6>手续费率表（单位%）：</h6>
-				  <table>
-				  	<tbody><tr>
-				  	  <th style="width: 80px;height: 33px;">期  数</th>
-				  	  <th style="width: 24px;">6期</th>
-				  	  <th style="width: 32px;">12期</th>
-				  	  <th style="width: 42px;">24期</th>
-				  	  <th style="width: 43px;">36期</th>
-				  	</tr>
-				  	<tr>
-				  	  <td>工行正常家装分期手续费率</td>
-				  	  <td>2%</td>
-				  	  <td>4%</td>
-				  	  <td>7.98%</td>
-				  	  <td>11.3%</td>
-				  	</tr>
-				  	<tr style="background-color: #f8c300;">
-              <td>安乐窝客户<br>总手续费率</td>
-              <td>0</td>
-              <td>3%</td>
-              <td>6.89%</td>
-              <td>10.3%</td>
-            </tr>
-				  </tbody></table>
-				  <p>注: 客户承担的手续费按月份收取，本贷款仅限在安乐窝消费才有此利率，不可在外消费。</p>
-				</li><!--
+			--><li class="box4">
+						<h6>以贷款金额10万为例（单）</h6>
+						<table>
+							<tbody><tr>
+								<th style="width: 50px;height: 33px;">期  数</th>
+								<th style="width: 60px;">每月<br>还本金</th>
+								<th style="width: 60px;">每月<br>还手续费</th>
+								<th style="width: 50px;">合  计</th>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>16667</td>
+								<td>0</td>
+								<td>16667</td>
+							</tr>
+							<tr>
+								<td>12</td>
+								<td>8333</td>
+								<td>250</td>
+								<td>8583</td>
+							</tr>
+							<tr>
+								<td>24</td>
+								<td>4167</td>
+								<td>287</td>
+								<td>4454</td>
+							</tr>
+							<tr>
+								<td>36</td>
+								<td>2778</td>
+								<td>286</td>
+								<td>3064</td>
+							</tr>
+						</tbody></table>
+					</li>
+				</ul>
+			</div>
 
-     --><li class="box4">
-          <h6>以贷款金额10万为例（单）</h6>
-          <table>
-            <tbody><tr>
-              <th style="width: 50px;height: 33px;">期  数</th>
-              <th style="width: 60px;">每月<br>还本金</th>
-              <th style="width: 60px;">每月<br>还手续费</th>
-              <th style="width: 50px;">合  计</th>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td>16667</td>
-              <td>0</td>
-              <td>16667</td>
-            </tr>
-            <tr>
-              <td>12</td>
-              <td>8333</td>
-              <td>250</td>
-              <td>8583</td>
-            </tr>
-            <tr>
-              <td>24</td>
-              <td>4167</td>
-              <td>287</td>
-              <td>4454</td>
-            </tr>
-            <tr>
-              <td>36</td>
-              <td>2778</td>
-              <td>286</td>
-              <td>3064</td>
-            </tr>
-          </tbody></table>
-        </li>
-			</ul>
-		</div>
-
-		<div class="anjudai-button">
-			<a class="anjudai-submit" href="javascript: void(0);"></a>
-		</div>
+			<div class="anjudai-button" @click="applyShow = true">
+				<a class="anjudai-submit" href="javascript: void(0);"></a>
+			</div>
 
 		<!-- 马上申请start -->
-			<div class="apply-form">
+			<div v-show="applyShow" class="apply-form">
 				<div class="apply-bg"></div>
 				<div class="apply-box">
 					<div class="apply-header">
 						马上申请
-						<i class="close-icon"></i>
+						<i class="close-icon" @click="applyShow = false"></i>
 					</div>
 
 					<div class="apply-line">
@@ -164,15 +166,25 @@
 				</div>
 			</div>
 		<!-- 马上申请end -->
-	</div> <!--anjudai-body-->
-</div>
+		</div> <!--anjudai-body-->
+		<footer>
+			<web-footer></web-footer>
+		</footer>
+	</div>
 </template>
 
 <script>
+import webFooter from '@/components/footer/web-footer'
+import head from '@/components/header/head'
 export default {
   data () {
     return {
+      applyShow: false
     }
+  },
+  components: {
+    webHeader: head,
+    webFooter: webFooter
   }
 }
 </script>

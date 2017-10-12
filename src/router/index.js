@@ -8,12 +8,14 @@ import boloni from '@/pages/boloni/boloni'
 import borrow from '@/pages/borrow/borrow'
 import business from '@/pages/business/business'
 import packagepro from '@/pages/packagepro/packagepro'
+import NotFoundComponent from '@/components/hello'
 
 Vue.use(Router)
 
 const routes = new Router({
-  // mode: 'history',
+  mode: 'history',
   routes: [
+    { path: '*', component: NotFoundComponent },
     {
       path: '/',
       name: 'home',
