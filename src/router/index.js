@@ -8,7 +8,7 @@ import boloni from '@/pages/boloni/boloni'
 import borrow from '@/pages/borrow/borrow'
 import business from '@/pages/business/business'
 import packagepro from '@/pages/packagepro/packagepro'
-import NotFoundComponent from '@/components/hello'
+import NotFoundComponent from '@/components/Hello'
 
 Vue.use(Router)
 
