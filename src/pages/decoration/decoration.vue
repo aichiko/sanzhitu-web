@@ -3,23 +3,7 @@
   <header class="head-box">
     <img src="../../assets/decoration/banner.png" alt="图片还在加载中">
   </header>
-  <nav class="nav-box">
-    <img src="../../assets/decoration/pc_1.jpg" alt="图片还在加载中">
-    <form action="" id="b_form">
-      <div class="box-item">
-        <input type="text" name="ryname" placeholder="请输入你的姓名">
-        <select>
-          <option selected="">先生</option>
-          <option>女士</option>
-        </select>
-      </div>
-      <input type="text" name="area" placeholder="请输入你的房屋面积">
-      <input type="text" name="ryphone" placeholder="我们将发送预算至你的手机" maxlength="11">
-
-      <button type="button" onclick="baoming_sub('#b_form')">马上获取装修报价</button>
-    </form>
-
-  </nav>
+  <dec-title :title="titles[0]"></dec-title>
   <figure class="fig">
     <img src="../../assets/decoration/pc_2.jpg" alt="图片还在加载中">
     <img src="../../assets/decoration/pc_3.jpg" alt="图片还在加载中">
@@ -42,10 +26,20 @@
 </template>
 
 <script>
+import decTitle from '../../components/decoration/decTitle.vue'
 export default {
   data () {
     return {
+      titles: [
+        {
+          title: '整居设计方案',
+          sup: '多种搭配，多种选择，多种方案'
+        }
+      ]
     }
+  },
+  components: {
+    decTitle
   }
 }
 </script>
