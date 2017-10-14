@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import home from '@/pages/home/home'
 import decoration from '@/pages/decoration/decoration'
 import foreman from '@/pages/foreman/foreman'
+import foreLogin from '@/pages/foreman/foremanChildren/foreLogin'
+import foreRegister from '@/pages/foreman/foremanChildren/foreRegister'
 import DIYstore from '@/pages/DIY_store/DIY_store'
 import boloni from '@/pages/boloni/boloni'
 import borrow from '@/pages/borrow/borrow'
@@ -58,6 +60,22 @@ const routes = new Router({
       component: foreman,
       meta: {
         title: '五星工长'
+      }
+    },
+    {
+      path: '/foreman/foreLogin',
+      name: 'foreLogin',
+      component: foreLogin,
+      meta: {
+        title: '五星工长登录'
+      }
+    },
+    {
+      path: '/foreman/foreRegister',
+      name: 'foreRegister',
+      component: foreRegister,
+      meta: {
+        title: '五星工长注册'
       }
     },
     // 'DIY 商城'

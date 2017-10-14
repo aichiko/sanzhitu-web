@@ -56,7 +56,9 @@ export default {
       shops: shops,
       nowIndex: 0,
       isShowAppointment: false,
-      isShowMap: false
+      isShowMap: false,
+      lat: '',
+      lng: ''
     }
   },
   components: {
@@ -76,8 +78,10 @@ export default {
     closeAppointment () {
       this.isShowAppointment = false
     },
-    mapClick () {
+    mapClick (a, b) {
       this.isShowMap = true
+      this.lng = a
+      this.lat = b
     },
     closeMap () {
       this.isShowMap = false
