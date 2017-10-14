@@ -124,7 +124,6 @@
 					</li>
 				</ul>
 			</div>
-
 			<div class="anjudai-button" @click="applyShow = true">
 				<a class="anjudai-submit" href="javascript: void(0);"></a>
 			</div>
