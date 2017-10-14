@@ -1,37 +1,39 @@
 <template>
-<div>
-<my-header></my-header>
-<div style="width:100%;">
-  <div class="container bx">
-    <h4>媒体报道</h4>
-    <ul class="news-cont clearfix">
-      <li :class="newItem.className" v-for="newItem in news">
-        <a :href="newItem.href" target="_blank">
-          <h3>{{ newItem.title }}</h3>
-          <p>{{ newItem.content }}</p>
-          <div class="log">
-            <img :src="newItem.img">
-            <div>
-              <img :src="newItem.icon" alt="" />
-              {{ newItem.data }}
+  <div>
+    <header>
+      <web-header></web-header>
+    </header>
+    <div style="width:100%;">
+      <div class="container bx">
+        <h4>媒体报道</h4>
+        <ul class="news-cont clearfix">
+          <li :class="newItem.className" v-for="newItem in news">
+            <a :href="newItem.href" target="_blank">
+            <h3>{{ newItem.title }}</h3>
+            <p>{{ newItem.content }}</p>
+            <div class="log">
+              <img :src="newItem.img">
+              <div>
+                <img :src="newItem.icon" alt="" />
+                {{ newItem.data }}
+              </div>
             </div>
-          </div>
-
-          <div>
-            <h5></h5>
-
-          </div>
-        </a>
-      </li>
-    </ul>
+            <div>
+              <h5></h5>
+            </div>
+          </a>
+         </li>
+       </ul>
+      </div>
+    </div>
+    <footer>
+      <web-footer></web-footer>
+    </footer>
   </div>
-</div>
-<web-footer></web-footer>
-</div>
 </template>
 
 <script>
-import head from '@/components/header/head'
+import webHeader from '@/components/header/head'
 import webFooter from '@/components/footer/web-footer'
 export default {
   data () {
@@ -77,11 +79,12 @@ export default {
     }
   },
   components: {
-    myHeader: head,
+    webHeader: webHeader,
     webFooter: webFooter
   }
 }
 </script>
+
 <style lang="less">
 .container {
   display: block;

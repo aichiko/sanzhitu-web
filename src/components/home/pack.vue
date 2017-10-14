@@ -2,7 +2,7 @@
   <div class="clearfix szt-bao-content"> 
     <div class="pack_banner float-left">
       <div class="Alw398zhucaibao-banner-info"  >
-        <p v-for="p in packbanner" :key="p" class="text-justify">{{ p }}</p >
+        <!-- <p v-for="p in packbanner" :key="p" class="text-justify">{{ p }}</p > -->
       </div>
       <div class="AlwBao-banner-btn Alw398zhucaibao-banner-btn">
           <a href="javascript:void(0);" class="AlwBao-banner-orderBtn js-zhucaibao-yuyue" title="" @click="appointmentAction">免费预约</a>
@@ -41,7 +41,7 @@ export default {
     ul: {
       type: Array,
       default: function () {
-        return ['518主材包', '木地板', '瓷砖', '橱柜', '室内门', '洁具卫浴', '卫浴五金', '集成吊顶']
+        return ['399主材包', '木地板', '瓷砖', '橱柜', '室内门', '洁具卫浴', '卫浴五金', '集成吊顶']
       }
     }
   },
@@ -50,7 +50,7 @@ export default {
       packIndex: 0,
       packData: [
         {
-          title: '518主材包',
+          title: '399主材包',
           subtitle: '  ——38项 （主材+辅材）一包搞定',
           desc: '汇集数十个国内外一线品牌，千款名品，包含地砖、木地板、橱柜、洁具卫浴、门、五金、集成吊顶等38项家庭装修必备主材，一站式购齐，让业主省时、省心、省力、省钱。',
           backgroundImage: '',
@@ -158,10 +158,11 @@ export default {
 </script>
 <style scoped  lang="less">
 .pack_banner{
-  width: 280px;
+  width: 300px;
   height: 480px;
-  padding: 40px 50px;
+  padding: 20px 50px;
   overflow: hidden;
+  position: relative;
   background: url(../../assets/518/zhucaibao-banner.png) no-repeat;
   .Alw398zhucaibao-banner-info{
     font-size: 17px;
@@ -184,9 +185,12 @@ export default {
     }
   }
   .Alw398zhucaibao-banner-btn {
-    margin-top: 45px;
     width: 162px;
     margin: 0 auto;
+    margin-bottom: 20px;
+    bottom: 0;
+    left: 70px;
+    position: absolute;
     .AlwBao-banner-orderBtn {
       display: block;
       width: 160px;

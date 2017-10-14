@@ -434,14 +434,19 @@ export default {
 }
 
 .alw-bao-banner {
-  width: 280px;
+  width: 300px;
   height: 480px;
   padding: 40px 50px;
   overflow: hidden;
   background: url(../../assets/518/jiajubao-banner.png) no-repeat;
+  position: relative;
   .AlwBao-banner-btn {
     width: 162px;
     margin-top: 300px;
+    margin-bottom: 20px;
+    bottom: 0;
+    left: 70px;
+    position: absolute;
     .AlwBao-banner-orderBtn {
       display: block;
       width: 160px;

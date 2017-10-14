@@ -1,5 +1,8 @@
 <template>
 <div>
+  <header>
+    <web-header></web-header>
+  </header>
 	<div class="index_center">
 	  <div class="urser clearfix">
 			<div class="urserLf">
@@ -36,14 +39,23 @@
 		<router-link :to="{ path: '/foreman/foreLogin' }" tag="a" active-class="active">foreLogin</router-link>
 		<router-link :to="{ path: '/foreman/foreRegister' }" tag="a" active-class="active">foreRegister</router-link>
 	</div>
+  <footer>
+    <web-footer></web-footer>
+  </footer>
 </div>
 </template>
 
 <script>
+import webHeader from '@/components/header/head'
+import webFooter from '@/components/footer/web-footer'
 export default {
   data () {
     return {
     }
+  },
+  components: {
+    webHeader: webHeader,
+    webFooter: webFooter
   }
 }
 </script>

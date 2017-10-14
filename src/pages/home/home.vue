@@ -18,20 +18,20 @@
           <div class="alw-product-list clearfix">
             <a class="alw-zhucaibao" href="http://www.anlewo.com/packagepro.html" target="_blank">
                 <div class="alw-product-box">
-                    <div class="alw-product-name"><div class="alw-product-subName" style="color: #f09808;">518<span style="font-size:14px;">元/m²</span></div>豪装主材包</div>
-                    <p class="alw-product-describe">品牌·环保·优质</p>
+                    <!-- <div class="alw-product-name"><div class="alw-product-subName" style="color: #f09808;">518<span style="font-size:14px;">元/m²</span></div>豪装主材包</div> -->
+                    <!-- <p class="alw-product-describe">品牌·环保·优质</p> -->
                 </div>
             </a>
             <a class="alw-jiajubao" href="http://www.anlewo.com/furniture_package.html" target="_blank">
                 <div class="alw-product-box">
-                    <div class="alw-product-name"><div class="alw-product-subName" style="color: #6a3821;">18件套</div>品牌家具包</div>
-                    <p class="alw-product-describe">卓越大牌·匠心品质</p>
+                    <!-- <div class="alw-product-name"><div class="alw-product-subName" style="color: #6a3821;">18件套</div>品牌家具包</div> -->
+                    <!-- <p class="alw-product-describe">卓越大牌·匠心品质</p> -->
                 </div>
             </a>
             <a class="alw-zhengzhuangbao" href="http://www.anlewo.com/ready_package.html" target="_blank">
                 <div class="alw-product-box">
-                    <div class="alw-product-name"><div class="alw-product-subName" style="color: #2d446f;">百变</div>整装包</div>
-                    <p class="alw-product-describe">家居魔方·百变组合</p>
+                    <!-- <div class="alw-product-name"><div class="alw-product-subName" style="color: #2d446f;">百变</div>整装包</div> -->
+                    <!-- <p class="alw-product-describe">家居魔方·百变组合</p> -->
                 </div>
             </a>
           </div>
@@ -55,7 +55,9 @@
           <jiajubao-pack  @appointment="showAppointmentView"></jiajubao-pack>
         </div>
         <div v-else-if="index==4">
-          <echartsChina></echartsChina>
+          <router-link to="boloni" target='_blank'>
+            <echartsChina></echartsChina>
+          </router-link>
         </div>
         <div v-else-if="index==5">
           <home-designer class="designer-team"></home-designer>
@@ -65,7 +67,9 @@
         </div>
       </div>
     </div>
-    <cc-appointment v-if="showAppointment" @close="hideAppointmentView"></cc-appointment>
+    <transition name="el-fade-in-linear">
+      <cc-appointment v-if="showAppointment" @close="hideAppointmentView"></cc-appointment>
+    </transition>
     <footer>
       <home-footer style="width: 100%"></home-footer>
     </footer>
@@ -84,13 +88,12 @@ import echartsChina from '../../components/home/echartsChina'
 import homePack from '@/components/home/homePack'
 import designer from '@/components/home/designer'
 import ccAppointment from '@/components/appointment/cc_appointment'
-import a from '@/assets/banners/banner2.jpg'
 
 export default {
   data () {
     return {
       message: '23333',
-      images: [{url: a}, {url: a}, {url: a}],
+      images: [{url: '/static/images/banners/banner1.png'}, {url: '/static/images/banners/banner2.png'}, {url: '/static/images/banners/banner3.png'}],
       showAppointment: false,
       icons: [],
       txts: [
@@ -103,7 +106,7 @@ export default {
           P: '一体化服务，选材乐无忧'
         },
         {
-          h: '518主材包',
+          h: '399主材包',
           P: '品牌  环保  优质'
         },
         {
@@ -128,7 +131,7 @@ export default {
         }
       ],
       bar: ['在线预约', '实景体验', '签约下定', '装修方案', '施工控制', '服务评价'],
-      ul: ['518主材包', '木地板', '瓷砖', '橱柜', '室内门', '洁具卫浴', '卫浴五金', '集成吊顶'],
+      ul: ['399主材包', '木地板', '瓷砖', '橱柜', '室内门', '洁具卫浴', '卫浴五金', '集成吊顶'],
       packbanner: ['装修必备主材', '7类38项一包搞定']
     }
   },
@@ -385,14 +388,14 @@ export default {
     overflow: hidden;
     text-align: left;
     &.alw-zhucaibao{
-      background: url(../../assets/pro/alw_product_1.png?20170310) no-repeat center;
+      background: url(../../assets/pro/szt_product_1.png) no-repeat center;
     }
     &.alw-jiajubao {
         margin: 0 20px;
-        background: url(../../assets/pro/alw_product_2.png?20170310) no-repeat center;
+        background: url(../../assets/pro/szt_product_2.png) no-repeat center;
     }
     &.alw-zhengzhuangbao {
-        background: url(../../assets/pro/alw_product_3.png?20170310) no-repeat center;
+        background: url(../../assets/pro/szt_product_3.png) no-repeat center;
     }
     .alw-product-box {
       margin: 64px 0 0 40px;
