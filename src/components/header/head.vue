@@ -3,7 +3,7 @@
     <div class="header_top_box">
       <div class="header_top bx clearfix">
         <div class="szt_tel">
-          <span style="color: #ddd">客服热线电话：</span><span style="color: #ffe100">400-626-1688</span>
+          <span style="color: #ddd">客服热线电话：</span><span style="color: #ffe100">400-833-1153</span>
         </div>
         <div class="szt-QRcode-box clearfix">
           <ul class="szt-QRcode-menu">
@@ -18,7 +18,7 @@
       <div class="header_tabbar bx">
         <div class="szt-logo">
           <a href="#">
-            <img src="http://www.woimg.com/shop/common/05338438199864045.png" alt="三只兔logo" title="三只兔" width="160" height="60">
+            <img src="../../assets/szt_logo.png" alt="三只兔logo" title="三只兔" width="160" height="60">
           </a>
         </div>
         <div class="tabbar-items clearfix">

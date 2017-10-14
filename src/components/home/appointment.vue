@@ -46,8 +46,8 @@ export default {
       countryData: country,
       provinceIndex: 0,
       cityIndex: 0,
-      provinceValue: '1',
-      cityValue: '2'
+      provinceValue: '10',
+      cityValue: '11'
     }
   },
   watch: {
