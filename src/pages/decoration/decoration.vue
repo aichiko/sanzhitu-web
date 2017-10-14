@@ -1,7 +1,7 @@
 <template>
 <div>
   <header class="head-box">
-    <img src="../../assets/decoration/banner.jpg" alt="图片还在加载中">
+    <img src="../../assets/decoration/banner.png" alt="图片还在加载中">
   </header>
   <nav class="nav-box">
     <img src="../../assets/decoration/pc_1.jpg" alt="图片还在加载中">
