@@ -7,7 +7,7 @@
       <div class="container bx">
         <h4>媒体报道</h4>
         <ul class="news-cont clearfix">
-          <li :class="newItem.className" v-for="newItem in news">
+          <li :class="newItem.className" v-for="newItem in news" :key="newItem.className">
             <a :href="newItem.href" target="_blank">
             <h3>{{ newItem.title }}</h3>
             <p>{{ newItem.content }}</p>

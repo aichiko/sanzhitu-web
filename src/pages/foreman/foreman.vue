@@ -3,7 +3,7 @@
   <header>
     <web-header></web-header>
   </header>
-	<div class="index_center">
+	<div class="index_center" v-if="!$route.meta.isChildren">
 	  <div class="urser clearfix">
 			<div class="urserLf">
 				<h2 class="asx">
@@ -34,11 +34,12 @@
 			</div>
 		</div>
 	</div>
-	<div>
+	<div  v-if="!$route.meta.isChildren">
 		<span>jdafkjkafjkaf</span>
-		<router-link :to="{ path: '/foreman/foreLogin' }" tag="a" active-class="active">foreLogin</router-link>
-		<router-link :to="{ path: '/foreman/foreRegister' }" tag="a" active-class="active">foreRegister</router-link>
+		<router-link :to="{ path: 'foreman/foreLogin' }" tag="a" active-class="active">foreLogin</router-link>
+		<router-link :to="{ path: 'foreman/foreRegister' }" tag="a" active-class="active">foreRegister</router-link>
 	</div>
+	<router-view></router-view>
   <footer>
     <web-footer></web-footer>
   </footer>

@@ -24,7 +24,7 @@
         <div class="tabbar-items clearfix">
           <ul class="szt-items clearfix">
             <li v-for="(content, index) in contents" :key="index" :class="index == selectedindex? 'selected-item': ''">
-              <router-link :to="content.path" :target="index === 0 ? '_parent' : '_blank' ">
+              <router-link :to="content.path" :target="index === 0 ? '_parent' : '_blank' " replace>
                 <a>{{content.title}}</a>
               </router-link>
             </li>
@@ -45,35 +45,35 @@ export default {
       contents: [
         {
           title: '首页',
-          path: 'home'
+          path: '/home'
         },
         {
           title: '装修',
-          path: 'decoration'
+          path: '/decoration'
         },
         {
           title: '主材包',
-          path: 'packagepro'
+          path: '/packagepro'
         },
         {
           title: '五星工长',
-          path: 'foreman'
+          path: '/foreman'
         },
         {
           title: 'DIY商城',
-          path: 'diystore'
+          path: '/diystore'
         },
         {
           title: '体验馆',
-          path: 'boloni'
+          path: '/boloni'
         },
         {
           title: '装修贷',
-          path: 'borrow'
+          path: '/borrow'
         },
         {
           title: '商学院',
-          path: 'business'
+          path: '/business'
         }
       ]
     }

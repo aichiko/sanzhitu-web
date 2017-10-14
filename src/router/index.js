@@ -60,23 +60,27 @@ const routes = new Router({
       component: foreman,
       meta: {
         title: '五星工长'
-      }
-    },
-    {
-      path: '/foreman/foreLogin',
-      name: 'foreLogin',
-      component: foreLogin,
-      meta: {
-        title: '五星工长登录'
-      }
-    },
-    {
-      path: '/foreman/foreRegister',
-      name: 'foreRegister',
-      component: foreRegister,
-      meta: {
-        title: '五星工长注册'
-      }
+      },
+      children: [
+        {
+          path: 'foreLogin',
+          name: 'foreLogin',
+          component: foreLogin,
+          meta: {
+            isChildren: true,
+            title: '五星工长登录'
+          }
+        },
+        {
+          path: 'foreRegister',
+          name: 'foreRegister',
+          component: foreRegister,
+          meta: {
+            isChildren: true,
+            title: '五星工长注册'
+          }
+        }
+      ]
     },
     // 'DIY 商城'
     {
