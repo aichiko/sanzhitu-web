@@ -55,7 +55,10 @@ html,body{
   background-color: #F5F5F5;
   min-width: 1200px;
 }
-
+#app{
+  width:100%;
+  overflow:hidden;
+}
 .clearfix {
   display: inline-block
 }
