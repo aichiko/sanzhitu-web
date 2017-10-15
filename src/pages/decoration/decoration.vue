@@ -29,6 +29,7 @@
   <div class="myChartBox">
     <div id="myChart" class="bx" style="width: 1000px;height:500px"></div>
   </div>
+  <dec-title :title="titles[3]"></dec-title>
 </div>
 
 </template>
@@ -50,6 +51,11 @@ export default {
         {
           title: '五年质保',
           sup: '超出您对美好生活的期待'
+        },
+        {
+          title: '更多个性化服务',
+          sup: '满足您的需求',
+          sub: '更多个性化服务'
         }
       ],
       design: [

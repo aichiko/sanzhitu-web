@@ -1,7 +1,8 @@
 <template>
 <div>
   <div class="bx">
-    <h1><span><i class="left"></i>{{ title.title }}<i class="right"></i></span></h1>
+    <h1  v-if="title.sub" class="sub"><span><i class="left"></i>{{ title.sub }}</span></h1>
+    <h1><span><i class="left" v-if="!title.sub"></i>{{ title.title }}<i class="right"></i></span></h1>
     <p>{{ title.sup }}</p>
     <p><img src="../../assets/decoration/titleDown.png"></p>
   </div>
@@ -28,6 +29,16 @@ div{
     h1{
       height: 74px;
       line-height: 74px;
+      &.sub{
+        height: 33px;
+        line-height: 63px;
+        span{
+          font-size: 18px;
+          padding: 0 120px;
+          font-weight:500;
+          color: #000;
+        }
+      }
       span{
         font-size: 40px;
         padding: 0 60px;
