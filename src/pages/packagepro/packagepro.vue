@@ -166,6 +166,7 @@ export default {
             width: 119px;
             height:33px;
             line-height: 33px;
+            margin-left: 20px;
             border: 1px solid #FE0000;
             margin-top: 10px;
             font-family: "黑体"
