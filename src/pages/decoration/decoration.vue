@@ -30,12 +30,14 @@
     <div id="myChart" class="bx" style="width: 1000px;height:500px"></div>
   </div>
   <dec-title :title="titles[3]"></dec-title>
+  <appo style="padding-bottom:100px"></appo>
 </div>
 
 </template>
 
 <script>
 import decTitle from '../../components/decoration/decTitle.vue'
+import appo from '@/components/decoration/appo'
 export default {
   data () {
     return {
@@ -80,7 +82,7 @@ export default {
     }
   },
   components: {
-    decTitle
+    decTitle, appo
   },
   methods: {
     num (index) {
