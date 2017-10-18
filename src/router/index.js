@@ -13,6 +13,7 @@ import packagepro from '@/pages/packagepro/packagepro'
 import NotFoundComponent from '@/components/Hello'
 import login from '@/pages/login/login'
 import backstage from '@/pages/login/backstage'
+import bannerSetter from '@/pages/login/banner_setter'
 
 Vue.use(Router)
 
@@ -134,7 +135,25 @@ const routes = new Router({
       component: backstage,
       meta: {
         title: '后台管理'
-      }
+      },
+      children: [
+        {
+          path: '/user/ash/banner',
+          name: 'banner',
+          component: bannerSetter,
+          meta: {
+            title: '设置banner'
+          }
+        },
+        {
+          path: '/user/ash/other',
+          name: 'other',
+          component: backstage,
+          meta: {
+            title: 'other'
+          }
+        }
+      ]
     }
   ]
 })

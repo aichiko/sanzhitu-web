@@ -7,7 +7,7 @@
       <div class="fr">
         <!--banner-->
         <div class="alw-home-banner" id="home-banner">
-          <home-banner :imageLists="images"></home-banner>
+          <home-banner></home-banner>
         </div>
       </div>
     </div>
@@ -93,7 +93,6 @@ export default {
   data () {
     return {
       message: '23333',
-      images: [{url: '/static/images/banners/banner1.png'}, {url: '/static/images/banners/banner2.png'}, {url: '/static/images/banners/banner3.png'}],
       showAppointment: false,
       icons: [],
       txts: [

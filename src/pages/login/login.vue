@@ -14,7 +14,7 @@
           <el-input v-model="loginData.password" placeholder="密码" type="password"></el-input>
         </el-form-item>
         <el-form-item class="submit-item">
-          <el-button type="primary" @click="submitForm" class="submit-button" :loading="isLoading">登录</el-button>
+          <el-button type="primary" @click="submitForm" class="submit-button" :loading="isLoading" :disabled="enabled">登录</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -44,8 +44,21 @@ export default {
       }
     }
   },
+  computed: {
+    enabled: function () {
+      return (this.loginData.username.length === 0 && this.loginData.password.length === 0)
+    }
+  },
   methods: {
     submitForm: function () {
+      if (this.loginData.username.length === 0 || this.loginData.password.length === 0) {
+        this.$alert('用户密码不可为空！', '提示', {
+          confirmButtonText: '确定',
+          callback: action => {
+          }
+        })
+        return
+      }
       console.log('sign in to sanztu!!!')
       this.isLoading = true
       var that = this
@@ -100,6 +113,8 @@ html,body{
 .main-body {
   width: 340px;
   margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
   .input-item {
     position: relative;
   }

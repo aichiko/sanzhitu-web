@@ -9,6 +9,7 @@ import 'echarts/map/js/china.js'
 import BaiduMap from 'vue-baidu-map'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
+import VueResource from 'vue-resource'
 
 Vue.config.productionTip = false
 Vue.prototype.$echarts = echarts
@@ -17,6 +18,7 @@ require('swiper/dist/css/swiper.css')
 // mount with global
 Vue.use(VueAwesomeSwiper)
 Vue.use(ElementUI)
+Vue.use(VueResource)
 
 Vue.use(BaiduMap, {
   ak: 'M6vVu8KpI54udfoarpaGS2nOI37VAouW'
