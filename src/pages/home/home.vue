@@ -2,7 +2,7 @@
   <div>
     <header class="headerBox">
       <home-header></home-header>
-    </header>   
+    </header>
     <div class="banner_area">
       <div class="fr">
         <!--banner-->
@@ -12,9 +12,20 @@
       </div>
     </div>
     <div>
-      <div class="bx" v-for="(txt, index) in txts" :key="txt.p">
-        <home-pro-title :txt="txt"></home-pro-title>
-        <div v-if="index==0">
+      <div  v-for="(txt, index) in titles" :key="txt.p">
+        <home-pro-title :title="txt"></home-pro-title>
+        <div v-if="index==0" class="bx">
+          <ul class="alw-service-bar clearfix">
+            <li v-for="(b, i) in bar" :key="i">
+              <a href="javascript: ;" class="js-yuyue">
+                <p><img src="" alt="" width="50" height="50"></p>
+                <p>{{ b }}</p>
+              </a>
+              <span v-if="i!=bar.length-1"><img src="../../../static/icons/right.jpg" height="37" width="14" alt=""></span>
+            </li>
+          </ul>
+        </div>
+        <div v-else-if="index==1" class="bx">
           <div class="alw-product-list clearfix">
             <a class="alw-zhucaibao" href="http://www.anlewo.com/packagepro.html" target="_blank">
                 <div class="alw-product-box">
@@ -35,34 +46,25 @@
                 </div>
             </a>
           </div>
+          <div style="margin-top:40px">
+            <home-pack :packbanner="packbanner" :ul='ul' v-on:appointment="showAppointmentView"></home-pack>
+          </div>
+          <div style="margin-top:40px">
+            <jiajubao-pack  @appointment="showAppointmentView"></jiajubao-pack>
+          </div>
         </div>
-        <div v-else-if="index==1">
-          <ul class="alw-service-bar clearfix">
-            <li v-for="(b, i) in bar" :key="i">
-              <a href="javascript: ;" class="js-yuyue">
-                  <span class="alw-service-name">{{ b }}</span>
-                  <div class="alw-service-icon">
-                    <i :class="i" :style="serviceIcon(i)" :ref="'icon'+i"></i>
-                  </div>
-              </a>
-            </li>
-          </ul>
-        </div>
+
+
         <div v-else-if="index==2">
-          <home-pack :packbanner="packbanner" :ul='ul' v-on:appointment="showAppointmentView"></home-pack>
+          <home-designer class="designer-team bx"></home-designer>
+          <img src="../../../static/images/home.png" width="100%" alt="">
+          <div class="bx">
+            <router-link to="boloni" target='_blank'>
+              <echartsChina></echartsChina>
+            </router-link>
+          </div>
         </div>
-        <div v-else-if="index==3">
-          <jiajubao-pack  @appointment="showAppointmentView"></jiajubao-pack>
-        </div>
-        <div v-else-if="index==4">
-          <router-link to="boloni" target='_blank'>
-            <echartsChina></echartsChina>
-          </router-link>
-        </div>
-        <div v-else-if="index==5">
-          <home-designer class="designer-team"></home-designer>
-        </div>
-        <div v-else-if="index==6">
+        <div v-else-if="index==3" class="bx">
           <home-videos></home-videos>
         </div>
       </div>
@@ -81,7 +83,7 @@
 import head from '@/components/header/head'
 import footer from '@/components/footer/footer'
 import banner from '@/components/banner/banner'
-import proTitle from '../../components/home/proTitle'
+import proTitle from '../../components/decoration/decTitle.vue'
 import pack from '../../components/home/pack'
 import videos from '@/components/home/videos'
 import echartsChina from '../../components/home/echartsChina'
@@ -96,38 +98,22 @@ export default {
       images: [{url: '/static/images/banners/banner1.png'}, {url: '/static/images/banners/banner2.png'}, {url: '/static/images/banners/banner3.png'}],
       showAppointment: false,
       icons: [],
-      txts: [
+      titles: [
         {
-          h: '特色产品',
-          P: 'f2C模式，剩一半'
+          title: '装修流程',
+          sup: '一站式服务，安心无忧'
         },
         {
-          h: '服务流程',
-          P: '一体化服务，选材乐无忧'
+          title: '精选产品',
+          sup: '多种选择，多彩生活'
         },
         {
-          h: '399主材包',
-          P: '品牌  环保  优质'
+          title: '设计团队',
+          sup: '因为专业，所有值得'
         },
         {
-          h: '家具包',
-          P: '玩转私享空间'
-        },
-        {
-          h: '百变整装包',
-          P: '家居魔方 百变组合'
-        },
-        {
-          h: '装修效果图',
-          P: '制定专属家居风格'
-        },
-        {
-          h: '装修窝视野',
-          P: '一窝看尽时下新资讯'
-        },
-        {
-          h: '线下体验馆',
-          P: '安乐窝·在中国'
+          title: '最新视频',
+          sup: '有我陪伴，生活更好'
         }
       ],
       bar: ['在线预约', '实景体验', '签约下定', '装修方案', '施工控制', '服务评价'],
@@ -432,49 +418,41 @@ export default {
       }
     }
   }
-  
+
 }
 .alw-service-bar{
-  margin-top: 42px;
-  padding: 0 2px;
-  border-top: 2px solid #9e7300;
   li{
-    position: relative;
-    top: -42px;
     float: left;
+    text-align: center;
     a{
       display: inline-block;
-      margin: 0 52px;
-      width: 90px;
-      height: 148px;
-      color: #666;
-      text-decoration: none;
-      background: url(../../assets/bar/alw_service.png) no-repeat center 35px;
+      border: 2px solid #B9B9B9;
+      width: 125px;
+      height: 125px;
+      color: #B9B9B9;
+      padding-top: 25px;
+      border-radius:22px;
+      vertical-align:top;
       &:hover{
-        span{
-          color: #9e7300;
-        }
-        background: url(../../assets/bar/alw_service_hover.png) no-repeat center 35px;
-      }
-      .alw-service-name {
-        display: block;
-        font-size: 16px;
-        text-align: center;
-      }
-      .alw-service-icon {
-        cursor: pointer;
-        margin: 38px auto 0 auto;
-        width: 90px;
-        height: 90px;
-        background: url(../../assets/bar/alw_service_bg.png) no-repeat center;
-        text-align: center;
-        vertical-align: middle;
-        i{
-          display: block;
-          width: 90px;
-          height: 90px;
+        border: 2px solid #FE0000;
+        p{
+          color: #FE0000;
         }
       }
+      p{
+        font-size: 14px;
+        height:50px;
+        line-height: 50px;
+        color: #B4B4B4;
+      }
+    }
+    span{
+      display: inline-block;
+      width: 74px;
+      height:125px;
+      font-size: 37px;
+      text-align: center;
+      line-height: 125px;
     }
   }
 }
