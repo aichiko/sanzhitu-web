@@ -100,6 +100,7 @@ html,body{
   background-color: #f9f9f9;
   min-width: 1200px;
 }
+
 .main {
   background-color: #f9f9f9;
   height: 100%;
