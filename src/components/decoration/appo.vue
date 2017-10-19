@@ -82,7 +82,7 @@ export default {
 </script>
 <style lang="less">
 div{
-  background-color:#fff;
+//   background-color:#fff;
   .bx{
     img{
       vertical-align:top;

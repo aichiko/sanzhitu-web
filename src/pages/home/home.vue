@@ -53,8 +53,6 @@
             <jiajubao-pack  @appointment="showAppointmentView"></jiajubao-pack>
           </div>
         </div>
-
-
         <div v-else-if="index==2">
           <home-designer class="designer-team bx"></home-designer>
           <img src="../../../static/images/home.png" width="100%" alt="">
@@ -77,7 +75,6 @@
     </footer>
   </div>
 </template>
-
 
 <script>
 import head from '@/components/header/head'
@@ -153,7 +150,6 @@ export default {
 }
 </script>
 <style lang="less">
-
 .headerBox {
   width: 100%;
 }

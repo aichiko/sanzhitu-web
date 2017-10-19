@@ -1,5 +1,4 @@
 <template>
-
   <div class="swiper-all">
     <div class="swiper-container">
       <!-- swiper -->
@@ -23,6 +22,7 @@ import $ from 'jquery'
 export default {
   data () {
     return {
+      imageLists: [],
       mark: 0,
       swiperOption: {
         pagination: '.swiper-pagination',
@@ -32,8 +32,7 @@ export default {
         spaceBetween: 30,
         centeredSlides: true,
         autoplay: 2500,
-        autoplayDisableOnInteraction: false,
-        imageLists: []
+        autoplayDisableOnInteraction: false
       }
     }
   },
