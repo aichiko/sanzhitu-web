@@ -187,7 +187,7 @@ export default {
   }
 }
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .anjudai-content {
 	min-width: 1200px;
 	font-family: "microsoft yahei";

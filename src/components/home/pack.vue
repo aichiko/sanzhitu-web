@@ -156,7 +156,7 @@ export default {
   }
 }
 </script>
-<style scoped  lang="less">
+<style scoped  lang="less" scoped>
 .pack_banner{
   width: 300px;
   height: 480px;

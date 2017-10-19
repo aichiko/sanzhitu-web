@@ -60,7 +60,7 @@ export default {
   }
 }
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .index_center {
   background: #efefef;
   width: 990px;

@@ -79,7 +79,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .player {
   width: 380px; height: 220px;
   color: #fff

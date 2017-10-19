@@ -133,7 +133,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .appointment-bg {
   position: fixed;
   top: 0;

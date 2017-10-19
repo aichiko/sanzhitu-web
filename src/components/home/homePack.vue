@@ -180,7 +180,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .alw-bao-warp {
   width: 880px;
   height: 480px;

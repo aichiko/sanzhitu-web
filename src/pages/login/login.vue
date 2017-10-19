@@ -93,7 +93,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 
 html,body{
   width: 100%;
