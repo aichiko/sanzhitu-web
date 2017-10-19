@@ -11,6 +11,9 @@ import borrow from '@/pages/borrow/borrow'
 import business from '@/pages/business/business'
 import packagepro from '@/pages/packagepro/packagepro'
 import NotFoundComponent from '@/components/Hello'
+import login from '@/pages/login/login'
+import backstage from '@/pages/login/backstage'
+import bannerSetter from '@/pages/login/banner_setter'
 
 Vue.use(Router)
 
@@ -117,6 +120,40 @@ const routes = new Router({
       meta: {
         title: '商学院'
       }
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: login,
+      meta: {
+        title: 'Sign in to Sanztu'
+      }
+    },
+    {
+      path: '/user/:name',
+      name: 'user',
+      component: backstage,
+      meta: {
+        title: '后台管理'
+      },
+      children: [
+        {
+          path: '/user/ash/banner',
+          name: 'banner',
+          component: bannerSetter,
+          meta: {
+            title: '设置banner'
+          }
+        },
+        {
+          path: '/user/ash/other',
+          name: 'other',
+          component: backstage,
+          meta: {
+            title: 'other'
+          }
+        }
+      ]
     }
   ]
 })
