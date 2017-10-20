@@ -84,6 +84,9 @@ export default {
   width: 380px; height: 220px;
   color: #fff
 }
+.index-vrqjjz {
+  margin-bottom: 40px;
+}
 .index-vrqjjz ul {
   display: inline;
 }

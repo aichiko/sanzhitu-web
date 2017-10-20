@@ -47,7 +47,7 @@
             </a>
           </div>
           <div style="margin-top:40px">
-            <home-pack :packbanner="packbanner" :ul='ul' v-on:appointment="showAppointmentView"></home-pack>
+            <home-pack v-on:appointment="showAppointmentView"></home-pack>
           </div>
           <div style="margin-top:40px">
             <jiajubao-pack  @appointment="showAppointmentView"></jiajubao-pack>
@@ -113,7 +113,6 @@ export default {
         }
       ],
       bar: ['在线预约', '实景体验', '签约下定', '装修方案', '施工控制', '服务评价'],
-      ul: ['399主材包', '木地板', '瓷砖', '橱柜', '室内门', '洁具卫浴', '卫浴五金', '集成吊顶'],
       packbanner: ['装修必备主材', '7类38项一包搞定']
     }
   },
