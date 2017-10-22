@@ -73,6 +73,35 @@
     <footer>
       <home-footer style="width: 100%"></home-footer>
     </footer>
+    <transition name="appointBox">
+      <div class="bottom-fixed-box" v-show="appointBoxS">
+        <div class="bottom-fixed-bg"></div>
+        <div class="no-filter">
+          <div class="bottom-wrap-box bx">
+            <div class="bottom-warp-left">
+                <div class="warp-left-number">71</div>
+            </div>
+            <div class="bottom-warp-center clearfix">
+              <appoint-form></appoint-form>
+              <div class="warp-center-btn">
+                  <i class="center-btn-logo"></i>
+                  <div class="center-btn-submit"></div>
+              </div>
+            </div>
+            <div class="bottom-warp-right">
+              <div class="warp-right-app">
+                <p class="right-app-title">下载App</p>
+                <p class="right-app-img"></p>
+              </div>
+              <div class="bottom-warp-colse" @click="closeAppoint"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </transition>
+    <transition name="appointIcon">
+      <a class="bottom-fixed-show" @click="showAppointBox" v-show="appointIcon"><span class="bottom-fixed-title">免费预约</span></a>
+    </transition>
   </div>
 </template>
 
@@ -87,10 +116,13 @@ import echartsChina from '../../components/home/echartsChina'
 import homePack from '@/components/home/homePack'
 import designer from '@/components/home/designer'
 import ccAppointment from '@/components/appointment/cc_appointment'
+import AppointForm from '@/components/home/appiontForm'
 
 export default {
   data () {
     return {
+      appointIcon: true,
+      appointBoxS: false,
       message: '23333',
       showAppointment: false,
       icons: [],
@@ -127,9 +159,18 @@ export default {
     homeDesigner: designer,
     homeVideos: videos,
     jiajubaoPack: homePack,
-    ccAppointment: ccAppointment
+    ccAppointment: ccAppointment,
+    'appoint-form': AppointForm
   },
   methods: {
+    showAppointBox () {
+      this.appointBoxS = true
+      this.appointIcon = false
+    },
+    closeAppoint () {
+      this.appointBoxS = false
+      this.appointIcon = true
+    },
     iconHover: function (index, e) {
       console.log(e)
       var icon = 'static/icons/icon-' + (index + 1) + '-hover' + '.png'
@@ -150,10 +191,26 @@ export default {
 }
 </script>
 <style lang="less">
+.appointIcon-enter-active {
+  transition: all .8s ease .1s;
+}
+.appointIcon-leave-active {
+  transition: all .8s ease;
+}
+.appointIcon-enter, .appointIcon-leave-to {
+  transform: translateX(-138px);
+  opacity: 0;
+}
+.appointBox-enter-active, .appointBox-leave-active {
+  transition: all .8s ease;
+}
+.appointBox-enter, .appointBox-leave-to {
+  transform: translateX(-150%);
+  opacity: 0;
+}
 .headerBox {
   width: 100%;
 }
-
 .banner_area{
   width: 100%;
   height: 450px;
@@ -456,5 +513,174 @@ export default {
 .designer-team {
   width: 1220px; height: 560px
 }
-
+/* 脚部预约 */
+.bottom-fixed-show {
+  position: fixed;
+  bottom: 50px;
+  left: 0px;
+  width: 147px;
+  height: 113px;
+  background: url(../../../static/images/home/bottom_show.png);
+  z-index: 9998;
+  .bottom-fixed-title {
+    position: relative;
+    top: 68px;
+    left: -16px;
+    font-weight: 600;
+    font-size: 17px;
+    color: #ffe100;
+    font-family: "Microsoft Yahei";
+  }
+}
+.bottom-fixed-box{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 9998;
+  width: 100%;
+  height: 180px;
+  .bottom-fixed-bg{
+    position: absolute;
+    bottom: 0;
+    z-index: 5;
+    width: 100%;
+    height: 180px;
+    background-color: #000;
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+    -moz-opacity: 0.7;
+    -webkit-opacity: 0.7;
+    -ms-opacity: 0.7;
+  }
+  .no-filter{
+    position: absolute;
+    bottom: 0;
+    z-index: 5;
+    width: 100%;
+    height: 180px;
+    .bottom-wrap-box{
+      position: relative;
+      width: 1200px;
+      height: 180px;
+      padding-top: 0;
+      margin: 0 auto;
+      .bottom-warp-left {
+        float: left;
+        position: relative;
+        width: 568px;
+        height: 210px;
+        margin-top: -49px;
+        background: url(../../../static/images/home/bottom_img_left.png) no-repeat;
+        .warp-left-number {
+          font-family: 'Microsoft Yahei', arial, helvetica;
+          position: absolute;
+          right: 60px;
+          bottom: 44px;
+          width: 109px;
+          height: 58px;
+          line-height: 58px;
+          font-size: 50px;
+          font-weight: 600;
+          text-align: center;
+          color: #fa5c5c;
+        }
+      }
+      .bottom-warp-center {
+        float: left;
+        margin-left: 30px;
+        .pe-body{
+          float: left;
+          width: 272px;
+          padding-top: 22px;
+          form{
+            padding-top:10px;
+            width: 272px;
+            p{
+              .pe-select {
+                padding: 2px 10px;
+                font-size: 16px;
+              }
+              .pe-pro,.pe-ciy{
+                width: 122px;
+              }
+              &.pe-input {
+                  height: 28px;
+                  padding: 0 10px;
+                  input{
+                      line-height: 28px;
+                      height: 28px;
+                  }
+              }
+            }
+            .pe-code{
+                .pe-input{
+                  width: 150px;
+                }
+                #pe-send {
+                    height: 28px;
+                    width: 110px;
+                }
+            }
+            .pe-submit {
+                height: 32px;
+                width: 130px;
+            }
+          }
+        }
+        .warp-center-btn {
+          float: left;
+          width: 95px;
+          margin-left: 10px;
+          padding-top: 22px;
+          .center-btn-logo {
+            display: inline-block;
+            width: 50px;
+            height: 58px;
+            background: url(../../../static/images/home/bottom-imgs.png) -115px 0 no-repeat;
+            margin-top: 12px;
+            margin-left: 20px;
+          }
+          .center-btn-submit {
+            width: 95px;
+            height: 40px;
+            background: url(../../../static/images/home/bottom-imgs.png) -17px 0px no-repeat;
+            cursor: pointer;
+            margin-top: 24px;
+          }
+        }
+      }
+      .bottom-warp-right {
+        float: right;
+        width: 160px;
+        .warp-right-app {
+          float: left;
+          width: 110px;
+          height: 162px;
+          padding-top: 22px;
+          overflow: hidden;
+          .right-app-title {
+            font-size: 14px;
+            color: #fff;
+            text-align: center;
+          }
+          .right-app-img {
+            display: inline-block;
+            width: 110px;
+            height: 110px;
+            background: url(../../../static/images/home/bottom-app.png) no-repeat;
+            margin-top: 10px;
+          }
+        }
+        .bottom-warp-colse {
+          float: right;
+          width: 31px;
+          height: 31px;
+          background: url(../../../static/images/home/bottom-imgs.png) -169px 0 no-repeat;
+          margin-top: 74px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
 </style>
