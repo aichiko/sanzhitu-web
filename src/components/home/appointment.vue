@@ -83,7 +83,7 @@ export default {
   }
 }
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .package-title {
     width: 846px;
     height: 57px;

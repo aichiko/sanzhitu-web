@@ -109,7 +109,7 @@ export default {
   }
 }
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .p1 {
   height: 720px;
   background: url('../../../static/images/pack399.png') center top no-repeat;

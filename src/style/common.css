@@ -31,7 +31,7 @@ ol, ul {
 {
     width: 0px;
     height: 0px;
-    /* background-color: #F5F5F5; */
+    background-color: #F5F5F5;
 }
 
 /*定义滚动条轨道 内阴影+圆角*/
@@ -39,7 +39,7 @@ ol, ul {
 {
     -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0);
     border-radius: 10px;
-    /* background-color: #F5F5F5; */
+    background-color: #F5F5F5;
 }
 
 /*定义滑块 内阴影+圆角*/
@@ -47,7 +47,7 @@ ol, ul {
 {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-    background-color: #555;
+    background-color: #F5F5F5;
 }
 
 html,body{
@@ -78,8 +78,4 @@ html,body{
 }
 .float-right {
   float:right;
-}
-img{
-  vertical-align: top;
-  outline: 0;
 }

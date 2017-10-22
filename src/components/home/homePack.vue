@@ -5,30 +5,45 @@
         <div class="AlwBao-hd">
           <ul class="Alw-jiajubao-ul">
             <li v-for="(item , index) in lists" :index="index" :key="index" @mouseover="liHoverAction(index)">
-              <a href="#" target="_bank">{{ item }}</a>
+              <a href="#" target="_bank" :class="index == 0 ? 'first_a': 'other_a'">{{ item }}</a>
             </li>
           </ul>
         </div>
-        <div class="AlwBao-bd float-left">
+        <div class="AlwBao-bd float-left" v-if="packIndex === 0">
           <div class="AlwBao-sliderTxtbox-header">
             <h3 class="AlwBao-title">{{listData[packIndex].title}}</h3>
             <span class="AlwBao-smallTitle">{{listData[packIndex].subtitle}}</span>
           </div>
+          <hr style="height:1px;border:none;border-top:1px solid #fff; width: 670px;" />
           <div class="AlwBao-sliderTxtbox-info">
             <p>{{listData[packIndex].desc}}</p>
           </div>
           <!-- 家具包 -->
-          <div v-if="packIndex==0" class="AlwBao-sliderTxtbox-bannerText clearfix">
-            <dl v-for="content in listData[packIndex].contents" :key="content.icon">
-              <dt><i class="AlwBao-bannerText-icon" :class="content.icon"></i></dt>
-              <dd>
-                <h3>{{content.title}}</h3>
-                <p>{{content.subtitle}}</p>
-              </dd>
-            </dl>
+          <div style="width: 400px; height: 150px" class="icon-content">
+            <div class="szt-icon-title float-left" v-for="(list, index) in listData[packIndex].contents" :key="list.title">
+              <div class="icon float-left" :style="'background: url(/static/images/jiajubao/jiajubao-icon-' + (index + 1) + '.png) 0 0 no-repeat;'"></div>
+              <h3>{{list.title}}</h3>
+              <h5>{{list.subtitle}}</h5>
+            </div>
+          </div>
+        </div>
+        <div v-else class="AlwBao-bd float-left">
+          <div class="AlwBao-sliderTxtbox-header">
+            <h3 class="AlwBao-title">{{listData[packIndex].title}}</h3>
+            <span class="AlwBao-smallTitle">{{listData[packIndex].subtitle}}</span>
+          </div>
+          <hr style="height:1px;border:none;border-top:1px solid #fff; width: 670px;" />
+          <div class="AlwBao-sliderTxtbox-info">
+            <p>{{listData[packIndex].desc}}</p>
           </div>
           <!-- 其他栏目 -->
-          <div v-else class="alw-jiajubao-styleBox">
+          <div class="image-lists" v-for="(img,index)  in listData[packIndex].images " :key="index">
+            <img :src="img" alt="sanztu">
+          </div>
+        </div>
+      </div>
+    </div>
+          <!-- <div class="alw-jiajubao-styleBox">
             <div class="alw-jiajubao-styleMove">
               <a href="http://www.anlewo.com/cate-463-0-0-0-0-0-0-0-0.html" title="" target="_blank">更多<i class="alw-more-icon"></i></a>
             </div>
@@ -44,10 +59,7 @@
                 </li>
               </ul>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          </div> -->
     <div class="alw-bao-banner float-right">
       <div class="AlwBao-banner-btn">
         <a href="javascript:void(0);" class="AlwBao-banner-orderBtn js-jiajubao-yuyue" title="" @click="appointmentAction">免费预约</a>
@@ -58,107 +70,16 @@
 </template>
 
 <script>
+import {jiajubaoData} from '../../config/utils.js'
 // 家具包
 export default {
   data () {
     return {
       packIndex: 0,
-      lists: ['家具包', '客厅空间', '卧室空间', '餐厅空间'],
-      listData: [
-        {
-          title: '家具包',
-          subtitle: '  ——玩转私享空间',
-          desc: '安乐窝18件大牌家具包，集客厅空间，餐厅空间、主卧空间及次卧空间等四大空间，主流家具风格，一品一包一风格，让家居更多选择，风格搭配从此不纠结。',
-          contents: [
-            {
-              title: '大品牌',
-              subtitle: '大有来头,   汇集国内家具大牌',
-              icon: 'AlwBao-bannerText-icon5'
-            },
-            {
-              title: '好品质',
-              subtitle: '风格犀利,    打造全屋18件套',
-              icon: 'AlwBao-bannerText-icon6'
-            },
-            {
-              title: '高性价比',
-              subtitle: '51800元,    让价格回归理性',
-              icon: 'AlwBao-bannerText-icon7'
-            }
-          ]
-        },
-        {
-          title: '客厅空间',
-          subtitle: '',
-          desc: '客厅空间，涵盖沙发、茶几、电视柜，从考虑到空间，完善家的功能，让您开启家的美妙旅程。',
-          backgroundImage: '',
-          contents: [
-            {
-              title: '欧瑞家具 摩卡系列 1.5米床+双床头柜 （W07T7+WTT17+RTD17+W01T1）',
-              p_title: '宜家欧陆风风格全屋家具18件套',
-              image: 'http://www.woimg.com/shop/store/goods/1/2017/01/1_05371029883490298.jpg@!product-240?1485326900'
-            },
-            {
-              title: '四海美家 简欧风格 卧室小包 223床D(皮屏)+床头柜',
-              p_title: '宜家欧陆风风格全屋家具18件套',
-              image: 'http://www.woimg.com/shop/store/goods/1/2016/11/1_05336595867324659.jpg@!product-240?1485326900'
-            },
-            {
-              title: '东方家庭 新中式 卧室小包套餐二  床+床头柜 1床2柜',
-              p_title: '宜家欧陆风风格全屋家具18件套',
-              image: 'http://www.woimg.com/shop/store/goods/1/2016/11/1_05336581421157780.jpg@!product-240?1485326900'
-            }
-          ]
-        },
-        {
-          title: '卧室空间',
-          subtitle: '',
-          desc: '卧房空间，卧房是停留最长的地方，一张舒适的床，是梦开始的地方。',
-          backgroundImage: '',
-          contents: [
-            {
-              title: '崇雅家具 茶几C2283L00+电视柜 D2283L00',
-              p_title: '宜家欧陆风风格全屋家具18件套',
-              image: 'http://www.woimg.com/shop/store/goods/1/2017/01/1_05377293391451682.jpg@!product-240?1485327027'
-            },
-            {
-              title: '四海美家 欧式 M08长几D+M08客厅矮柜 C2.0米',
-              p_title: '宜家欧陆风风格全屋家具18件套',
-              image: 'http://www.woimg.com/shop/store/goods/1/2016/11/1_05338208475204539.jpg@!product-240?1485327027'
-            },
-            {
-              title: '欧瑞家具 摩卡系列 茶几WE313AS+WE313B 地柜WN13B',
-              p_title: '宜家欧陆风风格全屋家具18件套',
-              image: 'http://www.woimg.com/shop/store/goods/1/2017/01/1_05371001347072981.jpg@!product-240?1485327027'
-            }
-          ]
-        },
-        {
-          title: '餐厅空间',
-          subtitle: '',
-          desc: '餐厅空间由餐桌与餐椅构成，辅以餐边柜、酒柜、吧台等家具，享受属于自己的温馨浪漫。',
-          backgroundImage: '',
-          contents: [
-            {
-              title: '崇雅家具 餐台A2283L00+餐椅B2265A00',
-              p_title: '宜家欧陆风风格全屋家具18件套',
-              image: 'http://www.woimg.com/shop/store/goods/1/2017/01/1_05377291499807663.jpg@!product-240?1485326656'
-            },
-            {
-              title: '欧瑞家具 摩卡系列 WT502餐台+WY206餐椅',
-              p_title: '宜家欧陆风风格全屋家具18件套',
-              image: 'http://www.woimg.com/shop/store/goods/1/2017/01/1_05371044581999785.jpg@!product-240?1485326656'
-            },
-            {
-              title: '四海美家 地中海风格 餐厅小包J02长餐台+J02餐椅',
-              p_title: '宜家欧陆风风格全屋家具18件套',
-              image: 'http://www.woimg.com/shop/store/goods/1/2016/11/1_05336595499862734.jpg@!product-240?1485326803'
-            }
-          ]
-        }
-      ],
+      lists: ['家电包', '全屋家电', '全屋厨电'],
+      listData: jiajubaoData,
       warpStyle: {
-        background: 'url(/static/images/AlwJiaJuBao-bg.png) 0 0 no-repeat',
+        background: 'url(/static/images/jiajubao/jiajubao-bg-1.png) 0 0 no-repeat',
         display: 'block',
         padding: 0,
         margin: 0,
@@ -169,8 +90,7 @@ export default {
   methods: {
     liHoverAction: function (index) {
       this.packIndex = index
-      var pointY = 480 * index
-      this.$refs.warp.style.backgroundPositionY = -pointY + 'px'
+      this.$refs.warp.style.background = 'url(/static/images/jiajubao/jiajubao-bg-' + (index + 1) + '.png) 0 0 no-repeat'
     },
     appointmentAction: function () {
       console.log('---------')
@@ -180,7 +100,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .alw-bao-warp {
   width: 880px;
   height: 480px;
@@ -195,24 +115,26 @@ export default {
       .Alw-jiajubao-ul {
         padding-top: 140px;
         padding-bottom: 30px;
-        li:nth-child(1) a {
+        .first_a {
+          display: block;
           width: 148px;
           height: 48px;
           line-height: 48px;
           text-align: center;
-          color: #ffe100;
+          color: #50e63c;
           font-size: 18px;
           font-weight: bold;
+          margin-bottom: 10px;
           font-family: "Arial","Microsoft YaHei";
           border: 1px solid transparent;
           background: none;
           &:hover {
-              background-color: #ffe100;
+              background-color: #50e63c;
               color: #333;
-              border-color: #ffe100;
+              border-color: #50e63c;
           }
         }
-        li a{
+        .other_a {
           display: block;
           width: 100px;
           height: 40px;
@@ -372,16 +294,15 @@ export default {
         width: 670px;
         height: 82px;
         line-height: 15px;
-        padding-top: 40px;
-        background: url(/static/images/AlwBao-menu-bg2.png) no-repeat;
+        padding-top: 150px;
+        padding-bottom: 30px;
         margin: 0 auto;
         .AlwBao-title {
           float: left;
           font-family: "Arial", "Microsoft YaHei";
-          font-size: 28px;
+          font-size: 38px;
           font-weight: bold;
-          color: #ffe100;
-          
+          color: #50e63c;
         }
         h3 {
           display: block;
@@ -399,12 +320,53 @@ export default {
           font-family: "Arial", "Microsoft YaHei";
           font-size: 28px;
           font-weight: bold;
-          color: #ffe100;
+          color: #50e63c;
         }
         .AlwBao-smallTitle {
+          margin-left: 30px;
           font-size: 20px;
           color: #fff;
           line-height: 20px;
+        }
+      }
+      .icon-content {
+        margin-left: 30px;
+        margin-top: 30px;
+        .szt-icon-title {
+          width: 180px;
+          height: 50px;
+          float: left;
+          .icon{
+            width: 34px;
+            height: 40px;
+            margin-right: 20px;
+            background: url(/static/icons/alw-banner-icon.png) -136px 0 no-repeat;
+          }
+          h3 {
+            margin-left: 10px;
+            font-size: 14px;
+            line-height: 20px;
+            color: #50e63c;
+            text-align: left;
+            font-weight: bold;
+          }
+          h5 {
+            margin-left: 10px;
+            font-size: 13px;
+            line-height: 13px;
+            color: #fff;
+            text-align: left;
+            font-weight: bold;
+          }
+        }
+      }
+      .image-lists {
+        position: relative;
+        width: 600px;
+        margin-left: 30px;
+        img {
+          float: left;
+          margin: 10px;
         }
       }
       .AlwBao-sliderTxtbox-info {

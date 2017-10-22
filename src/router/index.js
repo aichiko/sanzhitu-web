@@ -138,6 +138,7 @@ const routes = new Router({
       },
       children: [
         {
+          props: true,
           path: '/user/ash/banner',
           name: 'banner',
           component: bannerSetter,

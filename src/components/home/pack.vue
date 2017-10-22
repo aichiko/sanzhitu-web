@@ -11,18 +11,35 @@
     </div>
     <div class="pack_content float-left" :style="contentStyle" ref="content">
       <ul class="fl">
-        <li v-for="(li , index) in ul" :index="index" :key="index" @mouseover="liHoverAction(index)">
-          <a href="#" target="_bank">{{ li }}</a>
+        <li v-for="(li , index) in packData" :index="index" :key="index" @mouseover="liHoverAction(index)">
+          <a href="#" target="_bank" :class="index == 0 ? 'first_a': 'other_a'">{{ li.title }}</a>
         </li>
       </ul>
-      <div class="float-left">
-        <h1>
-          <span class="one">{{packData[packIndex].title}}</span>
-          <span class="two">{{packData[packIndex].subtitle}}</span>
-        </h1>
+      <!-- zhucaibao -->
+      <div class="float-left" v-if="packIndex === 0">
+        <div class="header-info">
+          <h3 class="title">{{packData[packIndex].title}}</h3>
+          <span class="subtitle">{{packData[packIndex].subtitle}}</span>
+        </div>
+        <hr style="height:1px;border:none;border-top:1px solid #fff; width: 670px;" />
         <p>{{packData[packIndex].desc}}</p>
-        <div v-for="(img,index)  in packData[packIndex].images " :key="index">
-          <img :src="img" alt="">
+        <div style="width: 400px; height: 150px" class="icon-content">
+          <div class="szt-icon-title float-left" v-for="(list, index) in zhucaibaoList" :key="list.h5_text">
+          <div class="icon float-left" :style="'background: url(/static/images/zhucaibao/zhucaibao-icon-' + (index+1) + '.png) 0 0 no-repeat;'"></div>
+            <h3>{{list.h3_text}}</h3>
+            <h5>{{list.h5_text}}</h5>
+          </div>
+        </div>
+      </div>
+      <div class="float-left"  v-else>
+        <div class="header-info">
+          <h3 class="title">{{packData[packIndex].title}}</h3>
+          <span class="subtitle">{{packData[packIndex].subtitle}}</span>
+        </div>
+        <hr style="height:1px;border:none;border-top:1px solid #fff; width: 670px;" />
+        <p>{{packData[packIndex].desc}}</p>
+        <div class="image-lists" v-for="(img,index)  in packData[packIndex].images " :key="index">
+          <img :src="img" alt="sanztu">
         </div>
       </div>
     </div>
@@ -30,124 +47,51 @@
 </template>
 
 <script>
+import {packData} from '../../config/utils.js'
 export default {
   props: {
-    packbanner: {
-      type: Array,
-      default: function () {
-        return []
-      }
-    },
     ul: {
       type: Array,
       default: function () {
-        return ['399主材包', '木地板', '瓷砖', '橱柜', '室内门', '洁具卫浴', '卫浴五金', '集成吊顶']
+        return ['399主材包', '瓷砖', '木地板', '橱柜', '集成吊顶', '卫浴洁具', '卫浴五金', '室内门', '开关面板']
       }
     }
   },
   data () {
     return {
-      packIndex: 0,
-      packData: [
+      zhucaibaoList: [
         {
-          title: '399主材包',
-          subtitle: '  ——38项 （主材+辅材）一包搞定',
-          desc: '汇集数十个国内外一线品牌，千款名品，包含地砖、木地板、橱柜、洁具卫浴、门、五金、集成吊顶等38项家庭装修必备主材，一站式购齐，让业主省时、省心、省力、省钱。',
-          backgroundImage: '',
-          images: [
-            '/static/images/baigao.png',
-            '/static/images/baigao.png',
-            '/static/images/baigao.png'
-          ]
+          icon: '/static/icons/icon-1.png',
+          h3_text: '名牌正品',
+          h5_text: '品牌授权 正品保障'
         },
         {
-          title: '木地板',
-          subtitle: '',
-          desc: '木地板仅限房屋使用面积的地面，含标配地脚线及防潮垫。',
-          backgroundImage: '',
-          images: [
-            '/static/images/baigao.png',
-            '/static/images/baigao.png',
-            '/static/images/baigao.png'
-          ]
+          icon: '/static/icons/icon-2.png',
+          h3_text: '实体看样',
+          h5_text: '线下体验 验收付款'
         },
         {
-          title: '瓷砖',
-          subtitle: '',
-          desc: '地砖仅限房屋使用面积的地面（不含飘窗、不含门槛石、不含波打线），包含地脚线。瓷片（墙砖）限用于厨房、卫生间的地面及墙面、阳台的地面，不包含腰线和花片。',
-          backgroundImage: '',
-          images: [
-            '/static/images/baigao.png',
-            '/static/images/baigao.png',
-            '/static/images/baigao.png'
-          ]
+          icon: '/static/icons/icon-3.png',
+          h3_text: '工厂直供',
+          h5_text: '厂家采购 杜绝回扣'
         },
         {
-          title: '橱柜',
-          subtitle: '',
-          desc: '包含地柜、台面、吊柜，标配拉手、铰链、踢脚线、洗菜盆+水龙头+下水器。',
-          backgroundImage: '',
-          images: [
-            '/static/images/baigao.png',
-            '/static/images/baigao.png',
-            '/static/images/baigao.png'
-          ]
-        },
-        {
-          title: '室内门',
-          subtitle: '',
-          desc: '室内门包含房间门、厨房推拉门、卫生间平开门，不包含入户门和阳台门，室内门均含门扇、门框、门套线、合页、锁具及门吸等配件安装到位。',
-          backgroundImage: '',
-          images: [
-            '/static/images/baigao.png',
-            '/static/images/baigao.png',
-            '/static/images/baigao.png'
-          ]
-        },
-        {
-          title: '洁具卫浴',
-          subtitle: '',
-          desc: '每个卫生间均包含1个坐便器或蹲厕及水箱一套（2选1）、1套花洒、1套浴室柜组合或单个洗手盆。',
-          backgroundImage: '',
-          images: [
-            '/static/images/baigao.png',
-            '/static/images/baigao.png',
-            '/static/images/baigao.png'
-          ]
-        },
-        {
-          title: '卫浴五金',
-          subtitle: '',
-          desc: '每个卫生间、阳台各配置1个标配水龙头，每个户型配置1个洗衣机龙头。每个卫生间配置2个地漏，每个阳台配置1个地漏。',
-          backgroundImage: '',
-          images: [
-            '/static/images/baigao.png',
-            '/static/images/baigao.png',
-            '/static/images/baigao.png',
-            '/static/images/baigao.png'
-          ]
-        },
-        {
-          title: '集成吊顶',
-          subtitle: '',
-          desc: '只用于厨房、卫生间，不包含其它区域。',
-          backgroundImage: '',
-          images: [
-            '/static/images/baigao.png',
-            '/static/images/baigao.png'
-          ]
+          icon: '/static/icons/icon-4.png',
+          h3_text: '配送安装',
+          h5_text: '五星工长 安装无忧'
         }
       ],
+      packIndex: 0,
+      packData: packData,
       contentStyle: {
-        background: 'url(/static/images/szt398bao-bg.png) 0 0 no-repeat'
+        background: 'url(/static/images/zhucaibao/zhucaibao-bg-1.png) 0 0 no-repeat'
       }
     }
   },
   methods: {
     liHoverAction: function (index) {
       this.packIndex = index
-      var pointY = 480 * index
-      this.$refs.content.style.backgroundPositionY = -pointY + 'px'
+      this.$refs.content.style.background = 'url(/static/images/zhucaibao/zhucaibao-bg-' + (index + 1) + '.png) 0 0 no-repeat'
     },
     appointmentAction: function () {
       console.log('---------')
@@ -156,7 +100,7 @@ export default {
   }
 }
 </script>
-<style scoped  lang="less">
+<style scoped  lang="less" scoped>
 .pack_banner{
   width: 300px;
   height: 480px;
@@ -237,30 +181,32 @@ export default {
   height: 480px;
   float: right;
   overflow: hidden;
-  ul.fl{
+  .fl{
     float: left;
     width: 150px;
     height: 550px;
-    padding-top: 40px;
+    padding-top: 20px;
     padding-bottom: 30px;
-    li:nth-child(1) a{
+    .first_a {
+      display: block;
       width: 148px;
       height: 48px;
       line-height: 48px;
       text-align: center;
-      color: #ffe100;
+      color: #50e63c;
       font-size: 18px;
       font-weight: bold;
+      margin-bottom: 10px;
       font-family: "Arial","Microsoft YaHei";
       border: 1px solid transparent;
       background: none;
       &:hover {
-          background-color: #ffe100;
+          background-color: #50e63c;
           color: #333;
-          border-color: #ffe100;
+          border-color: #50e63c;
       }
     }
-    li a{
+    .other_a {
       display: block;
       width: 100px;
       height: 40px;
@@ -282,45 +228,93 @@ export default {
     position: relative;
     width: 730px;
     height: 480px;
-    h1{
+    .header-info {
       width: 670px;
-      height: 42px;
+      height: 82px;
       line-height: 15px;
-      padding-top: 40px;
+      padding-top: 150px;
+      padding-bottom: 30px;
       margin: 0 auto;
+      .title {
+        float: left;
+        font-family: "Arial", "Microsoft YaHei";
+        font-size: 38px;
+        font-weight: bold;
+        color: #50e63c;
+      }
+      h3 {
+        display: block;
+        font-size: 1.17em;
+        -webkit-margin-before: 1em;
+        -webkit-margin-after: 1em;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;
+        font-weight: bold;
+        padding: 0;
+        margin: 0;
+      }
       span{
         float: left;
         font-family: "Arial", "Microsoft YaHei";
         font-size: 28px;
         font-weight: bold;
-        color: #ffe100;
+        color: #50e63c;
       }
-      span.two{
+      .subtitle {
+        margin-left: 30px;
         font-size: 20px;
         color: #fff;
         line-height: 20px;
+      }
+    }
+    .icon-content {
+      margin-left: 30px;
+      margin-top: 30px;
+      .szt-icon-title {
+        width: 180px;
+        height: 50px;
+        float: left;
+        .icon{
+          width: 34px;
+          height: 40px;
+          margin-right: 20px;
+          background: url(/static/icons/alw-banner-icon.png) -136px 0 no-repeat;
+        }
+        h3 {
+          margin-left: 10px;
+          font-size: 14px;
+          line-height: 20px;
+          color: #50e63c;
+          text-align: left;
+          font-weight: bold;
+        }
+        h5 {
+          margin-left: 10px;
+          font-size: 13px;
+          line-height: 13px;
+          color: #fff;
+          text-align: left;
+          font-weight: bold;
+        }
       }
     }
     p{
       width: 670px;
       min-height: 44px;
       margin: 0 auto;
-      margin-top: 50px;
+      margin-top: 30px;
       text-align: left;
       font-size: 14px;
       color: #fff;
       line-height: 22px;
     }
-    div{
-      width: 550px;
+    .image-lists {
+      position: relative;
+      width: 600px;
       margin-left: 30px;
-      margin-top: 90px;
-      img{
+      img {
         float: left;
-        width: 160px;
-        height: 100px;
-        margin-right: 10px;
-        margin-bottom: 10px;
+        margin: 10px;
       }
     }
   }
