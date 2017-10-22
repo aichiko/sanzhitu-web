@@ -76,7 +76,7 @@
           </div>
           <div class="bd">
               <ul v-for="(areaItem, index) in shopData.bd" :key="areaItem.area" :index="index" v-if="index==nowIndex">
-                  <li  v-for="shopItem in areaItem.shop" :key="shopItem.id">
+                  <li  v-for="(shopItem, i) in areaItem.shop" :key="shopItem.id" :class="{noborder: i%2 != 0}">
                       <a href="javascript:void(0)" class="clearfix iii" :data-lng="shopItem.lng" :data-lat="shopItem.lat" :data-id="shopItem.id" :data-type="shopItem.type" @click="mapClick(shopItem.lng, shopItem.lat)">
                           <img :src="shopItem.imgSrc">
                           <h3>
@@ -454,9 +454,12 @@ body{
                     float: left;
                     width: 591px;
                     border-right: solid 2px #787878;
-                    padding: 35px 19px 33px 18px;
+                    padding: 20px 19px 33px 18px;
                     margin-right: 18px;
                     height: 219px;
+                    &.noborder{
+                      border-right:0;
+                    }
                     a{
                         display: block;
                         text-decoration: none;
