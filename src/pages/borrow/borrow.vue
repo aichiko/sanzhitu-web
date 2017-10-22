@@ -465,7 +465,6 @@ export default {
   ul{
     li{
       float: left;
-      width: 20%;
       div{
         height:204px;
         float: left;

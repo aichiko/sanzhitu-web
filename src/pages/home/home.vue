@@ -190,7 +190,7 @@ export default {
   }
 }
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .appointIcon-enter-active {
   transition: all .8s ease .1s;
 }
@@ -505,6 +505,9 @@ export default {
       font-size: 37px;
       text-align: center;
       line-height: 125px;
+      img{
+        vertical-align:baseline;
+      }
     }
   }
 }

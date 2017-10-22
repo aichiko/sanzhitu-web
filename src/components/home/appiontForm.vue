@@ -162,5 +162,43 @@ export default {
         }
     }
 }
-
+.pe-body{
+  float: left;
+  width: 272px;
+  padding-top: 22px;
+  form{
+    padding-top:10px;
+    width: 272px;
+    p{
+      .pe-select {
+        padding: 2px 10px;
+        font-size: 16px;
+      }
+      .pe-pro,.pe-ciy{
+        width: 122px;
+      }
+      &.pe-input {
+          height: 28px;
+          padding: 0 10px;
+          input{
+              line-height: 28px;
+              height: 28px;
+          }
+      }
+    }
+    .pe-code{
+        .pe-input{
+          width: 150px;
+        }
+        #pe-send {
+            height: 28px;
+            width: 110px;
+        }
+    }
+    .pe-submit {
+        height: 32px;
+        width: 130px;
+    }
+  }
+}
 </style>
