@@ -629,8 +629,8 @@ export const shops = {
       /* 实体店 */
       shop: [
         {
-          lng: '112.410551',
-          lat: '22.582647',
+          lng: '113.410551',
+          lat: '22.532647',
           id: '18',
           type: '1',
           imgSrc: 'http://www.woimg.com/mobile/map_img/05150873486596193.jpg',
@@ -642,8 +642,8 @@ export const shops = {
           flag: '营业中'
         },
         {
-          lng: '113.470551',
-          lat: '22.572647',
+          lng: '113.410551',
+          lat: '22.532647',
           id: '18',
           type: '1',
           imgSrc: 'http://www.woimg.com/mobile/map_img/05150873486596193.jpg',
@@ -662,8 +662,8 @@ export const shops = {
       /* 实体店 */
       shop: [
         {
-          lng: '113.470551',
-          lat: '21.732647',
+          lng: '113.410551',
+          lat: '22.532647',
           id: '18',
           type: '1',
           imgSrc: 'http://www.woimg.com/mobile/map_img/05150873486596193.jpg',
@@ -682,8 +682,8 @@ export const shops = {
       /* 实体店 */
       shop: [
         {
-          lng: '112.410551',
-          lat: '21.532647',
+          lng: '113.410551',
+          lat: '22.532647',
           id: '18',
           type: '1',
           imgSrc: 'http://www.woimg.com/mobile/map_img/05150873486596193.jpg',
@@ -702,8 +702,8 @@ export const shops = {
       /* 实体店 */
       shop: [
         {
-          lng: '110.410551',
-          lat: '24.532647',
+          lng: '113.410551',
+          lat: '22.532647',
           id: '18',
           type: '1',
           imgSrc: 'http://www.woimg.com/mobile/map_img/05150873486596193.jpg',
@@ -722,8 +722,8 @@ export const shops = {
       /* 实体店 */
       shop: [
         {
-          lng: '114.410551',
-          lat: '22.532847',
+          lng: '113.410551',
+          lat: '22.532647',
           id: '18',
           type: '1',
           imgSrc: 'http://www.woimg.com/mobile/map_img/05150873486596193.jpg',
@@ -742,8 +742,8 @@ export const shops = {
       /* 实体店 */
       shop: [
         {
-          lng: '113.499551',
-          lat: '22.539647',
+          lng: '113.410551',
+          lat: '22.532647',
           id: '18',
           type: '1',
           imgSrc: 'http://www.woimg.com/mobile/map_img/05150873486596193.jpg',

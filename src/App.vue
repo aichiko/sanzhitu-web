@@ -14,7 +14,7 @@ export default {
 <style>
 @import './style/common.css';
 #app {
-  font-family: "黑体";
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

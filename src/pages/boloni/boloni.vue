@@ -4,80 +4,22 @@
       <my-header></my-header>
     </header>
     <div class="countryBanner">
-      <img src="../../../static/images/boloni/banner.png" alt="">
-    </div>
-    <div class="four">
-      <ul class="bx clearfix">
-        <li v-for="(f, i) in four">
-          <img :src="'../../../static/images/boloni/4-'+(i+1)+'.png'" height="112" width="150" alt="">
-          <div class="content">
-            <h3>{{ f.title }}</h3>
-            <p v-for="p in f.content">{{p}}</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div class="sliderBox">
-      <div class="bx clearfix">
-        <div class="pe-body float-left">
-          <h1>已有266028人预约</h1>
-          <p>输入姓名和电话号码，预约到店体验</p>
-          <form>
-            <p class="clearfix">
-                <select id="province" class="pe-select pe-pro float-left" v-model="provinceValue">
-                    <option :value="province.value" v-for="province in provinces" :key="province.value">{{province.text}}</option>
-                </select>
-                <select class="pe-select pe-ciy float-right" v-model="cityValue">
-                    <option :value="city.value" v-for="city in citys" :key="city.value">{{city.text}}</option>
-                </select>
-            </p>
-            <p class="clearfix">
-                <select id="booked_map" class="pe-select pe-map float-left">
-                    <option :value="shop.value" v-for="shop in shops" :key="shop.value">{{shop.text}}</option>
-                </select>
-            </p>
-            <p class="pe-input">
-                <input type="tel" id="booked_tel" placeholder="手机号码">
-                <span class="pe-del"></span>
-            </p>
-            <div class="pe-code clearfix">
-                <p class="pe-input">
-                    <input type="text" name="" placeholder="请输入短信验证码">
-                    <span class="pe-del"></span>
-                </p>
-                <button id="pe-send">发送验证码</button>
-            </div>
-            <button class="subAppiont" id="pe-send">免费预约</button>
-          </form>
+        <div class="bx">
+          <a class="btn">加入三只兔</a>
         </div>
-        <div class="float-right swiper-container">
-          <swiper :options="swiperOption" class="swiper-wrapper">
-            <swiper-slide class="swiper-slide">
-              <img src="../../../static/images/boloni/slider-1.png" height="432" width="773" alt="">
-            </swiper-slide>
-            <swiper-slide class="swiper-slide">
-              <img src="../../../static/images/boloni/slider-2.png" height="432" width="773" alt="">
-            </swiper-slide>
-            <swiper-slide class="swiper-slide">
-              <img src="../../../static/images/boloni/slider-3.png" height="432" width="773" alt="">
-            </swiper-slide>
-          </swiper>
-          <div class="swiper-pagination"></div>
-        </div>
-      </div>
     </div>
     <div class="offline-frame bx">
-      <h1 class="hall-title">三只兔全国线下体验馆</h1>
+      <h1 class="hall-title">三只图实体体验店</h1>
       <div class="slideTxtBox">
           <div class="hd">
               <ul>
-                  <li class="" v-for="(tab, index) in shopData.hd" :index="index" :key="'tab_'+index" @mouseover="changeSlide(index)" :class="{'on':index==nowIndex}">{{tab}}</li>
+                  <li class="" v-for="(tab, index) in shops.hd" :index="index" :key="'tab_'+index" @mouseover="changeSlide(index)" :class="{'on':index==nowIndex}">{{tab}}</li>
               </ul>
           </div>
           <div class="bd">
-              <ul v-for="(areaItem, index) in shopData.bd" :key="areaItem.area" :index="index" v-if="index==nowIndex">
-                  <li  v-for="(shopItem, i) in areaItem.shop" :key="shopItem.id" :class="{noborder: i%2 != 0}">
-                      <a href="javascript:void(0)" class="clearfix iii" :data-lng="shopItem.lng" :data-lat="shopItem.lat" :data-id="shopItem.id" :data-type="shopItem.type" @click="mapClick(shopItem.lng, shopItem.lat)">
+              <ul v-for="(areaItem, index) in shops.bd" :key="areaItem.area" :index="index" v-if="index==nowIndex">
+                  <li  v-for="shopItem in areaItem.shop" :key="shopItem.id">
+                      <a href="javascript:void(0)" class="clearfix iii" :data-lng="shopItem.lng" :data-lat="shopItem.lat" :data-id="shopItem.id" :data-type="shopItem.type" @click="mapClick">
                           <img :src="shopItem.imgSrc">
                           <h3>
                             <span class="exp-name">{{shopItem.name}}</span>
@@ -94,7 +36,7 @@
     </div>
     <ins-my></ins-my>
     <appointment v-show="isShowAppointment" @close="closeAppointment"></appointment>
-    <boloniMap :lat="lat" lng="lng" v-show="isShowMap" @on-close="closeMap"></boloniMap>
+    <boloniMap v-show="isShowMap" @on-close="closeMap"></boloniMap>
     <footer>
       <web-footer></web-footer>
     </footer>
@@ -107,49 +49,16 @@ import head from '@/components/header/head'
 import appointment from '@/components/appointment/cc_appointment'
 import boloniMap from '@/components/boloni/boloniMap'
 import webFooter from '@/components/footer/web-footer'
-import {country, shops} from '../../config/country.js'
-import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import {shops} from '../../config/country.js'
 export default {
   data () {
     return {
+      shops: shops,
       nowIndex: 0,
       isShowAppointment: false,
       isShowMap: false,
       lat: '',
-      lng: '',
-      four: [
-        {
-          title: '装修样本间',
-          content: ['软硬装全配', '感知完美装修']
-        }, {
-          title: '专属客服经理',
-          content: ['为您全面解答', '装修的各类问题']
-        }, {
-          title: '装修材料展示',
-          content: ['看得见，摸得着', '选起来更放心']
-        }, {
-          title: '施工工艺展示',
-          content: ['APP可视系统', '随时查看施工']
-        }
-      ],
-      countryData: country,
-      shopData: shops,
-      provinceIndex: 0,
-      cityIndex: 0,
-      provinceValue: '10',
-      cityValue: '11',
-      mark: 0,
-      swiperOption: {
-        pagination: '.swiper-pagination',
-        paginationClickable: true,
-        autoplay: 1500,
-        autoplayDisableOnInteraction: false,
-        autoplayStopOnLast: false,
-        loop: true,
-        paginationBulletRender: function (swiper, index, a) {
-          return '<span style="border-radius:0 !important;display: inline-block;width: 16px;    height:2px;background-color: #fff;margin-right: 10px;" class="' + a + '"></span>'
-        }
-      }
+      lng: ''
     }
   },
   components: {
@@ -157,9 +66,7 @@ export default {
     myHeader: head,
     appointment: appointment,
     boloniMap: boloniMap,
-    webFooter: webFooter,
-    swiper,
-    swiperSlide
+    webFooter: webFooter
   },
   methods: {
     changeSlide (index) {
@@ -179,235 +86,40 @@ export default {
     closeMap () {
       this.isShowMap = false
     }
-  },
-  watch: {
-    provinceValue: function (newValue) {
-      var values = this.provinces.map(function (item) {
-        return item.value
-      })
-      var index = values.indexOf(newValue)
-      this.provinceIndex = index
-      console.log('provinceIndex === ', index)
-      // 需要对cityValue进行赋值 很重要！
-      this.cityValue = this.citys[0].value
-    },
-    cityValue: function (newValue) {
-      var values = this.citys.map(function (item) {
-        return item.value
-      })
-      var index = values.indexOf(newValue)
-      this.cityIndex = index
-      console.log('cityIndex === ', index)
-    }
-  },
-  computed: {
-    provinces: function () {
-      return this.countryData.provinces
-    },
-    citys: function () {
-      return this.provinces[this.provinceIndex].citys
-    },
-    shops: function () {
-      return this.citys[this.cityIndex].shops
-    }
   }
 }
 </script>
-
 <style lang="less" scoped>
-body{
-  background-color:#fff;
-}
 .countryBanner{
     width: 100%;
-}
-.four{
-  width: 100%;
-  padding:36px 0;
-  ul{
-    li{
-      border: 2px solid #E0E0E0;
-      padding: 6px 7px;
-      overflow: hidden;
-      margin-right: 20px;
-      width: 284px;
-      float: left;
-      text-align: left;
-      &:last-child{
-        margin-right: 0;
-      }
-      img{
-        float: left;
-        margin-right:20px;
-      }
-      .content{
-        padding-top:20px;
-        h3{
-          font-size: 16px;
-          height:35px;
-          line-height: 35px;
-          color: #000;
-        }
-        p{
-          font-size: 12px;
-          line-height: 20px;
-          color: #838383;
-        }
-      }
-    }
-  }
-}
-.pe-body {
-    width: 414px;
-    height:432px;
-    display: inline-block;
-    padding:55px 40px 0px;
-    text-align:left;
-    background-color:#EDEDED;
-    h1{
-      font-size: 20px;
-      color: #000;
-    }
-    p{
-      font-size: 16px;
-      height:55px;
-      line-height: 55px;
-    }
-    form{
-        width: 100%;
-        p{
-            width: 100%;
-            height:auto;
-            margin-bottom: 12px;
-            line-height: 1.5;
-            select {
-                -webkit-appearance: menulist;
-                box-sizing: border-box;
-                align-items: center;
-                white-space: pre;
-                -webkit-rtl-ordering: logical;
-                color: black;
-                background-color: white;
-                cursor: default;
-                border: 1px solid;
-            }
-            .pe-select {
-                padding: 5px 10px;
-                border: 1px solid #262626;
-                font-size: 16px;
-                font-family: "microsoft yahei";
-            }
-            .pe-pro,.pe-ciy{
-                width: 148px;
-            }
-            .pe-map {
-                width: 100%;
-                box-sizing: border-box;
-            }
-            &.pe-input {
-                height: 33px;
-                border: 1px solid #262626;
-                background-color: #FFFFFF;
-                padding: 0 10px;
-                position: relative;
-                &.pe-error{
-                    border-color: #fe3c3c;
-                    .pe-del {
-                        display: block;
-                    }
-                }
-                input{
-                    border: 0;
-                    line-height: 33px;
-                    height: 33px;
-                    width: 100%;
-                    font-size: 16px;
-                    font-family: "microsoft yahei";
-                }
-                .pe-del {
-                    position: absolute;
-                    top: 15px;
-                    right: 10px;
-                    height: 18px;
-                    width: 18px;
-                    background: url('../../assets/appointment/pe-del.png') center top no-repeat;
-                    z-index: 99;
-                    cursor: pointer;
-                    display: none;
-                }
-            }
-
-        }
-        .pe-code{
-            margin-bottom: 13px;
-            width: 100%;
-            .pe-input{
-                width: 164px;
-                float: left;
-                margin-bottom: 0;
-            }
-            #pe-send {
-                background-color: #eaeaea;
-                border: 1px solid #262626;
-                height: 33px;
-                width: 160px;
-                float: right;
-                cursor: pointer;
-                font-size: 18px;
-                font-family: "microsoft yahei";
-            }
-        }
-        .subAppiont {
-            height: 37px;
-            width: 174px;
-            font-size: 18px;
-            line-height: 37px;
-            color: #fff;
-            background-color:#FE0000;
-            cursor: pointer;
+    height: 690px;
+    background: url('../../assets/boloni/coutryBanner.png') center top no-repeat;
+    .bx{
+        height: 690px;
+        position: relative;
+        .btn{
+            text-decoration: none;
             display: block;
-            margin:30px auto 0;
+            background-color: #ffc808;
+            padding: 10px 55px;
+            right: 260px;
+            bottom: 24px;
+            position: absolute;
+            z-index: 10;
+            font-size: 22px;
+            color: #ffffff;
         }
     }
-}
-.sliderBox{
-  .bx{
-    .swiper-container{
-      height:432px;
-      width:773px;
-      overflow:hidden;
-      .swiper-pagination{
-        position: absolute;
-        bottom:20px;
-        left: 50%;
-        margin-left: -32px;
-        span.a{
-          border-radius:0 !important;
-          display: inline-block;
-          width: 16px;
-          height:2px;
-          background-color: #fff;
-          margin-right: 10px;
-          &:last-child{
-            margin-right: 0;
-          }
-          &.swiper-pagination-bullet-active{
-            background-color:#FE0000;
-          }
-        }
-      }
-    }
-  }
 }
 .offline-frame{
     .hall-title{
         height: 44px;
         line-height: 44px;
         font-size: 38px;
-        color: #F00200;
+        color: #666;
         text-align: center;
-        margin-top: 40px;
-        margin-bottom: 30px;
+        margin-top: 65px;
+        margin-bottom: 65px;
     }
     .slideTxtBox{
         width: 100%;
@@ -417,26 +129,32 @@ body{
             height: 45px;
             line-height: 44px;
             position: relative;
-            width: 100%;
+            border-bottom: solid 1px #333;
             ul{
-                height: 40px;
-                margin:0 auto;
-                width: auto;
-                text-align: center;
+                float: left;
+                position: absolute;
+                left: 0px;
+                top: -1px;
+                height: 46px;
+                border-right: 1px solid #ddd;
                 li{
-                    display: inline-block;
-                    padding: 0 20px;
+                    float: left;
+                    padding: 0 33px;
                     cursor: pointer;
-                    font-size: 20px;
-                    border: solid 1px #000;
-                    background: #fff;
+                    font-size: 16px;
+                    border-top: solid 1px #ddd;
+                    border-left: solid 1px #ddd;
+                    background: #fafafa;
+                    font-weight: bold;
                     color: #000;
-                    margin-right: 12px;
-                    &:last-child{
-                      margin-right: 0;
-                    }
                     &.on{
-                        background: #E1E1E1;
+                        height: 47px;
+                        background: #fff;
+                        border: 1px solid #333;
+                        border-bottom: 2px solid #fff;
+                        margin-right: -1px;
+                        position: relative;
+                        z-index: 99;
                     }
                 }
             }
@@ -454,13 +172,10 @@ body{
                     position: relative;
                     float: left;
                     width: 591px;
-                    border-right: solid 2px #787878;
-                    padding: 20px 19px 33px 18px;
+                    border-right: solid 1px #ddd;
+                    padding: 35px 19px 33px 18px;
                     margin-right: 18px;
                     height: 219px;
-                    &.noborder{
-                      border-right:0;
-                    }
                     a{
                         display: block;
                         text-decoration: none;
@@ -481,12 +196,11 @@ body{
                             }
                             i{
                                 float: right;
-                                padding: 7px 15px;
+                                padding: 13px 14px;
                                 font-size: 16px;
-                                background-color: #FD0100;
-                                border-radius: 5px;
+                                background-color: #ffe100;
+                                border-radius: 3px;
                                 line-height: 1;
-                                color: #fff;
                             }
                         }
                         p{

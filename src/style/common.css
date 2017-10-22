@@ -79,7 +79,3 @@ html,body{
 .float-right {
   float:right;
 }
-img{
-  vertical-align: top;
-  outline: 0;
-}

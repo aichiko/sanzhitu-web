@@ -4,7 +4,7 @@
       <span v-for="(bar, index) in footerData.bartitles" :key="bar.title">
         <a :href="bar.href">{{bar.title}}</a>
         &nbsp;<span v-if="index != footerData.bartitles.length-1">|</span>&nbsp;
-      </span>
+      </span> 
     </p>
     <p style="padding: 0">
       {{footerData.name}}&nbsp;&nbsp;&nbsp;地址：{{footerData.address}}
@@ -44,7 +44,6 @@ export default {
   margin: 0 auto;
   padding-bottom: 10px;
   overflow: hidden;
-  width: 100%;
   p {
     color: #666;
     word-spacing: 5px;
