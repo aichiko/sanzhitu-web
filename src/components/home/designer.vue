@@ -1,7 +1,8 @@
 <template>
   <div class="designer-contain">
     <!-- 默认第一个为大长图，后面的为竖排显示的两张图 -->
-    <div class="shj_index_team_ag">
+    
+    <!-- <div class="shj_index_team_ag">
       <img src="http://www.shj.cn/statics/2017/images/ag.jpg" alt="" width="100%">
       <div class="shj_index_team_ag_hover">
         <div class="shj_index_team_ag_bg">
@@ -21,7 +22,7 @@
             <div class="shj_index_team_ag_video_play"></div>
         </div>
       </div>
-	</div>
+	  </div> -->
     <div class="">
       <ul class="shj_index_team_list">
         <li v-for="image in designers.images" :key="image.id">
@@ -34,15 +35,14 @@
             <h6>{{image.description}}</h6>
           </div>
         </li>
-			</ul>
+      </ul>
     </div>
   </div>
 </template>
 
-
-
-
 <script>
+import {designers} from '../../config/users.js'
+
 export default {
   props: {
     designers: {
@@ -52,56 +52,7 @@ export default {
           mainImage: {
             imageURL: 'http://www.shj.cn/statics/2017/images/ag.jpg'
           },
-          images: [
-            {
-              id: 0,
-              imageURL: 'http://www.shj.cn/uploadfile/2017/12/20170412022145162.jpg',
-              name: '金权',
-              position: '生活家装饰-主任设计师',
-              description: '作品：10套   经验：8年',
-              href: 'http://wh.shj.cn/shejishi/1659.html'
-            },
-            {
-              id: 0,
-              imageURL: 'http://www.shj.cn/uploadfile/2017/04/20170604111812545.jpg',
-              name: '包巍',
-              position: '生活家装饰-首席设计师',
-              description: '作品：14套   经验：10年',
-              href: 'http://wh.shj.cn/shejishi/1535.html'
-            },
-            {
-              id: 0,
-              imageURL: 'http://www.shj.cn/uploadfile/2017/04/20170604112222574.png',
-              name: '陈杰',
-              position: '生活家装饰-首席设计师',
-              description: '作品：186套   经验：8年',
-              href: 'http://wh.shj.cn/shejishi/812.html'
-            },
-            {
-              id: 0,
-              imageURL: 'http://www.shj.cn/uploadfile/2017/23/20170323054554746.jpg',
-              name: '易 华',
-              position: '生活家装饰-首席设计师',
-              description: '作品：5套   经验：12年',
-              href: 'http://wh.shj.cn/shejishi/1645.html'
-            },
-            {
-              id: 0,
-              imageURL: 'http://www.shj.cn/uploadfile/2017/25/20170325035612698.jpg',
-              name: '翟从武',
-              position: '生活家装饰-主任设计师',
-              description: '作品：10套   经验：10年',
-              href: 'http://wh.shj.cn/shejishi/1651.html'
-            },
-            {
-              id: 0,
-              imageURL: 'http://www.shj.cn/uploadfile/2017/09/20170309112459745.jpg',
-              name: '冯岚',
-              position: '生活家装饰-设计总监',
-              description: '作品：56套   经验：15年',
-              href: 'http://wh.shj.cn/shejishi/1581.html'
-            }
-          ]
+          images: designers
         }
       }
     }
@@ -111,6 +62,7 @@ export default {
     }
   },
   methods: {
+    /*
     go () {
       let img1 = document.getElementById('shj_team_bgimg1')
       let img2 = document.getElementById('shj_team_bgimg2')
@@ -150,9 +102,10 @@ export default {
         shjText.getElementsByTagName('i')[0].className = 'shj_index_team_ag_hover_icon'
       }
     }
+    */
   },
   mounted () {
-    this.go()
+    // this.go()
   }
 }
 </script>
@@ -285,9 +238,10 @@ to {height: 90px;}
 }
 
 .shj_index_team_list {
-  width: 820px;
+  width: 100%;
   height: 510px;
   float: left;
+  margin-left: 30px;
   .shj_index_team_sjs_hover {
     width: inherit;
     height: 0px;
@@ -347,7 +301,7 @@ to {height: 90px;}
     -webkit-transform: scale(1.1,1.1);
     -o-transform: scale(1.1,1.1);
   }
-  li:nth-child(4), li:nth-child(5), li:nth-child(6) {
+  li:nth-child(5), li:nth-child(6), li:nth-child(7), li:nth-child(8) {
     margin-top: 22px;
   }
 }

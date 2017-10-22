@@ -28,8 +28,10 @@ var packData = [
     backgroundImage: '',
     images: [
       '/static/images/logos/04.png',
-      '/static/images/logos/05.png',
-      '/static/images/logos/06.png'
+      '/static/images/logos/03.png',
+      '/static/images/logos/07.png',
+      '/static/images/logos/01.png',
+      '/static/images/logos/08.png'
     ]
   },
   {
@@ -38,9 +40,9 @@ var packData = [
     desc: '不限地面面积，包标配地脚线及防潮垫。',
     backgroundImage: '',
     images: [
-      '/static/images/logos/07.png',
-      '/static/images/logos/08.png',
-      '/static/images/logos/09.png'
+      '/static/images/logos/13.png',
+      '/static/images/logos/14.png',
+      '/static/images/logos/15.png'
     ]
   },
   {
@@ -49,9 +51,9 @@ var packData = [
     desc: '包含吊柜、台面、地柜，标配拉手、铰链、踢脚线、洗菜盆+水龙头+下水器。',
     backgroundImage: '',
     images: [
-      '/static/images/logos/10.png',
-      '/static/images/logos/11.png',
-      '/static/images/logos/12.png'
+      '/static/images/logos/01.png',
+      '/static/images/logos/05.png',
+      '/static/images/logos/06.png'
     ]
   },
   {
@@ -60,8 +62,9 @@ var packData = [
     desc: '只用于厨房、卫生间，不包含其它区域。',
     backgroundImage: '',
     images: [
-      '/static/images/logos/13.png',
-      '/static/images/logos/14.png'
+      '/static/images/logos/09.png',
+      '/static/images/logos/10.png',
+      '/static/images/logos/11.png'
     ]
   },
   {
@@ -70,9 +73,9 @@ var packData = [
     desc: '全套4件套 浴室柜整套+马桶／蹲便器+淋浴花洒+面盆龙头',
     backgroundImage: '',
     images: [
-      '/static/images/logos/15.png',
-      '/static/images/logos/16.png',
-      '/static/images/logos/17.png'
+      '/static/images/logos/09.png',
+      '/static/images/logos/10.png',
+      '/static/images/logos/11.png'
     ]
   },
   {
@@ -81,10 +84,12 @@ var packData = [
     desc: '挂件4件套（浴巾架+毛衣杆+马桶杯／刷+纸巾盒）\n 小五金8件套（龙头1个+洗衣机地漏1个+普通地漏+下水器2个+角阀3个）',
     backgroundImage: '',
     images: [
+      '/static/images/logos/01.png',
+      '/static/images/logos/02.png',
+      '/static/images/logos/03.png',
       '/static/images/logos/18.png',
       '/static/images/logos/19.png',
-      '/static/images/logos/20.png',
-      '/static/images/logos/21.png'
+      '/static/images/logos/20.png'
     ]
   },
   {
@@ -93,9 +98,8 @@ var packData = [
     desc: '房间门、厨房门、卫生间门，含门扇、门框、门套线、合页、锁具及门吸等配件安装到位，不包含入户门和阳台门。',
     backgroundImage: '',
     images: [
-      '/static/images/logos/20.png',
-      '/static/images/logos/21.png',
-      '/static/images/logos/22.png'
+      '/static/images/logos/16.png',
+      '/static/images/logos/17.png'
     ]
   },
   {
@@ -104,9 +108,7 @@ var packData = [
     desc: '2室一厅一厨一卫35只（白／金色）\n 3室一厅一厨一卫55只（白／金色）',
     backgroundImage: '',
     images: [
-      '/static/images/logos/23.png',
-      '/static/images/logos/24.png',
-      '/static/images/logos/25.png'
+      '/static/images/logos/12.png'
     ]
   }
 ]
@@ -140,9 +142,9 @@ var jiajubaoData = [
     desc: '客厅空间，涵盖沙发、茶几、电视柜，从考虑到空间，完善家的功能，让您开启家的美妙旅程。',
     backgroundImage: '',
     images: [
-      '/static/images/logos/23.png',
-      '/static/images/logos/24.png',
-      '/static/images/logos/25.png'
+      '/static/images/logos/27.png',
+      '/static/images/logos/26.png',
+      '/static/images/logos/06.png'
     ],
     contents: [
       {
@@ -168,6 +170,9 @@ var jiajubaoData = [
     desc: '卧房空间，卧房是停留最长的地方，一张舒适的床，是梦开始的地方。',
     backgroundImage: '',
     images: [
+      '/static/images/logos/06.png',
+      '/static/images/logos/21.png',
+      '/static/images/logos/22.png',
       '/static/images/logos/23.png',
       '/static/images/logos/24.png',
       '/static/images/logos/25.png'

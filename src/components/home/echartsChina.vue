@@ -12,8 +12,8 @@ export default {
       data: mapData,
       option: {
         title: {
-          text: '全国会员分布',
-          subtext: '（单位/人）',
+          text: '三只兔 跑中国',
+          subtext: '62 家体验店',
           x: 'center',
           textStyle: {
             color: '#424242'
