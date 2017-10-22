@@ -67,7 +67,7 @@
       </div>
     </div>
     <div class="offline-frame bx">
-      <h1 class="hall-title">三只图实体体验店</h1>
+      <h1 class="hall-title">三只兔全国线下体验馆</h1>
       <div class="slideTxtBox">
           <div class="hd">
               <ul>
@@ -77,7 +77,7 @@
           <div class="bd">
               <ul v-for="(areaItem, index) in shopData.bd" :key="areaItem.area" :index="index" v-if="index==nowIndex">
                   <li  v-for="shopItem in areaItem.shop" :key="shopItem.id">
-                      <a href="javascript:void(0)" class="clearfix iii" :data-lng="shopItem.lng" :data-lat="shopItem.lat" :data-id="shopItem.id" :data-type="shopItem.type" @click="mapClick">
+                      <a href="javascript:void(0)" class="clearfix iii" :data-lng="shopItem.lng" :data-lat="shopItem.lat" :data-id="shopItem.id" :data-type="shopItem.type" @click="mapClick(shopItem.lng, shopItem.lat)">
                           <img :src="shopItem.imgSrc">
                           <h3>
                             <span class="exp-name">{{shopItem.name}}</span>
@@ -94,7 +94,7 @@
     </div>
     <ins-my></ins-my>
     <appointment v-show="isShowAppointment" @close="closeAppointment"></appointment>
-    <boloniMap v-show="isShowMap" @on-close="closeMap"></boloniMap>
+    <boloniMap :lat="lat" lng="lng" v-show="isShowMap" @on-close="closeMap"></boloniMap>
     <footer>
       <web-footer></web-footer>
     </footer>
@@ -403,10 +403,10 @@ body{
         height: 44px;
         line-height: 44px;
         font-size: 38px;
-        color: #666;
+        color: #F00200;
         text-align: center;
-        margin-top: 65px;
-        margin-bottom: 65px;
+        margin-top: 40px;
+        margin-bottom: 30px;
     }
     .slideTxtBox{
         width: 100%;
@@ -416,32 +416,26 @@ body{
             height: 45px;
             line-height: 44px;
             position: relative;
-            border-bottom: solid 1px #333;
+            width: 100%;
             ul{
-                float: left;
-                position: absolute;
-                left: 0px;
-                top: -1px;
-                height: 46px;
-                border-right: 1px solid #ddd;
+                height: 40px;
+                margin:0 auto;
+                width: auto;
+                text-align: center;
                 li{
-                    float: left;
-                    padding: 0 33px;
+                    display: inline-block;
+                    padding: 0 20px;
                     cursor: pointer;
-                    font-size: 16px;
-                    border-top: solid 1px #ddd;
-                    border-left: solid 1px #ddd;
-                    background: #fafafa;
-                    font-weight: bold;
+                    font-size: 20px;
+                    border: solid 1px #000;
+                    background: #fff;
                     color: #000;
+                    margin-right: 12px;
+                    &:last-child{
+                      margin-right: 0;
+                    }
                     &.on{
-                        height: 47px;
-                        background: #fff;
-                        border: 1px solid #333;
-                        border-bottom: 2px solid #fff;
-                        margin-right: -1px;
-                        position: relative;
-                        z-index: 99;
+                        background: #E1E1E1;
                     }
                 }
             }
@@ -459,7 +453,7 @@ body{
                     position: relative;
                     float: left;
                     width: 591px;
-                    border-right: solid 1px #ddd;
+                    border-right: solid 2px #787878;
                     padding: 35px 19px 33px 18px;
                     margin-right: 18px;
                     height: 219px;
@@ -483,11 +477,12 @@ body{
                             }
                             i{
                                 float: right;
-                                padding: 13px 14px;
+                                padding: 7px 15px;
                                 font-size: 16px;
-                                background-color: #ffe100;
-                                border-radius: 3px;
+                                background-color: #FD0100;
+                                border-radius: 5px;
                                 line-height: 1;
+                                color: #fff;
                             }
                         }
                         p{
