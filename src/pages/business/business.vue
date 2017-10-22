@@ -85,7 +85,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .container {
   display: block;
   width: 1210px;

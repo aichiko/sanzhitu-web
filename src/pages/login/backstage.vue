@@ -7,7 +7,7 @@
 				<el-menu class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
           <el-submenu index="1">
             <template slot="title"><i class="el-icon-message"></i>基础设置</template>
-            <el-menu-item v-for="(child,index) in childrens" :key="index" :index="'1-'+(index+1)" @click="$router.push(child.path)">
+            <el-menu-item v-for="(child,index) in childrens" :key="index" :index="'1-'+(index+1)" @click="$router.push({path: child.path})">
               {{child.name}}
             </el-menu-item>
           </el-submenu>

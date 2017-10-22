@@ -26,7 +26,7 @@ export default {
   }
 }
 </script>
-<style scoped  lang="less">
+<style scoped  lang="less" scoped>
 h3{
   padding: 54px 0 15px 0;
   div{

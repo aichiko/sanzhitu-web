@@ -62,7 +62,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .swiper-all {
   width: 100%;
   position: relative;

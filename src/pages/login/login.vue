@@ -93,13 +93,14 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 
 html,body{
   width: 100%;
   background-color: #f9f9f9;
   min-width: 1200px;
 }
+
 .main {
   background-color: #f9f9f9;
   height: 100%;
