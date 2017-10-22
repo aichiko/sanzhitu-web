@@ -52,7 +52,7 @@ export default {
   }
 }
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .rm-dingwei {
   position: fixed;
   top: 0;

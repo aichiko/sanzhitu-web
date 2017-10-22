@@ -94,7 +94,7 @@ export default {
 }
 </script>
 
-<style lang="less" scope>
+<style lang="less" scoped>
 @-webkit-keyframes slidetounlock{
     0%{
         background-position:-200px 0;

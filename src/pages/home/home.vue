@@ -18,7 +18,7 @@
           <ul class="alw-service-bar clearfix">
             <li v-for="(b, i) in bar" :key="i">
               <a href="javascript: ;" class="js-yuyue">
-                <p><img src="" alt="" width="50" height="50"></p>
+                <p><img :src="'../../static/homebar-icons/icon-'+(i+1)+'.png'" alt="" width="50" height="50"></p>
                 <p>{{ b }}</p>
               </a>
               <span v-if="i!=bar.length-1"><img src="../../../static/icons/right.jpg" height="37" width="14" alt=""></span>
@@ -47,7 +47,7 @@
             </a>
           </div>
           <div style="margin-top:40px">
-            <home-pack :packbanner="packbanner" :ul='ul' v-on:appointment="showAppointmentView"></home-pack>
+            <home-pack v-on:appointment="showAppointmentView"></home-pack>
           </div>
           <div style="margin-top:40px">
             <jiajubao-pack  @appointment="showAppointmentView"></jiajubao-pack>
@@ -113,7 +113,6 @@ export default {
         }
       ],
       bar: ['在线预约', '实景体验', '签约下定', '装修方案', '施工控制', '服务评价'],
-      ul: ['399主材包', '木地板', '瓷砖', '橱柜', '室内门', '洁具卫浴', '卫浴五金', '集成吊顶'],
       packbanner: ['装修必备主材', '7类38项一包搞定']
     }
   },
@@ -149,7 +148,7 @@ export default {
   }
 }
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .headerBox {
   width: 100%;
 }

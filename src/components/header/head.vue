@@ -98,7 +98,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .header_top_box{
   width: 100%;
   background-color: #232323;

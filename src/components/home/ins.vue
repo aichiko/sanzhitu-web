@@ -12,7 +12,7 @@ export default {
   }
 }
 </script>
-<style type="text/css">
+<style type="text/css" scoped>
 #LXB_CONTAINER, #LXB_CONTAINER ins, #LXB_CONTAINER a, #LXB_CONTAINER input, #LXB_CONTAINER img, #LXB_INVITE, #LXB_INVITE ins, #LXB_INVITE a, #LXB_INVITE input, #LXB_INVITE img, #LXB_CLOSE_BTN, #LXB_CLOSE_BTN ins, #LXB_CLOSE_BTN a {
     width: auto;
     height: auto;

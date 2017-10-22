@@ -156,7 +156,7 @@ export default {
   }
 }
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .head-box,.decApp {
   width: 100%;
   img {

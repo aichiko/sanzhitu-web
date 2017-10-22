@@ -37,7 +37,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 #footer {
   font-size: 12px !important;
   text-align: center;
