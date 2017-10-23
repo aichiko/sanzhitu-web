@@ -40,7 +40,7 @@ export default {
         {
           id: 2,
           title: 'video3',
-          src: 'http://oxux1itze.bkt.clouddn.com/video2'
+          src: 'http://oxux1itze.bkt.clouddn.com/video3'
         }
       ]
     }
