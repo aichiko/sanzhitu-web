@@ -43,12 +43,17 @@ export default {
       this.center.lng = this.lng
       this.center.lat = this.lat
       this.zoom = 18
+      console.log(this.lng, this.lat)
     },
     lat: function () {
       this.center.lng = this.lng
       this.center.lat = this.lat
       this.zoom = 18
+      console.log(this.lng, this.lat)
     }
+  },
+  mounted () {
+    console.log(this.lng, this.lat)
   }
 }
 </script>

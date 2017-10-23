@@ -655,8 +655,8 @@ export const shops = {
           flag: '营业中'
         },
         {
-          lng: '113.470551',
-          lat: '22.572647',
+          lng: '116.404',
+          lat: '39.915',
           id: '18',
           type: '1',
           imgSrc: 'http://www.woimg.com/mobile/map_img/05150873486596193.jpg',
