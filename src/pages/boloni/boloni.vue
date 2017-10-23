@@ -94,7 +94,7 @@
     </div>
     <ins-my></ins-my>
     <appointment v-show="isShowAppointment" @close="closeAppointment"></appointment>
-    <boloniMap :lat="lat" lng="lng" v-show="isShowMap" @on-close="closeMap"></boloniMap>
+    <boloniMap :lat="lat" :lng="lng" v-show="isShowMap" @on-close="closeMap"></boloniMap>
     <footer>
       <web-footer></web-footer>
     </footer>
