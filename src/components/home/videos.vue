@@ -6,7 +6,7 @@
         <div class="player">
           <video id="my-player" class="video-js" 
           controls preload="auto" 
-          poster="//vjs.zencdn.net/v/oceans.png"> 
+          poster="../../static/images/loading.png"> 
            <source :src="video.src" type="video/mp4"></source>
           </video>
         </div>
@@ -35,12 +35,12 @@ export default {
         {
           id: 1,
           title: 'video2',
-          src: 'http://oxux1itze.bkt.clouddn.com/video1'
+          src: 'http://oxux1itze.bkt.clouddn.com/video2'
         },
         {
           id: 2,
           title: 'video3',
-          src: 'http://oxux1itze.bkt.clouddn.com/video1'
+          src: 'http://oxux1itze.bkt.clouddn.com/video2'
         }
       ]
     }

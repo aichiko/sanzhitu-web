@@ -1,6 +1,5 @@
 
 // 可以登录后台的用户数据
-
 export const users = [
   {
     username: 'admin',
@@ -16,6 +15,7 @@ export const users = [
   }
 ]
 
+// 设计师数据
 export const designers = [
   {
     id: 1,
