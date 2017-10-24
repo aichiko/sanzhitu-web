@@ -2,8 +2,8 @@
   <div class="designer-contain">
     <!-- 默认第一个为大长图，后面的为竖排显示的两张图 -->
     
-    <!-- <div class="shj_index_team_ag">
-      <img src="http://www.shj.cn/statics/2017/images/ag.jpg" alt="" width="100%">
+    <div class="shj_index_team_ag">
+      <img src="http://oxux1itze.bkt.clouddn.com/designers/%E9%9F%A9%E5%86%9B.png" alt="" width="100%">
       <div class="shj_index_team_ag_hover">
         <div class="shj_index_team_ag_bg">
           <img src="http://www.shj.cn/statics/2017/images/agbg.png" alt="" class="shj_index_team_ag_bgimg" id="shj_team_bgimg1" style="left:0;"><img src="http://www.shj.cn/statics/2017/images/agbg.png" alt="" class="shj_index_team_ag_bgimg" id="shj_team_bgimg2" style="left:408px;"><img src="http://www.shj.cn/statics/2017/images/agbg2.png" alt="" class="shj_index_team_ag_bgimg" id="shj_team_bgimg3" style="left:0;"><img src="http://www.shj.cn/statics/2017/images/agbg2.png" alt="" class="shj_index_team_ag_bgimg" id="shj_team_bgimg4" style="left:407.5px;">
@@ -15,14 +15,14 @@
         </div>
         <div class="shj_index_team_ag_video_box" style="display: block;">
             <video data-v="false" class="shj_index_team_ag_video" controls="controls" preload="auto">
-            <source id="mp4" type="video/mp4" src="http://storage.shjmall.cn/attachment/video/dir/b0c5ef29e17c47fdb37c4b8782213923.mp4">
-            <source id="webm" type="video/webm" src="http://storage.shjmall.cn/attachment/video/dir/b0c5ef29e17c47fdb37c4b8782213923.mp4">
-            <source id="ogv" type="video/ogg" src="http://storage.shjmall.cn/attachment/video/dir/b0c5ef29e17c47fdb37c4b8782213923.mp4">
+            <source id="mp4" type="video/mp4" src="http://oxux1itze.bkt.clouddn.com/video4">
+            <source id="webm" type="video/webm" src="http://oxux1itze.bkt.clouddn.com/video4">
+            <source id="ogv" type="video/ogg" src="http://oxux1itze.bkt.clouddn.com/video4">
             </video>
-            <div class="shj_index_team_ag_video_play"></div>
+            <!-- <div class="shj_index_team_ag_video_play"></div> -->
         </div>
       </div>
-	  </div> -->
+	  </div>
     <div class="">
       <ul class="shj_index_team_list">
         <li v-for="image in designers.images" :key="image.id">
@@ -62,7 +62,6 @@ export default {
     }
   },
   methods: {
-    /*
     go () {
       let img1 = document.getElementById('shj_team_bgimg1')
       let img2 = document.getElementById('shj_team_bgimg2')
@@ -102,10 +101,9 @@ export default {
         shjText.getElementsByTagName('i')[0].className = 'shj_index_team_ag_hover_icon'
       }
     }
-    */
   },
   mounted () {
-    // this.go()
+    this.go()
   }
 }
 </script>
@@ -238,10 +236,10 @@ to {height: 90px;}
 }
 
 .shj_index_team_list {
-  width: 100%;
+  width: 820px;
   height: 510px;
   float: left;
-  margin-left: 30px;
+  // margin-left: 30px;
   .shj_index_team_sjs_hover {
     width: inherit;
     height: 0px;
@@ -301,7 +299,7 @@ to {height: 90px;}
     -webkit-transform: scale(1.1,1.1);
     -o-transform: scale(1.1,1.1);
   }
-  li:nth-child(5), li:nth-child(6), li:nth-child(7), li:nth-child(8) {
+  li:nth-child(4), li:nth-child(5), li:nth-child(6) {
     margin-top: 22px;
   }
 }

@@ -63,19 +63,19 @@ export default {
       design: [
         {
           title: '地中海风格',
-          img: '../../../static/images/decoration/desgin.png'
+          img: '../../../static/images/decoration/desgin-1.png'
         },
         {
           title: '中式风格',
-          img: '../../../static/images/decoration/desgin.png'
+          img: '../../../static/images/decoration/desgin-3.png'
         },
         {
           title: '简约风格',
-          img: '../../../static/images/decoration/desgin.png'
+          img: '../../../static/images/decoration/desgin-2.png'
         },
         {
           title: '欧式风格',
-          img: '../../../static/images/decoration/desgin.png'
+          img: '../../../static/images/decoration/desgin-4.png'
         }
       ],
       solve: ['量房量不准', '设计图不全', '列项列不对', '算量算不准', '报价误差大', '订单全搞错', '线管乱如麻', '物料不对应', '施工总延迟', '装修不透明']

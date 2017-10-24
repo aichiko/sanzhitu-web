@@ -15,16 +15,13 @@
                 </select>
             </p>
             <p class="pe-input">
+                <input type="tel" id="booked_name" placeholder="您的姓名">
+                <span class="pe-del"></span>
+            </p>
+            <p class="pe-input">
                 <input type="tel" id="booked_tel" placeholder="手机号码">
                 <span class="pe-del"></span>
             </p>
-            <div class="pe-code clearfix">
-                <p class="pe-input">
-                    <input type="text" name="" placeholder="请输入短信验证码">
-                    <span class="pe-del"></span>
-                </p>
-                <button id="pe-send">发送验证码</button>
-            </div>
           </form>
       </div>
 </template>

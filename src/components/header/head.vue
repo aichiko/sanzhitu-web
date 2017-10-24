@@ -17,7 +17,7 @@
     <div class="header_tabbar_box">
       <div class="header_tabbar bx">
         <div class="szt-logo">
-          <a href="#">
+          <a href="home">
             <img src="../../assets/szt_logo.png" alt="三只兔logo" title="三只兔" width="160" height="60">
           </a>
         </div>

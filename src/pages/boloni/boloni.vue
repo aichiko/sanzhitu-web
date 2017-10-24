@@ -53,13 +53,13 @@
         <div class="float-right swiper-container">
           <swiper :options="swiperOption" class="swiper-wrapper">
             <swiper-slide class="swiper-slide">
-              <img src="../../../static/images/boloni/slider-1.png" height="432" width="773" alt="">
+              <img src="http://oxux1itze.bkt.clouddn.com/boloni/banner-1.png" height="432" width="773" alt="">
             </swiper-slide>
             <swiper-slide class="swiper-slide">
-              <img src="../../../static/images/boloni/slider-2.png" height="432" width="773" alt="">
+              <img src="http://oxux1itze.bkt.clouddn.com/boloni/banner-2.png" height="432" width="773" alt="">
             </swiper-slide>
             <swiper-slide class="swiper-slide">
-              <img src="../../../static/images/boloni/slider-3.png" height="432" width="773" alt="">
+              <img src="http://oxux1itze.bkt.clouddn.com/boloni/banner-3.png" height="432" width="773" alt="">
             </swiper-slide>
           </swiper>
           <div class="swiper-pagination"></div>

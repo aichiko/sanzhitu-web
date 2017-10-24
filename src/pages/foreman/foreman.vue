@@ -42,6 +42,7 @@ export default {
   }
 }
 </script>
+
 <style lang="less" scoped>
 .index_center {
   background: #fff;
