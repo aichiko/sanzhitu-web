@@ -4,7 +4,7 @@
   <div class="dingwei-con" style="height: 800px; top: 30px;">
     <i class="icon-dingwei-c" id="close_dingwei" @click="closeMyself"></i>
     <div class="box">
-      <div class="title">安乐窝体验馆地图导航</div>
+      <div class="title">三只兔体验馆地图导航</div>
       <baidu-map  class="map" :center="center" :zoom="zoom" :scroll-wheel-zoom="true">
       	<bm-navigation anchor="BMAP_ANCHOR_TOP_LEFT"></bm-navigation>
       	<bm-marker :position="{lng: lng, lat: lat}" :dragging="true" animation="BMAP_ANIMATION_BOUNCE"></bm-marker>

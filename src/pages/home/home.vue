@@ -79,13 +79,15 @@
         <div class="no-filter">
           <div class="bottom-wrap-box bx">
             <div class="bottom-warp-left">
-                <div class="warp-left-number">71</div>
+                <!-- <div class="warp-left-number">71</div> -->
             </div>
             <div class="bottom-warp-center clearfix">
               <appoint-form></appoint-form>
               <div class="warp-center-btn">
                   <i class="center-btn-logo"></i>
-                  <div class="center-btn-submit"></div>
+                  <div class="center-btn-submit">
+                    <el-button type="primary">预约选材</el-button>
+                  </div>
               </div>
             </div>
             <div class="bottom-warp-right">
@@ -100,7 +102,7 @@
       </div>
     </transition>
     <transition name="appointIcon">
-      <a class="bottom-fixed-show" @click="showAppointBox" v-show="appointIcon"><span class="bottom-fixed-title">免费预约</span></a>
+      <a class="bottom-fixed-show" @click="showAppointBox" v-show="appointIcon"><span class="bottom-fixed-title"></span></a>
     </transition>
   </div>
 </template>
@@ -571,7 +573,7 @@ export default {
         float: left;
         position: relative;
         width: 568px;
-        height: 210px;
+        height: 240px;
         margin-top: -49px;
         background: url(../../../static/images/home/bottom_img_left.png) no-repeat;
         .warp-left-number {
@@ -632,23 +634,28 @@ export default {
         }
         .warp-center-btn {
           float: left;
-          width: 95px;
+          width: 135px;
           margin-left: 10px;
           padding-top: 22px;
           .center-btn-logo {
             display: inline-block;
-            width: 50px;
-            height: 58px;
-            background: url(../../../static/images/home/bottom-imgs.png) -115px 0 no-repeat;
-            margin-top: 12px;
-            margin-left: 20px;
+            margin-top: -10px;
+            width: 135px;
+            height: 111px;
+            background-image: url(../../../static/images/home/bottom-imgs.png);
           }
           .center-btn-submit {
-            width: 95px;
-            height: 40px;
-            background: url(../../../static/images/home/bottom-imgs.png) -17px 0px no-repeat;
+            width: 135px;
+            height: 30px;
+            // background: url(../../../static/images/home/bottom-imgs.png) -17px 0px no-repeat;
             cursor: pointer;
-            margin-top: 24px;
+            
+            margin-top: 2px;
+            .el-button--primary {
+              background-color: #34cc34;
+              color: #fff;
+              border-color: #34cc34
+            }
           }
         }
       }
@@ -678,7 +685,7 @@ export default {
           float: right;
           width: 31px;
           height: 31px;
-          background: url(../../../static/images/home/bottom-imgs.png) -169px 0 no-repeat;
+          background: url(../../../static/images/home/bottom-close.png) 0 0 no-repeat;
           margin-top: 74px;
           cursor: pointer;
         }
