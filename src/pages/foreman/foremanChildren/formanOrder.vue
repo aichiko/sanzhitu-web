@@ -34,36 +34,48 @@
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        tableData: [{
-          date: '2016-05-02',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
-        }, {
-          date: '2016-05-04',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1517 弄'
-        }, {
-          date: '2016-05-01',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1519 弄'
-        }, {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄'
-        }]
-      }
-    },
-    mounted () {
-      this.$http.get('http://sanztu.com/puser/getGJBySubstation?user_type=1&size=100&offset=0&substation_id=0').then((res) => {
-        console.log(res)
-      }, (err) => {
-        console.log(err)
-      })
+import $ from 'jquery'
+export default {
+  data () {
+    return {
+      tableData: [{
+        date: '2016-05-02',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄'
+      }, {
+        date: '2016-05-04',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1517 弄'
+      }, {
+        date: '2016-05-01',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1519 弄'
+      }, {
+        date: '2016-05-03',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1516 弄'
+      }]
     }
+  },
+  mounted () {
+    this.$http.get('http://sanztu.com/puser/getGJBySubstation?user_type=1&size=100&offset=0&substation_id=0').then((res) => {
+      console.log(res)
+    }, (err) => {
+      console.log(err)
+    })
+    $.ajax({
+      type: 'get',
+      url: 'http://sanztu.com/puser/getGJBySubstation?user_type=1&size=100&offset=0&substation_id=0&jsoncallback=?',
+      dataType: 'jsonp',
+      success: function (data) {
+        console.log(data)
+      },
+      error: function (data) {
+        console.log(data)
+      }
+    })
   }
+}
 </script>
 
 <style lang="less" scoped>
