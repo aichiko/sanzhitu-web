@@ -1,7 +1,7 @@
 <template>
 <div>
   <web-header></web-header>
-  <img src="../../../static/images/borrow/borrow.jpg" height="720" width="1920" alt="">
+  <img src="../../../static/images/borrow/borrow.jpg" height="auto" width="100%" alt="">
   <div class="b_icons">
     <ul class="bx clearfix">
       <li v-for="(i, index) in b_icons">
@@ -95,7 +95,7 @@ export default {
         }, {
           icon: '../../../static/images/borrow/b_icon03.jpg',
           sup: '利率低',
-          sub: '月利低至0.25%'
+          sub: '月利低至1.35%'
         }, {
           icon: '../../../static/images/borrow/b_icon04.jpg',
           sup: '保障高',
