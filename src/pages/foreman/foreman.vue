@@ -15,7 +15,7 @@
       </div>
       <div class="wrap1">
         <ul class="crabody one oneGJArea" id="oneGJArea">
-        <li v-for="(l, i) in newsList.rows"><img :src="l.headPic"><div class="info"><h4>{{l.realName}}<i :class="'w'+15*l.judge_score"></i></h4><p><span>工&nbsp;&nbsp;&nbsp;&nbsp;种：</span><strong>{{l.work_type}}</strong></p><p><span>服务年限：</span><strong>{{l.work_age}}年</strong></p><p><span>年 &nbsp;&nbsp;&nbsp;龄：</span><strong>{{l.age}}</strong></p><p><span>服务次数：</span><strong>{{l.service_times}}</strong></p></div></li>
+        <li v-for="(l, i) in newsList.rows"><img :src="l.headPic"><div class="info"><h4>{{l.realName}}<i :class="'w'+15*l.judge_score"></i></h4><p><span>工&nbsp;&nbsp;&nbsp;&nbsp;种：</span><strong>{{aDouble(l.work_type)}}</strong></p><p><span>服务年限：</span><strong>{{l.work_age}}年</strong></p><p><span>年 &nbsp;&nbsp;&nbsp;龄：</span><strong>{{l.age}}</strong></p><p><span>服务次数：</span><strong>{{l.service_times}}</strong></p></div></li>
         </ul>
       </div>
     </div>
@@ -40,8 +40,29 @@ export default {
     webFooter: webFooter
   },
   methods: {
+    aDouble (val) {
+      if (val === 1) {
+        return '水电工'
+      } else if (val === 2) {
+        return '木工'
+      } else if (val === 3) {
+        return '泥瓦工'
+      } else if (val === 4) {
+        return '油漆工'
+      } else if (val === 5) {
+        return '布艺'
+      } else if (val === 6) {
+        return '安装工'
+      } else if (val === 7) {
+        return '配送工'
+      } else if (val === 8) {
+        return '搬运工'
+      } else {
+        return '其他'
+      }
+    },
     pageTurn (page) {
-      this.$http.get('http://sanztu.com/puser/getGJBySubstation?user_type=1&size=100&offset=0&substation_id=0').then((res) => {
+      this.$http.get('http://sanztu.com/puser/getGJBySubstation?user_type=1&size=100&offset=' + page + '&substation_id=0').then((res) => {
         this.newsList = JSON.parse(res.data)
       }, (err) => {
         console.log(err)
