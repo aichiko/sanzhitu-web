@@ -14,6 +14,10 @@
     </ul>
   </div>
   <dec-title :title="titles[1]"></dec-title>
+  <div style="width: 100%; height: 100%; padding-left: 150px;padding-right: 150px;">
+    <img src="/static/images/decoration/pic_hd.jpg" alt="" style="width: 100%">
+  </div>
+  <dec-title :title="titles[2]"></dec-title>
   <div class="solve">
     <ul class="bx clearfix">
       <li v-for="(s, index) in solve" :class="{mr18: (index+1)%5 != 0,mt18:index > 4}">
@@ -25,11 +29,11 @@
   <div class="decApp">
     <img src="../../../static/images/decoration/decApp.jpg"  alt="图片还在加载中">
   </div>
-  <dec-title :title="titles[2]"></dec-title>
+  <dec-title :title="titles[3]"></dec-title>
   <div class="myChartBox">
     <div id="myChart" class="bx" style="width: 1000px;height:500px"></div>
   </div>
-  <dec-title :title="titles[3]"></dec-title>
+  <dec-title :title="titles[4]"></dec-title>
   <appo style="padding-bottom:100px"></appo>
 </div>
 
@@ -45,6 +49,10 @@ export default {
         {
           title: '整居设计方案',
           sup: '多种搭配，多种选择，多种方案'
+        },
+        {
+          title: '一站式共享装修',
+          sup: '给您一个精致的品质家'
         },
         {
           title: '专业解决问题',
@@ -193,7 +201,7 @@ export default {
         text-align: center;
         line-height: 49px;
         &.opacity{
-          background: rgb(254,0,0);
+          background: #000;
           filter: alpha(opacity=50);
           -moz-opacity: 0.5;
           opacity: 0.5;
@@ -220,8 +228,8 @@ export default {
       p{
         background-color: #FE0000;
         width:225px;
-        height: 58px;
-        line-height: 58px;
+        height: 48px;
+        line-height: 48px;
         overflow:hidden;
         word-wrap: nowrap;
         text-overflow:ellipsis;
