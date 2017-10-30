@@ -15,7 +15,7 @@
       </div>
       <div class="wrap1">
         <ul class="crabody one oneGJArea" id="oneGJArea">
-        <li v-for="(l, i) in newsList.rows"><img :src="l.headPic"><div class="info"><h4>{{l.realName}}<i :class="'w'+15*l.judge_score"></i></h4><p><span>工&nbsp;&nbsp;&nbsp;&nbsp;种：</span><strong>{{aDouble(l.work_type)}}</strong></p><p><span>服务年限：</span><strong>{{l.work_age}}年</strong></p><p><span>年 &nbsp;&nbsp;&nbsp;龄：</span><strong>{{l.age}}</strong></p><p><span>服务次数：</span><strong>{{l.service_times}}</strong></p></div></li>
+        <li v-for="(l, i) in newsList.rows" :key="i"><img :src="'http://sanztu.com/' + l.headPic"><div class="info"><h4>{{l.realName}}<i :class="'w'+15*l.judge_score"></i></h4><p><span>工&nbsp;&nbsp;&nbsp;&nbsp;种：</span><strong>{{aDouble(l.work_type)}}</strong></p><p><span>服务年限：</span><strong>{{l.work_age}}年</strong></p><p><span>年 &nbsp;&nbsp;&nbsp;龄：</span><strong>{{l.age}}</strong></p><p><span>服务次数：</span><strong>{{l.service_times}}</strong></p></div></li>
         </ul>
       </div>
     </div>
@@ -29,6 +29,7 @@
 <script>
 import webHeader from '@/components/header/head'
 import webFooter from '@/components/footer/web-footer'
+import $ from 'jquery'
 export default {
   data () {
     return {
@@ -62,30 +63,39 @@ export default {
       }
     },
     pageTurn (page) {
-      this.$http.get('http://sanztu.com/puser/getGJBySubstation?user_type=1&size=100&offset=' + page + '&substation_id=0').then((res) => {
-        this.newsList = JSON.parse(res.data)
+      this.$http.jsonp('http://sanztu.com/puser/getGJBySubstation?user_type=1&size=100&offset=' + page + '&substation_id=0').then((res) => {
+        console.log(res)
       }, (err) => {
         console.log(err)
       })
     },
     backPage (page) {
       if (page > 0) {
-        page--
+        page -= 100
         this.pageTurn(page)
       }
     },
     addPage (page) {
       if (page < this.newsList.page) {
-        page++
+        page += 100
         this.pageTurn(page)
       }
     }
   },
-  mounted () {
-    this.$http.get('http://sanztu.com/puser/getGJBySubstation?user_type=1&size=100&offset=0&substation_id=0').then((res) => {
-      this.newsList = JSON.parse(res.data)
-    }, (err) => {
-      console.log(err)
+  mounted: function () {
+    $.ajax({
+      url: 'http://sanztu.com/puser/getGJBySubstation?user_type=1&size=100&offset=0&substation_id=0',
+      type: 'get',
+      dataType: 'jsonp',
+      crossDomain: true,
+      data: {
+        q: 'javascript',
+        count: 1
+      },
+      success: function (response, status, xhr) {
+        console.log('状态为：' + status + ',状态是：' + xhr.statusText)
+        console.log(response)
+      }
     })
   }
 }
