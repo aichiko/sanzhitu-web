@@ -1,5 +1,8 @@
 <template>
 <div style="background:#fff;margin:0 auto;">
+  <header>
+    <web-header></web-header>
+  </header>
   <header class="head-box">
     <img src="../../assets/decoration/banner.png" alt="图片还在加载中">
   </header>
@@ -14,7 +17,7 @@
     </ul>
   </div>
   <dec-title :title="titles[1]"></dec-title>
-  <div style="width: 100%; height: 100%; padding-left: 150px;padding-right: 150px;">
+  <div class="bx clearfix">
     <img src="/static/images/decoration/pic_hd.jpg" alt="" style="width: 100%">
   </div>
   <dec-title :title="titles[2]"></dec-title>
@@ -35,6 +38,9 @@
   </div>
   <dec-title :title="titles[4]"></dec-title>
   <appo style="padding-bottom:100px"></appo>
+  <footer>
+    <web-footer></web-footer>
+  </footer>
 </div>
 
 </template>
@@ -42,6 +48,8 @@
 <script>
 import decTitle from '../../components/decoration/decTitle.vue'
 import appo from '@/components/decoration/appo'
+import webHeader from '@/components/header/head'
+import webFooter from '@/components/footer/web-footer'
 export default {
   data () {
     return {
@@ -64,8 +72,7 @@ export default {
         },
         {
           title: '更多个性化服务',
-          sup: '满足您的需求',
-          sub: '更多个性化服务'
+          sup: '满足您的需求'
         }
       ],
       design: [
@@ -90,7 +97,7 @@ export default {
     }
   },
   components: {
-    decTitle, appo
+    decTitle, appo, webHeader, webFooter
   },
   methods: {
     num (index) {
