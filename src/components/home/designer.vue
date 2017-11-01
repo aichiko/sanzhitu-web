@@ -1,7 +1,7 @@
 <template>
   <div class="designer-contain">
     <!-- 默认第一个为大长图，后面的为竖排显示的两张图 -->
-    
+
     <div class="shj_index_team_ag">
       <img src="http://oxux1itze.bkt.clouddn.com/designers/%E9%9F%A9%E5%86%9B.png" alt="" width="100%">
       <div class="shj_index_team_ag_hover">
@@ -23,43 +23,47 @@
         </div>
       </div>
 	  </div>
-    <div class="">
-      <ul class="shj_index_team_list">
-        <li v-for="image in designers.images" :key="image.id">
-          <a :href="image.href">
-          <img :src="image.imageURL" alt="" class="shj_index_team_sjsimg">
-          </a>
-          <div class="shj_index_team_sjs_hover">
-            <h3>{{image.name}}</h3>
-            <h5>{{image.position}}</h5>
-            <h6>{{image.description}}</h6>
-          </div>
-        </li>
-      </ul>
+    <div class="clearfix swiper-container" style="width:800px;overflow:hidden;margin-left:12.33px">
+      <swiper :options="swiperOption" class="swiper-wrapper">
+        <swiper-slide class="swiper-slide" v-for="designer in designers">
+          <ul class="shj_index_team_list clearfix">
+            <li v-for="image in designer.group" :key="image.id">
+              <a :href="image.href">
+              <img :src="image.imageURL" alt="" class="shj_index_team_sjsimg">
+              </a>
+              <div class="shj_index_team_sjs_hover">
+                <h3>{{image.name}}</h3>
+                <h5>{{image.position}}</h5>
+                <h6>{{image.description}}</h6>
+              </div>
+            </li>
+          </ul>
+        </swiper-slide>
+      </swiper>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
   </div>
 </template>
 
 <script>
 import {designers} from '../../config/users.js'
-
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
-  props: {
-    designers: {
-      type: Object,
-      default: function () {
-        return {
-          mainImage: {
-            imageURL: 'http://www.shj.cn/statics/2017/images/ag.jpg'
-          },
-          images: designers
-        }
-      }
-    }
-  },
   data () {
     return {
+      swiperOption: {
+        autoplay: false,
+        prevButton: '.swiper-button-prev',
+        nextButton: '.swiper-button-next',
+        loop: true
+      },
+      designers: designers
     }
+  },
+  components: {
+    swiper,
+    swiperSlide
   },
   methods: {
     go () {
@@ -109,9 +113,8 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.esigner-contain {
-  width: inherit;
-  height: 100%;
+.designer-contain {
+  width: 1220px;
   padding: 30px 0;
 }
 @keyframes open{
@@ -270,6 +273,12 @@ to {height: 90px;}
     margin-left: 12.33px;
     cursor: pointer;
     overflow: hidden;
+    &:nth-child(1){
+      margin-left: 0px;
+    }
+    &:nth-child(4){
+      margin-left: 0px;
+    }
   }
   img {
     transition: transform 0.5s;
@@ -303,7 +312,15 @@ to {height: 90px;}
     margin-top: 22px;
   }
 }
+.swiper-button-prev{display: none;}
 
+.swiper-button-next{display: none;}
+.swiper-container:hover .swiper-button-prev{
+  display: block;
+}
+.swiper-container:hover .swiper-button-next{
+  display: block;
+}
 </style>
 
 
