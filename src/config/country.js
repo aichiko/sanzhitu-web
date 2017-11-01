@@ -1,3 +1,11 @@
+import $ from 'jquery'
+
+export function getCountry () {
+  // 跨域（可跨所有域名）
+  $.getJSON('http://sanztu.com/wz/provinces/list', function (json) {
+    console.log(json)
+  })
+}
 
 export const country = {
   provinces: [
@@ -1603,4 +1611,3 @@ export const shops = {
     }
   ]
 }
-

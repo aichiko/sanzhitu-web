@@ -86,7 +86,7 @@
               <div class="warp-center-btn">
                   <i class="center-btn-logo"></i>
                   <div class="center-btn-submit">
-                    <el-button type="primary">预约选材</el-button>
+                    <el-button type="primary">预约装修</el-button>
                   </div>
               </div>
             </div>

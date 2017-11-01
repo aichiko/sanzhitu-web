@@ -25,7 +25,7 @@
 	  </div>
     <div class="clearfix swiper-container" style="width:800px;overflow:hidden;margin-left:12.33px">
       <swiper :options="swiperOption" class="swiper-wrapper">
-        <swiper-slide class="swiper-slide" v-for="designer in designers">
+        <swiper-slide class="swiper-slide" v-for="designer in designers" :key="designer.name">
           <ul class="shj_index_team_list clearfix">
             <li v-for="image in designer.group" :key="image.id">
               <a :href="image.href">

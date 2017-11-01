@@ -39,7 +39,7 @@
 
 
 <script>
-import {country} from '../../config/country.js'
+import {country, getCountry} from '../../config/country.js'
 export default {
   data () {
     return {
@@ -129,6 +129,9 @@ export default {
     appointAction: function (e) {
       console.log('免费预约')
     }
+  },
+  mounted: function () {
+    getCountry()
   }
 }
 </script>

@@ -9,13 +9,22 @@
         <p>工匠群</p>
         <div class="tl"></div>
         <div style="position:absolute; right:0; top:20px; background:#ebebeb;" id="GJtoggle">
-          <span id="upGJ" class="itemgj" :class="{currentgj: newsList.page>0}" @click="backPage(newsList.page)">&lt;</span>
-          <span id="lextGJ" class="itemgj" :class="{currentgj: newsList.page < newsList.totalPage}" @click="addPage(newsList.page)">&gt;</span>
+          <span id="upGJ" class="itemgj" :class="{currentgj: page > 0}" @click="backPage(page)">&lt;</span>
+          <span id="lextGJ" class="itemgj" :class="{currentgj: page <= this.newsList.total}" @click="addPage(page)">&gt;</span>
         </div>
       </div>
       <div class="wrap1">
         <ul class="crabody one oneGJArea" id="oneGJArea">
-        <li v-for="(l, i) in newsList.rows" :key="i"><img :src="'http://sanztu.com/' + l.headPic"><div class="info"><h4>{{l.realName}}<i :class="'w'+15*l.judge_score"></i></h4><p><span>工&nbsp;&nbsp;&nbsp;&nbsp;种：</span><strong>{{aDouble(l.work_type)}}</strong></p><p><span>服务年限：</span><strong>{{l.work_age}}年</strong></p><p><span>年 &nbsp;&nbsp;&nbsp;龄：</span><strong>{{l.age}}</strong></p><p><span>服务次数：</span><strong>{{l.service_times}}</strong></p></div></li>
+        <li v-for="(l, i) in newsList.rows" :key="i">
+          <img :src="'http://sanztu.com/' + l.headPic">
+          <div class="info">
+            <h4>{{l.realName}}<i :class="'w'+15*l.judge_score"></i></h4>
+            <p><span>工&nbsp;&nbsp;&nbsp;&nbsp;种：</span><strong>{{aDouble(l.work_type)}}</strong></p>
+            <p><span>服务年限：</span><strong>{{l.work_age}}年</strong></p>
+            <p><span>年 &nbsp;&nbsp;&nbsp;龄：</span><strong>{{l.age}}</strong></p>
+            <p><span>服务次数：</span><strong>{{l.service_times}}</strong></p>
+          </div>
+        </li>
         </ul>
       </div>
     </div>
@@ -33,7 +42,8 @@ import $ from 'jquery'
 export default {
   data () {
     return {
-      newsList: {'page': 0, 'rows': [{'age': '50', 'headPic': 'upload/20171011101526???---?????.jpg;', 'judge_score': 3, 'realName': '???', 'service_times': 123456, 'work_age': 14, 'work_type': 6}, {'age': '', 'headPic': 'upload/20161027100120??.jpg;', 'judge_score': 3, 'realName': '??', 'service_times': 696, 'work_age': 5, 'work_type': 9}, {'age': '33', 'headPic': 'upload/20160831033152622586864631965943.jpg;', 'judge_score': 5, 'realName': '???', 'service_times': 682, 'work_age': 5, 'work_type': 9}, {'age': '40', 'headPic': 'upload/20161019022950IMG_20160407_143642.jpg;', 'judge_score': 5, 'realName': '??', 'service_times': 639, 'work_age': 6, 'work_type': 9}, {'age': '', 'headPic': 'upload/20161027100154???.jpg;', 'judge_score': 3, 'realName': '???', 'service_times': 488, 'work_age': 5, 'work_type': 9}, {'age': '', 'headPic': 'upload/20161027100003??.jpg;', 'judge_score': 3, 'realName': '??', 'service_times': 476, 'work_age': 5, 'work_type': 9}, {'age': '', 'headPic': 'upload/000000.jpg;', 'judge_score': 5, 'realName': '???', 'service_times': 421, 'work_age': 10, 'work_type': 9}, {'age': '', 'headPic': 'upload/20160831032111???_??.jpg;', 'judge_score': 5, 'realName': '???', 'service_times': 356, 'work_age': 3, 'work_type': 9}, {'age': '23', 'headPic': 'upload/IMG20160321174304.jpg;', 'judge_score': 3, 'realName': '???', 'service_times': 354, 'work_age': 3, 'work_type': 9}, {'age': '', 'headPic': 'upload/20160817122911530962630591162795.jpg;', 'judge_score': 5, 'realName': '???*', 'service_times': 320, 'work_age': 10, 'work_type': 9}], 'total': 15480, 'totalPage': 0}
+      newsList: {'page': 0, 'rows': [], 'total': 15480, 'totalPage': 0},
+      page: 0
     }
   },
   components: {
@@ -62,40 +72,33 @@ export default {
         return '其他'
       }
     },
-    pageTurn (page) {
-      this.$http.jsonp('http://sanztu.com/puser/getGJBySubstation?user_type=1&size=100&offset=' + page + '&substation_id=0').then((res) => {
+    pageTurn: function (page) {
+      var that = this
+      $.getJSON('http://sanztu.com/wz/puser/getGJBySubstation?user_type=1&size=10&offset=' + page + '&substation_id=0').then((res) => {
         console.log(res)
+        that.newsList = res
       }, (err) => {
         console.log(err)
       })
     },
-    backPage (page) {
+    backPage: function (page) {
       if (page > 0) {
-        page -= 100
-        this.pageTurn(page)
+        this.page -= 10
+        this.pageTurn(this.page)
       }
     },
-    addPage (page) {
-      if (page < this.newsList.page) {
-        page += 100
-        this.pageTurn(page)
+    addPage: function (page) {
+      if (page < this.newsList.total) {
+        this.page += 10
+        this.pageTurn(this.page)
       }
     }
   },
   mounted: function () {
-    $.ajax({
-      url: 'http://sanztu.com/puser/getGJBySubstation?user_type=1&size=100&offset=0&substation_id=0',
-      type: 'get',
-      dataType: 'jsonp',
-      crossDomain: true,
-      data: {
-        q: 'javascript',
-        count: 1
-      },
-      success: function (response, status, xhr) {
-        console.log('状态为：' + status + ',状态是：' + xhr.statusText)
-        console.log(response)
-      }
+    var that = this
+    $.getJSON('http://sanztu.com/wz/puser/getGJBySubstation?user_type=1&size=10&offset=0&substation_id=0', function (res) {
+      console.log(res)
+      that.newsList = res
     })
   }
 }
