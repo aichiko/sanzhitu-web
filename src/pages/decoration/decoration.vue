@@ -1,5 +1,8 @@
 <template>
 <div style="background:#fff;margin:0 auto;">
+  <header>
+    <web-header></web-header>
+  </header>
   <header class="head-box">
     <img src="../../assets/decoration/banner.png" alt="图片还在加载中">
   </header>
@@ -14,6 +17,10 @@
     </ul>
   </div>
   <dec-title :title="titles[1]"></dec-title>
+  <div class="bx clearfix">
+    <img src="/static/images/decoration/pic_hd.jpg" alt="" style="width: 100%">
+  </div>
+  <dec-title :title="titles[2]"></dec-title>
   <div class="solve">
     <ul class="bx clearfix">
       <li v-for="(s, index) in solve" :class="{mr18: (index+1)%5 != 0,mt18:index > 4}">
@@ -25,12 +32,15 @@
   <div class="decApp">
     <img src="../../../static/images/decoration/decApp.jpg"  alt="图片还在加载中">
   </div>
-  <dec-title :title="titles[2]"></dec-title>
+  <dec-title :title="titles[3]"></dec-title>
   <div class="myChartBox">
     <div id="myChart" class="bx" style="width: 1000px;height:500px"></div>
   </div>
-  <dec-title :title="titles[3]"></dec-title>
+  <dec-title :title="titles[4]"></dec-title>
   <appo style="padding-bottom:100px"></appo>
+  <footer>
+    <web-footer></web-footer>
+  </footer>
 </div>
 
 </template>
@@ -38,6 +48,8 @@
 <script>
 import decTitle from '../../components/decoration/decTitle.vue'
 import appo from '@/components/decoration/appo'
+import webHeader from '@/components/header/head'
+import webFooter from '@/components/footer/web-footer'
 export default {
   data () {
     return {
@@ -45,6 +57,10 @@ export default {
         {
           title: '整居设计方案',
           sup: '多种搭配，多种选择，多种方案'
+        },
+        {
+          title: '一站式共享装修',
+          sup: '给您一个精致的品质家'
         },
         {
           title: '专业解决问题',
@@ -56,8 +72,7 @@ export default {
         },
         {
           title: '更多个性化服务',
-          sup: '满足您的需求',
-          sub: '更多个性化服务'
+          sup: '满足您的需求'
         }
       ],
       design: [
@@ -82,7 +97,7 @@ export default {
     }
   },
   components: {
-    decTitle, appo
+    decTitle, appo, webHeader, webFooter
   },
   methods: {
     num (index) {
@@ -193,7 +208,7 @@ export default {
         text-align: center;
         line-height: 49px;
         &.opacity{
-          background: rgb(254,0,0);
+          background: #000;
           filter: alpha(opacity=50);
           -moz-opacity: 0.5;
           opacity: 0.5;
@@ -220,8 +235,8 @@ export default {
       p{
         background-color: #FE0000;
         width:225px;
-        height: 58px;
-        line-height: 58px;
+        height: 48px;
+        line-height: 48px;
         overflow:hidden;
         word-wrap: nowrap;
         text-overflow:ellipsis;

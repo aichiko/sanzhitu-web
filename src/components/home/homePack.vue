@@ -63,7 +63,7 @@
     <div class="alw-bao-banner float-right">
       <div class="AlwBao-banner-btn">
         <a href="javascript:void(0);" class="AlwBao-banner-orderBtn js-jiajubao-yuyue" title="" @click="appointmentAction">免费预约</a>
-        <a href="http://www.anlewo.com/furniture_package.html" class="AlwBao-banner-knowBtn" title="" target="_blank">进一步了解</a>
+        <a href="/packagepro" class="AlwBao-banner-knowBtn" title="" target="_blank">进一步了解</a>
       </div>
     </div>
   </div>
