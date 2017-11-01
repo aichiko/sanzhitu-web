@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="padding-top:100px">
     <div id="myChart" style="width: 1200px;height:750px"></div>
   </div>
 </template>
@@ -12,11 +12,45 @@ export default {
       data: mapData,
       option: {
         title: {
-          text: '三只兔 跑中国',
-          subtext: '62 家体验店',
+          text: ['三只兔', '{a|·跑中国}'].join(''),
+          subtext: [['{b|  }', '{c|家体验店}'].join('\t\t'), '{d|\t\t}'].join('\n'),
           x: 'center',
+          itemGap: 20,
           textStyle: {
-            color: '#424242'
+            color: '#000000',
+            fontSize: 45,
+            rich: {
+              a: {
+                color: 'red',
+                fontSize: 45,
+                fontWeight: 'bold'
+              }
+            }
+          },
+          subtextStyle: {
+            rich: {
+              b: {
+                color: '#fff',
+                fontSize: 45,
+                fontWeight: 'bold',
+                verticalAlign: 'bottom',
+                backgroundColor: {
+                  image: '../../../static/images/home/62.jpg'
+                }
+              },
+              c: {
+                color: '#000000',
+                fontSize: 25,
+                verticalAlign: 'bottom',
+                fontWeight: 'bold'
+              },
+              d: {
+                fontSize: 35,
+                backgroundColor: {
+                  image: '../../../static/images/home/subtext.jpg'
+                }
+              }
+            }
           }
         },
         // 视觉映射组件
