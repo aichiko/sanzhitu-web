@@ -10,7 +10,11 @@
   <div class="design">
     <ul class="bx clearfix">
       <li v-for="(d, index) in design" :class="{odd:index%2==0,mt18:index > 1}">
-        <img :src="d.img" alt="">
+        <swiper :options="swiperOption" class="swiper-wrapper">
+          <swiper-slide class="swiper-slide" v-for="img in d.imgs">
+            <img :src="img" alt="">
+          </swiper-slide>
+        </swiper>
         <p class="opacity"></p>
         <p><span>{{ d.title }}</span></p>
       </li>
@@ -50,6 +54,7 @@ import decTitle from '../../components/decoration/decTitle.vue'
 import appo from '@/components/decoration/appo'
 import webHeader from '@/components/header/head'
 import webFooter from '@/components/footer/web-footer'
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
   data () {
     return {
@@ -71,33 +76,38 @@ export default {
           sup: '超出您对美好生活的期待'
         },
         {
-          title: '更多个性化服务',
-          sup: '满足您的需求'
+          title: '满足您的需求',
+          sup: '给您不一样的体验与感受'
         }
       ],
       design: [
         {
           title: '地中海风格',
-          img: '../../../static/images/decoration/desgin-1.png'
+          imgs: ['../../../static/images/decoration/desgin1-1.png', '../../../static/images/decoration/desgin1-2.png', '../../../static/images/decoration/desgin1-3.png']
         },
         {
           title: '中式风格',
-          img: '../../../static/images/decoration/desgin-3.png'
+          imgs: ['../../../static/images/decoration/desgin2-1.png', '../../../static/images/decoration/desgin2-2.png', '../../../static/images/decoration/desgin2-3.png']
         },
         {
           title: '简约风格',
-          img: '../../../static/images/decoration/desgin-2.png'
+          imgs: ['../../../static/images/decoration/desgin3-1.png', '../../../static/images/decoration/desgin3-2.png', '../../../static/images/decoration/desgin3-3.png']
         },
         {
           title: '欧式风格',
-          img: '../../../static/images/decoration/desgin-4.png'
+          imgs: ['../../../static/images/decoration/desgin4-1.png', '../../../static/images/decoration/desgin4-2.png', '../../../static/images/decoration/desgin4-3.png']
         }
       ],
-      solve: ['量房量不准', '设计图不全', '列项列不对', '算量算不准', '报价误差大', '订单全搞错', '线管乱如麻', '物料不对应', '施工总延迟', '装修不透明']
+      solve: ['量房量不准', '设计图不全', '列项列不对', '算量算不准', '报价误差大', '订单全搞错', '线管乱如麻', '物料不对应', '施工总延迟', '装修不透明'],
+      swiperOption: {
+        autoplay: 1500,
+        effect: 'cube',
+        loop: true
+      }
     }
   },
   components: {
-    decTitle, appo, webHeader, webFooter
+    decTitle, appo, webHeader, webFooter, swiper, swiperSlide
   },
   methods: {
     num (index) {
@@ -207,6 +217,7 @@ export default {
         margin-top: -24.5px;
         text-align: center;
         line-height: 49px;
+        z-index: 1;
         &.opacity{
           background: #000;
           filter: alpha(opacity=50);
@@ -216,6 +227,7 @@ export default {
         span{
           color: #fff;
           font-size:24px;
+          z-index: 2;
         }
       }
     }

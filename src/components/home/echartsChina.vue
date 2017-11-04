@@ -35,7 +35,7 @@ export default {
                 fontWeight: 'bold',
                 verticalAlign: 'bottom',
                 backgroundColor: {
-                  image: '../../../static/images/home/62.jpg'
+                  image: '../../../static/images/home/81.png'
                 }
               },
               c: {

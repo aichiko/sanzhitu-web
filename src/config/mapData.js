@@ -1,20 +1,20 @@
 export const mapData = [{
-  name: ['{e|7}', '家分店\n', '{f| 华北地区}'].join(''),
+  name: ['{e|\t9}', '家分店\n', '{f|华北地区}'].join(''),
   value: [116.46, 39.92]
 }, {
-  name: ['{e|15}', '家分店\n', '{f|\t\t\t西南地区}'].join(''),
+  name: ['{e|13}', '家分店\n', '{f|西南地区}'].join(''),
   value: [103.31, 34.19]
 }, {
-  name: ['{e|7}', '家分店\n', '{f|\t\t西北地区}'].join(''),
+  name: ['{e|\t6}', '家分店\n', '{f|西北地区}'].join(''),
   value: [88, 37.0]
 }, {
-  name: ['{e|14}', '家分店\n', '{f|\t\t\t华中地区}'].join(''),
+  name: ['{e|25}', '家分店\n', '{f|华中地区}'].join(''),
   value: [114.31, 30.52]
 }, {
-  name: ['{e|6}', '家分店\n', '{f|\t\t\t华南地区}'].join(''),
+  name: ['{e|\t7}', '家分店\n', '{f|华南地区}'].join(''),
   value: [106.54, 24.44]
 }, {
-  name: ['{e|15}', '家分店\n', '{f|\t\t\t华东地区}'].join(''),
+  name: ['{e|21}', '家分店\n', '{f|华东地区}'].join(''),
   value: [121.76, 31.05]
 }]
 
@@ -25,8 +25,8 @@ export const seriesData1 = {
   coordinateSystem: 'geo',
   data: '',
   // 标注的大小
-  symbolSize: [80, 120],
-  symbolOffset: [0, '-50%'],
+  symbolSize: [90, 90],
+  symbolOffset: ['-50%', '-50%'],
   // 标注的图形
   // symbol: 'image:///static/images/szt_icon_museumBg.png',
   // symbol: 'path://M35.025,17.608c-5.209-4.786-11.483-2.301-15.303-4.281v-1.482c0-0.41-0.333-0.743-0.743-0.743c-0.411,0-0.743,0.333-0.743,0.743v24.682c-1.855,0.104-3.261,0.59-3.261,1.175c0,0.661,1.793,1.197,4.005,1.197c2.21,0,4.003-0.536,4.003-1.197c0-0.585-1.405-1.071-3.261-1.175V26.151C24.575,24.573,28.408,17.166,35.025,17.608z',
@@ -38,20 +38,22 @@ export const seriesData1 = {
     normal: {
       formatter: '{b}',
       position: 'top',
-      distance: '-52',
+      distance: '-65',
       show: true,
       textStyle: {
         color: '#000',
         fontSize: 14,
+        fontWeight: 'bold',
         rich: {
           e: {
-            fontSize: 25,
+            fontSize: 37,
             fontWeight: 'bold',
-            color: '#000'
+            color: '#FF0000'
           },
           f: {
+            fontSize: 20,
             fontWeight: 'bold',
-            color: '#E40011'
+            color: '#000'
           }
         }
       }

@@ -605,7 +605,7 @@ export default {
             background-size: 180px 42px;
             cursor: pointer;
             display: block;
-            margin:30px auto 0;
+            margin:10px auto 0;
         }
     }
 }
