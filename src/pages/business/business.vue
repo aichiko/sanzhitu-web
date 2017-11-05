@@ -98,6 +98,7 @@
 import webHeader from '@/components/header/head'
 import webFooter from '@/components/footer/web-footer'
 import ins from '../../components/home/ins'
+import {getNews} from '../../config/country.js'
 export default {
   data () {
     return {
@@ -170,6 +171,11 @@ export default {
     webHeader: webHeader,
     webFooter: webFooter,
     insDiv: ins
+  },
+  mounted: function () {
+    getNews(function (news) {
+
+    })
   }
 }
 </script>

@@ -47,6 +47,15 @@ export function appointmentRequest (data, success) {
   })
 }
 
+export function getNews (success) {
+  $.getJSON('http://sanztu.com/wz/news/list?offset=0&size=4', {}, function (json) {
+    console.log(json)
+    if (success) {
+      success(json)
+    }
+  })
+}
+
 export const country = {
   provinces: [
     {
