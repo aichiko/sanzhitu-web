@@ -44,7 +44,7 @@
     <div id="myChart" class="bx" style="width: 1000px;height:500px"></div>
   </div>
   <dec-title :title="titles[4]"></dec-title>
-  <appo style="padding-bottom:100px"></appo>
+  <appo style="padding-bottom:100px" ></appo>
   <footer>
     <web-footer></web-footer>
   </footer>

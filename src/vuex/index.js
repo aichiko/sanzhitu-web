@@ -3,10 +3,10 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-const countryData = {
+const state = {
+  countryData: null,
+  shops: null
 }
-
-const shops = []
 
 const mutations = {
   setCountryData (state, data) {
@@ -27,8 +27,7 @@ const getters = {
 }
 
 export default new Vuex.Store({
-  countryData,
-  shops,
+  state,
   mutations,
   getters
 })

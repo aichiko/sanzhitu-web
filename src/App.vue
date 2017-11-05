@@ -12,8 +12,9 @@ export default {
   mounted: function () {
     var that = this
     getCountry(function (countryData) {
-      console.log(that.$store)
-      that.$store.commit('setCountryData', countryData.data.rows[0])
+      console.log('APP', that.$store)
+      console.log('APP', countryData)
+      that.$store.commit('setCountryData', countryData.data.rows[0].children)
     })
     getShops(function (shops) {
       that.$store.commit('setShops', shops.data.lst)

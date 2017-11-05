@@ -68,7 +68,7 @@ export default {
     countryData: function (countryData) {
       // console.log(this.$store)
       console.log(countryData)
-      this.provinces = countryData.children
+      this.provinces = countryData
       this.citys = this.provinces[this.provinceIndex].children
       this.shops = this.$store.getters.shops
       this.provinceValue = this.provinces[0].id

@@ -102,7 +102,7 @@ export default {
   },
   computed: {
     provinces: function () {
-      return this.countryData.children
+      return this.countryData
     },
     citys: function () {
       return this.provinces[this.provinceIndex].children
@@ -166,26 +166,26 @@ export default {
     }
   },
   mounted: function () {
-    // var that = this
     console.log(this.$store)
     var countryData = this.$store.getters.countryData
     this.countryData = countryData
     this.provinceValue = this.provinces[0].id
     this.cityValue = this.citys[0].id
-    // getCountry(function (countryData) {
-    //   console.log(that.$store)
-    //   that.countryData = countryData.data.rows[0]
-    //   that.$store.commit('getCountryData', countryData.data.rows[0])
-    //   that.provinceValue = that.provinces[0].id
-    //   that.cityValue = that.citys[0].id
-    // })
     var shops = this.$store.getters.shops
     this.shops = shops
     this.appointForm.experiencePavilionId = this.shops[0].id
     this.appointForm.experiencePavilionName = this.shops[0].company
+    // var that = this
+    // getCountry(function (countryData) {
+    //   console.log(that.$store)
+    //   that.countryData = countryData.data.rows[0]
+    //   that.$store.commit('setCountryData', countryData.data.rows[0])
+    //   that.provinceValue = that.provinces[0].id
+    //   that.cityValue = that.citys[0].id
+    // })
     // getShops(function (shops) {
     //   that.shops = shops.data.lst
-    //   that.$store.commit('getShops', shops.data.lst)
+    //   that.$store.commit('setShops', shops.data.lst)
     //   that.appointForm.experiencePavilionId = that.shops[0].id
     //   that.appointForm.experiencePavilionName = that.shops[0].company
     // })
