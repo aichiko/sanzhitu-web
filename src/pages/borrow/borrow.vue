@@ -67,6 +67,7 @@
     </div>
   </div>
   <web-footer></web-footer>
+  <insDiv></insDiv>
 </div>
 </template>
 <script>
@@ -75,6 +76,7 @@ import webFooter from '@/components/footer/web-footer'
 import head from '@/components/header/head'
 import decTitle from '@/components/decoration/decTitle'
 import {country} from '../../config/country.js'
+import ins from '../../components/home/ins'
 export default {
   data () {
     return {
@@ -128,7 +130,8 @@ export default {
   components: {
     webHeader: head,
     webFooter: webFooter,
-    decTitle
+    decTitle,
+    insDiv: ins
   },
   watch: {
     provinceValue: function (newValue) {

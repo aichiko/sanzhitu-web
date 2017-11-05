@@ -104,6 +104,8 @@
     <transition name="appointIcon">
       <a class="bottom-fixed-show" @click="showAppointBox" v-show="appointIcon"><span class="bottom-fixed-title"></span></a>
     </transition>
+    <insDiv></insDiv>
+    <bar></bar>
   </div>
 </template>
 
@@ -119,7 +121,8 @@ import homePack from '@/components/home/homePack'
 import designer from '@/components/home/designer'
 import ccAppointment from '@/components/appointment/cc_appointment'
 import AppointForm from '@/components/home/appiontForm'
-
+import ins from '../../components/home/ins'
+import bar from '../../components/home/bar'
 export default {
   data () {
     return {
@@ -162,7 +165,9 @@ export default {
     homeVideos: videos,
     jiajubaoPack: homePack,
     ccAppointment: ccAppointment,
-    'appoint-form': AppointForm
+    'appoint-form': AppointForm,
+    insDiv: ins,
+    bar
   },
   methods: {
     showAppointBox () {

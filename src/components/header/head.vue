@@ -7,9 +7,15 @@
         </div>
         <div class="szt-QRcode-box clearfix">
           <ul class="szt-QRcode-menu">
-            <li>app</li>
-            <li>公众号</li>
-            <li>业主群</li>
+            <li><i class="icon iconfont icon-shoujiapp"></i> <span>APP</span><div>
+              <p>扫一扫下载三只兔APP</p>
+              <img src="../../../static/images/home/bottom-app.jpeg" alt="">
+            </div></li>
+            <li><i class="icon iconfont icon-gongzhonghao"></i> <span>公众号</span><div>
+              <p>欢迎关注三只兔微信号</p>
+              <img src="../../../static/images/home/weixin.jpeg" alt="">
+            </div></li>
+            <li><a href="" style="color:#fff"><i class="icon iconfont icon-shigongjindu"></i> 施工进度</a></li>
           </ul>
         </div>
       </div>
@@ -37,7 +43,7 @@
 
 <script>
 import {contains} from '../../config/utils.js'
-
+require('../../style/font/iconfont.css')
 export default {
   data () {
     return {
@@ -127,17 +133,44 @@ export default {
 .szt-QRcode-menu {
     float: right;
 }
-.szt-QRcode-menu li {
-    float: left;
-    cursor: pointer;
-    margin-left: 18px;
-    margin-right: 5px;
-    position: relative;
-    z-index: 9999;
-    text-decoration: none;
-    color: #ddd;
+.szt-QRcode-menu li{
+  float: left;
+  cursor: pointer;
+  margin-left: 18px;
+  margin-right: 5px;
+  position: relative;
+  z-index: 9999;
+  text-decoration: none;
+  color: #ddd;
+  position: relative;
 }
-
+.szt-QRcode-menu li:hover div{
+  display: block;
+}
+.szt-QRcode-menu li div{
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  -webkit-transform: translate(-50%,0);
+     -moz-transform: translate(-50%,0);
+      -ms-transform: translate(-50%,0);
+       -o-transform: translate(-50%,0);
+          transform: translate(-50%,0);
+  padding:10px 20px;
+  display: inline-block;
+  background: #fff;
+  border: 1px solid #e4e4e4;
+  display: none;
+}
+.szt-QRcode-menu li div p{
+  color: #FE0000;
+  font-size: 12px;
+  line-height: 16px;
+}
+.szt-QRcode-menu li div img{
+  width: 110px;
+  height:110px;
+}
 .clearfix {
   display: block;
 }
