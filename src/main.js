@@ -1,6 +1,7 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+// import Vuex from 'vuex'
 import App from './App'
 import router from './router'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
@@ -10,6 +11,7 @@ import BaiduMap from 'vue-baidu-map'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import VueResource from 'vue-resource'
+import store from './vuex/'
 
 Vue.config.productionTip = false
 Vue.prototype.$echarts = echarts
@@ -19,7 +21,7 @@ require('swiper/dist/css/swiper.css')
 Vue.use(VueAwesomeSwiper)
 Vue.use(ElementUI)
 Vue.use(VueResource)
-
+// Vue.use(Vuex)
 Vue.use(BaiduMap, {
   ak: 'M6vVu8KpI54udfoarpaGS2nOI37VAouW'
 })
@@ -28,6 +30,7 @@ Vue.use(BaiduMap, {
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })

@@ -67,6 +67,7 @@
         </div>
       </div>
     </div>
+    <insDiv></insDiv>
     <transition name="el-fade-in-linear">
       <cc-appointment v-if="showAppointment" @close="hideAppointmentView"></cc-appointment>
     </transition>
@@ -119,6 +120,8 @@ import homePack from '@/components/home/homePack'
 import designer from '@/components/home/designer'
 import ccAppointment from '@/components/appointment/cc_appointment'
 import AppointForm from '@/components/home/appiontForm'
+import ins from '../../components/home/ins'
+// import {getCountry, getShops} from '../../config/country.js'
 
 export default {
   data () {
@@ -162,7 +165,8 @@ export default {
     homeVideos: videos,
     jiajubaoPack: homePack,
     ccAppointment: ccAppointment,
-    'appoint-form': AppointForm
+    'appoint-form': AppointForm,
+    insDiv: ins
   },
   methods: {
     showAppointBox () {
@@ -189,6 +193,16 @@ export default {
     hideAppointmentView: function () {
       this.showAppointment = false
     }
+  },
+  mounted: function () {
+    // var that = this
+    // getCountry(function (countryData) {
+    //   console.log(that.$store)
+    //   that.$store.commit('setCountryData', countryData.data.rows[0])
+    // })
+    // getShops(function (shops) {
+    //   that.$store.commit('setShops', shops.data.lst)
+    // })
   }
 }
 </script>

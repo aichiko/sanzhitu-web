@@ -9,11 +9,14 @@
   <dec-title :title="titles[0]"></dec-title>
   <div class="design">
     <ul class="bx clearfix">
-      <li v-for="(d, index) in design" :class="{odd:index%2==0,mt18:index > 1}">
+      <li v-for="(d, index) in design" :class="{odd:index%2==0,mt18:index > 1}" :key="index">
         <swiper :options="swiperOption" class="swiper-wrapper">
-          <swiper-slide class="swiper-slide" v-for="img in d.imgs">
+          <swiper-slide class="swiper-slide" v-for="img in d.imgs" :key="img">
             <img :src="img" alt="">
           </swiper-slide>
+          <div class="swiper-pagination" slot="pagination"></div>
+          <div class="swiper-button-prev" slot="button-prev"></div>
+          <div class="swiper-button-next" slot="button-next"></div>
         </swiper>
         <p class="opacity"></p>
         <p><span>{{ d.title }}</span></p>
@@ -27,7 +30,7 @@
   <dec-title :title="titles[2]"></dec-title>
   <div class="solve">
     <ul class="bx clearfix">
-      <li v-for="(s, index) in solve" :class="{mr18: (index+1)%5 != 0,mt18:index > 4}">
+      <li v-for="(s, index) in solve" :class="{mr18: (index+1)%5 != 0,mt18:index > 4}" :key="index">
         <img :src="'../../../static/images/decoration/solve'+ num( index ) +'.png'" >
         <p>{{ s }}</p>
       </li>
@@ -100,9 +103,13 @@ export default {
       ],
       solve: ['量房量不准', '设计图不全', '列项列不对', '算量算不准', '报价误差大', '订单全搞错', '线管乱如麻', '物料不对应', '施工总延迟', '装修不透明'],
       swiperOption: {
-        autoplay: 1500,
-        effect: 'cube',
-        loop: true
+        // autoplay: 1500,
+        // effect: 'cube',
+        loop: true,
+        paginationClickable: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        spaceBetween: 30
       }
     }
   },
@@ -182,6 +189,15 @@ export default {
 }
 </script>
 <style lang="less" scoped>
+.swiper-button-prev{display: none;}
+
+.swiper-button-next{display: none;}
+.swiper-container:hover .swiper-button-prev{
+  display: block;
+}
+.swiper-container:hover .swiper-button-next{
+  display: block;
+}
 .head-box,.decApp {
   width: 100%;
   img {

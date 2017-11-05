@@ -1,6 +1,6 @@
 <template>
   <div>
-      <ins class="lxb-container" style="height: 230px; width: 140px; border: 0px none rgb(0, 0, 0); position: fixed; display: block !important; top: 119.28px; left: 0px; background-image: url('/static/images/home/sanztu-mobile.png'); background-color: transparent;" id="LXB_CONTAINER">
+      <ins class="lxb-container" style="z-index: 999; height: 230px; width: 140px; border: 0px none rgb(0, 0, 0); position: fixed; display: block !important; top: 189.28px; left: 0px; background-image: url('/static/images/home/sanztu-mobile.png'); background-color: transparent;" id="LXB_CONTAINER">
         <ins class="lxb-hide-btn" style="left: 128px; top: 4px; width: 9px; height: 8px; z-index: 2; background-image: url(http://lxb.baidu.com/newFloat/asset/img/close.png);"></ins>
         <ins class="lxb-tl-phone" style="width: 105px; height: 47px; left: 18px; top: 128px; color: rgb(255, 255, 255); font-weight: bold; font-family: 微软雅黑; font-size: 14px; display: none;"></ins>
         <input class="lxb-cb-input" placeholder="请输入您的电话号码" style="left: 9px; top: 166px; width: 124px; height: 22px; line-height: 22px; border: 0px none rgb(0, 0, 0); z-index: 3;background-color:#fff !important;">
