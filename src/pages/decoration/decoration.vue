@@ -48,6 +48,7 @@
   <footer>
     <web-footer></web-footer>
   </footer>
+  <insDiv></insDiv>
 </div>
 
 </template>
@@ -58,6 +59,7 @@ import appo from '@/components/decoration/appo'
 import webHeader from '@/components/header/head'
 import webFooter from '@/components/footer/web-footer'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import ins from '../../components/home/ins'
 export default {
   data () {
     return {
@@ -114,7 +116,13 @@ export default {
     }
   },
   components: {
-    decTitle, appo, webHeader, webFooter, swiper, swiperSlide
+    decTitle,
+    appo,
+    webHeader,
+    webFooter,
+    swiper,
+    swiperSlide,
+    insDiv: ins
   },
   methods: {
     num (index) {

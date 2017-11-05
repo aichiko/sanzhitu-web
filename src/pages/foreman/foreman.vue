@@ -32,12 +32,14 @@
   <footer>
     <web-footer></web-footer>
   </footer>
+  <insDiv></insDiv>
 </div>
 </template>
 
 <script>
 import webHeader from '@/components/header/head'
 import webFooter from '@/components/footer/web-footer'
+import ins from '../../components/home/ins'
 import $ from 'jquery'
 export default {
   data () {
@@ -48,7 +50,8 @@ export default {
   },
   components: {
     webHeader: webHeader,
-    webFooter: webFooter
+    webFooter: webFooter,
+    insDiv: ins
   },
   methods: {
     aDouble (val) {

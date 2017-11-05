@@ -90,12 +90,14 @@
     <footer>
       <web-footer></web-footer>
     </footer>
+    <insDiv></insDiv>
   </div>
 </template>
 
 <script>
 import webHeader from '@/components/header/head'
 import webFooter from '@/components/footer/web-footer'
+import ins from '../../components/home/ins'
 export default {
   data () {
     return {
@@ -166,7 +168,8 @@ export default {
   },
   components: {
     webHeader: webHeader,
-    webFooter: webFooter
+    webFooter: webFooter,
+    insDiv: ins
   }
 }
 </script>
