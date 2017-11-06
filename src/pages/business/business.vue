@@ -15,37 +15,9 @@
       </div>
       <div class="usBottom">
         <div class="bx clearfix">
-          <div class="usLeft float-left">
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
-            这里是很多的文字哦
+          <div class="usLeft float-left" style="text-align:left;">
+            &nbsp&nbsp&nbsp&nbsp三只兔是深圳市乐装家信息科技有限公司旗下专业从事五星工长装修、安装、维修、保养和消费者价值深度挖掘的共享平台，同时承接线上天猫、京东等网上建材家居销售最后一公里的服务工作，为消费者提供快速、可靠、透明、经济、高效的平台服务；三只兔在全国各地已经建立千家服务站和数百家线下体验馆，开创行业先河的共享装修模式正在形成中国特色DIY模式；三只兔致力于以100%五星级服务，追求消费者的最大满意。<br>
+    &nbsp&nbsp&nbsp&nbsp三只兔很好的把“家、工长/工匠、材料、服务”四者有机的结合起来，无论是装修还是安装、维修、保养服务的全过程，三只兔倡导的“服务九步走+7张过程照片，让消费者家装的每个细节都被三只兔APP系统如实同步的记录下来，客户坐在电脑旁就能感受三只兔服务的工匠精神”。
           </div>
           <img class="float-right" src="../../../static/images/business/man.png" alt="">
         </div>
@@ -98,7 +70,7 @@
       <div class="bx">
         <h4><span>六大共享 保您放心</span></h4>
         <ul class="clearfix">
-          <li class="" v-for="s in six">
+          <li class="" v-for="s in six" :key="s">
             <a>
               <h3>{{ s.title }}</h3>
               <p>{{ s.p1 }}</p>
@@ -118,12 +90,15 @@
     <footer>
       <web-footer></web-footer>
     </footer>
+    <insDiv></insDiv>
   </div>
 </template>
 
 <script>
 import webHeader from '@/components/header/head'
 import webFooter from '@/components/footer/web-footer'
+import ins from '../../components/home/ins'
+import {getNews} from '../../config/country.js'
 export default {
   data () {
     return {
@@ -180,7 +155,7 @@ export default {
       }, {
         title: '共享系统',
         p1: 'APP可视化系统 销售转化系统',
-        p2: '供应链系统&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp经营管理系统'
+        p2: '供应链系统 经营管理系统'
       }, {
         title: '共享团队',
         p1: '公司员工，多为80、90后，年轻有为',
@@ -194,7 +169,13 @@ export default {
   },
   components: {
     webHeader: webHeader,
-    webFooter: webFooter
+    webFooter: webFooter,
+    insDiv: ins
+  },
+  mounted: function () {
+    getNews(function (news) {
+
+    })
   }
 }
 </script>
@@ -208,6 +189,7 @@ export default {
       width: 660px;
       padding:28px 0 14px;
       span{
+        font-weight: bold;
         display: inline-block;
         border: 3px solid #FF0020;
         color:  #FF0020;
@@ -224,7 +206,7 @@ export default {
   .usBottom{
     background-color: #F3F3F3;
     height:526px;
-    font-size: 0; 
+    font-size: 0;
     .bx{
       height:526px;
       font-size: 0;
@@ -277,6 +259,7 @@ export default {
     margin: 48px 0;
     text-align: center;
     span{
+      font-weight: bold;
       display: inline-block;
       font-size: 38px;
       color: #FE0002;
@@ -379,6 +362,7 @@ export default {
     margin: 48px 0;
     text-align: center;
     span{
+      font-weight: bold;
       display: inline-block;
       font-size: 38px;
       color: #FE0002;

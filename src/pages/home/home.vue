@@ -27,19 +27,19 @@
         </div>
         <div v-else-if="index==1" class="bx">
           <div class="alw-product-list clearfix">
-            <a class="alw-zhucaibao" href="http://www.anlewo.com/packagepro.html" target="_blank">
+            <a class="alw-zhucaibao" href="/packagepro" target="_blank">
                 <div class="alw-product-box">
                     <!-- <div class="alw-product-name"><div class="alw-product-subName" style="color: #f09808;">518<span style="font-size:14px;">元/m²</span></div>豪装主材包</div> -->
                     <!-- <p class="alw-product-describe">品牌·环保·优质</p> -->
                 </div>
             </a>
-            <a class="alw-jiajubao" href="http://www.anlewo.com/furniture_package.html" target="_blank">
+            <a class="alw-jiajubao" href="/packagepro" target="_blank">
                 <div class="alw-product-box">
                     <!-- <div class="alw-product-name"><div class="alw-product-subName" style="color: #6a3821;">18件套</div>品牌家具包</div> -->
                     <!-- <p class="alw-product-describe">卓越大牌·匠心品质</p> -->
                 </div>
             </a>
-            <a class="alw-zhengzhuangbao" href="http://www.anlewo.com/ready_package.html" target="_blank">
+            <a class="alw-zhengzhuangbao" href="/packagepro" target="_blank">
                 <div class="alw-product-box">
                     <!-- <div class="alw-product-name"><div class="alw-product-subName" style="color: #2d446f;">百变</div>整装包</div> -->
                     <!-- <p class="alw-product-describe">家居魔方·百变组合</p> -->
@@ -67,6 +67,7 @@
         </div>
       </div>
     </div>
+    <insDiv></insDiv>
     <transition name="el-fade-in-linear">
       <cc-appointment v-if="showAppointment" @close="hideAppointmentView"></cc-appointment>
     </transition>
@@ -82,13 +83,7 @@
                 <!-- <div class="warp-left-number">71</div> -->
             </div>
             <div class="bottom-warp-center clearfix">
-              <appoint-form></appoint-form>
-              <div class="warp-center-btn">
-                  <i class="center-btn-logo"></i>
-                  <div class="center-btn-submit">
-                    <el-button type="primary">预约选材</el-button>
-                  </div>
-              </div>
+              <appoint-form :countryData="countryData"></appoint-form>
             </div>
             <div class="bottom-warp-right">
               <div class="warp-right-app">
@@ -104,6 +99,8 @@
     <transition name="appointIcon">
       <a class="bottom-fixed-show" @click="showAppointBox" v-show="appointIcon"><span class="bottom-fixed-title"></span></a>
     </transition>
+    <insDiv></insDiv>
+    <bar></bar>
   </div>
 </template>
 
@@ -119,6 +116,9 @@ import homePack from '@/components/home/homePack'
 import designer from '@/components/home/designer'
 import ccAppointment from '@/components/appointment/cc_appointment'
 import AppointForm from '@/components/home/appiontForm'
+import ins from '../../components/home/ins'
+// import {getCountry, getShops} from '../../config/country.js'
+import bar from '../../components/home/bar'
 
 export default {
   data () {
@@ -148,7 +148,8 @@ export default {
       ],
       bar: ['在线预约', '实景体验', '签约下定', '装修方案', '施工控制', '服务评价'],
       ul: ['399主材包', '木地板', '瓷砖', '橱柜', '室内门', '洁具卫浴', '卫浴五金', '集成吊顶'],
-      packbanner: ['装修必备主材', '7类38项一包搞定']
+      packbanner: ['装修必备主材', '7类38项一包搞定'],
+      countryData: {}
     }
   },
   components: {
@@ -162,12 +163,15 @@ export default {
     homeVideos: videos,
     jiajubaoPack: homePack,
     ccAppointment: ccAppointment,
-    'appoint-form': AppointForm
+    'appoint-form': AppointForm,
+    insDiv: ins,
+    bar
   },
   methods: {
     showAppointBox () {
       this.appointBoxS = true
       this.appointIcon = false
+      this.countryData = this.$store.getters.countryData
     },
     closeAppoint () {
       this.appointBoxS = false
@@ -189,6 +193,16 @@ export default {
     hideAppointmentView: function () {
       this.showAppointment = false
     }
+  },
+  mounted: function () {
+    // var that = this
+    // getCountry(function (countryData) {
+    //   console.log(that.$store)
+    //   that.$store.commit('setCountryData', countryData.data.rows[0])
+    // })
+    // getShops(function (shops) {
+    //   that.$store.commit('setShops', shops.data.lst)
+    // })
   }
 }
 </script>
@@ -215,209 +229,6 @@ export default {
 }
 .banner_area{
   width: 100%;
-  height: 450px;
-  .bx{
-    position: relative;
-    width: 1180px;
-    height: 450px;
-    margin-top: 20px;
-    .fl{
-      float: left;
-      width: 230px;
-      height: 450px;
-      position: relative;
-      .firstPart-left-desc{
-        position: absolute;
-        top: 8px;
-        left: -6px;
-        width: 84px;
-        height: 48px;
-        background: url('../../assets/banners/home-mueum-desc.png') no-repeat;
-        font-size: 12px;
-        color: #fff;
-        z-index: 2;
-        padding-top: 5px;
-        padding-left: 9px;
-        p{
-          line-height: 15px;
-          i{
-            font-size: 12px;
-            font-weight: 600;
-          }
-        }
-      }
-      .firstPart-left-header {
-        position: relative;
-        width: 230px;
-        height: 216px;
-        text-align: center;
-        overflow: hidden;
-        .firstPart-left-img {
-          width: 124px;
-          height: 124px;
-          margin: 0 auto;
-          margin-top: 30px;
-          img{
-              width: 124px;
-              height: 124px;
-          }
-        }
-        .firstPart-left-imgBg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 230px;
-          height: 216px;
-          background: url(../../assets/banners/home-fristPart-bg.png) no-repeat;
-          z-index: 1;
-        }
-        .firstPart-left-name {
-          position: absolute;
-          width: 230px;
-          max-height: 40px;
-          font-size: 16px;
-          color: #333;
-          overflow: hidden;
-          margin-top: 8px;
-          font-weight: bold;
-          left: 0;
-          z-index: 6;
-        }
-        .firstPart-nav {
-          position: absolute;
-          right: 0;
-          left: 0;
-          bottom: 8px;
-          height: 18px;
-          z-index: 6;
-          text-align: center;
-          li {
-            cursor: pointer;
-            display: inline-block;
-            zoom: 1;
-            width: 8px;
-            height: 8px;
-            margin: 0 5px;
-            background: url(../../assets/banners/firstPart-nav.png) left top no-repeat;
-            vertical-align: middle;
-            overflow: hidden;
-            &.on{
-              background-position: right top;
-            }
-          }
-        }
-      }
-      .firstPart-left-body {
-        width: 230px;
-        height: 210px;
-        background-color: #fff;
-        font-size: 12px;
-        color: #333;
-        padding: 20px 20px;
-        p{
-          display: inline-block;
-          line-height: 17px;
-          label{
-            float: left;
-          }
-          span{
-            float: left;
-            width: 130px;
-            max-height: 70px;
-            overflow: hidden;
-            text-align:left;
-          }
-          &.museumHour-adress {
-            min-height: 70px;
-          }
-        }
-        .firstPart-left-btn {
-          display: block;
-          width: 160px;
-          height: 40px;
-          line-height: 40px;
-          font-size: 14px;
-          color: #333;
-          border-radius: 5px;
-          text-align: center;
-          margin: 0 auto;
-          background-color: #ffe100;
-          margin-top: 10px;
-        }
-      }
-    }
-    .fr{
-      float: right;
-      width: 930px;
-      height: 395px;
-      .alw-home-banner {
-        position: relative;
-        width: 930px;
-        height: 425px;
-        overflow: hidden;
-        .bd{
-          position: relative;
-          z-index: 0;
-        }
-      }
-      .firstPart-right-activity {
-        width: 930px;
-        height: 105px;
-        .firstPart-right-activityImg {
-          float: left;
-          width: 820px;
-          height: 105px;
-          li{
-            float: left;
-            width: 270px;
-            height: 105px;
-            overflow: hidden;
-            &.activityImg1 {
-              width: 280px;
-            }
-          }
-        }
-        .firstPart-right-activityMore {
-          display: inline-block;
-          float: right;
-          width: 110px;
-          height: 105px;
-          text-align: center;
-          font-size: 12px;
-          background-color: #fff;
-          &:hover{
-            span{
-              color: #9e7300;
-              background: url(../../assets/banners/alw-small-circle.png) -84px 0 #fff no-repeat;
-              i{
-                background: url(../../assets/banners/arrow-hover-icon.png) 0 0 no-repeat;
-              }
-            }
-          }
-          span {
-            display: block;
-            position: relative;
-            top: 11px;
-            width: 84px;
-            height: 84px;
-            line-height: 84px;
-            padding-left: 3px;
-            margin: 0 auto;
-            background: url(../../assets/banners/alw-small-circle.png) 0 0 #fff no-repeat;
-            cursor: pointer;
-            .right-arrow {
-              display: inline-block;
-              width: 14px;
-              height: 14px;
-              vertical-align: middle;
-              margin-top: 3px;
-              background: url(../../assets/banners/alw-right-arrow.png) 0 0 no-repeat;
-            }
-          }
-        }
-      }
-    }
-  }
 }
 .alw-product-list{
   a{
@@ -629,32 +440,6 @@ export default {
             .pe-submit {
                 height: 32px;
                 width: 130px;
-            }
-          }
-        }
-        .warp-center-btn {
-          float: left;
-          width: 135px;
-          margin-left: 10px;
-          padding-top: 22px;
-          .center-btn-logo {
-            display: inline-block;
-            margin-top: -10px;
-            width: 135px;
-            height: 111px;
-            background-image: url(../../../static/images/home/bottom-imgs.png);
-          }
-          .center-btn-submit {
-            width: 135px;
-            height: 30px;
-            // background: url(../../../static/images/home/bottom-imgs.png) -17px 0px no-repeat;
-            cursor: pointer;
-            
-            margin-top: 2px;
-            .el-button--primary {
-              background-color: #34cc34;
-              color: #fff;
-              border-color: #34cc34
             }
           }
         }

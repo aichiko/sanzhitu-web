@@ -1,22 +1,36 @@
 <template>
 <div style="background:#fff;margin:0 auto;">
+  <header>
+    <web-header></web-header>
+  </header>
   <header class="head-box">
     <img src="../../assets/decoration/banner.png" alt="图片还在加载中">
   </header>
   <dec-title :title="titles[0]"></dec-title>
   <div class="design">
     <ul class="bx clearfix">
-      <li v-for="(d, index) in design" :class="{odd:index%2==0,mt18:index > 1}">
-        <img :src="d.img" alt="">
+      <li v-for="(d, index) in design" :class="{odd:index%2==0,mt18:index > 1}" :key="index">
+        <swiper :options="swiperOption" class="swiper-wrapper">
+          <swiper-slide class="swiper-slide" v-for="img in d.imgs" :key="img">
+            <img :src="img" alt="">
+          </swiper-slide>
+          <div class="swiper-pagination" slot="pagination"></div>
+          <div class="swiper-button-prev" slot="button-prev"></div>
+          <div class="swiper-button-next" slot="button-next"></div>
+        </swiper>
         <p class="opacity"></p>
         <p><span>{{ d.title }}</span></p>
       </li>
     </ul>
   </div>
   <dec-title :title="titles[1]"></dec-title>
+  <div class="bx clearfix">
+    <img src="/static/images/decoration/pic_hd.jpg" alt="" style="width: 100%">
+  </div>
+  <dec-title :title="titles[2]"></dec-title>
   <div class="solve">
     <ul class="bx clearfix">
-      <li v-for="(s, index) in solve" :class="{mr18: (index+1)%5 != 0,mt18:index > 4}">
+      <li v-for="(s, index) in solve" :class="{mr18: (index+1)%5 != 0,mt18:index > 4}" :key="index">
         <img :src="'../../../static/images/decoration/solve'+ num( index ) +'.png'" >
         <p>{{ s }}</p>
       </li>
@@ -25,12 +39,16 @@
   <div class="decApp">
     <img src="../../../static/images/decoration/decApp.jpg"  alt="图片还在加载中">
   </div>
-  <dec-title :title="titles[2]"></dec-title>
+  <dec-title :title="titles[3]"></dec-title>
   <div class="myChartBox">
     <div id="myChart" class="bx" style="width: 1000px;height:500px"></div>
   </div>
-  <dec-title :title="titles[3]"></dec-title>
-  <appo style="padding-bottom:100px"></appo>
+  <dec-title :title="titles[4]"></dec-title>
+  <appo style="padding-bottom:100px" ></appo>
+  <footer>
+    <web-footer></web-footer>
+  </footer>
+  <insDiv></insDiv>
 </div>
 
 </template>
@@ -38,6 +56,10 @@
 <script>
 import decTitle from '../../components/decoration/decTitle.vue'
 import appo from '@/components/decoration/appo'
+import webHeader from '@/components/header/head'
+import webFooter from '@/components/footer/web-footer'
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import ins from '../../components/home/ins'
 export default {
   data () {
     return {
@@ -45,6 +67,10 @@ export default {
         {
           title: '整居设计方案',
           sup: '多种搭配，多种选择，多种方案'
+        },
+        {
+          title: '一站式共享装修',
+          sup: '给您一个精致的品质家'
         },
         {
           title: '专业解决问题',
@@ -55,34 +81,48 @@ export default {
           sup: '超出您对美好生活的期待'
         },
         {
-          title: '更多个性化服务',
-          sup: '满足您的需求',
-          sub: '更多个性化服务'
+          title: '满足您的需求',
+          sup: '给您不一样的体验与感受'
         }
       ],
       design: [
         {
           title: '地中海风格',
-          img: '../../../static/images/decoration/desgin-1.png'
+          imgs: ['../../../static/images/decoration/desgin1-1.png', '../../../static/images/decoration/desgin1-2.png', '../../../static/images/decoration/desgin1-3.png']
         },
         {
           title: '中式风格',
-          img: '../../../static/images/decoration/desgin-3.png'
+          imgs: ['../../../static/images/decoration/desgin2-1.png', '../../../static/images/decoration/desgin2-2.png', '../../../static/images/decoration/desgin2-3.png']
         },
         {
           title: '简约风格',
-          img: '../../../static/images/decoration/desgin-2.png'
+          imgs: ['../../../static/images/decoration/desgin3-1.png', '../../../static/images/decoration/desgin3-2.png', '../../../static/images/decoration/desgin3-3.png']
         },
         {
           title: '欧式风格',
-          img: '../../../static/images/decoration/desgin-4.png'
+          imgs: ['../../../static/images/decoration/desgin4-1.png', '../../../static/images/decoration/desgin4-2.png', '../../../static/images/decoration/desgin4-3.png']
         }
       ],
-      solve: ['量房量不准', '设计图不全', '列项列不对', '算量算不准', '报价误差大', '订单全搞错', '线管乱如麻', '物料不对应', '施工总延迟', '装修不透明']
+      solve: ['量房量不准', '设计图不全', '列项列不对', '算量算不准', '报价误差大', '订单全搞错', '线管乱如麻', '物料不对应', '施工总延迟', '装修不透明'],
+      swiperOption: {
+        // autoplay: 1500,
+        // effect: 'cube',
+        loop: true,
+        paginationClickable: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        spaceBetween: 30
+      }
     }
   },
   components: {
-    decTitle, appo
+    decTitle,
+    appo,
+    webHeader,
+    webFooter,
+    swiper,
+    swiperSlide,
+    insDiv: ins
   },
   methods: {
     num (index) {
@@ -157,6 +197,15 @@ export default {
 }
 </script>
 <style lang="less" scoped>
+.swiper-button-prev{display: none;}
+
+.swiper-button-next{display: none;}
+.swiper-container:hover .swiper-button-prev{
+  display: block;
+}
+.swiper-container:hover .swiper-button-next{
+  display: block;
+}
 .head-box,.decApp {
   width: 100%;
   img {
@@ -192,8 +241,9 @@ export default {
         margin-top: -24.5px;
         text-align: center;
         line-height: 49px;
+        z-index: 1;
         &.opacity{
-          background: rgb(254,0,0);
+          background: #000;
           filter: alpha(opacity=50);
           -moz-opacity: 0.5;
           opacity: 0.5;
@@ -201,6 +251,7 @@ export default {
         span{
           color: #fff;
           font-size:24px;
+          z-index: 2;
         }
       }
     }
@@ -220,8 +271,8 @@ export default {
       p{
         background-color: #FE0000;
         width:225px;
-        height: 58px;
-        line-height: 58px;
+        height: 48px;
+        line-height: 48px;
         overflow:hidden;
         word-wrap: nowrap;
         text-overflow:ellipsis;

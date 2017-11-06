@@ -1,3 +1,60 @@
+import $ from 'jquery'
+
+export function getCountry (success) {
+  // 跨域（可跨所有域名）
+  $.getJSON('http://sanztu.com/wz/provinces/list', function (json) {
+    console.log(json)
+    if (success) {
+      success(json)
+    }
+  })
+}
+
+export function getCode (mobile, success) {
+  $.getJSON('http://sanztu.com/wz/sms/getCode', { 'mobile': mobile }, function (json) {
+    console.log(json)
+    if (success) {
+      success(json)
+    }
+  })
+}
+
+export function getShops (success) {
+  $.getJSON('http://sanztu.com/wz/experiencePavilion/list?size=9999&offset=0', {}, function (json) {
+    console.log(json)
+    if (success) {
+      success(json)
+    }
+  })
+}
+
+export function getShopsWith (city, success) {
+  $.getJSON('http://sanztu.com/wz/sms/getCode', { 'city': city }, function (json) {
+    console.log(json)
+    if (success) {
+      success(json)
+    }
+  })
+}
+
+export function appointmentRequest (data, success) {
+  console.log(data)
+  $.post('http://sanztu.com/wz/bookingRoom/save', data, function (json) {
+    console.log(json)
+    if (success) {
+      success(json)
+    }
+  })
+}
+
+export function getNews (success) {
+  $.getJSON('http://sanztu.com/wz/news/list?offset=0&size=4', {}, function (json) {
+    console.log(json)
+    if (success) {
+      success(json)
+    }
+  })
+}
 
 export const country = {
   provinces: [
@@ -168,7 +225,7 @@ export const country = {
           value: '55',
           shops: [
             {
-              text: '雨花台分站',
+              text: '南京分站',
               value: '551'
             }
           ]
@@ -633,11 +690,37 @@ export const shops = {
           lat: '39.54',
           id: '18',
           type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '深圳研发中心',
+          cityId: '306',
+          tiyId: '18',
+          adress: '深圳市宝安区新安街道留仙二路汇聚创新园四楼',
+          phone: '400-833-1153',
+          flag: '营业中'
+        },
+        {
+          lng: '116.23',
+          lat: '39.54',
+          id: '18',
+          type: '1',
           imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/%E4%BD%9B%E5%B1%B1.jpg',
+          name: '广东佛山供应链',
+          cityId: '306',
+          tiyId: '18',
+          adress: '广东省佛山市顺德区乐从镇星光国际A2202',
+          phone: '400-833-1153',
+          flag: '营业中'
+        },
+        {
+          lng: '116.23',
+          lat: '39.54',
+          id: '18',
+          type: '1',
+          imgSrc: '',
           name: '广东佛山分站',
           cityId: '306',
           tiyId: '18',
-          adress: '广东省佛山市顺德区乐从镇星光大厦2202',
+          adress: '广东省佛山市金海创意中心16楼',
           phone: '400-833-1153',
           flag: '营业中'
         },
@@ -650,7 +733,7 @@ export const shops = {
           name: '广西南宁分站',
           cityId: '306',
           tiyId: '18',
-          adress: '广西南宁市西乡塘区安吉大道47-2号大商汇国际建材城A16栋101/102/113/114号特陶卫浴',
+          adress: '广西省南宁市西乡塘区安吉大道47-2号大商汇国际建材城A16栋',
           phone: '400-833-1153',
           flag: '营业中'
         },
@@ -663,9 +746,22 @@ export const shops = {
           name: '广西梧州分站',
           cityId: '306',
           tiyId: '18',
-          adress: '广西梧州市两广市场C区1栋11号',
+          adress: '广西省梧州市两广市场C区11号',
           phone: '400-833-1153',
           flag: '筹划中'
+        },
+        {
+          lng: '116.404',
+          lat: '39.915',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '广西钦州分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '广西省钦州市钦州湾大道鸿发市场',
+          phone: '400-833-1153',
+          flag: '装修中'
         },
         {
           lng: '113.470551',
@@ -676,7 +772,7 @@ export const shops = {
           name: '海南海口分站',
           cityId: '306',
           tiyId: '18',
-          adress: '海南省海口市龙华区金盛达建材城陶瓷区7栋701',
+          adress: '海南省海口市金盛达家居建材国际商场',
           phone: '400-833-1153',
           flag: '营业中'
         }
@@ -688,17 +784,17 @@ export const shops = {
       /* 实体店 */
       shop: [
         {
-          lng: '113.470551',
-          lat: '22.572647',
+          lng: '116.404',
+          lat: '39.915',
           id: '18',
           type: '1',
-          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/%E7%A6%8F%E6%B8%85.jpg',
-          name: '福清分站',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '苏北运营中心',
           cityId: '306',
           tiyId: '18',
-          adress: '福清市音西街道东桥村60一15号3楼(观音埔大桥红绿灯处)',
+          adress: '江苏省淮安市淮阴区翔宇北道99号红星美凯龙四楼',
           phone: '400-833-1153',
-          flag: '营业中'
+          flag: '装修中'
         },
         {
           lng: '113.470551',
@@ -709,7 +805,7 @@ export const shops = {
           name: '泰州姜堰分站',
           cityId: '306',
           tiyId: '18',
-          adress: '江苏省泰州市姜堰区汽车南站向西188米',
+          adress: '江苏省泰州市姜堰区家居广场三只兔建材馆',
           phone: '400-833-1153',
           flag: '营业中'
         },
@@ -718,13 +814,169 @@ export const shops = {
           lat: '22.572647',
           id: '18',
           type: '1',
-          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/%E8%A5%84%E6%B1%BE.jpg',
-          name: '山西襄汾分站',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '江苏南京分站',
           cityId: '306',
           tiyId: '18',
-          adress: '山西省临汾市襄汾县振兴路中段路西（天泽家居二楼）',
+          adress: '江苏省南京市雨花台区板桥弘阳装饰城A1区',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '116.404',
+          lat: '39.915',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '江苏南京浦建分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '江苏省南京市浦口区中海万锦熙岸',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '116.404',
+          lat: '39.915',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '江苏淮安分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '江苏省淮安市翔宇红星美凯龙',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '116.404',
+          lat: '39.915',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '江苏扬州分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '江苏省扬州市邗江区祥园路166号',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '116.404',
+          lat: '39.915',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '江苏宿迁分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '江苏省宿迁市义乌商贸城',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '116.404',
+          lat: '39.915',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '江苏南通分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '江苏省海安县长江中路111-10号',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '116.404',
+          lat: '39.915',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '浙江绍兴柯桥分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '浙江省绍兴市柯桥区红星美凯龙',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '116.404',
+          lat: '39.915',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '浙江温州分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '浙江省温州市瓯海双堡西路188号泰恒建材城H幢',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '116.404',
+          lat: '39.915',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '福建漳州分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '福建省漳州市明发商业广场',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '113.470551',
+          lat: '22.572647',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/%E7%A6%8F%E6%B8%85.jpg',
+          name: '福建福清分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '福建省福清市音西街道东桥自然村60-15店面',
           phone: '400-833-1153',
           flag: '营业中'
+        },
+        {
+          lng: '116.404',
+          lat: '39.915',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '安徽合肥分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '安徽省合肥瑶海区铜陵路',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '116.404',
+          lat: '39.915',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '安徽明光分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '安徽省明光市体育路140号甚泰服装厂进门右侧',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '116.404',
+          lat: '39.915',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '安徽阜阳分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '安徽省阜阳市农资建材市场A3-10',
+          phone: '400-833-1153',
+          flag: '装修中'
         },
         {
           lng: '113.470551',
@@ -748,7 +1000,7 @@ export const shops = {
           name: '安徽宿州分站',
           cityId: '306',
           tiyId: '18',
-          adress: '安徽省宿州市埇桥区意邦国际家居品牌中心北大门二楼 201---214',
+          adress: '安徽省宿州市墉桥区意邦国际家居品牌中心15栋',
           phone: '400-833-1153',
           flag: '营业中'
         },
@@ -761,20 +1013,46 @@ export const shops = {
           name: '安徽灵壁分站',
           cityId: '306',
           tiyId: '18',
-          adress: '安徽省宿州市灵璧县南都商业街物业对面',
+          adress: '安徽省宿州市灵 璧县南都商街北物业对面',
           phone: '400-833-1153',
           flag: '营业中'
         },
         {
-          lng: '113.470551',
-          lat: '22.572647',
+          lng: '116.404',
+          lat: '39.915',
           id: '18',
           type: '1',
-          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
-          name: '南京雨花台分站',
+          imgSrc: '',
+          name: '山东青岛分站',
           cityId: '306',
           tiyId: '18',
-          adress: '南京市江浦街道中海万锦熙岸18-09',
+          adress: '山东省青岛市李沧区黑龙江路',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '116.404',
+          lat: '39.915',
+          id: '18',
+          type: '1',
+          imgSrc: '',
+          name: '山东济南分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '山东省济南市槐荫区腊山河东路',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '116.404',
+          lat: '39.915',
+          id: '18',
+          type: '1',
+          imgSrc: '',
+          name: '山东潍坊分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '山东省诸城市龙都建材城南门口北',
           phone: '400-833-1153',
           flag: '装修中'
         }
@@ -794,9 +1072,48 @@ export const shops = {
           name: '武汉服务中心',
           cityId: '306',
           tiyId: '18',
-          adress: '湖北省武汉市东西湖区金银湖路金盛国际家居二楼',
+          adress: '湖北省武汉市东西湖区金银湖路金盛建材家居2楼',
           phone: '400-833-1153',
           flag: '营业中'
+        },
+        {
+          lng: '110.410551',
+          lat: '24.532647',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '武汉江岸区分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '湖北省江岸区竹叶山红旗家居1楼',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '110.410551',
+          lat: '24.532647',
+          id: '18',
+          type: '1',
+          imgSrc: '',
+          name: '湖北武昌分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '湖北省武汉市武昌区友谊大道18号金盛家居建材广场2楼',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '110.410551',
+          lat: '24.532647',
+          id: '18',
+          type: '1',
+          imgSrc: '',
+          name: '湖北黄陂分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '湖北省武汉市黄陂区汉口北五洲国际建材城9号馆1楼',
+          phone: '400-833-1153',
+          flag: '装修中'
         },
         {
           lng: '112.410551',
@@ -807,7 +1124,7 @@ export const shops = {
           name: '湖北荆州分站',
           cityId: '306',
           tiyId: '18',
-          adress: '荆州市北京西路509号（万达广场1号门对面）',
+          adress: '湖北省荆州市沙市区银湖科技工业园F区6栋',
           phone: '400-833-1153',
           flag: '营业中'
         },
@@ -820,7 +1137,7 @@ export const shops = {
           name: '湖北红安分站',
           cityId: '306',
           tiyId: '18',
-          adress: '红安盛地沃尔玛三只兔互联网平台',
+          adress: '湖北省红安县沃尔玛建材家居城三只兔展馆',
           phone: '400-833-1153',
           flag: '营业中'
         },
@@ -833,7 +1150,7 @@ export const shops = {
           name: '湖北恩施分站',
           cityId: '306',
           tiyId: '18',
-          adress: '恩施市舞阳街道办武陵国际装饰城B02栋303',
+          adress: '湖北省恩施市舞阳街道办事处金桂大道8号武陵国际装饰城B02栋',
           phone: '400-833-1153',
           flag: '营业中'
         },
@@ -846,7 +1163,7 @@ export const shops = {
           name: '湖北咸宁分站',
           cityId: '306',
           tiyId: '18',
-          adress: '湖北省咸宁温泉贺胜路航天花园公家车站旁土巴兔装饰',
+          adress: '湖北省咸宁市贺胜路航天花园1幢1层101',
           phone: '400-833-1153',
           flag: '营业中'
         },
@@ -856,10 +1173,10 @@ export const shops = {
           id: '18',
           type: '1',
           imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/%E8%A5%84%E9%98%B3.jpg',
-          name: '湖北襄阳分站',
+          name: '湖北襄阳市宜城分站',
           cityId: '306',
           tiyId: '18',
-          adress: '襄阳市宜城市一阳街三只兔装修公司',
+          adress: '湖北省宜城市一阳街日丰管专卖店',
           phone: '400-833-1153',
           flag: '营业中'
         },
@@ -868,11 +1185,63 @@ export const shops = {
           lat: '21.532647',
           id: '18',
           type: '1',
-          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/%E5%AE%89%E9%98%B3%E6%9E%97%E5%B7%9E.jpg',
-          name: '安阳林州分站',
+          imgSrc: '',
+          name: '湖北利川分站',
           cityId: '306',
           tiyId: '18',
-          adress: '河南省林州市义乌商贸城123--126号',
+          adress: '湖北省利川市左岸利川土苗风情街A区16号',
+          phone: '400-833-1153',
+          flag: '营业中'
+        },
+        {
+          lng: '112.410551',
+          lat: '21.532647',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/%E8%A5%84%E9%98%B3.jpg',
+          name: '湖北枣阳分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '湖北省枣阳市光彩市场',
+          phone: '400-833-1153',
+          flag: '营业中'
+        },
+        {
+          lng: '110.410551',
+          lat: '24.532647',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '湖北鄂州分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '湖北省鄂州市华容区葛洪大道80号',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '110.410551',
+          lat: '24.532647',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '湖北宜昌分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '湖北省宜昌市伍家岗区伍临路38号',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '112.410551',
+          lat: '21.532647',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/%E5%AE%89%E9%98%B3%E6%9E%97%E5%B7%9E.jpg',
+          name: '河南安阳分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '河南省安阳市林州市义乌商贸城八号楼一层126号',
           phone: '400-833-1153',
           flag: '营业中'
         },
@@ -885,7 +1254,7 @@ export const shops = {
           name: '河南南阳分站',
           cityId: '306',
           tiyId: '18',
-          adress: '河南省南阳市宛城区张衡路与独山大道交叉口中泰国际大厦1103',
+          adress: '河南省南阳市张衡路与独山大道交叉口中泰国际大厦',
           phone: '400-833-1153',
           flag: '营业中'
         },
@@ -898,7 +1267,7 @@ export const shops = {
           name: '河南鹤壁分站',
           cityId: '306',
           tiyId: '18',
-          adress: '河南省鹤壁市淇河路东段|区外环50号',
+          adress: '河南省鹤壁市新区天泰建材城一区外环50号',
           phone: '400-833-1153',
           flag: '营业中'
         },
@@ -908,12 +1277,116 @@ export const shops = {
           id: '18',
           type: '1',
           imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/%E9%83%91%E5%B7%9E.jpg',
-          name: '郑州新郑市分站',
+          name: '河南郑州新郑市分站',
           cityId: '306',
           tiyId: '18',
           adress: '河南省郑州市新郑市龙湖华南城4B-1-106',
           phone: '400-833-1153',
           flag: '营业中'
+        },
+        {
+          lng: '110.410551',
+          lat: '24.532647',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '河南卢氏分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '河南省卢氏县党校对面环保局楼',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '110.410551',
+          lat: '24.532647',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '河南许昌分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '河南省许昌市东城区万洲大都会',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '110.410551',
+          lat: '24.532647',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '江西南昌分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '江西省南昌市洪城路6号国贸广场巨豪峰26楼',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '110.410551',
+          lat: '24.532647',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '江西九江分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '江西省九江市华东3期B5栋121-123',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '110.410551',
+          lat: '24.532647',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '江西鹰潭分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '江西省鹰潭南站路建材市场A栋',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '110.410551',
+          lat: '24.532647',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '江西景德镇分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '江西省景德镇豪德建材市场8街',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '110.410551',
+          lat: '24.532647',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '湖南长沙分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '湖南省长沙市天心区中意二路',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '110.410551',
+          lat: '24.532647',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '湖南醴陵分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '湖南省醴陵市左权北路',
+          phone: '400-833-1153',
+          flag: '装修中'
         }
       ]
     },
@@ -931,7 +1404,7 @@ export const shops = {
           name: '四川成都分站',
           cityId: '306',
           tiyId: '18',
-          adress: '成都分站地址成都市武侯区洗面桥街20号',
+          adress: '四川省成都市武侯区洗面桥街20号新博新美连锁一楼',
           phone: '400-833-1153',
           flag: '营业中'
         },
@@ -944,7 +1417,7 @@ export const shops = {
           name: '重庆潼南分站',
           cityId: '306',
           tiyId: '18',
-          adress: '重庆市潼南区创意大道69号欧鹏2栋11-13号门市',
+          adress: '重庆市潼南区欧鹏中央公园2一12号',
           phone: '400-833-1153',
           flag: '营业中'
         },
@@ -957,7 +1430,7 @@ export const shops = {
           name: '重庆万州分站',
           cityId: '306',
           tiyId: '18',
-          adress: '重庆市万州区机电建材市场15栋3楼7，8号',
+          adress: '重庆市万州区龙宝机电城15栋',
           phone: '400-833-1153',
           flag: '营业中'
         },
@@ -970,7 +1443,7 @@ export const shops = {
           name: '重庆开县分站',
           cityId: '306',
           tiyId: '18',
-          adress: '重庆市开州区亿丰国际商贸城C2区4-10门市',
+          adress: '重庆开州平桥车站旁尚好建材城',
           phone: '400-833-1153',
           flag: '正在筹划中'
         },
@@ -983,7 +1456,20 @@ export const shops = {
           name: '重庆梁平分站',
           cityId: '306',
           tiyId: '18',
-          adress: '重庆市梁平区邑品官邸大门',
+          adress: '重庆市梁平去邑品观邸',
+          phone: '400-833-1153',
+          flag: '营业中'
+        },
+        {
+          lng: '110.410551',
+          lat: '24.532647',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/%E9%87%8D%E5%BA%86%E4%BA%91%E9%98%B3.jpg',
+          name: '重庆云阳分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '重庆市云阳千科建材批发城',
           phone: '400-833-1153',
           flag: '营业中'
         },
@@ -993,10 +1479,10 @@ export const shops = {
           id: '18',
           type: '1',
           imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
-          name: '重庆铜梁分站',
+          name: '重庆江北区分站',
           cityId: '306',
           tiyId: '18',
-          adress: '重庆市铜梁区龙城大道509号',
+          adress: '重庆市江北区石马街道松石大道江北金果园小区',
           phone: '400-833-1153',
           flag: '装修中'
         },
@@ -1009,7 +1495,20 @@ export const shops = {
           name: '重庆长寿分站',
           cityId: '306',
           tiyId: '18',
-          adress: '重庆市长寿区菩提印象(桃兴路129号) ',
+          adress: '重庆市长寿区菩提印象131',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '110.410551',
+          lat: '24.532647',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '重庆铜梁分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '重庆市铜梁迎春东街108号',
           phone: '400-833-1153',
           flag: '装修中'
         },
@@ -1023,6 +1522,45 @@ export const shops = {
           cityId: '306',
           tiyId: '18',
           adress: '重庆市城口县亿联商城A栋-5',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '110.410551',
+          lat: '24.532647',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '重庆忠县分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '重庆市忠县金天门购物城金牛管业门市',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '110.410551',
+          lat: '24.532647',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '重庆南川分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '重庆市南川美佳美建材市场',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '110.410551',
+          lat: '24.532647',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '云南丽江分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '云南省丽江市丽江嘉和城建材城',
           phone: '400-833-1153',
           flag: '装修中'
         }
@@ -1042,9 +1580,22 @@ export const shops = {
           name: '内蒙古呼和浩特分站',
           cityId: '306',
           tiyId: '18',
-          adress: '内蒙古呼和浩特市回民区巴彦淖尔北路百安居106号',
+          adress: '内蒙古呼和浩特市回民区县府街西口筑家小区9#2-501',
           phone: '400-833-1153',
           flag: '营业中'
+        },
+        {
+          lng: '114.410551',
+          lat: '22.532847',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '包头分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '内蒙古包头市金荣建材城',
+          phone: '400-833-1153',
+          flag: '装修中'
         },
         {
           lng: '114.410551',
@@ -1055,7 +1606,7 @@ export const shops = {
           name: '沈阳运营中心',
           cityId: '306',
           tiyId: '18',
-          adress: '沈阳市皇姑区黄河北大街147号在地图中查看（红星欧洛丽雅对面）',
+          adress: '辽宁省沈阳市皇姑区黄河北大街147号',
           phone: '400-833-1153',
           flag: '营业中'
         },
@@ -1068,9 +1619,74 @@ export const shops = {
           name: '山西临汾分站',
           cityId: '306',
           tiyId: '18',
-          adress: '山西省临汾市襄汾县振兴路中段路西（天泽家居二楼）',
+          adress: '山西省临汾市尧都区南外环华强家具城',
           phone: '400-833-1153',
           flag: '营业中'
+        },
+        {
+          lng: '114.410551',
+          lat: '22.532847',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '山西太原分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '山西省太原市尖草坪区和平北路289号',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '114.410551',
+          lat: '22.532847',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '山西省晋城市',
+          cityId: '306',
+          tiyId: '18',
+          adress: '山西省晋城市城区黄华街交叉口金丰小区',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '114.410551',
+          lat: '22.532847',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '山西阳泉分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '山西省阳泉市开发区大连东路红星美凯龙',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '113.470551',
+          lat: '22.572647',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/%E8%A5%84%E6%B1%BE.jpg',
+          name: '山西襄汾分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '山西省临汾市襄汾县振兴路中段路西天泽家居二楼',
+          phone: '400-833-1153',
+          flag: '营业中'
+        },
+        {
+          lng: '114.410551',
+          lat: '22.532847',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '天津分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '天津市北辰区北仓朝阳路美亚钢材市场',
+          phone: '400-833-1153',
+          flag: '装修中'
         }
       ]
     },
@@ -1101,12 +1717,63 @@ export const shops = {
           name: '西安高陵分站',
           cityId: '306',
           tiyId: '18',
-          adress: '西安市高陵鹿苑大道九境城东门',
+          adress: '陕西省西安市高陵区鹿苑大道九境城东门',
           phone: '400-833-1153',
           flag: '营业中'
+        },
+        {
+          lng: '113.499551',
+          lat: '22.539647',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '乌鲁木齐分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '新疆乌鲁木齐市新市区美居物流园B座4楼',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '113.499551',
+          lat: '22.539647',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '陕西咸阳分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '陕西省咸阳迎宾大道成国右岸小区',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '113.499551',
+          lat: '22.539647',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '甘肃兰州分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '甘肃兰州西固月星家居1楼3号门',
+          phone: '400-833-1153',
+          flag: '装修中'
+        },
+        {
+          lng: '113.499551',
+          lat: '22.539647',
+          id: '18',
+          type: '1',
+          imgSrc: 'http://oxux1itze.bkt.clouddn.com/boloni/default.png',
+          name: '库尔勒分站',
+          cityId: '306',
+          tiyId: '18',
+          adress: '新疆库尔勒市华凌市场洁具C区21-22号',
+          phone: '400-833-1153',
+          flag: '装修中'
         }
       ]
     }
   ]
 }
-

@@ -60,17 +60,16 @@ const routes = new Router({
     {
       path: '/foreman',
       name: 'foreman',
-      component: foreman,
-      children: [
-        {
-          path: 'foremanDetail',
-          component: foremanDetail
-        },
-        {
-          path: 'foremanOrder',
-          component: foremanOrder
-        }
-      ]
+      component: foreman
+    },
+    {
+      path: '/foremanDetail',
+      component: foremanDetail
+    },
+    {
+      path: '/formanOrder',
+      name: 'foremanOrder',
+      component: foremanOrder
     },
     // 'DIY 商城'
     {

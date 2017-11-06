@@ -66,12 +66,10 @@ export default {
 .swiper-all {
   width: 100%;
   position: relative;
-  height: 550px;
 }
 .swiper-container {
   width: 100%;
   position: relative;
-  height: 450px;
   .swiper-wrapper {
     width: 100%;
     height: 100%;
@@ -79,7 +77,6 @@ export default {
       background-position: center;
       background-size: cover;
       width: 100%;
-      height: 450px;
       img {
         width: 100%;
         height: 100%;

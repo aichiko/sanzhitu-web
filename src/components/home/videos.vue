@@ -2,11 +2,11 @@
 <div>
   <div class="index-vrqjjz">
     <ul class="clearfix">
-      <li v-for="video in videos" :key="video.id">
+      <li v-for="(video, i) in videos" :key="video.id">
         <div class="player">
-          <video id="my-player" class="video-js" 
-          controls preload="auto" 
-          poster="../../static/images/loading.png"> 
+          <video id="my-player" class="video-js"
+          controls preload="auto"
+          :poster="'../../static/images/loading'+ i +'.png'">
            <source :src="video.src" type="video/mp4"></source>
           </video>
         </div>
@@ -91,7 +91,7 @@ export default {
   display: inline;
 }
 .index-vrqjjz li {
-  border: 2px solid green; 
+  border: 2px solid green;
   float: left;
   position: relative;
   width: 380px;
