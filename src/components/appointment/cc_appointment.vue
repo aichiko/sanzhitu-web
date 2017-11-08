@@ -26,7 +26,7 @@
               <el-input v-model="appointForm.mobile" placeholder="输入您的手机"></el-input>
             </el-form-item>
             <el-form-item label="短信验证码" prop="code" class="list">
-              <el-input v-model.number="appointForm.code" placeholder="验证码" class="code-input"></el-input>
+              <el-input v-model="appointForm.code" placeholder="验证码" class="code-input"></el-input>
               <el-button class="code-button" @click="codeAction" :disabled="codeEnable">{{codeTitle}}</el-button>
             </el-form-item>
           </el-form>
@@ -43,6 +43,7 @@ import {getCode, appointmentRequest} from '../../config/country.js'
 export default {
   data () {
     return {
+      mobileVerification: false,
       countryData: {},
       provinceIndex: 0,
       cityIndex: 0,
@@ -139,10 +140,18 @@ export default {
       console.log('发送验证码')
       if (this.codeEnable === false) {
         this.codeEnable = true
-        getCode(FormData.mobile, function (code) {
-
-        })
+        var that = this
         this.settime()
+        getCode(this.appointForm.mobile, function (code) {
+          console.log('success')
+        }, function (message) {
+          console.log('failure')
+          that.$message({
+            showClose: true,
+            message: message,
+            type: 'warning'
+          })
+        })
       }
     },
     appointAction: function (e) {
@@ -161,6 +170,12 @@ export default {
           title: '预约成功',
           message: '恭喜您，预约成功！',
           type: 'success'
+        })
+      }, function (message) {
+        that.$message({
+          showClose: true,
+          message: message,
+          type: 'error'
         })
       })
     }
@@ -200,7 +215,7 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 9999;
+  z-index: 300;
   .appointment-box {
     position: absolute;
     top: 0;

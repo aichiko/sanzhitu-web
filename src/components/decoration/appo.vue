@@ -134,10 +134,17 @@ export default {
     },
     codeAction: function (button) {
       console.log('发送验证码')
+      var that = this
       if (this.codeEnable === false) {
         this.codeEnable = true
         getCode(FormData.mobile, function (code) {
 
+        }, function (message) {
+          that.$message({
+            showClose: true,
+            message: message,
+            type: 'error'
+          })
         })
         this.settime()
       }
@@ -150,6 +157,12 @@ export default {
           title: '预约成功',
           message: '恭喜您，预约成功！',
           type: 'success'
+        })
+      }, function (message) {
+        that.$message({
+          showClose: true,
+          message: message,
+          type: 'error'
         })
       })
     }

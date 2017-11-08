@@ -18,7 +18,13 @@
         <li v-for="(l, i) in newsList.rows" :key="i">
           <img :src="'http://sanztu.com/' + l.headPic">
           <div class="info">
-            <h4>{{l.realName}}<i :class="'w'+15*l.judge_score"></i></h4>
+            <h4>
+              <el-tooltip class="item" effect="dark" :content="l.realName" placement="right-start">
+                <span style="max-width: 80px; overflow: hidden; display: inline-block; height: 20px;">
+                {{l.realName}}</span>
+                <i :class="'w'+15*l.judge_score"></i>
+              </el-tooltip>
+            </h4>
             <p><span>工&nbsp;&nbsp;&nbsp;&nbsp;种：</span><strong>{{aDouble(l.work_type)}}</strong></p>
             <p><span>服务年限：</span><strong>{{l.work_age}}年</strong></p>
             <p><span>年 &nbsp;&nbsp;&nbsp;龄：</span><strong>{{l.age}}</strong></p>

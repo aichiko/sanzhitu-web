@@ -337,7 +337,7 @@ export default {
   width: 147px;
   height: 113px;
   background: url(../../../static/images/home/bottom_show.png);
-  z-index: 9998;
+  z-index: 100;
   .bottom-fixed-title {
     position: relative;
     top: 68px;
@@ -352,7 +352,7 @@ export default {
   position: fixed;
   bottom: 0;
   left: 0;
-  z-index: 9998;
+  z-index: 100;
   width: 100%;
   height: 180px;
   .bottom-fixed-bg{
