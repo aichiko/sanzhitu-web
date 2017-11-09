@@ -21,7 +21,7 @@ export const mapData = [{
 export const seriesData1 = {
   name: 'city',
   type: 'scatter',
-  symbol: 'image://../../../static/images/home/mapPoint.png',
+  symbol: 'image:///sztwz/static/images/home/mapPoint.png',
   coordinateSystem: 'geo',
   data: '',
   // 标注的大小
@@ -77,7 +77,7 @@ export const seriesData1 = {
 export const seriesData3 = {
   type: 'scatter',
   name: 'header',
-  symbol: 'image://../../../static/images/home/mapPoint2.png',
+  symbol: 'image:///sztwz/static/images/home/mapPoint2.png',
   symbolSize: [50, 70],
   symbolOffset: [0, '-50%'],
   coordinateSystem: 'geo',

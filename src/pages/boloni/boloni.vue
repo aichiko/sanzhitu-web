@@ -9,7 +9,7 @@
     <div class="four">
       <ul class="bx clearfix">
         <li v-for="(f, i) in four">
-          <img :src="'../../../static/images/boloni/4-'+(i+1)+'.png'" height="112" width="150" alt="">
+          <img :src="'/sztwz/static/images/boloni/4-'+(i+1)+'.png'" height="112" width="150" alt="">
           <div class="content">
             <h3>{{ f.title }}</h3>
             <p v-for="p in f.content">{{p}}</p>

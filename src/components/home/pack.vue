@@ -25,7 +25,7 @@
         <p>{{packData[packIndex].desc}}</p>
         <div style="width: 400px; height: 150px" class="icon-content">
           <div class="szt-icon-title float-left" v-for="(list, index) in zhucaibaoList" :key="list.h5_text">
-          <div class="icon float-left" :style="'background: url(/static/images/zhucaibao/zhucaibao-icon-' + (index+1) + '.png) 0 0 no-repeat;'"></div>
+          <div class="icon float-left" :style="'background: url(/sztwz/static/images/zhucaibao/zhucaibao-icon-' + (index+1) + '.png) 0 0 no-repeat;'"></div>
             <h3>{{list.h3_text}}</h3>
             <h5>{{list.h5_text}}</h5>
           </div>
@@ -61,22 +61,22 @@ export default {
     return {
       zhucaibaoList: [
         {
-          icon: '/static/icons/icon-1.png',
+          icon: '/sztwz/static/icons/icon-1.png',
           h3_text: '名牌正品',
           h5_text: '品牌授权 正品保障'
         },
         {
-          icon: '/static/icons/icon-2.png',
+          icon: '/sztwz/static/icons/icon-2.png',
           h3_text: '实体看样',
           h5_text: '线下体验 验收付款'
         },
         {
-          icon: '/static/icons/icon-3.png',
+          icon: '/sztwz/static/icons/icon-3.png',
           h3_text: '工厂直供',
           h5_text: '厂家采购 杜绝回扣'
         },
         {
-          icon: '/static/icons/icon-4.png',
+          icon: '/sztwz/static/icons/icon-4.png',
           h3_text: '配送安装',
           h5_text: '五星工长 安装无忧'
         }
@@ -84,14 +84,14 @@ export default {
       packIndex: 0,
       packData: packData,
       contentStyle: {
-        background: 'url(/static/images/zhucaibao/zhucaibao-bg-1.png) 0 0 no-repeat'
+        background: 'url(/sztwz/static/images/zhucaibao/zhucaibao-bg-1.png) 0 0 no-repeat'
       }
     }
   },
   methods: {
     liHoverAction: function (index) {
       this.packIndex = index
-      this.$refs.content.style.background = 'url(/static/images/zhucaibao/zhucaibao-bg-' + (index + 1) + '.png) 0 0 no-repeat'
+      this.$refs.content.style.background = 'url(/sztwz/static/images/zhucaibao/zhucaibao-bg-' + (index + 1) + '.png) 0 0 no-repeat'
     },
     appointmentAction: function () {
       console.log('---------')
@@ -278,7 +278,7 @@ export default {
           width: 34px;
           height: 40px;
           margin-right: 20px;
-          background: url(/static/icons/alw-banner-icon.png) -136px 0 no-repeat;
+          background: url(/sztwz/static/icons/alw-banner-icon.png) -136px 0 no-repeat;
         }
         h3 {
           margin-left: 10px;

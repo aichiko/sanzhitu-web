@@ -27,7 +27,7 @@ import {users} from '../../config/users.js'
 export default {
   data () {
     return {
-      logoicon: '/static/szt_logo.png',
+      logoicon: '/sztwz/static/szt_logo.png',
       isLoading: false,
       users: users,
       loginData: {

@@ -35,7 +35,7 @@ export default {
                 fontWeight: 'bold',
                 verticalAlign: 'bottom',
                 backgroundColor: {
-                  image: '../../../static/images/home/81.png'
+                  image: '/sztwz/static/images/home/81.png'
                 }
               },
               c: {
@@ -47,7 +47,7 @@ export default {
               d: {
                 fontSize: 35,
                 backgroundColor: {
-                  image: '../../../static/images/home/subtext.jpg'
+                  image: '/sztwz/static/images/home/subtext.jpg'
                 }
               }
             }

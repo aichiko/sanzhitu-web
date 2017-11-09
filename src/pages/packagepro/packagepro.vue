@@ -21,7 +21,7 @@
         <div>
           <ul class="clearfix">
             <li v-for="(p, i) in perPro">
-              <img :src="'../../../static/images/package/pb'+i+'.png'" height="158" width="160" alt="">
+              <img :src="'/sztwz/static/images/package/pb'+i+'.png'" height="158" width="160" alt="">
               <p v-for="text in p.content">{{text}}</p>
             </li>
           </ul>

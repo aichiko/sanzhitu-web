@@ -25,13 +25,13 @@
   </div>
   <dec-title :title="titles[1]"></dec-title>
   <div class="bx clearfix">
-    <img src="/static/images/decoration/pic_hd.jpg" alt="" style="width: 100%">
+    <img src="/sztwz/static/images/decoration/pic_hd.jpg" alt="" style="width: 100%">
   </div>
   <dec-title :title="titles[2]"></dec-title>
   <div class="solve">
     <ul class="bx clearfix">
       <li v-for="(s, index) in solve" :class="{mr18: (index+1)%5 != 0,mt18:index > 4}" :key="index">
-        <img :src="'../../../static/images/decoration/solve'+ num( index ) +'.png'" >
+        <img :src="'/sztwz/static/images/decoration/solve'+ num( index ) +'.png'" >
         <p>{{ s }}</p>
       </li>
     </ul>
@@ -88,19 +88,19 @@ export default {
       design: [
         {
           title: '地中海风格',
-          imgs: ['../../../static/images/decoration/desgin1-1.png', '../../../static/images/decoration/desgin1-2.png', '../../../static/images/decoration/desgin1-3.png']
+          imgs: ['/sztwz/static/images/decoration/desgin1-1.png', '/sztwz/static/images/decoration/desgin1-2.png', '/sztwz/static/images/decoration/desgin1-3.png']
         },
         {
           title: '中式风格',
-          imgs: ['../../../static/images/decoration/desgin2-1.png', '../../../static/images/decoration/desgin2-2.png', '../../../static/images/decoration/desgin2-3.png']
+          imgs: ['/sztwz/static/images/decoration/desgin2-1.png', '/sztwz/static/images/decoration/desgin2-2.png', '/sztwz/static/images/decoration/desgin2-3.png']
         },
         {
           title: '简约风格',
-          imgs: ['../../../static/images/decoration/desgin3-1.png', '../../../static/images/decoration/desgin3-2.png', '../../../static/images/decoration/desgin3-3.png']
+          imgs: ['/sztwz/static/images/decoration/desgin3-1.png', '/sztwz/static/images/decoration/desgin3-2.png', '/sztwz/static/images/decoration/desgin3-3.png']
         },
         {
           title: '欧式风格',
-          imgs: ['../../../static/images/decoration/desgin4-1.png', '../../../static/images/decoration/desgin4-2.png', '../../../static/images/decoration/desgin4-3.png']
+          imgs: ['/sztwz/static/images/decoration/desgin4-1.png', '/sztwz/static/images/decoration/desgin4-2.png', '/sztwz/static/images/decoration/desgin4-3.png']
         }
       ],
       solve: ['量房量不准', '设计图不全', '列项列不对', '算量算不准', '报价误差大', '订单全搞错', '线管乱如麻', '物料不对应', '施工总延迟', '装修不透明'],

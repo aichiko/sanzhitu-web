@@ -18,7 +18,7 @@
           <ul class="alw-service-bar clearfix">
             <li v-for="(b, i) in bar" :key="i">
               <a href="javascript: ;" class="js-yuyue">
-                <p><img :src="'../../static/homebar-icons/icon-'+(i+1)+'.png'" alt="" width="50" height="50"></p>
+                <p><img :src="'./static/homebar-icons/icon-'+(i+1)+'.png'" alt="" width="50" height="50"></p>
                 <p>{{ b }}</p>
               </a>
               <span v-if="i!=bar.length-1"><img src="../../../static/icons/right.jpg" height="37" width="14" alt=""></span>

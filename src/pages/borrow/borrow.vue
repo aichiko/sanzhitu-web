@@ -5,7 +5,7 @@
   <div class="b_icons">
     <ul class="bx clearfix">
       <li v-for="(i, index) in b_icons">
-        <img :src="'../../../static/images/borrow/b_icon0'+(index+1)+'.jpg'" alt="">
+        <img :src="'/sztwz/static/images/borrow/b_icon0'+(index+1)+'.jpg'" alt="">
         <p>{{i.sup}}</p>
         <p>{{i.sub}}</p>
       </li>
@@ -52,23 +52,23 @@ export default {
       cityValue: '11',
       b_icons: [
         {
-          icon: '../../../static/images/borrow/b_icon01.jpg',
+          icon: '/sztwz/static/images/borrow/b_icon01.jpg',
           sup: '额度高',
           sub: '最高100万'
         }, {
-          icon: '../../../static/images/borrow/b_icon02.jpg',
+          icon: '/sztwz/static/images/borrow/b_icon02.jpg',
           sup: '放款快',
           sub: '快至24小时到账'
         }, {
-          icon: '../../../static/images/borrow/b_icon03.jpg',
+          icon: '/sztwz/static/images/borrow/b_icon03.jpg',
           sup: '利率低',
           sub: '月利低至1.35%'
         }, {
-          icon: '../../../static/images/borrow/b_icon04.jpg',
+          icon: '/sztwz/static/images/borrow/b_icon04.jpg',
           sup: '保障高',
           sub: '专业金融服务人员'
         }, {
-          icon: '../../../static/images/borrow/b_icon05.jpg',
+          icon: '/sztwz/static/images/borrow/b_icon05.jpg',
           sup: '量身定制',
           sub: '为您提供VIP服务'
         }
