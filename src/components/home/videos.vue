@@ -29,17 +29,17 @@ export default {
       videos: [
         {
           id: 0,
-          title: 'video1',
+          title: '三只兔动画片',
           src: 'http://oxux1itze.bkt.clouddn.com/video1'
         },
         {
           id: 1,
-          title: 'video2',
+          title: '三只兔介绍',
           src: 'http://oxux1itze.bkt.clouddn.com/video2'
         },
         {
           id: 2,
-          title: 'video3',
+          title: '三只兔宣传片',
           src: 'http://oxux1itze.bkt.clouddn.com/video3'
         }
       ]

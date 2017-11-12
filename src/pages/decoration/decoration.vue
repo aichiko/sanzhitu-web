@@ -26,7 +26,7 @@
   <dec-title :title="titles[1]"></dec-title>
   <div class="bx clearfix">
     <img src="/sztwz/static/images/decoration/pic_hd.jpg" alt="" style="width: 100%">
-  </div>
+  </div> 
   <dec-title :title="titles[2]"></dec-title>
   <div class="solve">
     <ul class="bx clearfix">

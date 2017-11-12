@@ -2,7 +2,9 @@
   <div id="footer" class="wrapper">
     <p>
       <span v-for="(bar, index) in footerData.bartitles" :key="bar.title">
-        <a :href="bar.href">{{bar.title}}</a>
+        <router-link :to="bar.href" target="_blank">
+          {{bar.title}}
+        </router-link>
         &nbsp;<span v-if="index != footerData.bartitles.length-1">|</span>&nbsp;
       </span>
     </p>

@@ -63,7 +63,10 @@
     <div class="alw-bao-banner float-right">
       <div class="AlwBao-banner-btn">
         <a href="javascript:void(0);" class="AlwBao-banner-orderBtn js-jiajubao-yuyue" title="" @click="appointmentAction">免费预约</a>
-        <a href="/packagepro" class="AlwBao-banner-knowBtn" title="" target="_blank">进一步了解</a>
+        <!-- <a href="/packagepro" class="AlwBao-banner-knowBtn" title="" target="_blank">进一步了解</a> -->
+        <router-link to="packagepro" target="_blank" class="AlwBao-banner-knowBtn">
+          进一步了解
+        </router-link>
       </div>
     </div>
   </div>

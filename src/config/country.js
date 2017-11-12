@@ -14,8 +14,8 @@ export function getCode (mobile, success, failure) {
   $.getJSON('http://sanztu.com/wz/sms/getCode', { 'mobile': mobile }, function (json) {
     console.log(json)
     console.log(json.code)
-    console.log(json.code === 0)
-    if (json.code === 0) {
+    console.log(json.code === '0')
+    if (json.code === '0') {
       if (success) {
         success(json)
       }
@@ -49,7 +49,7 @@ export function appointmentRequest (data, success, failure) {
   console.log(data)
   $.post('http://sanztu.com/wz/bookingRoom/save', data, function (json) {
     console.log(json)
-    if (json.code === 0) {
+    if (json.code === '0') {
       if (success) {
         success(json)
       }

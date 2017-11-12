@@ -77,6 +77,8 @@ export default {
         return '配送工'
       } else if (val === 8) {
         return '搬运工'
+      } else if (val === 9) {
+        return '工长'
       } else {
         return '其他'
       }

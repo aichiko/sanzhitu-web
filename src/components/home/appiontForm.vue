@@ -143,8 +143,7 @@ export default {
       var that = this
       if (this.codeEnable === false) {
         this.codeEnable = true
-        getCode(FormData.mobile, function (code) {
-
+        getCode(this.appointForm.mobile, function (code) {
         }, function (message) {
           that.$message({
             showClose: true,

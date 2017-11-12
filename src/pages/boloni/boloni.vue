@@ -64,9 +64,8 @@
     </div>
     <ins-my></ins-my>
     <transition name="el-fade-in-linear">
-      <appointment v-show="isShowAppointment" @close="closeAppointment"></appointment>
+      <appointment v-if="isShowAppointment" @close="closeAppointment"></appointment>
     </transition>
-    
     <boloniMap :lat="lat" :lng="lng" v-show="isShowMap" @on-close="closeMap"></boloniMap>
     <footer>
       <web-footer></web-footer>
