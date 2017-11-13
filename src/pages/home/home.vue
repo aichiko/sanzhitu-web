@@ -99,7 +99,7 @@
       <a class="bottom-fixed-show" @click="showAppointBox" v-show="appointIcon"><span class="bottom-fixed-title"></span></a>
     </transition>
     <transition name="el-fade-in-linear">
-      <insDiv v-if="showIns" @closeIns="hideIns"></insDiv>
+      <insDiv v-if="showIns" @closeIns=" showIns = false "></insDiv>
     </transition>
     <bar></bar>
   </div>

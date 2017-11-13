@@ -90,7 +90,9 @@
     <footer>
       <web-footer></web-footer>
     </footer>
-    <insDiv></insDiv>
+    <transition name="el-fade-in-linear">
+      <insDiv v-if="showIns" @closeIns=" showIns = false "></insDiv>
+    </transition>
   </div>
 </template>
 
@@ -102,6 +104,7 @@ import {getNews} from '../../config/country.js'
 export default {
   data () {
     return {
+      showIns: true,
       news: [
         {
           title: '2017年中国互联网+中小企业创新大会优秀中小企业获奖名单',

@@ -31,7 +31,9 @@
   </div>
   <borrow-appointment></borrow-appointment>
   <web-footer></web-footer>
-  <insDiv></insDiv>
+  <transition name="el-fade-in-linear">
+		<insDiv v-if="showIns" @closeIns=" showIns = false "></insDiv>
+	</transition>
 </div>
 </template>
 <script>
@@ -45,6 +47,7 @@ import ins from '../../components/home/ins'
 export default {
   data () {
     return {
+      showIns: true,
       countryData: country,
       provinceIndex: 0,
       cityIndex: 0,

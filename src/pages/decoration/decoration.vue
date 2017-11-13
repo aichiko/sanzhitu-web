@@ -48,7 +48,9 @@
   <footer>
     <web-footer></web-footer>
   </footer>
-  <insDiv></insDiv>
+  <transition name="el-fade-in-linear">
+    <insDiv v-if="showIns" @closeIns=" showIns = false "></insDiv>
+  </transition>
 </div>
 
 </template>
@@ -63,6 +65,7 @@ import ins from '../../components/home/ins'
 export default {
   data () {
     return {
+      showIns: true,
       titles: [
         {
           title: '整居设计方案',

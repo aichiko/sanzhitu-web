@@ -38,7 +38,9 @@
   <footer>
     <web-footer></web-footer>
   </footer>
-  <insDiv></insDiv>
+  <transition name="el-fade-in-linear">
+    <insDiv v-if="showIns" @closeIns=" showIns = false "></insDiv>
+  </transition>
 </div>
 </template>
 
@@ -50,6 +52,7 @@ import $ from 'jquery'
 export default {
   data () {
     return {
+      showIns: true,
       newsList: {'page': 0, 'rows': [], 'total': 15480, 'totalPage': 0},
       page: 0
     }
