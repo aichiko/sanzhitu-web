@@ -15,7 +15,7 @@
               <p>欢迎关注三只兔微信号</p>
               <img src="../../../static/images/home/weixin.jpeg" alt="">
             </div></li>
-            <li><a href="/formanOrder" style="color:#fff"><i class="icon iconfont icon-shigongjindu"></i> 施工进度</a></li>
+            <li><a href="/formanOrder" style="color:#fff"><i class="icon iconfont icon-shigongjindu"></i>我是客户</a></li>
           </ul>
         </div>
       </div>

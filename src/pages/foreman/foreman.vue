@@ -6,7 +6,7 @@
 	<div class="index_center">
     <div class="bx cra">
       <div class="title">
-        <p>工匠群</p>
+        <p>工长群</p>
         <div class="tl"></div>
         <div style="position:absolute; right:0; top:20px; background:#ebebeb;" id="GJtoggle">
           <span id="upGJ" class="itemgj" :class="{currentgj: page > 0}" @click="backPage(page)">&lt;</span>
@@ -21,11 +21,28 @@
             <h4>{{l.realName}}<i :class="'w'+15*l.judge_score"></i></h4>
             <p><span>工&nbsp;&nbsp;&nbsp;&nbsp;种：</span><strong>{{aDouble(l.work_type)}}</strong></p>
             <p><span>服务年限：</span><strong>{{l.work_age}}年</strong></p>
-            <p><span>年 &nbsp;&nbsp;&nbsp;龄：</span><strong>{{l.age}}</strong></p>
+            <p><span>年&nbsp;&nbsp;&nbsp;龄：</span><strong>{{l.age}}</strong></p>
             <p><span>服务次数：</span><strong>{{l.service_times}}</strong></p>
           </div>
         </li>
         </ul>
+      </div>
+    </div>
+    <img src="../../../static/images/foremans.gif" width="100%" alt="">
+    <div class="bx logBox clearfix">
+      <div class="float-left">
+        <h1>我现在就要</h1>
+        <h2>加入三只兔</h2>
+        <p>已有<b>37518人</b>加入</p>
+        <button>查看工长案例</button>
+      </div>
+      <div class="float-right">
+        <p><span>我是工长</span><input type="text" /></p>
+        <p><span>我的密码</span><input type="text" /></p>
+        <p class="btnBox clearfix">
+          <a>注册</a>
+          <a>登录</a>
+        </p>
       </div>
     </div>
   </div>
@@ -77,7 +94,7 @@ export default {
     },
     pageTurn: function (page) {
       var that = this
-      $.getJSON('http://sanztu.com/wz/puser/getGJBySubstation?user_type=1&size=10&offset=' + page + '&substation_id=0').then((res) => {
+      $.getJSON('http://sanztu.com/wz/puser/getGJBySubstation?user_type=1&size=9&offset=' + page + '&substation_id=0').then((res) => {
         console.log(res)
         that.newsList = res
       }, (err) => {
@@ -99,7 +116,7 @@ export default {
   },
   mounted: function () {
     var that = this
-    $.getJSON('http://sanztu.com/wz/puser/getGJBySubstation?user_type=1&size=10&offset=0&substation_id=0', function (res) {
+    $.getJSON('http://sanztu.com/wz/puser/getGJBySubstation?user_type=1&size=9&offset=0&substation_id=0', function (res) {
       console.log(res)
       that.newsList = res
     })
@@ -127,7 +144,7 @@ export default {
   width: 75px;
 }
 .index_center {
-  background: rgba(228, 228, 228, 0.18);
+  background: #F5F5F5;
   padding-top: 20px;
   .cra{
     position: relative;
@@ -167,7 +184,7 @@ export default {
     }
     .wrap1 {
       position: relative;
-      height: 870px;
+      height: 670px;
       width: 1200px;
       overflow: hidden;
       .one {
@@ -235,5 +252,78 @@ export default {
       }
     }
 	}
+  .logBox{
+    text-align: left;
+    background: #F5F5F5;
+    .float-left{
+      padding:50px 100px 84px;
+      width: 530px;
+      h1{
+        font-size: 40px;
+        color: #000;
+        font-weight: border;
+      }
+      h2{
+        font-size: 34px;
+        margin-top: 15px;
+        color: #FE3D3E;
+        font-weight: border;
+      }
+      p{
+        font-size: 20px;
+        height:40px;
+        line-height: 40px;
+        color: #000;
+        b{
+          color: #FE3D3E;
+        }
+      }
+      button{
+        padding: 3px 22px;
+        background-color:#FE3D3E;
+        color: #fff;
+        font-size: 20px;
+        border-radius:30px;
+      }
+    }
+    .float-right{
+      width: 670px;
+      padding-top:50px;
+      p{
+        margin-bottom: 10px;
+        &.btnBox{
+          width: 100%;
+          padding-right: 293px;
+          text-align: right;
+          a{
+            float: right;
+            width: 77px;
+            text-align: center;
+            height:37px;
+            line-height: 37px;
+            font-size: 18px;
+            background-color:#fff;
+            display: inline-block;
+            margin-right: 10px;
+          }
+        }
+        span{
+          width: 117px;
+          text-align: center;
+          height:37px;
+          line-height: 37px;
+          font-size: 18px;
+          background-color:#fff;
+          display: inline-block;
+          margin-right: 5px;
+        }
+        input{
+          width: 245px;
+          background-color:#fff;
+          height:37px;
+        }
+      }
+    }
+  }
 }
 </style>

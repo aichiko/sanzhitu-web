@@ -78,7 +78,7 @@ export const seriesData3 = {
   type: 'scatter',
   name: 'header',
   symbol: 'image://../../../static/images/home/mapPoint2.png',
-  symbolSize: [50, 70],
+  symbolSize: [37, 46],
   symbolOffset: [0, '-50%'],
   coordinateSystem: 'geo',
   data: [{name: '{g|深圳\n总部}', value: [113.46, 22.27]}],
@@ -86,14 +86,14 @@ export const seriesData3 = {
     normal: {
       formatter: '{b}',
       position: 'top',
-      distance: '-35',
+      distance: '-30',
       show: true,
       textStyle: {
         color: '#57bb49',
         fontSize: 14,
         rich: {
           g: {
-            color: '#E40011'
+            color: '#fff'
           }
         }
       }
