@@ -29,7 +29,7 @@ export default {
 <style lang="less" scoped>
 ul{
   position: fixed;
-  z-index: 99999999;
+  z-index: 99;
   top:50%;
   right: 10px;
   -webkit-transform: translate(0,-50%);

@@ -1,9 +1,58 @@
 import $ from 'jquery'
 
-export function getCountry () {
+export function getCountry (success) {
   // 跨域（可跨所有域名）
   $.getJSON('http://sanztu.com/wz/provinces/list', function (json) {
     console.log(json)
+    if (success) {
+      success(json)
+    }
+  })
+}
+
+export function getCode (mobile, success) {
+  $.getJSON('http://sanztu.com/wz/sms/getCode', { 'mobile': mobile }, function (json) {
+    console.log(json)
+    if (success) {
+      success(json)
+    }
+  })
+}
+
+export function getShops (success) {
+  $.getJSON('http://sanztu.com/wz/experiencePavilion/list?size=9999&offset=0', {}, function (json) {
+    console.log(json)
+    if (success) {
+      success(json)
+    }
+  })
+}
+
+export function getShopsWith (city, success) {
+  $.getJSON('http://sanztu.com/wz/sms/getCode', { 'city': city }, function (json) {
+    console.log(json)
+    if (success) {
+      success(json)
+    }
+  })
+}
+
+export function appointmentRequest (data, success) {
+  console.log(data)
+  $.post('http://sanztu.com/wz/bookingRoom/save', data, function (json) {
+    console.log(json)
+    if (success) {
+      success(json)
+    }
+  })
+}
+
+export function getNews (success) {
+  $.getJSON('http://sanztu.com/wz/news/list?offset=0&size=4', {}, function (json) {
+    console.log(json)
+    if (success) {
+      success(json)
+    }
   })
 }
 

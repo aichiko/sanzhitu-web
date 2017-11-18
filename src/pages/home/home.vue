@@ -67,6 +67,7 @@
         </div>
       </div>
     </div>
+    <insDiv></insDiv>
     <transition name="el-fade-in-linear">
       <cc-appointment v-if="showAppointment" @close="hideAppointmentView"></cc-appointment>
     </transition>
@@ -82,13 +83,7 @@
                 <!-- <div class="warp-left-number">71</div> -->
             </div>
             <div class="bottom-warp-center clearfix">
-              <appoint-form></appoint-form>
-              <div class="warp-center-btn">
-                  <i class="center-btn-logo"></i>
-                  <div class="center-btn-submit">
-                    <el-button type="primary">预约装修</el-button>
-                  </div>
-              </div>
+              <appoint-form :countryData="countryData"></appoint-form>
             </div>
             <div class="bottom-warp-right">
               <div class="warp-right-app">
@@ -120,7 +115,13 @@ import homePack from '@/components/home/homePack'
 import designer from '@/components/home/designer'
 import ccAppointment from '@/components/appointment/cc_appointment'
 import AppointForm from '@/components/home/appiontForm'
+<<<<<<< HEAD
+=======
+import ins from '../../components/home/ins'
+// import {getCountry, getShops} from '../../config/country.js'
+>>>>>>> master
 import bar from '../../components/home/bar'
+
 export default {
   data () {
     return {
@@ -149,7 +150,8 @@ export default {
       ],
       bar: ['在线预约', '实景体验', '签约下定', '装修方案', '施工控制', '服务评价'],
       ul: ['399主材包', '木地板', '瓷砖', '橱柜', '室内门', '洁具卫浴', '卫浴五金', '集成吊顶'],
-      packbanner: ['装修必备主材', '7类38项一包搞定']
+      packbanner: ['装修必备主材', '7类38项一包搞定'],
+      countryData: {}
     }
   },
   components: {
@@ -170,6 +172,7 @@ export default {
     showAppointBox () {
       this.appointBoxS = true
       this.appointIcon = false
+      this.countryData = this.$store.getters.countryData
     },
     closeAppoint () {
       this.appointBoxS = false
@@ -191,6 +194,16 @@ export default {
     hideAppointmentView: function () {
       this.showAppointment = false
     }
+  },
+  mounted: function () {
+    // var that = this
+    // getCountry(function (countryData) {
+    //   console.log(that.$store)
+    //   that.$store.commit('setCountryData', countryData.data.rows[0])
+    // })
+    // getShops(function (shops) {
+    //   that.$store.commit('setShops', shops.data.lst)
+    // })
   }
 }
 </script>
@@ -428,32 +441,6 @@ export default {
             .pe-submit {
                 height: 32px;
                 width: 130px;
-            }
-          }
-        }
-        .warp-center-btn {
-          float: left;
-          width: 135px;
-          margin-left: 10px;
-          padding-top: 22px;
-          .center-btn-logo {
-            display: inline-block;
-            margin-top: -10px;
-            width: 135px;
-            height: 111px;
-            background-image: url(../../../static/images/home/bottom-imgs.png);
-          }
-          .center-btn-submit {
-            width: 135px;
-            height: 30px;
-            // background: url(../../../static/images/home/bottom-imgs.png) -17px 0px no-repeat;
-            cursor: pointer;
-
-            margin-top: 2px;
-            .el-button--primary {
-              background-color: #34cc34;
-              color: #fff;
-              border-color: #34cc34
             }
           }
         }

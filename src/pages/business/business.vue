@@ -70,7 +70,7 @@
       <div class="bx">
         <h4><span>六大共享 保您放心</span></h4>
         <ul class="clearfix">
-          <li class="" v-for="s in six">
+          <li class="" v-for="s in six" :key="s">
             <a>
               <h3>{{ s.title }}</h3>
               <p>{{ s.p1 }}</p>
@@ -98,6 +98,7 @@
 import webHeader from '@/components/header/head'
 import webFooter from '@/components/footer/web-footer'
 import ins from '../../components/home/ins'
+import {getNews} from '../../config/country.js'
 export default {
   data () {
     return {
@@ -154,7 +155,7 @@ export default {
       }, {
         title: '共享系统',
         p1: 'APP可视化系统 销售转化系统',
-        p2: '供应链系统&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp经营管理系统'
+        p2: '供应链系统 经营管理系统'
       }, {
         title: '共享团队',
         p1: '公司员工，多为80、90后，年轻有为',
@@ -170,6 +171,11 @@ export default {
     webHeader: webHeader,
     webFooter: webFooter,
     insDiv: ins
+  },
+  mounted: function () {
+    getNews(function (news) {
+
+    })
   }
 }
 </script>
