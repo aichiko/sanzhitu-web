@@ -31,9 +31,9 @@
   </div>
   <borrow-appointment></borrow-appointment>
   <web-footer></web-footer>
-  <transition name="el-fade-in-linear">
+  <!-- <transition name="el-fade-in-linear">
 		<insDiv v-if="showIns" @closeIns=" showIns = false "></insDiv>
-	</transition>
+	</transition> -->
 </div>
 </template>
 <script>
@@ -43,7 +43,7 @@ import head from '@/components/header/head'
 import decTitle from '@/components/decoration/decTitle'
 import {country} from '../../config/country.js'
 import borrowAppointment from '@/pages/borrow/borrow_appointment'
-import ins from '../../components/home/ins'
+// import ins from '../../components/home/ins'
 export default {
   data () {
     return {
@@ -99,7 +99,7 @@ export default {
     webHeader: head,
     webFooter: webFooter,
     decTitle,
-    insDiv: ins,
+    // insDiv: ins,
     borrowAppointment
   },
   watch: {

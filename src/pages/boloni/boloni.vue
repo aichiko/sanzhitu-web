@@ -62,7 +62,7 @@
           </div>
       </div>
     </div>
-    <ins-my></ins-my>
+    <!-- <ins-my></ins-my> -->
     <transition name="el-fade-in-linear">
       <appointment v-if="isShowAppointment" @close="closeAppointment"></appointment>
     </transition>
@@ -74,7 +74,7 @@
 </template>
 
 <script>
-import ins from '../../components/home/ins'
+// import ins from '../../components/home/ins'
 import head from '@/components/header/head'
 import appointment from '@/components/appointment/cc_appointment'
 import boloniAppointment from '@/components/boloni/boloni_appointment'
@@ -121,7 +121,7 @@ export default {
     }
   },
   components: {
-    insMy: ins,
+    // insMy: ins,
     myHeader: head,
     appointment: appointment,
     boloniMap: boloniMap,

@@ -29,8 +29,8 @@
           </form>
         </div>
         <div class="warp-center-btn">
-                <i class="center-btn-logo"></i>
-                <div class="center-btn-submit">
+            <i class="center-btn-logo"></i>
+            <div class="center-btn-submit">
                 <el-button type="primary" @click="appointAction">预约装修</el-button>
             </div>
         </div>
@@ -52,8 +52,8 @@ export default {
       cityValue: 1,
       shopValue: 1,
       shopIndex: 0,
-      citys: {},
-      provinces: {},
+      citys: [],
+      provinces: [],
       shops: [],
       codeEnable: false,
       codeTitle: '获取验证码',
@@ -92,6 +92,8 @@ export default {
       this.appointForm.provinceName = this.provinces[index].name
       this.appointForm.province = newValue
       // 需要对cityValue进行赋值 很重要！
+      this.citys = this.provinces[this.provinceIndex].children
+      console.log('citys === ', this.citys)
       this.cityValue = this.citys[0].id
     },
     cityValue: function (newValue) {

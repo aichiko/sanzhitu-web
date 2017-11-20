@@ -90,16 +90,16 @@
     <footer>
       <web-footer></web-footer>
     </footer>
-    <transition name="el-fade-in-linear">
+    <!-- <transition name="el-fade-in-linear">
       <insDiv v-if="showIns" @closeIns=" showIns = false "></insDiv>
-    </transition>
+    </transition> -->
   </div>
 </template>
 
 <script>
 import webHeader from '@/components/header/head'
 import webFooter from '@/components/footer/web-footer'
-import ins from '../../components/home/ins'
+// import ins from '../../components/home/ins'
 import {getNews} from '../../config/country.js'
 export default {
   data () {
@@ -172,8 +172,8 @@ export default {
   },
   components: {
     webHeader: webHeader,
-    webFooter: webFooter,
-    insDiv: ins
+    webFooter: webFooter
+    // insDiv: ins
   },
   mounted: function () {
     getNews(function (news) {

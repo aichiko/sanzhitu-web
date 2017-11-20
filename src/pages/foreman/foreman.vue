@@ -6,7 +6,7 @@
 	<div class="index_center">
     <div class="bx cra">
       <div class="title">
-        <p>工匠群</p>
+        <p>工长群</p>
         <div class="tl"></div>
         <div style="position:absolute; right:0; top:20px; background:#ebebeb;" id="GJtoggle">
           <span id="upGJ" class="itemgj" :class="{currentgj: page > 0}" @click="backPage(page)">&lt;</span>
@@ -22,32 +22,55 @@
               <el-tooltip class="item" effect="dark" :content="l.realName" placement="right-start">
                 <span style="max-width: 80px; overflow: hidden; display: inline-block; height: 20px;">
                 {{l.realName}}</span>
-                <i :class="'w'+15*l.judge_score"></i>
               </el-tooltip>
+              <i :class="'w'+15*l.judge_score" class="class_i"></i>
             </h4>
             <p><span>工&nbsp;&nbsp;&nbsp;&nbsp;种：</span><strong>{{aDouble(l.work_type)}}</strong></p>
             <p><span>服务年限：</span><strong>{{l.work_age}}年</strong></p>
-            <p><span>年 &nbsp;&nbsp;&nbsp;龄：</span><strong>{{l.age}}</strong></p>
+            <p><span>年&nbsp;&nbsp;&nbsp;龄：</span><strong>{{l.age}}</strong></p>
             <p><span>服务次数：</span><strong>{{l.service_times}}</strong></p>
           </div>
         </li>
         </ul>
       </div>
     </div>
+    <img src="../../../static/images/foremans.gif" width="100%" alt="">
+    <div class="bx logBox clearfix">
+      <div class="float-left">
+        <h1>我现在就要</h1>
+        <h2>加入三只兔</h2>
+        <p>已有<b>37518人</b>加入</p>
+        <button>
+          <a href="http://sanztu.com/home_yxal" style="color: #fff" target="_blank">查看工长案例</a>
+        </button>
+      </div>
+      <div class="float-right">
+        <p><span>我是工长</span><input type="text"  placeholder="账号/手机号"/></p>
+        <p><span>我的密码</span><input type="password" placeholder="请输入密码" /></p>
+        <p class="btnBox clearfix">
+          <button>
+            <a href="http://sanztu.com/portal_login_craftsman" target="_blank">注册</a>
+          </button>
+          <button>
+            <a href="http://sanztu.com/portal_login_craftsman" target="_blank">登录</a>
+          </button>
+        </p>
+      </div>
+    </div>
   </div>
   <footer>
     <web-footer></web-footer>
   </footer>
-  <transition name="el-fade-in-linear">
+  <!-- <transition name="el-fade-in-linear">
     <insDiv v-if="showIns" @closeIns=" showIns = false "></insDiv>
-  </transition>
+  </transition> -->
 </div>
 </template>
 
 <script>
 import webHeader from '@/components/header/head'
 import webFooter from '@/components/footer/web-footer'
-import ins from '../../components/home/ins'
+// import ins from '../../components/home/ins'
 import $ from 'jquery'
 export default {
   data () {
@@ -59,8 +82,8 @@ export default {
   },
   components: {
     webHeader: webHeader,
-    webFooter: webFooter,
-    insDiv: ins
+    webFooter: webFooter
+    // insDiv: ins
   },
   methods: {
     aDouble (val) {
@@ -88,7 +111,7 @@ export default {
     },
     pageTurn: function (page) {
       var that = this
-      $.getJSON('http://sanztu.com/wz/puser/getGJBySubstation?user_type=1&size=10&offset=' + page + '&substation_id=0').then((res) => {
+      $.getJSON('http://sanztu.com/wz/puser/getGJBySubstation?user_type=1&size=9&offset=' + page + '&substation_id=0').then((res) => {
         console.log(res)
         that.newsList = res
       }, (err) => {
@@ -97,20 +120,20 @@ export default {
     },
     backPage: function (page) {
       if (page > 0) {
-        this.page -= 10
+        this.page -= 9
         this.pageTurn(this.page)
       }
     },
     addPage: function (page) {
       if (page < this.newsList.total) {
-        this.page += 10
+        this.page += 9
         this.pageTurn(this.page)
       }
     }
   },
   mounted: function () {
     var that = this
-    $.getJSON('http://sanztu.com/wz/puser/getGJBySubstation?user_type=1&size=10&offset=0&substation_id=0', function (res) {
+    $.getJSON('http://sanztu.com/wz/puser/getGJBySubstation?user_type=1&size=9&offset=0&substation_id=0', function (res) {
       console.log(res)
       that.newsList = res
     })
@@ -138,7 +161,7 @@ export default {
   width: 75px;
 }
 .index_center {
-  background: rgba(228, 228, 228, 0.18);
+  background: #F5F5F5;
   padding-top: 20px;
   .cra{
     position: relative;
@@ -178,7 +201,7 @@ export default {
     }
     .wrap1 {
       position: relative;
-      height: 870px;
+      height: 670px;
       width: 1200px;
       overflow: hidden;
       .one {
@@ -215,7 +238,7 @@ export default {
               padding-bottom: 5px;
               margin-bottom: 10px;
               background: url(../../../static/icons/iconfont-v.png) no-repeat 76px 5px;
-              i {
+              .class_i {
                 display: inline-block;
                 height: 15px;
                 background: url(../../../static/icons/star_1.png) repeat-x;
@@ -246,5 +269,78 @@ export default {
       }
     }
 	}
+  .logBox{
+    text-align: left;
+    background: #F5F5F5;
+    .float-left{
+      padding:50px 100px 84px;
+      width: 530px;
+      h1{
+        font-size: 40px;
+        color: #000;
+        font-weight: border;
+      }
+      h2{
+        font-size: 34px;
+        margin-top: 15px;
+        color: #FE3D3E;
+        font-weight: border;
+      }
+      p{
+        font-size: 20px;
+        height:40px;
+        line-height: 40px;
+        color: #000;
+        b{
+          color: #FE3D3E;
+        }
+      }
+      button{
+        padding: 3px 22px;
+        background-color:#FE3D3E;
+        color: #fff;
+        font-size: 20px;
+        border-radius:30px;
+      }
+    }
+    .float-right{
+      width: 670px;
+      padding-top:50px;
+      p{
+        margin-bottom: 10px;
+        &.btnBox{
+          width: 100%;
+          padding-right: 293px;
+          text-align: right;
+          a{
+            float: right;
+            width: 77px;
+            text-align: center;
+            height:37px;
+            line-height: 37px;
+            font-size: 18px;
+            background-color:#fff;
+            display: inline-block;
+            margin-right: 10px;
+          }
+        }
+        span{
+          width: 117px;
+          text-align: center;
+          height:37px;
+          line-height: 37px;
+          font-size: 18px;
+          background-color:#fff;
+          display: inline-block;
+          margin-right: 5px;
+        }
+        input{
+          width: 245px;
+          background-color:#fff;
+          height:37px;
+        }
+      }
+    }
+  }
 }
 </style>

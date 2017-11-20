@@ -73,6 +73,7 @@ export default {
       this.appointForm.provinceName = this.provinces[index].name
       this.appointForm.province = newValue
       // 需要对cityValue进行赋值 很重要！
+      this.citys = this.provinces[this.provinceIndex].children
       this.cityValue = this.citys[0].id
     },
     cityValue: function (newValue) {

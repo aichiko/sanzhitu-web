@@ -48,9 +48,9 @@
   <footer>
     <web-footer></web-footer>
   </footer>
-  <transition name="el-fade-in-linear">
+  <!-- <transition name="el-fade-in-linear">
     <insDiv v-if="showIns" @closeIns=" showIns = false "></insDiv>
-  </transition>
+  </transition> -->
 </div>
 
 </template>
@@ -61,7 +61,7 @@ import appo from '@/components/decoration/appo'
 import webHeader from '@/components/header/head'
 import webFooter from '@/components/footer/web-footer'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
-import ins from '../../components/home/ins'
+// import ins from '../../components/home/ins'
 export default {
   data () {
     return {
@@ -124,8 +124,8 @@ export default {
     webHeader,
     webFooter,
     swiper,
-    swiperSlide,
-    insDiv: ins
+    swiperSlide
+    // insDiv: ins
   },
   methods: {
     num (index) {

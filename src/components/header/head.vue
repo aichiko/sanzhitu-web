@@ -16,9 +16,10 @@
               <img src="../../../static/images/home/weixin.jpeg" alt="">
             </div></li>
             <li>
-              <router-link to="formanOrder" target="_blank" style="color:#fff">
-                <i class="icon iconfont icon-shigongjindu"></i> 施工进度
-              </router-link>
+              <a href="http://sanztu.com/portal_login" target="_blank" style="color: #fff; font-size: 16px;">
+              <i class="icon iconfont icon-shigongjindu"></i> 我是客户</a>
+              <!-- <router-link to="" target="_blank" style="color:#fff">
+              </router-link> -->
             </li>
           </ul>
         </div>
