@@ -9,7 +9,7 @@
     <div class="four">
       <ul class="bx clearfix">
         <li v-for="(f, i) in four">
-          <img :src="'../../../static/images/boloni/4-'+(i+1)+'.png'" height="112" width="150" alt="">
+          <img :src="'/sztwz/static/images/boloni/4-'+(i+1)+'.png'" height="112" width="150" alt="">
           <div class="content">
             <h3>{{ f.title }}</h3>
             <p v-for="p in f.content">{{p}}</p>
@@ -62,11 +62,10 @@
           </div>
       </div>
     </div>
-    <ins-my></ins-my>
+    <!-- <ins-my></ins-my> -->
     <transition name="el-fade-in-linear">
-      <appointment v-show="isShowAppointment" @close="closeAppointment"></appointment>
+      <appointment v-if="isShowAppointment" @close="closeAppointment"></appointment>
     </transition>
-    
     <boloniMap :lat="lat" :lng="lng" v-show="isShowMap" @on-close="closeMap"></boloniMap>
     <footer>
       <web-footer></web-footer>
@@ -75,7 +74,7 @@
 </template>
 
 <script>
-import ins from '../../components/home/ins'
+// import ins from '../../components/home/ins'
 import head from '@/components/header/head'
 import appointment from '@/components/appointment/cc_appointment'
 import boloniAppointment from '@/components/boloni/boloni_appointment'
@@ -122,7 +121,7 @@ export default {
     }
   },
   components: {
-    insMy: ins,
+    // insMy: ins,
     myHeader: head,
     appointment: appointment,
     boloniMap: boloniMap,

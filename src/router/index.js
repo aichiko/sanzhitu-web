@@ -18,7 +18,8 @@ import bannerSetter from '@/pages/login/banner_setter'
 Vue.use(Router)
 
 const routes = new Router({
-  mode: 'history',
+  // mode: 'history',
+  base: '/sztwz',
   routes: [
     { path: '*', component: NotFoundComponent },
     {

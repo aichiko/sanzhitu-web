@@ -2,17 +2,19 @@
   <div>
     <ul>
       <li><a href=""><i class="icon iconfont icon-people"></i><p>在线客服</p></a></li>
-      <li><a href=""><i class="icon iconfont icon-baojia"></i><p>装修报价</p></a></li>
+      <li><a href=""><i class="icon iconfont icon-baojia"></i><p>电话咨询</p></a></li>
       <li><a href=""><i class="icon iconfont icon-shoujiapp"></i><p>手机APP</p></a><div>
               <p>扫一扫下载三只兔APP</p>
               <img src="../../../static/images/home/bottom-app.jpeg" alt="">
             </div></li>
-      <li><a href=""><i class="icon iconfont icon-gongzhonghao"></i><p>公众号</p></a><div>
-              <p>欢迎关注三只兔微信号</p>
-              <img src="../../../static/images/home/weixin.jpeg" alt="">
-            </div></li>
-      <li><a href=""><i class="icon iconfont icon-tijiaoshenqing"></i><p>施工进度</p></a></li>
-      <li><a href="" style="border-bottom: 1px solid #efefef;"><i class="icon iconfont icon-jiameng"></i><p>加盟咨询</p></a></li>
+      <li><a href=""><i class="icon iconfont icon-gongzhonghao"></i><p>公众号</p></a>
+        <div>
+          <p>欢迎关注三只兔微信号</p>
+          <img src="../../../static/images/home/weixin.jpeg" alt="">
+        </div>
+      </li>
+      <li style="display:none"><a href=""><i class="icon iconfont icon-tijiaoshenqing"></i><p>施工进度</p></a></li>
+      <li style="display:none"><a href="" style="border-bottom: 1px solid #efefef;"><i class="icon iconfont icon-jiameng"></i><p>加盟咨询</p></a></li>
     </ul>
   </div>
 </template>

@@ -10,11 +10,19 @@ export function getCountry (success) {
   })
 }
 
-export function getCode (mobile, success) {
+export function getCode (mobile, success, failure) {
   $.getJSON('http://sanztu.com/wz/sms/getCode', { 'mobile': mobile }, function (json) {
     console.log(json)
-    if (success) {
-      success(json)
+    console.log(json.code)
+    console.log(json.code === '0')
+    if (json.code === '0') {
+      if (success) {
+        success(json)
+      }
+    } else {
+      if (failure) {
+        failure(json.message)
+      }
     }
   })
 }
@@ -29,20 +37,26 @@ export function getShops (success) {
 }
 
 export function getShopsWith (city, success) {
-  $.getJSON('http://sanztu.com/wz/sms/getCode', { 'city': city }, function (json) {
-    console.log(json)
+  $.getJSON('http://sanztu.com/wz/experiencePavilion/getInfoByCity', { 'city': city, 'size': 999, 'offset': 0 }, function (json) {
+    console.log('city ====', city, json)
     if (success) {
       success(json)
     }
   })
 }
 
-export function appointmentRequest (data, success) {
+export function appointmentRequest (data, success, failure) {
   console.log(data)
   $.post('http://sanztu.com/wz/bookingRoom/save', data, function (json) {
     console.log(json)
-    if (success) {
-      success(json)
+    if (json.code === '0') {
+      if (success) {
+        success(json)
+      }
+    } else {
+      if (failure) {
+        failure(json.message)
+      }
     }
   })
 }

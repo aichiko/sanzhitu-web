@@ -73,51 +73,51 @@ export const designers = [
     group: [
       {
         id: 7,
-        imageURL: '../../../static/images/home/于爱华.png',
+        imageURL: '/sztwz/static/images/home/designer-7.png',
         name: '于爱华',
         position: '三只兔装饰-资深设计师',
         description: '作品：28套   经验：9年',
-        href: '../../../static/images/home/于爱华.png'
+        href: '/sztwz/static/images/home/designer-7.png'
       },
       {
         id: 8,
-        imageURL: '../../../static/images/home/石广岩.png',
+        imageURL: '/sztwz/static/images/home/designer-8.png',
         name: '石广岩',
         position: '三只兔装饰-资深设计师',
         description: '作品：24套   经验：9年',
-        href: '../../../static/images/home/石广岩.png'
+        href: '/sztwz/static/images/home/designer-8.png'
       },
       {
         id: 9,
-        imageURL: '../../../static/images/home/邹山斌.png',
+        imageURL: '/sztwz/static/images/home/designer-9.png',
         name: '邹山斌',
         position: '三只兔装饰-资深设计师',
         description: '作品：21套   经验：9年',
-        href: '../../../static/images/home/邹山斌.png'
+        href: '/sztwz/static/images/home/designer-9.png'
       },
       {
         id: 10,
-        imageURL: '../../../static/images/home/朱海芳.png',
+        imageURL: '/sztwz/static/images/home/designer-10.png',
         name: '朱海芳',
         position: '三只兔装饰-资深设计师',
         description: '作品：38套   经验：12年',
-        href: '../../../static/images/home/朱海芳.png'
+        href: '/sztwz/static/images/home/designer-10.png'
       },
       {
         id: 11,
-        imageURL: '../../../static/images/home/杨晓龙.png',
+        imageURL: '/sztwz/static/images/home/designer-11.png',
         name: '杨晓龙',
         position: '三只兔装饰-资深设计师',
         description: '作品：32套   经验：10年',
-        href: '../../../static/images/home/杨晓龙.png'
+        href: '/sztwz/static/images/home/designer-11.png'
       },
       {
         id: 12,
-        imageURL: '../../../static/images/home/耿丽.png',
+        imageURL: '/sztwz/static/images/home/designer-12.png',
         name: '耿丽',
         position: '三只兔装饰-设计总监',
         description: '作品：17套   经验：7年',
-        href: '../../../static/images/home/耿丽.png'
+        href: '/sztwz/static/images/home/designer-12.png'
       }
     ]
   },
@@ -125,51 +125,51 @@ export const designers = [
     group: [
       {
         id: 13,
-        imageURL: '../../../static/images/home/马帅.png',
+        imageURL: '/sztwz/static/images/home/designer-13.png',
         name: '马帅',
         position: '三只兔装饰-设计总监',
         description: '作品：20套   经验：7年',
-        href: '../../../static/images/home/马帅.png'
+        href: '/sztwz/static/images/home/designer-13.png'
       },
       {
         id: 14,
-        imageURL: '../../../static/images/home/冯静.png',
+        imageURL: '/sztwz/static/images/home/designer-14.png',
         name: '冯静',
         position: '三只兔装饰-主案设计师',
         description: '作品：19套   经验：6年',
-        href: '../../../static/images/home/冯静.png'
+        href: '/sztwz/static/images/home/designer-14.png'
       },
       {
         id: 15,
-        imageURL: '../../../static/images/home/许超.png',
+        imageURL: '/sztwz/static/images/home/designer-15.png',
         name: '许超',
         position: '三只兔装饰-主案设计师',
         description: '作品：18套   经验：6年',
-        href: '../../../static/images/home/许超.png'
+        href: '/sztwz/static/images/home/designer-15.png'
       },
       {
         id: 16,
-        imageURL: '../../../static/images/home/刘京湘.png',
+        imageURL: '/sztwz/static/images/home/designer-16.png',
         name: '刘京湘',
         position: '三只兔装饰-主案设计师',
         description: '作品：16套   经验：6年',
-        href: '../../../static/images/home/刘京湘.png'
+        href: '/sztwz/static/images/home/designer-16.png'
       },
       {
         id: 17,
-        imageURL: '../../../static/images/home/赵莹莹.png',
+        imageURL: '/sztwz/static/images/home/designer-17.png',
         name: '赵莹莹',
         position: '三只兔装饰-资深设计师',
         description: '作品：12套   经验：4年',
-        href: '../../../static/images/home/赵莹莹.png'
+        href: '/sztwz/static/images/home/designer-17.png'
       },
       {
         id: 18,
-        imageURL: '../../../static/images/home/尉忠楠.png',
+        imageURL: '/sztwz/static/images/home/designer-18.png',
         name: '尉忠楠',
         position: '三只兔装饰-设计师',
         description: '作品：10套   经验：4年',
-        href: '../../../static/images/home/尉忠楠.png'
+        href: '/sztwz/static/images/home/designer-18.png'
       }
     ]
   }

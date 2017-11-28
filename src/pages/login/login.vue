@@ -1,9 +1,9 @@
 <template>
   <div class="main">
     <div class="header-container clearfix">
-      <a class="header-logo" href="home">
+      <router-link to="home" class="header-logo">
         <img :src="logoicon" alt="logo">
-      </a>
+      </router-link>
     </div>
     <div class="main-body">
       <el-form label-position="top" label-width="80px" :rules="rules" :model="loginData">
@@ -27,7 +27,7 @@ import {users} from '../../config/users.js'
 export default {
   data () {
     return {
-      logoicon: '/static/szt_logo.png',
+      logoicon: '/sztwz/static/szt_logo.png',
       isLoading: false,
       users: users,
       loginData: {
@@ -93,7 +93,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 
 html,body{
   width: 100%;

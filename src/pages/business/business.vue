@@ -90,18 +90,21 @@
     <footer>
       <web-footer></web-footer>
     </footer>
-    <insDiv></insDiv>
+    <!-- <transition name="el-fade-in-linear">
+      <insDiv v-if="showIns" @closeIns=" showIns = false "></insDiv>
+    </transition> -->
   </div>
 </template>
 
 <script>
 import webHeader from '@/components/header/head'
 import webFooter from '@/components/footer/web-footer'
-import ins from '../../components/home/ins'
+// import ins from '../../components/home/ins'
 import {getNews} from '../../config/country.js'
 export default {
   data () {
     return {
+      showIns: true,
       news: [
         {
           title: '2017年中国互联网+中小企业创新大会优秀中小企业获奖名单',
@@ -169,8 +172,8 @@ export default {
   },
   components: {
     webHeader: webHeader,
-    webFooter: webFooter,
-    insDiv: ins
+    webFooter: webFooter
+    // insDiv: ins
   },
   mounted: function () {
     getNews(function (news) {

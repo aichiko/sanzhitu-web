@@ -18,7 +18,7 @@
           <ul class="alw-service-bar clearfix">
             <li v-for="(b, i) in bar" :key="i">
               <a href="javascript: ;" class="js-yuyue">
-                <p><img :src="'../../static/homebar-icons/icon-'+(i+1)+'.png'" alt="" width="50" height="50"></p>
+                <p><img :src="'./static/homebar-icons/icon-'+(i+1)+'.png'" alt="" width="50" height="50"></p>
                 <p>{{ b }}</p>
               </a>
               <span v-if="i!=bar.length-1"><img src="../../../static/icons/right.jpg" height="37" width="14" alt=""></span>
@@ -27,24 +27,24 @@
         </div>
         <div v-else-if="index==1" class="bx">
           <div class="alw-product-list clearfix">
-            <a class="alw-zhucaibao" href="/packagepro" target="_blank">
-                <div class="alw-product-box">
-                    <!-- <div class="alw-product-name"><div class="alw-product-subName" style="color: #f09808;">518<span style="font-size:14px;">元/m²</span></div>豪装主材包</div> -->
-                    <!-- <p class="alw-product-describe">品牌·环保·优质</p> -->
-                </div>
-            </a>
-            <a class="alw-jiajubao" href="/packagepro" target="_blank">
-                <div class="alw-product-box">
-                    <!-- <div class="alw-product-name"><div class="alw-product-subName" style="color: #6a3821;">18件套</div>品牌家具包</div> -->
-                    <!-- <p class="alw-product-describe">卓越大牌·匠心品质</p> -->
-                </div>
-            </a>
-            <a class="alw-zhengzhuangbao" href="/packagepro" target="_blank">
-                <div class="alw-product-box">
-                    <!-- <div class="alw-product-name"><div class="alw-product-subName" style="color: #2d446f;">百变</div>整装包</div> -->
-                    <!-- <p class="alw-product-describe">家居魔方·百变组合</p> -->
-                </div>
-            </a>
+            <router-link to="packagepro" target="_blank" class="alw-zhucaibao">
+              <div class="alw-product-box">
+                <!-- <div class="alw-product-name"><div class="alw-product-subName" style="color: #f09808;">518<span style="font-size:14px;">元/m²</span></div>豪装主材包</div> -->
+                <!-- <p class="alw-product-describe">品牌·环保·优质</p> -->
+              </div>
+            </router-link>
+            <router-link to="packagepro" target="_blank" class="alw-jiajubao">
+              <div class="alw-product-box">
+                <!-- <div class="alw-product-name"><div class="alw-product-subName" style="color: #f09808;">518<span style="font-size:14px;">元/m²</span></div>豪装主材包</div> -->
+                <!-- <p class="alw-product-describe">品牌·环保·优质</p> -->
+              </div>
+            </router-link>
+            <router-link to="packagepro" target="_blank" class="alw-zhengzhuangbao">
+              <div class="alw-product-box">
+                <!-- <div class="alw-product-name"><div class="alw-product-subName" style="color: #f09808;">518<span style="font-size:14px;">元/m²</span></div>豪装主材包</div> -->
+                <!-- <p class="alw-product-describe">品牌·环保·优质</p> -->
+              </div>
+            </router-link>
           </div>
           <div style="margin-top:40px">
             <home-pack :packbanner="packbanner" :ul='ul' v-on:appointment="showAppointmentView"></home-pack>
@@ -67,7 +67,6 @@
         </div>
       </div>
     </div>
-    <insDiv></insDiv>
     <transition name="el-fade-in-linear">
       <cc-appointment v-if="showAppointment" @close="hideAppointmentView"></cc-appointment>
     </transition>
@@ -99,7 +98,9 @@
     <transition name="appointIcon">
       <a class="bottom-fixed-show" @click="showAppointBox" v-show="appointIcon"><span class="bottom-fixed-title"></span></a>
     </transition>
-    <insDiv></insDiv>
+    <!-- <transition name="el-fade-in-linear">
+      <insDiv v-if="showIns" @closeIns=" showIns = false "></insDiv>
+    </transition> -->
     <bar></bar>
   </div>
 </template>
@@ -116,7 +117,7 @@ import homePack from '@/components/home/homePack'
 import designer from '@/components/home/designer'
 import ccAppointment from '@/components/appointment/cc_appointment'
 import AppointForm from '@/components/home/appiontForm'
-import ins from '../../components/home/ins'
+// import ins from '../../components/home/ins'
 // import {getCountry, getShops} from '../../config/country.js'
 import bar from '../../components/home/bar'
 
@@ -127,6 +128,7 @@ export default {
       appointBoxS: false,
       message: '23333',
       showAppointment: false,
+      showIns: true,
       icons: [],
       titles: [
         {
@@ -164,7 +166,6 @@ export default {
     jiajubaoPack: homePack,
     ccAppointment: ccAppointment,
     'appoint-form': AppointForm,
-    insDiv: ins,
     bar
   },
   methods: {
@@ -192,6 +193,10 @@ export default {
     },
     hideAppointmentView: function () {
       this.showAppointment = false
+    },
+    hideIns: function () {
+      console.log('close ins    @@!!!!!')
+      this.showIns = false
     }
   },
   mounted: function () {
@@ -337,7 +342,7 @@ export default {
   width: 147px;
   height: 113px;
   background: url(../../../static/images/home/bottom_show.png);
-  z-index: 9998;
+  z-index: 100;
   .bottom-fixed-title {
     position: relative;
     top: 68px;
@@ -352,7 +357,7 @@ export default {
   position: fixed;
   bottom: 0;
   left: 0;
-  z-index: 9998;
+  z-index: 100;
   width: 100%;
   height: 180px;
   .bottom-fixed-bg{

@@ -26,7 +26,7 @@
               <el-input v-model="appointForm.mobile" placeholder="输入您的手机"></el-input>
             </el-form-item>
             <el-form-item label="短信验证码" prop="code" class="list">
-              <el-input v-model.number="appointForm.code" placeholder="验证码" class="code-input"></el-input>
+              <el-input v-model="appointForm.code" placeholder="验证码" class="code-input"></el-input>
               <el-button class="code-button" @click="codeAction" :disabled="codeEnable">{{codeTitle}}</el-button>
             </el-form-item>
           </el-form>
@@ -39,16 +39,17 @@
 
 
 <script>
-import {getCode, appointmentRequest} from '../../config/country.js'
+import {getCode, appointmentRequest, getShopsWith} from '../../config/country.js'
 export default {
   data () {
     return {
+      mobileVerification: false,
       countryData: {},
       provinceIndex: 0,
       cityIndex: 0,
       provinceValue: '1',
       cityValue: '1',
-      shopValue: 1,
+      shopValue: null,
       shopIndex: 0,
       codeEnable: false,
       codeTitle: '获取验证码',
@@ -78,6 +79,25 @@ export default {
       this.appointForm.province = newValue
       // 需要对cityValue进行赋值 很重要！
       this.cityValue = this.citys[0].id
+      var that = this
+      getShopsWith(newValue, function (res) {
+        let arr = res.data.lst
+        if (arr.length > 0) {
+          that.shops = res.data.lst
+          that.shopIndex = 0
+          that.appointForm.experiencePavilionName = that.shops[0].company
+          that.appointForm.experiencePavilionId = that.shops[0].id
+          that.shopValue = that.shops[0].id
+        } else {
+          var shops = that.$store.getters.shops
+          console.log('arr.length === 0', shops)
+          that.shops = shops
+          that.shopIndex = 0
+          that.appointForm.experiencePavilionId = that.shops[0].id
+          that.appointForm.experiencePavilionName = that.shops[0].company
+          that.shopValue = that.shops[0].id
+        }
+      })
     },
     cityValue: function (newValue) {
       var values = this.citys.map(function (item) {
@@ -88,6 +108,25 @@ export default {
       this.appointForm.cityName = this.citys[index].name
       this.appointForm.city = newValue
       console.log('cityIndex === ', index)
+      var that = this
+      getShopsWith(newValue, function (res) {
+        let arr = res.data.lst
+        if (arr.length > 0) {
+          that.shops = res.data.lst
+          that.shopIndex = 0
+          that.appointForm.experiencePavilionName = that.shops[0].company
+          that.appointForm.experiencePavilionId = that.shops[0].id
+          that.shopValue = that.shops[0].id
+        } else {
+          var shops = that.$store.getters.shops
+          console.log('arr.length === 0', shops)
+          that.shops = shops
+          that.shopIndex = 0
+          that.appointForm.experiencePavilionId = that.shops[0].id
+          that.appointForm.experiencePavilionName = that.shops[0].company
+          that.shopValue = that.shops[0].id
+        }
+      })
     },
     shopValue: function (newValue) {
       var values = this.shops.map(function (item) {
@@ -139,10 +178,18 @@ export default {
       console.log('发送验证码')
       if (this.codeEnable === false) {
         this.codeEnable = true
-        getCode(FormData.mobile, function (code) {
-
-        })
+        var that = this
         this.settime()
+        getCode(this.appointForm.mobile, function (code) {
+          console.log('success')
+        }, function (message) {
+          console.log('failure')
+          that.$message({
+            showClose: true,
+            message: message,
+            type: 'warning'
+          })
+        })
       }
     },
     appointAction: function (e) {
@@ -161,6 +208,12 @@ export default {
           title: '预约成功',
           message: '恭喜您，预约成功！',
           type: 'success'
+        })
+      }, function (message) {
+        that.$message({
+          showClose: true,
+          message: message,
+          type: 'error'
         })
       })
     }
@@ -200,7 +253,7 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 9999;
+  z-index: 300;
   .appointment-box {
     position: absolute;
     top: 0;

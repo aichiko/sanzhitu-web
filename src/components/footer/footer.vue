@@ -5,13 +5,19 @@
       <dl>
         <dt>{{footerDl[0].title}}</dt>
         <dd class="link" v-for="(t, i) in footerDl[0].contents" :key="t">
-          <a href="/business" target="_blank" data-tab="5">{{t}}</a>
+          <!-- <a href="/business" target="_blank" data-tab="5">{{t}}</a> -->
+          <router-link to="business" target="_blank">
+            {{t}}
+          </router-link>
         </dd>
       </dl>
       <dl>
         <dt>{{footerDl[1].title}}</dt>
         <dd class="link">
-          <a href="/boloni" target="_blank" data-tab="5"  v-for="(t, i) in footerDl[1].contents" :key="t">{{t}}</a>
+          <router-link to="boloni" target="_blank" v-for="(t, i) in footerDl[1].contents" :key="t">
+            {{t}}
+          </router-link>
+          <!-- <a href="/boloni" target="_blank" data-tab="5"  v-for="(t, i) in footerDl[1].contents" :key="t">{{t}}</a> -->
         </dd>
       </dl>
       <dl class="address-text-dl">

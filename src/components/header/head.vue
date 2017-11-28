@@ -15,7 +15,12 @@
               <p>欢迎关注三只兔微信号</p>
               <img src="../../../static/images/home/weixin.jpeg" alt="">
             </div></li>
-            <li><a href="/formanOrder" style="color:#fff"><i class="icon iconfont icon-shigongjindu"></i> 施工进度</a></li>
+            <li>
+              <a href="http://sanztu.com/portal_login" target="_blank" style="color: #fff; font-size: 16px;">
+              <i class="icon iconfont icon-shigongjindu"></i> 我是客户</a>
+              <!-- <router-link to="" target="_blank" style="color:#fff">
+              </router-link> -->
+            </li>
           </ul>
         </div>
       </div>
@@ -23,9 +28,9 @@
     <div class="header_tabbar_box">
       <div class="header_tabbar bx">
         <div class="szt-logo">
-          <a href="home">
+          <router-link to="home">
             <img src="../../assets/szt_logo.png" alt="三只兔logo" title="三只兔" width="160" height="60">
-          </a>
+          </router-link>
         </div>
         <div class="tabbar-items clearfix">
           <ul class="szt-items clearfix">

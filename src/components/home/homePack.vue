@@ -21,7 +21,7 @@
           <!-- 家具包 -->
           <div style="width: 400px; height: 150px" class="icon-content">
             <div class="szt-icon-title float-left" v-for="(list, index) in listData[packIndex].contents" :key="list.title">
-              <div class="icon float-left" :style="'background: url(/static/images/jiajubao/jiajubao-icon-' + (index + 1) + '.png) 0 0 no-repeat;'"></div>
+              <div class="icon float-left" :style="'background: url(/sztwz/static/images/jiajubao/jiajubao-icon-' + (index + 1) + '.png) 0 0 no-repeat;'"></div>
               <h3>{{list.title}}</h3>
               <h5>{{list.subtitle}}</h5>
             </div>
@@ -63,7 +63,10 @@
     <div class="alw-bao-banner float-right">
       <div class="AlwBao-banner-btn">
         <a href="javascript:void(0);" class="AlwBao-banner-orderBtn js-jiajubao-yuyue" title="" @click="appointmentAction">免费预约</a>
-        <a href="/packagepro" class="AlwBao-banner-knowBtn" title="" target="_blank">进一步了解</a>
+        <!-- <a href="/packagepro" class="AlwBao-banner-knowBtn" title="" target="_blank">进一步了解</a> -->
+        <router-link to="packagepro" target="_blank" class="AlwBao-banner-knowBtn">
+          进一步了解
+        </router-link>
       </div>
     </div>
   </div>
@@ -79,7 +82,7 @@ export default {
       lists: ['家电包', '全屋家电', '全屋厨电'],
       listData: jiajubaoData,
       warpStyle: {
-        background: 'url(/static/images/jiajubao/jiajubao-bg-1.png) 0 0 no-repeat',
+        background: 'url(/sztwz/static/images/jiajubao/jiajubao-bg-1.png) 0 0 no-repeat',
         display: 'block',
         padding: 0,
         margin: 0,
@@ -90,7 +93,7 @@ export default {
   methods: {
     liHoverAction: function (index) {
       this.packIndex = index
-      this.$refs.warp.style.background = 'url(/static/images/jiajubao/jiajubao-bg-' + (index + 1) + '.png) 0 0 no-repeat'
+      this.$refs.warp.style.background = 'url(/sztwz/static/images/jiajubao/jiajubao-bg-' + (index + 1) + '.png) 0 0 no-repeat'
     },
     appointmentAction: function () {
       console.log('---------')
@@ -174,7 +177,7 @@ export default {
             width: 10px;
             height: 9px;
             margin-left: 5px;
-            background: url(/static/icons/more-icon.png) no-repeat;
+            background: url(/sztwz/static/icons/more-icon.png) no-repeat;
             vertical-align: middle;
           }
           a {
@@ -281,13 +284,13 @@ export default {
           }
         }
         .AlwBao-bannerText-icon5 {
-          background: url(/static/icons/alw-banner-icon.png) -136px 0 no-repeat;
+          background: url(/sztwz/static/icons/alw-banner-icon.png) -136px 0 no-repeat;
         }
         .AlwBao-bannerText-icon6 {
-          background: url(/static/icons/alw-banner-icon.png) -204px 0 no-repeat;
+          background: url(/sztwz/static/icons/alw-banner-icon.png) -204px 0 no-repeat;
         }
         .AlwBao-bannerText-icon7 {
-          background: url(/static/icons/alw-banner-icon.png) -170px 0 no-repeat;
+          background: url(/sztwz/static/icons/alw-banner-icon.png) -170px 0 no-repeat;
         }
       }
       .AlwBao-sliderTxtbox-header {
@@ -340,7 +343,7 @@ export default {
             width: 34px;
             height: 40px;
             margin-right: 20px;
-            background: url(/static/icons/alw-banner-icon.png) -136px 0 no-repeat;
+            background: url(/sztwz/static/static/icons/alw-banner-icon.png) -136px 0 no-repeat;
           }
           h3 {
             margin-left: 10px;

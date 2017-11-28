@@ -16,18 +16,21 @@
                 </select>
             </p>
             <p class="pe-input">
-                <input type="tel" id="booked_name" placeholder="您的姓名" v-model="appointForm.userName">
-                <span class="pe-del"></span>
-            </p>
-            <p class="pe-input">
                 <input type="tel" id="booked_tel" placeholder="手机号码" v-model="appointForm.mobile">
                 <span class="pe-del"></span>
             </p>
+            <div class="pe-code clearfix">
+                <p class="pe-input">
+                    <input type="text" name="" placeholder="请输入短信验证码" v-model="appointForm.code">
+                    <span class="pe-del"></span>
+                </p>
+                <button id="pe-send" type="button" @click="codeAction" :disabled="codeEnable">{{codeTitle}}</button>
+            </div>
           </form>
         </div>
         <div class="warp-center-btn">
-                <i class="center-btn-logo"></i>
-                <div class="center-btn-submit">
+            <i class="center-btn-logo"></i>
+            <div class="center-btn-submit">
                 <el-button type="primary" @click="appointAction">预约装修</el-button>
             </div>
         </div>
@@ -35,7 +38,7 @@
 </template>
 
 <script>
-import {appointmentRequest} from '../../config/country.js'
+import {appointmentRequest, getCode, getShopsWith} from '../../config/country.js'
 
 export default {
   props: {
@@ -47,14 +50,17 @@ export default {
       cityIndex: 0,
       provinceValue: 1,
       cityValue: 1,
-      shopValue: 1,
+      shopValue: null,
       shopIndex: 0,
-      citys: {},
-      provinces: {},
+      citys: [],
+      provinces: [],
       shops: [],
+      codeEnable: false,
+      codeTitle: '获取验证码',
       appointForm: {
         userName: '',
         mobile: '',
+        code: '',
         province: 1,
         city: 1,
         experiencePavilionId: 1,
@@ -86,7 +92,28 @@ export default {
       this.appointForm.provinceName = this.provinces[index].name
       this.appointForm.province = newValue
       // 需要对cityValue进行赋值 很重要！
+      this.citys = this.provinces[this.provinceIndex].children
+      console.log('citys === ', this.citys)
       this.cityValue = this.citys[0].id
+      var that = this
+      getShopsWith(newValue, function (res) {
+        let arr = res.data.lst
+        if (arr.length > 0) {
+          that.shops = res.data.lst
+          that.shopIndex = 0
+          that.appointForm.experiencePavilionName = that.shops[0].company
+          that.appointForm.experiencePavilionId = that.shops[0].id
+          that.shopValue = that.shops[0].id
+        } else {
+          var shops = that.$store.getters.shops
+          console.log('arr.length === 0', shops)
+          that.shops = shops
+          that.shopIndex = 0
+          that.appointForm.experiencePavilionId = that.shops[0].id
+          that.appointForm.experiencePavilionName = that.shops[0].company
+          that.shopValue = that.shops[0].id
+        }
+      })
     },
     cityValue: function (newValue) {
       var values = this.citys.map(function (item) {
@@ -97,6 +124,25 @@ export default {
       this.appointForm.cityName = this.citys[index].name
       this.appointForm.city = newValue
       console.log('cityIndex === ', index)
+      var that = this
+      getShopsWith(newValue, function (res) {
+        let arr = res.data.lst
+        if (arr.length > 0) {
+          that.shops = res.data.lst
+          that.shopIndex = 0
+          that.appointForm.experiencePavilionName = that.shops[0].company
+          that.appointForm.experiencePavilionId = that.shops[0].id
+          that.shopValue = that.shops[0].id
+        } else {
+          var shops = that.$store.getters.shops
+          console.log('arr.length === 0', shops)
+          that.shops = shops
+          that.shopIndex = 0
+          that.appointForm.experiencePavilionId = that.shops[0].id
+          that.appointForm.experiencePavilionName = that.shops[0].company
+          that.shopValue = that.shops[0].id
+        }
+      })
     },
     shopValue: function (newValue) {
       var values = this.shops.map(function (item) {
@@ -110,6 +156,44 @@ export default {
     }
   },
   methods: {
+    settime: function () {
+      var countdown = 60
+      var that = this
+      function settime () {
+        if (countdown === 0) {
+          that.codeEnable = false
+          that.codeTitle = '获取验证码'
+          countdown = 60
+          return true
+        } else {
+          that.codeTitle = '重新发送(' + countdown + ')'
+          countdown--
+          setTimeout(function () {
+            if (settime()) {
+              clearTimeout()
+            }
+          }, 1000)
+          return false
+        }
+      }
+      settime()
+    },
+    codeAction: function (button) {
+      console.log('发送验证码')
+      var that = this
+      if (this.codeEnable === false) {
+        this.codeEnable = true
+        getCode(this.appointForm.mobile, function (code) {
+        }, function (message) {
+          that.$message({
+            showClose: true,
+            message: message,
+            type: 'error'
+          })
+        })
+        this.settime()
+      }
+    },
     appointAction: function (e) {
       console.log('免费预约')
       var that = this
@@ -118,6 +202,12 @@ export default {
           title: '预约成功',
           message: '恭喜您，预约成功！',
           type: 'success'
+        })
+      }, function (message) {
+        that.$message({
+          showClose: true,
+          message: message,
+          type: 'error'
         })
       })
     }
@@ -207,7 +297,7 @@ export default {
                 width: 160px;
                 float: right;
                 cursor: pointer;
-                font-size: 18px;
+                font-size: 16px;
                 font-family: "microsoft yahei";
             }
         }
@@ -279,4 +369,5 @@ export default {
     }
   }
 }
+
 </style>

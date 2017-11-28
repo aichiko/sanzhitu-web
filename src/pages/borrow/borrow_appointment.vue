@@ -40,7 +40,7 @@
 
 
 <script>
-import {getCode, appointmentRequest, getCountry, getShops} from '../../config/country.js'
+import {getCode, appointmentRequest, getCountry, getShops, getShopsWith} from '../../config/country.js'
 export default {
   data () {
     return {
@@ -48,7 +48,7 @@ export default {
       cityIndex: 0,
       provinceValue: 1,
       cityValue: 1,
-      shopValue: 1,
+      shopValue: null,
       shopIndex: 0,
       citys: {},
       provinces: {},
@@ -79,7 +79,27 @@ export default {
       this.appointForm.provinceName = this.provinces[index].name
       this.appointForm.province = newValue
       // 需要对cityValue进行赋值 很重要！
+      this.citys = this.provinces[this.provinceIndex].children
       this.cityValue = this.citys[0].id
+      var that = this
+      getShopsWith(newValue, function (res) {
+        let arr = res.data.lst
+        if (arr.length > 0) {
+          that.shops = res.data.lst
+          that.shopIndex = 0
+          that.appointForm.experiencePavilionName = that.shops[0].company
+          that.appointForm.experiencePavilionId = that.shops[0].id
+          that.shopValue = that.shops[0].id
+        } else {
+          var shops = that.$store.getters.shops
+          console.log('arr.length === 0', shops)
+          that.shops = shops
+          that.shopIndex = 0
+          that.appointForm.experiencePavilionId = that.shops[0].id
+          that.appointForm.experiencePavilionName = that.shops[0].company
+          that.shopValue = that.shops[0].id
+        }
+      })
     },
     cityValue: function (newValue) {
       var values = this.citys.map(function (item) {
@@ -90,6 +110,25 @@ export default {
       this.appointForm.cityName = this.citys[index].name
       this.appointForm.city = newValue
       console.log('cityIndex === ', index)
+      var that = this
+      getShopsWith(newValue, function (res) {
+        let arr = res.data.lst
+        if (arr.length > 0) {
+          that.shops = res.data.lst
+          that.shopIndex = 0
+          that.appointForm.experiencePavilionName = that.shops[0].company
+          that.appointForm.experiencePavilionId = that.shops[0].id
+          that.shopValue = that.shops[0].id
+        } else {
+          var shops = that.$store.getters.shops
+          console.log('arr.length === 0', shops)
+          that.shops = shops
+          that.shopIndex = 0
+          that.appointForm.experiencePavilionId = that.shops[0].id
+          that.appointForm.experiencePavilionName = that.shops[0].company
+          that.shopValue = that.shops[0].id
+        }
+      })
     },
     shopValue: function (newValue) {
       var values = this.shops.map(function (item) {
@@ -127,10 +166,17 @@ export default {
     },
     codeAction: function (button) {
       console.log('发送验证码')
+      var that = this
       if (this.codeEnable === false) {
         this.codeEnable = true
-        getCode(FormData.mobile, function (code) {
+        getCode(this.appointForm.mobile, function (code) {
 
+        }, function (message) {
+          that.$message({
+            showClose: true,
+            message: message,
+            type: 'error'
+          })
         })
         this.settime()
       }
@@ -143,6 +189,12 @@ export default {
           title: '预约成功',
           message: '恭喜您，预约成功！',
           type: 'success'
+        })
+      }, function (message) {
+        that.$message({
+          showClose: true,
+          message: message,
+          type: 'error'
         })
       })
     }
@@ -190,7 +242,7 @@ export default {
 .pe-body {
     width: 330px;
     position: absolute;
-    top:153px;
+    top:133px;
     right: 121px;
     form{
         width: 100%;

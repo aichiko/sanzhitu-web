@@ -21,7 +21,7 @@
         <div>
           <ul class="clearfix">
             <li v-for="(p, i) in perPro">
-              <img :src="'../../../static/images/package/pb'+i+'.png'" height="158" width="160" alt="">
+              <img :src="'/sztwz/static/images/package/pb'+i+'.png'" height="158" width="160" alt="">
               <p v-for="text in p.content">{{text}}</p>
             </li>
           </ul>
@@ -36,7 +36,9 @@
     </div>
     <dec-title :title=title[2] ></dec-title>
     <appo style="padding-bottom:100px"></appo>
-    <insDiv></insDiv>
+    <transition name="el-fade-in-linear">
+      <!-- <insDiv v-if="showIns" @closeIns=" showIns = false "></insDiv> -->
+    </transition>
     <footer>
       <web-footer></web-footer>
     </footer>
@@ -52,6 +54,7 @@ import appo from '@/components/decoration/appo'
 export default {
   data () {
     return {
+      showIns: true,
       title: [{
         title: '七大空间配置',
         sup: '100%属于您的私人定制'
