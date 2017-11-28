@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import {appointmentRequest, getCode} from '../../config/country.js'
+import {appointmentRequest, getCode, getShopsWith} from '../../config/country.js'
 
 export default {
   props: {
@@ -50,7 +50,7 @@ export default {
       cityIndex: 0,
       provinceValue: 1,
       cityValue: 1,
-      shopValue: 1,
+      shopValue: null,
       shopIndex: 0,
       citys: [],
       provinces: [],
@@ -95,6 +95,25 @@ export default {
       this.citys = this.provinces[this.provinceIndex].children
       console.log('citys === ', this.citys)
       this.cityValue = this.citys[0].id
+      var that = this
+      getShopsWith(newValue, function (res) {
+        let arr = res.data.lst
+        if (arr.length > 0) {
+          that.shops = res.data.lst
+          that.shopIndex = 0
+          that.appointForm.experiencePavilionName = that.shops[0].company
+          that.appointForm.experiencePavilionId = that.shops[0].id
+          that.shopValue = that.shops[0].id
+        } else {
+          var shops = that.$store.getters.shops
+          console.log('arr.length === 0', shops)
+          that.shops = shops
+          that.shopIndex = 0
+          that.appointForm.experiencePavilionId = that.shops[0].id
+          that.appointForm.experiencePavilionName = that.shops[0].company
+          that.shopValue = that.shops[0].id
+        }
+      })
     },
     cityValue: function (newValue) {
       var values = this.citys.map(function (item) {
@@ -105,6 +124,25 @@ export default {
       this.appointForm.cityName = this.citys[index].name
       this.appointForm.city = newValue
       console.log('cityIndex === ', index)
+      var that = this
+      getShopsWith(newValue, function (res) {
+        let arr = res.data.lst
+        if (arr.length > 0) {
+          that.shops = res.data.lst
+          that.shopIndex = 0
+          that.appointForm.experiencePavilionName = that.shops[0].company
+          that.appointForm.experiencePavilionId = that.shops[0].id
+          that.shopValue = that.shops[0].id
+        } else {
+          var shops = that.$store.getters.shops
+          console.log('arr.length === 0', shops)
+          that.shops = shops
+          that.shopIndex = 0
+          that.appointForm.experiencePavilionId = that.shops[0].id
+          that.appointForm.experiencePavilionName = that.shops[0].company
+          that.shopValue = that.shops[0].id
+        }
+      })
     },
     shopValue: function (newValue) {
       var values = this.shops.map(function (item) {

@@ -37,7 +37,7 @@
     <dec-title :title=title[2] ></dec-title>
     <appo style="padding-bottom:100px"></appo>
     <transition name="el-fade-in-linear">
-      <insDiv v-if="showIns" @closeIns=" showIns = false "></insDiv>
+      <!-- <insDiv v-if="showIns" @closeIns=" showIns = false "></insDiv> -->
     </transition>
     <footer>
       <web-footer></web-footer>

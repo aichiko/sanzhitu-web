@@ -37,8 +37,8 @@ export function getShops (success) {
 }
 
 export function getShopsWith (city, success) {
-  $.getJSON('http://sanztu.com/wz/sms/getCode', { 'city': city }, function (json) {
-    console.log(json)
+  $.getJSON('http://sanztu.com/wz/experiencePavilion/getInfoByCity', { 'city': city, 'size': 999, 'offset': 0 }, function (json) {
+    console.log('city ====', city, json)
     if (success) {
       success(json)
     }
