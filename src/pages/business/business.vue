@@ -46,7 +46,16 @@
     <div style="width:100%;">
       <div class="container bx">
         <h4><span>商学院动态</span><p>NEWS INFORMATION</p></h4>
-        <ul class="news-cont clearfix">
+        <ul class="news-cont clearfix"  v-if="sztNews.length > 0">
+          <li v-for="newItem in sztNews" :key="newItem.id">
+            <a :href="'http://sanztu.com/gongjiang/sztwx/html/infodetail.html?id=' + newItem.id" target="_blank">
+            <h3>{{ newItem.title }}</h3>
+            <p>{{ getDate(newItem.createDate)}}</p>
+            <img :src="'http://sanztu.com/' + newItem.pic" class="news-image">
+          </a>
+         </li>
+        </ul>
+        <ul class="news-cont clearfix" v-else>
           <li :class="newItem.className" v-for="newItem in news" :key="newItem.className">
             <a :href="newItem.href" target="_blank">
             <h3>{{ newItem.title }}</h3>
@@ -101,10 +110,26 @@ import webHeader from '@/components/header/head'
 import webFooter from '@/components/footer/web-footer'
 // import ins from '../../components/home/ins'
 import {getNews} from '../../config/country.js'
+/*
+{
+  "id": 169,
+  "newsType": 0,
+  "type": 1,
+  "title": "499元/平米套餐--全屋主材包4号",
+  "createDate": 1511579961000,
+  "userId": 372,
+  "userName": "三只兔",
+  "content": "<p><span style=\"margin: 0px; padding: 0px; max-width: 100%; color: rgb(62, 62, 62); font-family: &#39;Helvetica Neue&#39;, Helvetica, &#39;Hiragino Sans GB&#39;, &#39;Microsoft YaHei&#39;, Arial, sans-serif; line-height: 1.6; box-sizing: border-box !important; word-wrap: break-word !important;\"><span style=\"margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important; font-family: Helvetica, sans-serif;\">&nbsp; &nbsp; &nbsp; &nbsp; 499</span><span style=\"margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important; font-family: 宋体;\">元/平米套餐</span></span><span style=\"margin: 0px; padding: 0px; max-width: 100%; color: rgb(62, 62, 62); line-height: 1.6; font-family: Helvetica, sans-serif; box-sizing: border-box !important; word-wrap: break-word !important;\">（</span><span style=\"margin: 0px; padding: 0px; max-width: 100%; color: rgb(62, 62, 62); line-height: 1.6; font-family: 宋体; box-sizing: border-box !important; word-wrap: break-word !important;\">九牧厨卫、箭牌卫浴、圣象地板、世友地板、东鹏瓷砖，箭牌瓷砖、</span></p><p><span style=\"margin: 0px; padding: 0px; max-width: 100%; color: rgb(62, 62, 62); line-height: 1.6; font-family: 宋体; box-sizing: border-box !important; word-wrap: break-word !important;\">方太厨电、皮阿诺橱柜、高博前置过滤、三只兔挂件小五金、奥普吊顶，飞雕开关，</span></p><p><span style=\"margin: 0px; padding: 0px; max-width: 100%; color: rgb(62, 62, 62); line-height: 1.6; font-family: 宋体; box-sizing: border-box !important; word-wrap: break-word !important;\">梦天康E木门、豪客家电动晾衣架等</span><span style=\"margin: 0px; padding: 0px; max-width: 100%; color: rgb(62, 62, 62); line-height: 25.6px; font-family: Helvetica, sans-serif; box-sizing: border-box !important; word-wrap: break-word !important;\">）。</span></p><p>&nbsp; &nbsp;三只兔共享装修平台，帮你准备好所有硬装主材，一次购买全部主材，完全省去了选材</p><p>搭配的繁琐前期功课，以及为单个选材而多花费的沉重开支，同时，根据选购主材，提供</p><p>全景VR可视化设计，工匠施工过程采用三只兔独立研发的APP系统，业主可以通过PC/微信端</p><p>查询工程进度。</p><p>&nbsp; &nbsp;三只兔共享装修平台主材包4号（499元套餐）为您量身打造温馨个人世界，只为那个追求</p><p>梦想家园的你。</p><p><img src=\"/upload/image/20171125/1511579862392061731.jpg\" title=\"1511579862392061731.jpg\" alt=\"主页.jpg\"/>&nbsp;</p><p><img src=\"/upload/image/20171125/1511579905392082260.jpg\" title=\"1511579905392082260.jpg\" alt=\"客餐厅+卧室.jpg\"/></p><p>客餐厅/卧室地面瓷砖、木地板不限地面平方；地面瓷砖、木地板自由组合，我的地盘我做主！室内门限2扇。</p><p><img src=\"/upload/image/20171125/1511579922407045558.jpg\" title=\"1511579922407045558.jpg\" alt=\"厨房.jpg\"/></p><p>厨房地面、墙面瓷砖不限平方，厨房铝扣板吊顶不限平方。</p><p><img src=\"/upload/image/20171125/1511579933798052614.jpg\" title=\"1511579933798052614.jpg\" alt=\"卫浴间.jpg\"/></p><p>卫生间地面、墙面瓷砖不限平方，卫生间铝扣板吊顶不限平方，限一个卫生间。</p><p><img src=\"/upload/image/20171125/1511579945079062351.jpg\" title=\"1511579945079062351.jpg\" alt=\"阳台+全屋.jpg\"/></p><p>阳台地面瓷砖不限平方，墙面瓷砖限高90公分，限一个阳台。</p><p>主材包除瓷砖外含配送安装，瓷砖配送至楼下。</p><p><img src=\"/upload/image/20171125/1511579956642023787.png\" title=\"1511579956642023787.png\" alt=\"二维码.png\"/></p><p>扫一扫我，看你家的VR全景图（佛山样板间）</p><p>点击二维码 / 放大后长按二维码 / 识别图中二维码</p><p>不一样的体验就在你的眼前</p><p><br/></p>",
+  "url": "",
+  "isShow": "0",
+  "pic": "upload/20171125111613主页.jpg;"
+},
+*/
 export default {
   data () {
     return {
       showIns: true,
+      sztNews: [],
       news: [
         {
           title: '2017年中国互联网+中小企业创新大会优秀中小企业获奖名单',
@@ -175,9 +200,40 @@ export default {
     webFooter: webFooter
     // insDiv: ins
   },
+  methods: {
+    getDate: function (timestamp) {
+      // 简单的一句代码
+      var date = new Date(timestamp) // 获取一个时间对象
+      /**
+       1. 下面是获取时间日期的方法，需要什么样的格式自己拼接起来就好了
+      2. 更多好用的方法可以在这查到 -> http://www.w3school.com.cn/jsref/jsref_obj_date.asp
+      */
+      /*
+      date.getFullYear();  // 获取完整的年份(4位,1970)
+      date.getMonth();  // 获取月份(0-11,0代表1月,用的时候记得加上1)
+      date.getDate();  // 获取日(1-31)
+      date.getTime();  // 获取时间(从1970.1.1开始的毫秒数)
+      date.getHours();  // 获取小时数(0-23)
+      date.getMinutes();  // 获取分钟数(0-59)
+      date.getSeconds();  // 获取秒数(0-59)
+      */
+      let Y = date.getFullYear() + '年'
+      let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1)
+      let D = date.getDate()
+      // let h = date.getHours();
+      // let m = date.getMinutes();
+      // let s = date.getSeconds();
+      return Y + M + '月' + D + '日'
+    }
+  },
   mounted: function () {
+    var that = this
     getNews(function (news) {
-
+      let arr = news.data.result.rows
+      if (arr.length > 0) {
+        that.sztNews = news.data.result.rows
+        // let date = Date()
+      }
     })
   }
 }
@@ -276,16 +332,21 @@ export default {
     }
   }
   ul{
-    margin: 0 0 60px;
+    // margin: 0 0 60px;
+    display: block;
+    width: 1000px;
     clear: both;
-    width: 825pt;
+    margin: 0 auto;
     li{
+      display:inline-block;
       background: #fff!important;
       display: inline-block;
       float: left;
-      width: 518px;
-      height: 218px;
-      margin: 0;
+      width: 418px;
+      height: 288px;
+      margin-right: 50px;
+      margin-top: 20px;
+      margin-left: 25px;
       border: 1px solid #e8e8e8;
       position: relative;
       box-shadow: 0 0 0 hsla(0,0%,52%,.15);
@@ -309,7 +370,7 @@ export default {
         text-align: justify;
         font-weight: 100;
         color: #333;
-        margin: 23px 25px 0;
+        margin: 10px 25px 0;
         overflow:hidden;
       }
       p{
@@ -318,7 +379,6 @@ export default {
         width: 468px;
         line-height: 24px;
         color: #999;
-        height: 75px;
         margin: 0 25px;
         overflow:hidden;
         text-overflow:ellipsis;
@@ -327,6 +387,15 @@ export default {
        -webkit-line-clamp:3 ;
        -webkit-box-orient:vertical;
        margin-bottom: 10px;
+      }
+      .news-image {
+        width: 320px;
+        height: 183px;
+        position: relative;
+        margin: auto;
+        top: 0;
+        bottom: 20px;
+        display: block;
       }
       .log{
         border-top: 1px solid #f0f0f0;

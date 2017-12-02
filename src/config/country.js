@@ -63,7 +63,7 @@ export function appointmentRequest (data, success, failure) {
 
 export function getNews (success) {
   $.getJSON('http://sanztu.com/wz/news/list?offset=0&size=4', {}, function (json) {
-    console.log(json)
+    console.log('newlist', json)
     if (success) {
       success(json)
     }
